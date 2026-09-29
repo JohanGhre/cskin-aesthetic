@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cskin Aesthetic. L’expertise du soin, au plus près de votre peau. Découvrez une nouvelle expérience des soins visage et corps.">
+  <meta name="theme-color" content="#fffef2">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Cskin — L’expertise du soin</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-serif-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/fonts/general-sans.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="assets/vendor/lenis.css">
+  <link rel="stylesheet" href="refinement.css">
+  <link rel="stylesheet" href="catalog.css">
+  <script src="data/products.js" defer></script>
+  <script src="animations.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="motion-loader.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="announcement"><span>Une attention pour votre peau.</span><span>Livraison offerte dès 100 € <span aria-hidden="true">↗</span></span></div>
+  <header class="header">
+    <button class="icon-button mobile-toggle" data-action="menu" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18M3 16h18"/></svg></button>
+    <a class="brand" href="#/" aria-label="Cskin, accueil"><img src="assets/logo-light.svg" width="160" height="100" alt="Cskin Aesthetic"></a>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <a href="#/soins">Les soins</a><button data-action="quiz">Votre routine <span class="tiny-dot"></span></button><a href="#/marque">L’esprit Cskin</a>
+    </nav>
+    <div class="header-actions"><a class="header-contact" href="https://cskinaesthetic.com/pages/contact" target="_blank" rel="noopener">Contact <span aria-hidden="true">↗</span></a><button class="icon-button" data-action="search" aria-label="Rechercher un soin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><button class="cart-button" data-action="cart" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2"/></svg><span class="cart-word">Panier</span><span class="cart-count">0</span></button></div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="footer">
+    <div class="footer-top"><div><p class="footer-tagline">Votre peau.<br><em>Notre attention.</em></p><button class="text-link light" data-action="quiz">Trouver votre rituel <span>↗</span></button></div><div class="footer-links"><div><p>Explorer</p><a href="#/soins">Tous les soins</a><a href="#/soins/visage">Le visage</a><a href="#/soins/corps">Le corps</a><a href="#/soins/coffrets">Les coffrets</a></div><div><p>Cskin Aesthetic</p><a href="#/marque">La fondatrice</a><button data-action="faq">Questions fréquentes</button><a href="https://cskinaesthetic.com/pages/contact" target="_blank" rel="noopener">Contacter Cskin ↗</a></div></div></div>
+    <div class="footer-bottom"><span>© 2026 Cskin Aesthetic</span><button data-action="demo">À propos de cette démonstration</button><a href="https://cskinaesthetic.com/policies/privacy-policy" target="_blank" rel="noopener">Confidentialité ↗</a><button data-action="top">Retour en haut ↑</button></div>
+  </footer>
+  <dialog id="search-dialog" class="dialog search-dialog" aria-labelledby="search-title"><div class="dialog-head"><h2 id="search-title">Votre prochain soin.</h2><button class="icon-button close-button" data-action="close" aria-label="Fermer la recherche">×</button></div><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="Un soin, un actif, une envie…" aria-label="Rechercher dans les soins" autocomplete="off"></label><p class="search-hint">Essayez « sérum », « hydratation » ou « corps ».</p><div id="search-results" aria-live="polite"></div></dialog>
+  <dialog id="cart-dialog" class="dialog drawer" aria-labelledby="cart-title"><div class="dialog-head"><h2 id="cart-title">Votre panier<span class="cart-count">0</span></h2><button class="icon-button close-button" data-action="close" aria-label="Fermer le panier">×</button></div><div id="cart-content"></div></dialog>
+  <dialog id="quiz-dialog" class="dialog quiz-dialog" aria-labelledby="quiz-title"><button class="icon-button close-button quiz-close" data-action="close" aria-label="Fermer le questionnaire">×</button><div id="quiz-content"></div></dialog>
+  <dialog id="info-dialog" class="dialog info-dialog" aria-labelledby="info-title"><div class="dialog-head"><h2 id="info-title"></h2><button class="icon-button close-button" data-action="close" aria-label="Fermer">×</button></div><div id="info-content"></div></dialog>
+  <dialog id="menu-dialog" class="dialog drawer mobile-menu" aria-label="Menu principal"><div class="dialog-head"><img src="assets/logo.svg" alt="Cskin" width="88" height="88"><button class="icon-button close-button" data-action="close" aria-label="Fermer le menu">×</button></div><nav><a href="#/soins">Les soins <span>↗</span></a><a href="#/soins/visage">Le visage <span>↗</span></a><a href="#/soins/corps">Le corps <span>↗</span></a><button data-action="quiz">Votre routine <span>↗</span></button><a href="#/marque">L’esprit Cskin <span>↗</span></a><a href="https://cskinaesthetic.com/pages/contact" target="_blank" rel="noopener">Contact <span>↗</span></a></nav><p>L’expertise du soin,<br>au plus près de votre peau.</p></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div class="editorial-cursor" aria-hidden="true"><span></span></div>
+</body>
+</html>

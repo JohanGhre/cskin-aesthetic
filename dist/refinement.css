@@ -81,6 +81,7 @@ html { scroll-padding-top:110px; }
   line-height:1;
   transition:transform .3s var(--ease),background .25s;
 }
+.circle-link-icon svg,.hero-actions .text-link svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
 .circle-link:hover .circle-link-icon { transform:rotate(45deg); background:#343434; }
 .hero-actions .text-link {
   display:inline-flex;
@@ -188,4 +189,70 @@ html { scroll-padding-top:110px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .circle-link-icon { transition:none; transform:none!important; }
+}
+
+/* On narrow screens the film remains full bleed while the message gets its own calm space. */
+@media(max-width:600px) {
+  .hero {
+    --mobile-film-height:clamp(340px,49svh,470px);
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    padding-bottom:34px;
+    background:var(--surface-sunken);
+  }
+  .hero-film {
+    position:relative;
+    inset:auto;
+    z-index:auto;
+    flex:none;
+    width:100%;
+    height:var(--mobile-film-height);
+  }
+  .hero-film video { position:absolute; inset:0; left:0; width:100%; height:100%; object-fit:cover; object-position:center 42%; }
+  .hero-film::after {
+    background:linear-gradient(0deg,var(--surface-sunken) 0%,rgba(246,239,226,.8) 11%,rgba(246,239,226,0) 35%);
+  }
+  .hero-copy {
+    position:relative;
+    z-index:1;
+    align-self:auto;
+    width:100%;
+    max-width:none;
+    margin-top:-12px;
+    padding:0 var(--gutter);
+  }
+  .hero-copy h1 { font-size:clamp(42px,11.7vw,52px); line-height:1.02; letter-spacing:-.02em; }
+  .hero-copy h1 .line { display:block; white-space:normal; }
+  .hero-copy h1 .mark {
+    display:inline;
+    margin:0;
+    padding:0;
+    border-radius:0;
+    background:transparent;
+    color:var(--text);
+    font-style:italic;
+  }
+  .hero-copy>p { max-width:33ch; margin:20px 0 17px; font-size:15px; line-height:1.5; }
+  .hero-actions { flex-direction:column; align-items:flex-start; gap:3px; }
+  .circle-link { gap:12px; min-height:52px; font-size:14px; }
+  .circle-link-icon { width:48px; height:48px; }
+  .hero-actions .text-link {
+    min-height:42px;
+    margin-left:60px;
+    padding:0 0 3px;
+    border:0;
+    border-bottom:1px solid currentColor;
+    border-radius:0;
+    background:transparent;
+    font-size:13px;
+  }
+  .hero-actions .text-link svg { width:17px; height:17px; }
+  .hero-bottom { position:absolute; inset:calc(var(--mobile-film-height) - 58px) var(--gutter) auto auto; }
+  .film-control { justify-content:center; width:42px; height:42px; min-height:42px; border-radius:50%; background:var(--surface-overlay); color:var(--text-inverse); }
+  .film-control-icon { width:42px; height:42px; border:0; }
+  .film-control-label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 }

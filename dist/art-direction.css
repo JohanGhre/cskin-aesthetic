@@ -1,6 +1,5 @@
-/* Cskin art direction — the test background is switched off by changing this one variable to none. */
+/* Cskin art direction — a uniform cream surface behind the editorial layout. */
 :root {
-  --site-texture:url('assets/backgrounds/colorful-texture-test.webp');
   --site-paper:#fffef2;
   --mineral:var(--site-paper);
 }
@@ -8,12 +7,10 @@
 html { scroll-padding-top:94px; }
 body {
   background-color:var(--site-paper);
-  background-image:linear-gradient(rgba(255,254,242,.79),rgba(255,254,242,.79)),var(--site-texture);
-  background-position:center top;
-  background-size:cover;
-  background-attachment:fixed;
+  background-image:none;
   color:var(--text);
 }
+.hero-film::after { background:linear-gradient(90deg,var(--site-paper) 0%,rgba(255,254,242,.9) 18%,rgba(255,254,242,.5) 35%,rgba(255,254,242,0) 65%); }
 
 /* One continuous paper surface: photographs and content have no visual frames. */
 .selection,.ritual,.founder,.faq-section,.catalog-showroom,.product-page,
@@ -138,7 +135,6 @@ body {
 }
 @media(max-width:760px) {
   html { scroll-padding-top:76px; }
-  body { background-attachment:scroll; background-size:auto 100vh; background-repeat:repeat-y; }
   .header,.home-page .header { width:calc(100% - 16px); height:64px; padding:0 8px; border-radius:12px; }
   .header { top:8px; margin-top:8px; }
   .home-page .header { top:8px; }
@@ -160,16 +156,27 @@ body {
   .routine-banner { min-height:0; }
 }
 @media(max-width:600px) {
-  body { background-image:linear-gradient(rgba(255,254,242,.83),rgba(255,254,242,.83)),var(--site-texture); }
-  .hero { background:transparent; }
-  .hero-film::after { background:linear-gradient(0deg,rgba(255,254,242,.9) 0%,rgba(255,254,242,0) 35%); }
+  .hero {
+    --mobile-film-height:clamp(300px,42svh,405px);
+    padding-bottom:52px;
+    background:var(--site-paper);
+  }
+  .hero-film video { object-position:center 48%; }
+  .hero-film::after { background:linear-gradient(0deg,var(--site-paper) 0%,rgba(255,254,242,.48) 12%,rgba(255,254,242,0) 31%); }
+  .hero-copy { margin-top:-15px; }
+  .hero-copy h1 { font-size:clamp(40px,10.7vw,49px); line-height:.99; letter-spacing:-.025em; }
+  .hero-copy>p { max-width:36ch; margin:16px 0 20px; font-size:14px; line-height:1.45; }
+  .hero-actions { flex-direction:row; flex-wrap:wrap; align-items:center; gap:8px; }
+  .hero-actions .circle-link { min-height:46px; gap:8px; font-size:12px; }
+  .hero-actions .circle-link-icon { width:44px; height:44px; }
   .hero-actions .text-link {
-    min-height:48px;
+    min-height:46px;
     margin-left:0;
-    padding:0 18px;
+    padding:0 14px;
     border:1px solid var(--text);
     border-radius:999px;
-    background:rgba(255,254,242,.35);
+    background:transparent;
+    font-size:12px;
   }
   .selection-products { gap:54px; }
   .routine-banner { flex-direction:column; align-items:flex-start; gap:28px; padding:48px 28px; }
@@ -196,6 +203,11 @@ body {
   .catalog-navigation { gap:12px; }
   .catalog-index-toggle { gap:7px; font-size:12px; }
   .brand-page-hero { background:transparent; }
+  .catalog-introduction-portrait {
+    height:clamp(440px,105vw,500px);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 89%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 89%,transparent 100%);
+  }
 }
 @media(max-width:370px) {
   .header .brand,.header .brand img { width:78px; }

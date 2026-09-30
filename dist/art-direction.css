@@ -219,6 +219,99 @@ body {
   .related-section .product-grid { grid-template-columns:1fr; }
   .related-section .section-head { flex-direction:column; align-items:flex-start; gap:12px; }
 }
+
+/* Navigation inspired by the supplied black capsule reference, with Cskin branding. */
+.header,.home-page .header {
+  display:grid;
+  grid-template-columns:minmax(112px,1fr) auto minmax(224px,1fr);
+  align-items:center;
+  width:min(calc(100% - 48px),1440px);
+  height:88px;
+  padding:0 18px 0 28px;
+  border-radius:999px;
+  background:#151312;
+  box-shadow:0 12px 26px rgba(28,28,28,.12);
+}
+.header { top:24px; margin-top:24px; }
+.home-page .header { top:24px; }
+.header .brand { justify-self:start; width:112px; }
+.header .brand img { width:112px; height:74px; }
+.header .desktop-nav { justify-self:center; gap:clamp(22px,2.7vw,48px); }
+.header .desktop-nav a,.header .desktop-nav button {
+  color:rgba(255,254,242,.73);
+  font-size:clamp(14px,1.15vw,17px);
+  font-weight:400;
+  letter-spacing:-.015em;
+  text-transform:none;
+  white-space:nowrap;
+  transition:color .2s ease;
+}
+.header .desktop-nav a:hover,.header .desktop-nav button:hover { color:var(--text-inverse); }
+.header .desktop-nav a::after,.header .desktop-nav button::after { display:none; }
+.header .header-actions { justify-self:end; gap:7px; }
+.header .icon-button { width:46px; height:46px; color:var(--text-inverse); }
+.header .icon-button svg { width:24px; height:24px; stroke-width:1.8; }
+.header .cart-button {
+  position:relative;
+  justify-content:center;
+  gap:11px;
+  min-height:56px;
+  padding:0 22px;
+  border-radius:999px;
+  background:var(--surface-raised);
+  color:var(--surface);
+  font-size:16px;
+  font-weight:500;
+  transition:background-color .2s ease,transform .2s ease;
+}
+.header .cart-button:hover { background:#eae5d8; transform:translateY(-1px); }
+.header .cart-button svg { width:25px; height:25px; stroke-width:1.8; }
+.header .cart-word { display:inline; }
+.header .cart-count { min-width:0; height:auto; border:0; font-size:12px; }
+.header .cart-button[data-count="0"] .cart-count { display:none; }
+
+@media(max-width:1000px) {
+  .header,.home-page .header {
+    display:flex;
+    justify-content:space-between;
+    width:calc(100% - 20px);
+    height:68px;
+    padding:0 10px;
+  }
+  .header { top:10px; margin-top:10px; }
+  .home-page .header { top:10px; }
+  .header .desktop-nav { display:none; }
+  .header .mobile-toggle { display:inline-flex; }
+  .header .brand { position:absolute; left:50%; transform:translateX(-50%); width:94px; }
+  .header .brand img { width:94px; height:62px; }
+  .header .header-actions { gap:1px; margin-left:auto; }
+  .header .account-button { display:none; }
+  .header .icon-button { width:42px; height:42px; min-width:42px; }
+  .header .cart-button { width:46px; min-width:46px; min-height:46px; padding:0; }
+  .header .cart-button svg { width:23px; height:23px; }
+  .header .cart-word { display:none; }
+  .header .cart-count {
+    position:absolute;
+    top:-3px;
+    right:-3px;
+    display:grid;
+    place-items:center;
+    min-width:19px;
+    height:19px;
+    padding:0 3px;
+    border:1px solid var(--surface-raised);
+    border-radius:50%;
+    background:var(--surface);
+    color:var(--text-inverse);
+    font-size:10px;
+  }
+}
+@media(max-width:370px) {
+  .header,.home-page .header { width:calc(100% - 14px); padding:0 7px; }
+  .header .brand,.header .brand img { width:78px; }
+  .header .icon-button { width:38px; min-width:38px; }
+  .header .cart-button { width:42px; min-width:42px; min-height:42px; }
+}
 @media(prefers-reduced-motion:reduce) {
   .button,.catalog-add,.quick-add,.text-link span { transition:none; }
 }

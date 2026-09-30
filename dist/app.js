@@ -205,7 +205,7 @@ function selectRitual(index) {
 
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3200);}
 function saveCart(){try{localStorage.setItem('cskin-demo-cart',JSON.stringify(cart));}catch{}updateCartCount();}
-function updateCartCount(){const count=cart.reduce((sum,x)=>sum+x.qty,0);$$('.cart-count').forEach(e=>e.textContent=count);$('.cart-button').setAttribute('aria-label',`Ouvrir le panier, ${count} article${count>1?'s':''}`);}
+function updateCartCount(){const count=cart.reduce((sum,x)=>sum+x.qty,0);$$('.cart-count').forEach(e=>e.textContent=count);$('.cart-button').dataset.count=String(count);$('.cart-button').setAttribute('aria-label',`Ouvrir le panier, ${count} article${count>1?'s':''}`);}
 function addToCart(id,qty=1){const p=findProduct(id);if(!p||!p.available)return;const line=cart.find(x=>x.id===id);if(line)line.qty=Math.min(20,line.qty+qty);else cart.push({id,qty:Math.min(20,qty)});saveCart();toast(`${p.title} ajouté au panier`);if($('#cart-dialog').open)renderCart();}
 function openDialog(id){lastFocus=document.activeElement;$$('dialog[open]').forEach(d=>d.close());$(id).showModal();if(id==='#menu-dialog')$('.mobile-toggle').setAttribute('aria-expanded','true');}
 function closeDialogs(){let wasOpen=false;$$('dialog[open]').forEach(d=>{d.close();wasOpen=true;});$('.mobile-toggle').setAttribute('aria-expanded','false');if(wasOpen&&lastFocus?.isConnected)lastFocus.focus({preventScroll:true});}

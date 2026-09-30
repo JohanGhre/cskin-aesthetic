@@ -2,6 +2,7 @@
 :root {
   --site-texture:url('assets/backgrounds/colorful-texture-test.webp');
   --site-paper:#fffef2;
+  --mineral:var(--site-paper);
 }
 
 html { scroll-padding-top:94px; }
@@ -21,6 +22,10 @@ body {
 }
 .product-image img,.product-gallery img { filter:none; }
 .product-stage,.product-image { background:transparent; }
+.drawer,.dialog { background:var(--site-paper); }
+.cart-disclaimer,.quiz-result-note { background:transparent; padding-inline:0; }
+.search-result,.cart-line,.routine-result-item { border-bottom:0; }
+.search-result img,.cart-line img,.routine-result-item img { object-fit:contain; background:transparent; }
 
 /* A smaller, centered navigation bar with a restrained overlay. */
 .header,.home-page .header {

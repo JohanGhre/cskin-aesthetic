@@ -225,7 +225,7 @@ body {
   display:grid;
   grid-template-columns:minmax(82px,1fr) auto minmax(178px,1fr);
   align-items:center;
-  width:min(80%,1080px);
+  width:min(74%,980px);
   height:56px;
   padding:0 9px 0 16px;
   border-radius:999px;
@@ -274,7 +274,7 @@ body {
   .header,.home-page .header {
     display:flex;
     justify-content:space-between;
-    width:calc(100% - 24px);
+    width:calc(100% - 32px);
     height:52px;
     padding:0 8px;
   }
@@ -307,7 +307,7 @@ body {
   }
 }
 @media(max-width:370px) {
-  .header,.home-page .header { width:calc(100% - 14px); padding:0 7px; }
+  .header,.home-page .header { width:calc(100% - 24px); padding:0 7px; }
   .header .brand,.header .brand img { width:72px; }
   .header .icon-button { width:40px; min-width:40px; }
   .header .cart-button { width:44px; min-width:44px; min-height:44px; }
@@ -317,4 +317,37 @@ body {
 }
 @media(prefers-reduced-motion:reduce) {
   .button,.catalog-add,.quick-add,.text-link span { transition:none; }
+}
+
+/* Founder portrait belongs to the page itself, without a card or image frame. */
+.brand-page-hero { max-width:1500px; margin:auto; padding:clamp(28px,4vw,64px) var(--gutter) 0; }
+.brand-portrait-layout { display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); align-items:center; gap:clamp(20px,3vw,50px); }
+.brand-portrait-copy { position:relative; z-index:1; padding:35px 0 55px; }
+.brand-portrait-copy .section-title-small { margin-bottom:32px; }
+.brand-portrait-copy h1 { font-size:clamp(58px,5.2vw,88px); line-height:1.02; letter-spacing:-.035em; }
+.brand-portrait-copy>p:last-child { max-width:39ch; margin-top:28px; color:var(--text-muted); font-size:16px; line-height:1.55; }
+.brand-founder-photo { display:block; width:100%; height:clamp(500px,55vw,720px); object-fit:cover; object-position:center; border:0; border-radius:0; -webkit-mask-image:radial-gradient(ellipse 82% 84% at 52% 48%,#000 64%,transparent 100%); mask-image:radial-gradient(ellipse 82% 84% at 52% 48%,#000 64%,transparent 100%); }
+.brand-story { max-width:900px; padding-top:clamp(70px,8vw,120px); padding-bottom:clamp(90px,9vw,140px); }
+.brand-story .text-link { margin-top:12px; }
+
+.contact-page { max-width:1200px; min-height:75svh; margin:auto; padding:clamp(34px,4vw,70px) var(--gutter) 110px; }
+.contact-page .section-title-small { margin:clamp(70px,9vw,130px) 0 24px; }
+.contact-page h1 { font-size:clamp(58px,7vw,105px); line-height:1.02; letter-spacing:-.035em; }
+.contact-intro { max-width:43ch; margin:28px 0 42px; color:var(--text-muted); font-size:17px; line-height:1.55; }
+.contact-address { display:flex; flex-wrap:wrap; align-items:center; gap:18px 30px; padding:28px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.contact-address>span { width:100%; color:var(--text-muted); font-size:13px; }
+.contact-address strong { margin-right:auto; font-size:clamp(20px,2.3vw,32px); font-weight:400; overflow-wrap:anywhere; }
+.contact-address .button { min-height:46px; }
+.contact-note { margin:18px 0 34px; color:var(--text-muted); font-size:13px; }
+@media(max-width:760px) {
+  .brand-page-hero { padding:30px var(--gutter) 0; }
+  .brand-portrait-layout { grid-template-columns:1fr; gap:0; }
+  .brand-portrait-copy { padding:36px 0 0; }
+  .brand-portrait-copy .section-title-small { margin-bottom:22px; }
+  .brand-portrait-copy h1 { font-size:clamp(50px,11vw,72px); }
+  .brand-portrait-copy>p:last-child { margin-top:20px; font-size:15px; }
+  .brand-founder-photo { width:calc(100% + 2 * var(--gutter)); max-width:none; height:auto; aspect-ratio:1; margin:8px calc(-1 * var(--gutter)) 0; }
+  .brand-story { padding-top:45px; }
+  .contact-page { padding-bottom:80px; }
+  .contact-address { align-items:flex-start; flex-direction:column; }
 }

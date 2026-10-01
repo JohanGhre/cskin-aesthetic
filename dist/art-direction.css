@@ -312,6 +312,9 @@ body {
   .header .icon-button { width:40px; min-width:40px; }
   .header .cart-button { width:44px; min-width:44px; min-height:44px; }
 }
+@media(max-width:600px) {
+  .hero { --mobile-film-height:clamp(420px,55svh,520px); }
+}
 @media(prefers-reduced-motion:reduce) {
   .button,.catalog-add,.quick-add,.text-link span { transition:none; }
 }

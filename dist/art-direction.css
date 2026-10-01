@@ -326,7 +326,7 @@ body {
 .brand-portrait-copy .section-title-small { margin-bottom:32px; }
 .brand-portrait-copy h1 { font-size:clamp(58px,5.2vw,88px); line-height:1.02; letter-spacing:-.035em; }
 .brand-portrait-copy>p:last-child { max-width:39ch; margin-top:28px; color:var(--text-muted); font-size:16px; line-height:1.55; }
-.brand-founder-photo { display:block; width:100%; height:clamp(500px,55vw,720px); object-fit:cover; object-position:center; border:0; border-radius:0; -webkit-mask-image:radial-gradient(ellipse 68% 70% at 52% 54%,#000 55%,transparent 100%); mask-image:radial-gradient(ellipse 68% 70% at 52% 54%,#000 55%,transparent 100%); }
+.brand-founder-photo { display:block; width:100%; height:clamp(500px,55vw,720px); object-fit:cover; object-position:center; border:0; border-radius:0; -webkit-mask-image:radial-gradient(ellipse 54% 54% at 52% 52%,#000 65%,transparent 100%); mask-image:radial-gradient(ellipse 54% 54% at 52% 52%,#000 65%,transparent 100%); }
 .brand-story { max-width:900px; padding-top:clamp(70px,8vw,120px); padding-bottom:clamp(90px,9vw,140px); }
 .brand-story .text-link { margin-top:12px; }
 

@@ -1,34 +1,22 @@
 /* Calm editorial motion. Native video playback; GSAP + ScrollTrigger only. */
 'use strict';
 window.CSkinMotion = (() => {
-  let media, imageReveal, filmCleanup, filmToggle;
-  let filmUserPaused = false;
+  let media, imageReveal, filmCleanup;
 
   function destroy() {
     filmCleanup?.();
     imageReveal?.revert();
     media?.revert();
-    filmCleanup = filmToggle = imageReveal = media = undefined;
+    filmCleanup = imageReveal = media = undefined;
   }
 
   function setupFilm(root, paused) {
     const video = root.querySelector('#serum-film');
-    const button = root.querySelector('[data-action="film"]');
-    if (!video || !button) return;
+    if (!video) return;
     const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
     let reduced = motionPreference.matches;
     const saveData = navigator.connection?.saveData === true;
-    const label = button.querySelector('.film-control-label');
-    const icon = button.querySelector('.film-control-icon');
-    let visible = false, disposed = false, manualPlay = false;
-    const sync = () => {
-      const playing = !video.paused;
-      button.disabled = paused || reduced;
-      button.setAttribute('aria-pressed', String(playing));
-      label.textContent = reduced ? 'Image fixe · mouvement réduit' : paused
-        ? 'Film en pause' : playing ? 'Mettre le film en pause' : 'Lire le film';
-      icon.textContent = playing ? 'Ⅱ' : '▷';
-    };
+    let visible = false, disposed = false;
     const screenPreference = matchMedia('(max-width: 782px)');
     const load = () => {
       const mobile = screenPreference.matches;
@@ -40,12 +28,11 @@ window.CSkinMotion = (() => {
     };
     const update = () => {
       if (disposed) return;
-      const allowed = !reduced && !paused && !filmUserPaused && (!saveData || manualPlay);
+      const allowed = !reduced && !paused && !saveData;
       if (allowed && visible && !document.hidden) {
         load();
-        video.play().catch(() => { if (!disposed) sync(); });
+        video.play().catch(() => {});
       } else video.pause();
-      sync();
     };
     const observer = new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.15;
@@ -53,29 +40,18 @@ window.CSkinMotion = (() => {
     }, { threshold: 0.15 });
     video.muted = true;
     // The landing background is critical media; load it immediately unless motion/data preferences prevent it.
-    if (video.dataset.priority === 'hero' && !reduced && !paused && !filmUserPaused && !saveData && !document.hidden) load();
+    if (video.dataset.priority === 'hero' && !reduced && !paused && !saveData && !document.hidden) load();
     observer.observe(video);
-    video.addEventListener('play', sync);
-    video.addEventListener('pause', sync);
     document.addEventListener('visibilitychange', update);
     screenPreference.addEventListener?.('change', update);
     const onMotionChange = event => { reduced = event.matches; update(); };
     motionPreference.addEventListener?.('change', onMotionChange);
-    filmToggle = () => {
-      if (reduced || paused) return;
-      filmUserPaused = !video.paused;
-      manualPlay = true;
-      update();
-    };
-    sync();
     filmCleanup = () => {
       disposed = true;
       observer.disconnect();
       document.removeEventListener('visibilitychange', update);
       screenPreference.removeEventListener?.('change', update);
       motionPreference.removeEventListener?.('change', onMotionChange);
-      video.removeEventListener('play', sync);
-      video.removeEventListener('pause', sync);
       video.pause();
     };
   }
@@ -180,5 +156,5 @@ window.CSkinMotion = (() => {
       opacity: 1, duration: 0.45, ease: 'power2.out', clearProps: 'opacity',
     });
   }
-  return { init, revealImage, destroy, toggleFilm: () => filmToggle?.() };
+  return { init, revealImage, destroy };
 })();

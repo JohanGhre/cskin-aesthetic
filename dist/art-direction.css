@@ -2,6 +2,8 @@
 :root {
   --site-paper:#fffef2;
   --mineral:var(--site-paper);
+  --body:'Times New Roman',Times,serif;
+  --ui:'General Sans',Arial,sans-serif;
 }
 
 html { scroll-padding-top:94px; }
@@ -9,7 +11,14 @@ body {
   background-color:var(--site-paper);
   background-image:none;
   color:var(--text);
+  font-family:var(--body);
+  font-size:17px;
+  font-weight:400;
+  line-height:1.5;
 }
+.header,button,input,select,.button,.text-link,.filter-tab,.breadcrumb,
+.section-title-small,.product-kicker,.product-type,.price,
+.intro-brand>span,.editorial-cursor span { font-family:var(--ui); }
 .hero-film::after { background:linear-gradient(90deg,var(--site-paper) 0%,rgba(255,254,242,.9) 18%,rgba(255,254,242,.5) 35%,rgba(255,254,242,0) 65%); }
 
 /* One continuous paper surface: photographs and content have no visual frames. */

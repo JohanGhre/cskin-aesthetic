@@ -15,7 +15,7 @@
   --bronze:oklch(49% .065 78);
   --line:oklch(80% .015 115);
   --display:Roslindale,'Bodoni Moda',Georgia,serif;
-  --body:'Inter',Arial,sans-serif;
+  --body:'New York','Iowan Old Style','Apple Garamond',Baskerville,'Times New Roman','Droid Serif',Times,'Source Serif Pro',serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --gutter:clamp(24px,5vw,88px);
   --nav-z:20;

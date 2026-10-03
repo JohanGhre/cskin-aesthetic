@@ -38,14 +38,14 @@
 .cycle-panel h3,.cycle-foundation h3,.cycle-fit h3 { font-family:var(--display); font-weight:400; font-size:clamp(2rem,3.2vw,3rem); line-height:1.05; letter-spacing:-.02em; }
 .cycle-panel>p:not(.cycle-eyebrow) { font-size:1rem; line-height:1.6; margin-top:1.25rem; max-width:46ch; color:var(--text-muted); }
 .cycle-panel strong { font-weight:500; color:var(--text); }
-.cycle-panel .cycle-instruction { padding-top:1rem; border-top:1px solid var(--border); }
+.cycle-panel .cycle-instruction { padding-top:.5rem; }
 .cycle-instruction strong { display:block; margin-bottom:.35rem; }
 .cycle-panel .text-link { margin-top:1rem; font-size:.875rem; }
-.cycle-foundation { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,6rem); padding-top:3rem; border-top:1px solid var(--border); }
+.cycle-foundation { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,6rem); padding-top:3rem; }
 .cycle-foundation .section-title-small,.cycle-fit .section-title-small { margin-bottom:1.25rem; }
 .cycle-foundation p:last-child,.cycle-fit p { font-size:1rem; line-height:1.6; max-width:45ch; margin-top:1.25rem; color:var(--text-muted); }
 .cycle-actives { margin:0; }
-.cycle-actives>div { padding:1rem 0; border-bottom:1px solid var(--border); }
+.cycle-actives>div { padding:1rem 0; }
 .cycle-actives>div:first-child { padding-top:0; }
 .cycle-actives dt { font-size:1rem; font-weight:500; margin-bottom:.5rem; }
 .cycle-actives dd { margin:0; color:var(--text-muted); font-size:.875rem; line-height:1.55; max-width:48ch; }
@@ -54,13 +54,14 @@
 .cycle-fit li { border:1px solid var(--border); border-radius:999px; padding:.5rem .75rem; font-size:.8rem; line-height:1.35; }
 .cycle-fit .cycle-fit-note { font-size:.8rem; max-width:48ch; }
 .cycle-fit-note a { color:var(--text); text-decoration:underline; text-underline-offset:3px; }
-.cycle-guidance details { border-bottom:1px solid var(--border); }
+.cycle-guidance details { border:0; }
+.cycle-guidance details + details { border-top:1px solid var(--border); }
 .cycle-guidance summary { display:flex; justify-content:space-between; align-items:center; gap:1rem; cursor:pointer; padding:1.25rem 0; font-size:1rem; list-style:none; }
 .cycle-guidance summary::-webkit-details-marker { display:none; }
 .cycle-guidance summary span { font-size:1.5rem; transition:transform .2s; }
 .cycle-guidance details[open] summary span { transform:rotate(45deg); }
 .cycle-guidance details p { font-size:.875rem; line-height:1.6; margin:0 0 1.25rem; }
-.cycle-offer { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(170px,.7fr) auto; align-items:center; gap:2rem; margin-top:3rem; padding:2.5rem 0; border-block:1px solid var(--border); background:transparent; color:var(--text); }
+.cycle-offer { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(170px,.7fr) auto; align-items:center; gap:2rem; margin-top:3rem; padding:2.5rem 0; background:transparent; color:var(--text); }
 .cycle-offer .section-title-small { color:var(--text-muted); margin-bottom:1rem; }
 .cycle-offer h3 { font-family:var(--display); font-weight:400; font-size:clamp(2rem,3vw,2.75rem); line-height:1.05; }
 .cycle-offer>div>p:last-child { margin-top:.75rem; font-size:.875rem; line-height:1.6; color:var(--text-muted); max-width:36ch; }
@@ -124,3 +125,8 @@
 @media(prefers-reduced-motion:reduce) {
   .cycle-product,.cycle-guidance summary span { transition:none; }
 }
+
+/* Reading text follows the serif family used by the supplied Doon reference. */
+.day-night .section-title-small::before { display:none; }
+.cycle-panel>p:not(.cycle-eyebrow),.cycle-foundation p:last-child,.cycle-fit p,.cycle-offer>div>p:last-child { font-size:1.125rem; }
+.cycle-actives dd,.cycle-guidance details p,.cycle-fit .cycle-fit-note { font-size:1.0625rem; }

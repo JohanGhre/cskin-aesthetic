@@ -2,8 +2,8 @@
 :root {
   --site-paper:#fffef2;
   --mineral:var(--site-paper);
-  --body:'Times New Roman',Times,serif;
-  --ui:'General Sans',Arial,sans-serif;
+  --body:'Inter',Arial,sans-serif;
+  --ui:'Inter',Arial,sans-serif;
 }
 
 html { scroll-padding-top:94px; }

@@ -51,6 +51,71 @@ function card(p, badge = '') {
 
 const faqMarkup = () => `<div class="faq-list"><details><summary>Comment choisir mon premier soin ?</summary><p>Commencez par votre besoin principal et le nombre de gestes que vous souhaitez adopter. Notre découverte de routine présente des exemples ; Céline pourra ensuite vous orienter vers un choix adapté. <button class="text-link" data-action="quiz">Explorer une routine <span>↗︎</span></button></p></details><details><summary>Dans quel ordre utiliser mes soins ?</summary><p>Le rituel présenté ici suit trois étapes : nettoyer, appliquer le sérum, puis la crème. Consultez les instructions propres à chaque produit pour sa fréquence d’utilisation et ses précautions.</p></details><details><summary>Où sont fabriqués les soins Cskin ?</summary><p>Selon la présentation de la marque, les formulations Cskin sont fabriquées en Espagne.</p></details><details><summary>Comment fonctionne la livraison ?</summary><p>La boutique annonce la livraison offerte à partir de 100 €. Pour les destinations et délais, écrivez-nous depuis la <a class="text-link" href="#/contact">page contact ↗︎</a>.</p></details></div>`;
 
+function homeSelection() {
+  const essentials = [products[2], products[0], products[1]];
+  return `<section class="section selection" aria-labelledby="selection-title">
+    <div class="selection-heading"><p>La sélection <span class="brand-word">Cskin</span></p><h2 id="selection-title">Le soin juste. <em>Pour vous.</em></h2><p class="selection-intro">Nettoyer, cibler, accompagner. Trois essentiels à découvrir.</p></div>
+    <div class="selection-products" id="selection-rail" role="group" aria-label="Trois soins essentiels" tabindex="0">${essentials.map((p,i)=>`<article class="gallery-product"><a class="product-stage" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}" data-cursor="VIEW"><img src="${editorialPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1086" height="1448" loading="lazy" decoding="async"></a><div class="gallery-description"><p class="product-type"><span class="essential-number">0${i+1}</span>${esc(p.subtitle)}</p><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><div class="gallery-purchase"><span>${money(p.price)}</span><button class="text-link" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier">Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div>
+    <div class="selection-bottom"><a class="text-link selection-all" href="#/soins">Tous les soins <span aria-hidden="true">↗︎</span></a><div class="selection-controls"><span id="selection-position" aria-live="polite">01 / 03</span><button class="icon-button" data-action="selection-step" data-direction="-1" aria-label="Essentiel précédent" aria-controls="selection-rail" disabled>←</button><button class="icon-button" data-action="selection-step" data-direction="1" aria-label="Essentiel suivant" aria-controls="selection-rail">→</button></div></div>
+  </section>`;
+}
+
+function dayNightStory() {
+  const day = findProduct('creme-anti-aging-plus-day');
+  const night = findProduct('creme-anti-aging-plus-night');
+  const duo = findProduct('duo-pack-anti-aging-day-night');
+  const saving = day.price + night.price - duo.price;
+  return `<section class="section day-night" aria-labelledby="cycle-title" data-period="day">
+    <header class="cycle-heading"><p class="section-title-small">AntiAging Plus · Day & Night</p><h2 id="cycle-title">Deux moments.<br><em>Une même attention.</em></h2><p>Le confort au réveil. Un soin ciblé le soir. Une routine pensée pour accompagner votre peau, jour après jour.</p></header>
+    <div class="cycle-presentation">
+      <div class="cycle-visual" aria-label="Les deux soins de la routine"><a class="cycle-product is-day" href="#/produit/${day.id}" aria-label="Découvrir la crème AntiAging Plus Day"><span class="cycle-product-label">Le jour <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></span><img src="${catalogPhotos[day.id]}" alt="Crème AntiAging Plus Day Cskin sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><a class="cycle-product is-night" href="#/produit/${night.id}" aria-label="Découvrir la crème AntiAging Plus Night"><span class="cycle-product-label">La nuit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.8 8.8 0 0 1 8.5 4 9 9 0 1 0 20 15.5Z"/></svg></span><img src="${catalogPhotos[night.id]}" alt="Crème AntiAging Plus Night Cskin sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a></div>
+      <div class="cycle-explanation"><div class="cycle-switch" role="group" aria-label="Découvrir les deux moments de la routine"><button data-action="cycle-period" data-id="day" aria-pressed="true" aria-controls="cycle-day">Le matin</button><button data-action="cycle-period" data-id="night" aria-pressed="false" aria-controls="cycle-night">Le soir</button></div>
+        <article class="cycle-panel" id="cycle-day"><p class="cycle-eyebrow">01 · Nourrir & accompagner</p><h3>Commencer la journée<br>avec du confort.</h3><p>La crème <strong>AntiAging Plus Day</strong> nourrit les peaux normales à sèches. Sa formule associe notamment Q10, SOD et vitamine E, des actifs antioxydants présentés par la marque.</p><p class="cycle-instruction"><strong>Votre geste du matin</strong> Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p><a class="text-link" href="#/produit/${day.id}">Découvrir le soin de jour <span aria-hidden="true">↗︎</span></a></article>
+        <article class="cycle-panel" id="cycle-night" hidden><p class="cycle-eyebrow">02 · Cibler & compléter</p><h3>Donner sa place<br>au soin du soir.</h3><p>La crème <strong>AntiAging Plus Night</strong> associe rétinol huileux à 0,3 %, peptides et céramides. Un soin ciblé sur l’apparence des rides, le grain de peau et la fermeté.</p><p class="cycle-instruction"><strong>Votre geste du soir</strong> Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p><a class="text-link" href="#/produit/${night.id}">Découvrir le soin de nuit <span aria-hidden="true">↗︎</span></a></article>
+      </div>
+    </div>
+    <div class="cycle-foundation"><div><p class="section-title-small">Pourquoi les associer ?</p><h3>Un fil conducteur<br><em>entre le jour et la nuit.</em></h3><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p></div><dl class="cycle-actives"><div><dt>Matrixyl 3000</dt><dd>Un complexe de peptides présent dans les deux soins, au cœur de leur approche anti-âge.</dd></div><div><dt>Isoflavones liposomales</dt><dd>Également communes aux deux formules, elles complètent leurs actifs spécifiques.</dd></div><div><dt>Aloe vera & hamamélis</dt><dd>Une base végétale partagée pour accompagner le confort de la routine.</dd></div></dl></div>
+    <div class="cycle-fit"><div><p class="section-title-small">Est-ce votre routine ?</p><h3>Quand votre peau appelle<br><em>plus d’attention.</em></h3><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée et retrouvent ces préoccupations :</p><ul><li>Des rides ou ridules plus visibles</li><li>Une sensation de perte de fermeté</li><li>Un teint qui manque d’éclat</li></ul><p class="cycle-fit-note">Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis. <a href="#/contact">Besoin d’un avis ? Parlons-en.</a></p></div><div class="cycle-guidance"><details><summary>Comment installer le rituel ? <span aria-hidden="true">+</span></summary><p>Le matin : nettoyez, appliquez le soin de jour, puis votre protection solaire. Le soir : nettoyez soigneusement et appliquez le soin de nuit à la fréquence indiquée sur sa notice. Une routine régulière se construit progressivement.</p></details><details><summary>Les précautions du rétinol <span aria-hidden="true">+</span></summary><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p></details></div></div>
+    <div class="cycle-offer"><div><p class="section-title-small">Les deux gestes réunis</p><h3>Votre duo Day & Night.</h3><p>Deux soins de 50 ml pour installer votre rituel du matin et du soir.</p></div><div class="cycle-offer-price"><p><strong>${money(duo.price)}</strong><s>${money(day.price+night.price)}</s></p>${saving>0?`<span>${money(saving)} de moins que les deux soins séparés</span>`:''}</div><div class="cycle-offer-actions"><button class="button" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button><a class="text-link light" href="#/produit/${duo.id}">Voir le duo <span aria-hidden="true">↗︎</span></a></div></div>
+  </section>`;
+}
+
+function setupSelectionRail() {
+  const rail = $('#selection-rail');
+  if (!rail) return;
+  const sync = () => {
+    const cards = $$('.gallery-product', rail);
+    const index = cards.reduce((nearest, card, i) => Math.abs(card.offsetLeft-rail.offsetLeft-rail.scrollLeft)<Math.abs(cards[nearest].offsetLeft-rail.offsetLeft-rail.scrollLeft)?i:nearest,0);
+    $('#selection-position').textContent = `0${index+1} / 03`;
+    $('[data-action="selection-step"][data-direction="-1"]').disabled = index === 0;
+    $('[data-action="selection-step"][data-direction="1"]').disabled = index === cards.length-1;
+  };
+  rail.addEventListener('scroll', sync, {passive:true});
+  rail.addEventListener('keydown', e => {
+    if(e.target!==rail || !['ArrowLeft','ArrowRight'].includes(e.key)) return;
+    e.preventDefault();stepSelection(e.key==='ArrowRight'?1:-1);
+  });
+  sync();
+}
+
+function stepSelection(direction) {
+  const rail = $('#selection-rail');
+  if(!rail) return;
+  const cards = $$('.gallery-product', rail);
+  const index = cards.reduce((nearest,card,i)=>Math.abs(card.offsetLeft-rail.offsetLeft-rail.scrollLeft)<Math.abs(cards[nearest].offsetLeft-rail.offsetLeft-rail.scrollLeft)?i:nearest,0);
+  const next=cards[Math.max(0,Math.min(cards.length-1,index+direction))];
+  rail.scrollTo({left:next.offsetLeft-rail.offsetLeft,behavior:reducedMotion.matches?'instant':'smooth'});
+}
+
+function selectCyclePeriod(period) {
+  if(!['day','night'].includes(period)) return;
+  const section=$('.day-night');
+  section.dataset.period=period;
+  $$('.cycle-panel',section).forEach(panel=>panel.hidden=panel.id!==`cycle-${period}`);
+  $$('[data-action="cycle-period"]',section).forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.id===period)));
+  window.ScrollTrigger?.refresh();
+}
+
 function home() {
   return `<section class="hero" aria-labelledby="hero-title">
     <div class="hero-film" aria-hidden="true">
@@ -62,7 +127,8 @@ function home() {
       <div class="hero-actions"><a class="circle-link" href="#/soins"><span class="circle-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span><span>Découvrir les soins</span></a><button class="text-link" data-action="quiz">Trouver ma routine <span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></button></div>
     </div>
   </section>
-  <section class="section selection" aria-labelledby="selection-title"><div class="selection-heading"><p>La sélection <span class="brand-word">Cskin</span></p><h2 id="selection-title">Le soin juste. <em>Pour vous.</em></h2></div><div class="selection-products" aria-label="Trois soins essentiels">${[products[2],products[0],products[1]].map(p=>`<article class="gallery-product"><a class="product-stage" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}" data-cursor="VIEW"><img src="${editorialPhotos[p.id]}" alt="${esc(p.title)} présenté sur un socle en marbre" width="1086" height="1448" loading="lazy" decoding="async"></a><p class="product-type">${esc(p.subtitle)}</p><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><div class="gallery-purchase"><span>${money(p.price)}</span><button class="text-link" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier">Ajouter <span>+</span></button></div></article>`).join('')}</div><a class="text-link selection-all" href="#/soins">Découvrir tous les soins <span>↗︎</span></a></section>
+  ${homeSelection()}
+  ${dayNightStory()}
   <section class="philosophy"><div class="philosophy-top"><h2>Comprendre la peau.<br>Choisir avec <em>justesse.</em></h2></div><div class="philosophy-bottom"><p>Au cœur de <span class="brand-word">Cskin</span>, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><div class="philosophy-details"><p><b>De la connaissance au quotidien.</b>L’approche de Céline, fondatrice de <span class="brand-word">Cskin</span>.</p><a class="text-link light" href="#/marque">Notre histoire <span>↗︎</span></a></div></div></section>
   <section class="section ritual"><h2 class="ritual-heading">Quelques gestes.<br><em>Toute l’attention.</em></h2><div class="ritual-image" id="ritual-visual"><img src="${editorialPhotos[products[2].id]}" alt="Lait nettoyant Cskin sur un socle en marbre, le premier geste de la routine" width="1086" height="1448" loading="lazy" decoding="async"><a class="image-caption" href="#/produit/${products[2].id}"><span>Le premier geste. La douceur.</span><span aria-hidden="true">↗︎</span></a></div><div class="ritual-copy"><p>Votre routine n’a pas besoin d’être compliquée. Chaque soin trouve sa place, chaque geste a son rôle.</p><div class="ritual-list" role="group" aria-label="Les trois gestes du rituel">${ritualSteps.map((step,i)=>`<button data-action="ritual" data-id="${i}" aria-pressed="${i===0}" aria-controls="ritual-visual"><span class="ritual-number">0${i+1}</span><span class="ritual-label"><b>${step.title}</b>${step.text}</span><span class="ritual-arrow" aria-hidden="true">↗︎</span></button>`).join('')}</div><p id="ritual-status" class="sr-only" role="status"></p><button class="button" data-action="quiz">Explorer ma routine <span>↗︎</span></button></div></section>
   <section class="routine-banner"><div><h2>Le corps aussi,<br><em>mérite son rituel.</em></h2><p>Découvrez les soins corps et leurs formules ciblées.</p></div><a class="button outline" href="#/soins/corps">Les soins corps <span>↗︎</span></a></section>
@@ -175,7 +241,7 @@ function renderRoute(keepScroll=false) {
   else if(route==='contact') {main.innerHTML=contactPage();document.title='Contact — Cskin';}
   else {main.innerHTML=home();document.title='Cskin — L’expertise du soin';}
   if(!keepScroll)window.scrollTo({top:0,behavior:'instant'});
-  syncMotionButton();setupMotion();
+  syncMotionButton();setupSelectionRail();setupMotion();
 }
 
 function syncMotionButton(){const b=$('[data-action="motion"]');if(!b)return;b.setAttribute('aria-pressed',String(motionPaused));$('.motion-label',b).textContent=motionPaused?'Reprendre l’animation':'Mettre en pause';$('.motion-icon',b).textContent=motionPaused?'▷':'Ⅱ';if(reducedMotion.matches){b.disabled=true;$('.motion-label',b).textContent='Animations réduites';}}
@@ -238,6 +304,8 @@ document.addEventListener('click',e=>{
     case 'cart':renderCart();openDialog('#cart-dialog');break;
     case 'close':closeDialogs();break;
     case 'add':addToCart(id);break;
+    case 'selection-step':stepSelection(Number(button.dataset.direction));break;
+    case 'cycle-period':selectCyclePeriod(id);break;
     case 'add-product':addToCart(id,quantity);renderCart();openDialog('#cart-dialog');break;
     case 'qty-minus':quantity=Math.max(1,quantity-1);$('#product-quantity').textContent=quantity;break;
     case 'qty-plus':quantity=Math.min(20,quantity+1);$('#product-quantity').textContent=quantity;break;
@@ -307,5 +375,5 @@ window.addEventListener('hashchange',e=>{
   renderRoute(keepScroll);
   (keepScroll?$('.filter-tab[aria-pressed="true"]'):main)?.focus({preventScroll:true});
 });
-reducedMotion.addEventListener('change',()=>{motionContext?.revert();const b=$('[data-action="motion"]');if(b)b.disabled=false;syncMotionButton();setupMotion();});
+reducedMotion.addEventListener('change',()=>{motionContext?.revert();const b=$('[data-action="motion"]');if(b)b.disabled=false;syncMotionButton();setupSelectionRail();setupMotion();});
 renderRoute();updateCartCount();

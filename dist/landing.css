@@ -6,7 +6,7 @@
   --surface:#fbf8f1;
   --muted:#5b564a;
   --line:#d6d1c5;
-  --body:'General Sans',Arial,sans-serif;
+  --body:'Inter',Arial,sans-serif;
   --gutter:clamp(26px,5.5vw,137px);
 }
 

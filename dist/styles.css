@@ -15,7 +15,7 @@
   --bronze:oklch(49% .065 78);
   --line:oklch(80% .015 115);
   --display:Roslindale,'Bodoni Moda',Georgia,serif;
-  --body:Manrope,Arial,sans-serif;
+  --body:'Inter',Arial,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --gutter:clamp(24px,5vw,88px);
   --nav-z:20;

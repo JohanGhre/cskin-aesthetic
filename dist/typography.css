@@ -1,0 +1,67 @@
+/* Shared type scale: sizes follow content roles, across every page. */
+:root {
+  --type-display:clamp(46px,6.2vw,88px);
+  --type-page:clamp(44px,5.5vw,80px);
+  --type-section:clamp(38px,4.5vw,64px);
+  --type-subsection:clamp(30px,3vw,40px);
+  --type-product:clamp(28px,2.5vw,36px);
+  --type-body:18px;
+  --type-support:16px;
+  --type-ui:15px;
+  --type-label:14px;
+}
+body { font-size:var(--type-body); line-height:1.6; }
+.hero-copy #hero-title { font-size:var(--type-display); line-height:1.02; }
+.catalog-introduction h1,.product-detail h1,.brand-portrait-copy h1,.contact-page h1 { font-size:var(--type-page); line-height:1.04; }
+.selection-heading h2,.cycle-heading h2,.philosophy h2,.ritual h2,.routine-banner h2,.faq-section h2,.related-section h2,.brand-story h2 { font-size:var(--type-section); line-height:1.06; }
+.cycle-panel h3,.cycle-foundation h3,.cycle-fit h3,.cycle-offer h3 { font-size:var(--type-subsection); line-height:1.1; }
+.selection .gallery-product h3,.related-section .product-card-info h3,.product-card-info h3,.catalog-selected-copy h2 { font-size:var(--type-product); line-height:1.12; }
+.dialog .dialog-head h2,.dialog #quiz-title { font-size:var(--type-subsection); line-height:1.1; }
+
+/* Main reading text. */
+.hero-copy>p,.selection-heading .selection-intro,.cycle-heading>p:last-child,
+.cycle-panel>p:not(.cycle-eyebrow),.cycle-foundation p:last-child,
+.cycle-fit p,.cycle-offer>div>p:last-child,.cycle-actives dt,.cycle-actives dd,
+.philosophy-bottom>p,.ritual-copy>p,.routine-banner p,.founder-text>p,
+.catalog-introduction>p,.catalog-introduction .catalog-intro-copy>p,
+.catalog-selected-copy>p,.product-detail .summary,
+.product-detail .faq-list details p,.brand-portrait-copy>p:last-child,
+.brand-story p,.contact-intro { font-size:var(--type-body); line-height:1.6; }
+
+/* Secondary explanations and disclosure text. */
+.cycle-fit .cycle-fit-note,.cycle-guidance details p,.philosophy-details p,
+.contact-note,.product-reassurance,.detail-source,.cart-disclaimer,.shipping-text,
+.cart-actions p,.quiz-description,.quiz-result-note,.mobile-menu>p,
+.faq-list details p,.founder-caption,.contact-address>span { font-size:var(--type-support); line-height:1.6; }
+.cycle-guidance summary,.product-detail .faq-list summary,.faq-list summary { font-size:var(--type-body); line-height:1.4; }
+
+/* Controls share a separate, compact scale in Inter. */
+.button,.text-link,.filter-tab,.hero-actions .circle-link,
+.hero-actions .button,.buy-row>.button,.cycle-switch button,
+.cycle-panel .text-link,.cycle-offer .text-link,.selection-bottom .text-link,
+.catalog-index-toggle,.catalog-showroom .catalog-tools label,
+.catalog-showroom .catalog-tools select,.header .desktop-nav a,
+.header .desktop-nav button,.header .cart-button,.footer-links a,
+.footer-links button,.quiz-option,.remove-item { font-size:var(--type-ui); line-height:1.4; }
+
+/* Eyebrows, category labels and navigation context. */
+.section-title-small,.cycle-eyebrow,.selection .product-type,.product-type,
+.product-detail .product-kicker,.related-section .product-card-info .product-type,
+.cycle-product-label,.cycle-fit li,.cycle-offer-price>span,
+.selection-controls>span,.breadcrumb,.product-page .breadcrumb,
+.quiz-label,.footer-bottom,.footer-bottom button { font-size:var(--type-label); line-height:1.5; }
+.price,.gallery-purchase>span,.line-price { font-size:var(--type-body); line-height:1.4; }
+.cycle-offer-price strong { font-size:var(--type-subsection); line-height:1.1; }
+.cycle-offer-price s { font-size:var(--type-support); }
+@media(max-width:600px) {
+  .philosophy-details { flex-wrap:wrap; }
+  .philosophy-details .text-link { flex-shrink:0; }
+  .header .desktop-nav a,.header .desktop-nav button { font-size:var(--type-ui); }
+}
+.day-night :is(.cycle-heading,.cycle-foundation,.cycle-fit,.cycle-offer) .section-title-small { font-size:var(--type-label); line-height:1.5; }
+.catalog-introduction .catalog-introduction-copy>p:not(.catalog-kicker),.catalog-feature-title p { font-size:var(--type-body); line-height:1.6; }
+.catalog-introduction .catalog-kicker,.catalog-feature-meta,.product-gallery-label,.active-chips span { font-size:var(--type-label); line-height:1.5; }
+.catalog-feature-title h2 { font-size:var(--type-subsection); line-height:1.1; }
+.catalog-add,.hero-actions .pill-link { font-size:var(--type-ui); line-height:1.4; }
+.catalog-feature-purchase .price,.related-section .product-card-info .price { font-size:var(--type-body); }
+.catalog-feature-purchase .price s,.product-detail .detail-price s { font-size:var(--type-support); }

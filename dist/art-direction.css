@@ -456,3 +456,27 @@ body {
   .contact-page { padding-bottom:80px; }
   .contact-address { align-items:flex-start; flex-direction:column; }
 }
+
+/* Readable supporting text and a clearer brand signature. */
+.header,.home-page .header { height:62px; }
+.header .brand { width:104px; }
+.header .brand img { width:104px; height:58px; }
+.section-title-small,.product-type,.product-kicker { font-size:14px; }
+.breadcrumb { font-size:14px; }
+.hero-copy>p,.product-detail .summary,.brand-portrait-copy>p:last-child { font-size:18px; line-height:1.55; }
+.philosophy-bottom>p,.philosophy-details p,.contact-note { font-size:17px; line-height:1.6; }
+.product-detail .faq-list summary { font-size:17px; }
+.product-detail .faq-list details p { font-size:17px; }
+.product-reassurance,.detail-source,.contact-address>span { font-size:14px; }
+.related-section .product-card-info .product-type { font-size:14px; }
+.hero-actions .circle-link,.hero-actions .button,.buy-row>.button { font-size:15px; }
+.catalog-showroom .catalog-tools label,.catalog-showroom .catalog-tools select,.catalog-index-toggle { font-size:14px; }
+@media(max-width:1000px) {
+  .header,.home-page .header { height:60px; }
+  .header .brand,.header .brand img { width:104px; }
+  .header .brand img { height:56px; }
+}
+@media(max-width:370px) {
+  .header .brand,.header .brand img { width:96px; }
+  .header .brand img { height:54px; }
+}

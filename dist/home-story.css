@@ -130,3 +130,10 @@
 .day-night .section-title-small::before { display:none; }
 .cycle-panel>p:not(.cycle-eyebrow),.cycle-foundation p:last-child,.cycle-fit p,.cycle-offer>div>p:last-child { font-size:1.125rem; }
 .cycle-actives dd,.cycle-guidance details p,.cycle-fit .cycle-fit-note { font-size:1.0625rem; }
+
+/* Supporting labels remain legible at phone sizes. */
+.selection .product-type,.selection-controls>span,.cycle-product-label,.cycle-eyebrow { font-size:14px; }
+.selection-bottom .text-link,.cycle-panel .text-link,.cycle-switch button,.cycle-offer .text-link { font-size:15px; }
+.cycle-fit li,.cycle-offer-price>span { font-size:14px; }
+.cycle-heading>p:last-child,.selection-heading .selection-intro { font-size:18px; }
+.cycle-guidance summary { font-size:17px; }

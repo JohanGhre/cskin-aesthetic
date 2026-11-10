@@ -161,7 +161,7 @@
           if (state.cart.lines.some(l => !l.available)) throw new CommerceError('unavailable');
           let url;
           try { url = new URL(state.cart.checkoutUrl); } catch { throw new CommerceError('checkout'); }
-          const hosts = [config.domain, 'cskinaesthetic.com', 'www.cskinaesthetic.com', 'checkout.shopify.com'];
+          const hosts = [config.domain, 'cskinaesthetic.com', 'www.cskinaesthetic.com', 'checkout.cskinaesthetic.com', 'checkout.shopify.com'];
           if (url.protocol !== 'https:' || !hosts.includes(url.hostname)) throw new CommerceError('checkout');
           return url.href;
         });

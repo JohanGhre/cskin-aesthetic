@@ -6,6 +6,19 @@
   <meta name="description" content="Cskin Aesthetic. L’expertise du soin, au plus près de votre peau. Découvrez une nouvelle expérience des soins visage et corps.">
   <meta name="theme-color" content="#fffef2">
   <meta name="robots" content="noindex, nofollow">
+  <script>
+    // Keep existing Shopify product links usable on the new storefront.
+    if (['cskinaesthetic.com','www.cskinaesthetic.com'].includes(location.hostname)) {
+      document.querySelector('meta[name="robots"]').content='index, follow';
+      if (location.pathname !== '/' && location.pathname !== '/index.html') {
+        const parts=location.pathname.split('/').filter(Boolean);
+        const page=parts[0]==='products'&&parts[1]?'/produit/'+encodeURIComponent(decodeURIComponent(parts[1])):
+          parts[0]==='collections'?'/soins':parts[0]==='pages'&&/contact/.test(parts[1]||'')?'/contact':
+          parts[0]==='pages'&&/marque|histoire|about/.test(parts[1]||'')?'/marque':'/';
+        location.replace('/'+location.search+'#'+page);
+      }
+    }
+  </script>
   <title>Cskin — L’expertise du soin</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/instrument-serif-regular.ttf" as="font" type="font/ttf" crossorigin>

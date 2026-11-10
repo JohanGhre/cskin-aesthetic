@@ -116,24 +116,22 @@ function selectCyclePeriod(period) {
   window.ScrollTrigger?.refresh();
 }
 
+function campaignHero(index=0) {
+  const featured=[products[0],products[1],products[2]];
+  const p=featured[index];
+  const cutouts=['assets/editorial/serum-age-plus-cutout.webp','assets/editorial/creme-silk-effect-cutout.webp','assets/editorial/lait-nettoyant-cutout.webp'];
+  return `<section class="campaign-hero" aria-labelledby="campaign-title"><div class="campaign-image"><img src="${cutouts[index]}" alt="${esc(p.title)}" width="1086" height="1448" fetchpriority="high" decoding="async"></div><div class="campaign-caption"><p class="campaign-eyebrow">Cskin Aesthetic · ${esc(p.subtitle)}</p><h1 id="campaign-title">${esc(p.title)}</h1><p>${esc(p.summary)}</p><a class="campaign-link" href="#/produit/${p.id}">Découvrir ce soin <span aria-hidden="true">↗</span></a></div><div class="campaign-switch" role="group" aria-label="Trois soins essentiels">${featured.map((item,i)=>`<button data-action="campaign-feature" data-id="${i}" aria-pressed="${index===i}" aria-label="Découvrir ${esc(item.title)}">0${i+1}</button>`).join('')}</div></section>`;
+}
 function home() {
-  return `<section class="hero" aria-labelledby="hero-title">
-    <div class="hero-film" aria-hidden="true">
-      <video id="serum-film" autoplay muted loop playsinline preload="auto" poster="assets/motion/hero-oct01-poster.jpg" data-priority="hero" data-desktop-src="assets/motion/hero-oct01-loop.mp4" data-mobile-src="assets/motion/hero-oct01-loop-mobile.mp4" tabindex="-1"></video>
-    </div>
-    <div class="hero-copy">
-      <h1 id="hero-title"><span class="line">La science</span><span class="line">au service de</span><span class="line"><em class="mark">votre peau.</em></span></h1>
-      <p>Des soins ciblés. Des gestes qui ont du sens.<br>Une attention particulière à votre peau.</p>
-      <div class="hero-actions"><a class="circle-link" href="#/soins"><span class="circle-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span><span>Découvrir les soins</span></a><button class="text-link" data-action="quiz">Trouver ma routine <span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></button></div>
-    </div>
-  </section>
-  ${homeSelection()}
-  ${dayNightStory()}
-  <section class="philosophy"><div class="philosophy-top"><h2>Comprendre la peau.<br>Choisir avec <em>justesse.</em></h2></div><div class="philosophy-bottom"><p>Au cœur de <span class="brand-word">Cskin</span>, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><div class="philosophy-details"><p><b>De la connaissance au quotidien.</b>L’approche de Céline, fondatrice de <span class="brand-word">Cskin</span>.</p><a class="text-link light" href="#/marque">Notre histoire <span>↗︎</span></a></div></div></section>
-  <section class="section ritual"><h2 class="ritual-heading">Quelques gestes.<br><em>Toute l’attention.</em></h2><div class="ritual-image" id="ritual-visual"><img src="${editorialPhotos[products[2].id]}" alt="Lait nettoyant Cskin sur un socle en marbre, le premier geste de la routine" width="1086" height="1448" loading="lazy" decoding="async"><a class="image-caption" href="#/produit/${products[2].id}"><span>Le premier geste. La douceur.</span><span aria-hidden="true">↗︎</span></a></div><div class="ritual-copy"><p>Votre routine n’a pas besoin d’être compliquée. Chaque soin trouve sa place, chaque geste a son rôle.</p><div class="ritual-list" role="group" aria-label="Les trois gestes du rituel">${ritualSteps.map((step,i)=>`<button data-action="ritual" data-id="${i}" aria-pressed="${i===0}" aria-controls="ritual-visual"><span class="ritual-number">0${i+1}</span><span class="ritual-label"><b>${step.title}</b>${step.text}</span><span class="ritual-arrow" aria-hidden="true">↗︎</span></button>`).join('')}</div><p id="ritual-status" class="sr-only" role="status"></p><button class="button" data-action="quiz">Explorer ma routine <span>↗︎</span></button></div></section>
-  <section class="routine-banner"><div><h2>Le corps aussi,<br><em>mérite son rituel.</em></h2><p>Découvrez les soins corps et leurs formules ciblées.</p></div><a class="button outline" href="#/soins/corps">Les soins corps <span>↗︎</span></a></section>
-  <section class="section founder"><div class="founder-side"><div class="section-title-small">Derrière les formules, une rencontre</div><p class="founder-name">Céline.</p><p>Fondatrice de Cskin Aesthetic</p></div><div><p class="founder-quote">« Tout a commencé par une fascination pour la science du vivant. »</p><p class="founder-body">Un parcours en pharmacologie et physiologie, une expérience auprès de laboratoires, puis une formation CIBTAC. Céline a créé Cskin pour rapprocher son expertise du soin de votre quotidien.</p><a class="text-link" href="#/marque">Rencontrer la marque <span>↗︎</span></a></div></section>
-  <section class="section faq-section"><h2>Le soin, <em>en clair.</em></h2>${faqMarkup()}</section>`;
+  const featured=[products[2],products[0],products[1],products[4]];
+  return `<div class="campaign-home">${campaignHero()}
+    <div class="campaign-manifesto"><p>Comprendre la peau. Choisir avec justesse.</p><a href="#/marque">Notre histoire <span aria-hidden="true">↗</span></a></div>
+    <section class="campaign-essentials" aria-labelledby="essentials-title"><div class="campaign-section-intro"><p class="campaign-eyebrow">01 / La sélection Cskin</p><h2 id="essentials-title">Les essentiels.</h2><p>Nettoyer, cibler, accompagner. Trois gestes pour composer votre rituel.</p><a class="campaign-link" href="#/soins">Tous les soins <span aria-hidden="true">↗</span></a></div><div class="campaign-grid">${featured.map((p,i)=>`<article class="campaign-product"><a class="campaign-product-photo" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}"><span class="campaign-product-category">${esc(p.type)}</span><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><div class="campaign-product-info"><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.subtitle)}</p><div><span>${money(p.price)}</span><button data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div></section>
+    <section class="campaign-editorial"><div class="campaign-portrait"><img src="assets/editorial/catalog/model-silk-effect-cutout.webp" alt="Modèle tenant la Crème Silk Effect Cskin Aesthetic" width="1037" height="1516" loading="lazy" decoding="async"></div><div class="campaign-editorial-copy"><p class="campaign-eyebrow">02 / La philosophie</p><h2>Des actifs identifiés.<br>Des gestes expliqués.</h2><p>Au cœur de Cskin, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><button class="campaign-link" data-action="quiz">Trouver ma routine <span aria-hidden="true">↗</span></button></div></section>
+    <div class="campaign-cycle">${dayNightStory()}</div>
+    <section class="campaign-founder"><div class="campaign-founder-copy"><p class="campaign-eyebrow">04 / La fondatrice</p><h2>La connaissance<br>de la peau.<br>Le sens du soin.</h2><p>Un parcours en pharmacologie et physiologie, une expérience auprès de laboratoires, puis une formation CIBTAC. Céline a créé Cskin pour rapprocher son expertise du soin de votre quotidien.</p><a class="campaign-link" href="#/marque">Rencontrer la marque <span aria-hidden="true">↗</span></a><p class="campaign-founder-signature">Céline AB · Fondatrice</p></div><img src="assets/editorial/celine-founder.webp" alt="Céline, fondatrice de Cskin Aesthetic, dans son espace de soin" width="1254" height="1254" loading="lazy" decoding="async"></section>
+    <section class="campaign-faq"><div><p class="campaign-eyebrow">05 / Vos questions</p><h2>Le soin,<br>en clair.</h2></div>${faqMarkup()}</section>
+  </div>`;
 }
 
 function catalogScene(items, index) {
@@ -307,6 +305,7 @@ document.addEventListener('click',e=>{
     case 'cart':renderCart();openDialog('#cart-dialog');break;
     case 'close':closeDialogs();break;
     case 'add':addToCart(id);break;
+    case 'campaign-feature': {const index=Number(id);if(index>=0&&index<3){$('.campaign-hero').outerHTML=campaignHero(index);window.CSkinI18n?.apply();$(`[data-action="campaign-feature"][data-id="${index}"]`)?.focus({preventScroll:true});}break;}
     case 'selection-step':stepSelection(Number(button.dataset.direction));break;
     case 'cycle-period':selectCyclePeriod(id);break;
     case 'add-product':addToCart(id,quantity);renderCart();openDialog('#cart-dialog');break;

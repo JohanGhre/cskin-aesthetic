@@ -1430,5 +1430,45 @@ window.CSKIN_TRANSLATIONS = {
   "Rechercher": {
     "en": "Search",
     "es": "Buscar"
+  },
+  "Découvrir ce soin": {
+    "en": "Discover this product",
+    "es": "Descubrir este cuidado"
+  },
+  "Comprendre la peau. Choisir avec justesse.": {
+    "en": "Understand your skin. Choose with confidence.",
+    "es": "Comprender la piel. Elegir con criterio."
+  },
+  "01 / La sélection Cskin": {
+    "en": "01 / The Cskin selection",
+    "es": "01 / La selección Cskin"
+  },
+  "Les essentiels.": {
+    "en": "The essentials.",
+    "es": "Los esenciales."
+  },
+  "Nettoyer, cibler, accompagner. Trois gestes pour composer votre rituel.": {
+    "en": "Cleanse, target, nourish. Three steps to build your ritual.",
+    "es": "Limpiar, tratar, acompañar. Tres gestos para crear tu ritual."
+  },
+  "02 / La philosophie": {
+    "en": "02 / The philosophy",
+    "es": "02 / La filosofía"
+  },
+  "Des actifs identifiés.": {
+    "en": "Clearly identified ingredients.",
+    "es": "Activos identificados."
+  },
+  "Des gestes expliqués.": {
+    "en": "Every step explained.",
+    "es": "Gestos explicados."
+  },
+  "04 / La fondatrice": {
+    "en": "04 / The founder",
+    "es": "04 / La fundadora"
+  },
+  "05 / Vos questions": {
+    "en": "05 / Your questions",
+    "es": "05 / Tus preguntas"
   }
 };

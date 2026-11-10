@@ -1,0 +1,22 @@
+/* A quiet, custom popup replaces the platform select on enhanced pages. */
+.language-switcher { position:relative; color:var(--text); }
+.language-switcher select[hidden],.language-menu[hidden],.footer-language label[hidden] { display:none!important; }
+.language-trigger { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-width:58px; height:44px; padding:0 8px; background:transparent; border:0; border-radius:6px; color:inherit; font:400 13px/1.4 var(--ui); }
+.language-trigger>svg { width:12px; height:12px; fill:none; stroke:currentColor; stroke-width:1.3; transition:transform .16s; }
+.language-trigger[aria-expanded="true"]>svg { transform:rotate(180deg); }
+.language-trigger:hover { background:#17191706; }
+.language-menu { position:absolute; right:0; top:calc(100% + 9px); width:220px; padding:6px; background:var(--site-paper); color:var(--text); border:1px solid #17191720; border-radius:12px; box-shadow:0 10px 32px #1719170c; z-index:10; }
+.language-option { display:grid; grid-template-columns:1fr auto 16px; align-items:center; gap:14px; width:100%; min-height:48px; padding:10px 12px; text-align:left; color:inherit; background:transparent; border:0; border-radius:7px; font:400 14px/1.4 var(--ui); }
+.language-option-code { font:400 10px/1.4 var(--mono); color:var(--text-muted); }
+.language-option svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.4; opacity:0; }
+.language-option[aria-checked="true"] { background:#17191707; }
+.language-option[aria-checked="true"] svg { opacity:1; }
+.language-option:hover { background:#1719170c; }
+.header .language-trigger:focus-visible,.language-option:focus-visible,.footer-language .language-trigger:focus-visible { outline:1.5px solid var(--text); outline-offset:2px; }
+.footer-language .language-trigger { justify-content:space-between; min-width:150px; padding-inline:14px; border:1px solid var(--border); border-radius:8px; }
+.footer-language .language-menu { top:auto; bottom:calc(100% + 9px); left:0; right:auto; }
+@media(max-width:1000px) {
+  .header .language-trigger { min-width:44px; padding-inline:2px; gap:6px; font-size:12px; }
+  .header .language-menu { left:0; right:auto; width:210px; }
+}
+@media(prefers-reduced-motion:reduce) { .language-trigger>svg { transition:none; } }

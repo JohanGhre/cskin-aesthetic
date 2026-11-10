@@ -62,6 +62,7 @@ window.CSkinI18n = (() => {
     }
     document.documentElement.lang=language;
     for(const select of document.querySelectorAll('[data-language-select]'))select.value=language;
+    window.CSkinLanguageMenu?.sync(language);
     const title=document.querySelector('title');
     const titleSource=original(sources.get(title),document.title);
     const titleLast=translate(titleSource);

@@ -57,7 +57,7 @@
       label.textContent = ['VIEW','DRAG','PLAY'].includes(requested) ? requested : '';
       cursor.classList.toggle('interactive', !!target);
       cursor.classList.toggle('labelled', !!label.textContent);
-      cursor.classList.toggle('on-dark', !!event.target.closest('.header,.footer,.philosophy,.intro-screen'));
+      cursor.classList.toggle('on-dark', !!event.target.closest('.intro-screen,[data-cursor-dark]'));
     };
     const keyboard = event => { if (event.key === 'Tab') hide(); };
     const visibility = () => { if (document.hidden) hide(); };

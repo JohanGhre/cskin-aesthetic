@@ -1550,3 +1550,91 @@ window.CSKIN_TRANSLATIONS = {
   "Trier les soins": {"en":"Sort products","es":"Ordenar los cuidados"},
   "Une histoire de conviction.": {"en":"A story of conviction.","es":"Una historia de convicción."}
 };
+
+// Commerce Shopify : labels et états du panier connecté.
+Object.assign(window.CSKIN_TRANSLATIONS, {
+  "Paiement sécurisé par Shopify": {
+    "en": "Secure checkout by Shopify",
+    "es": "Pago seguro con Shopify"
+  },
+  "Connexion à votre panier…": {
+    "en": "Connecting to your bag…",
+    "es": "Conectando con tu cesta…"
+  },
+  "Mise à jour du panier…": {
+    "en": "Updating your bag…",
+    "es": "Actualizando tu cesta…"
+  },
+  "Passer commande": {
+    "en": "Checkout",
+    "es": "Tramitar pedido"
+  },
+  "Livraison, taxes et réductions confirmées au paiement.": {
+    "en": "Shipping, taxes and discounts confirmed at checkout.",
+    "es": "Envío, impuestos y descuentos confirmados al pagar."
+  },
+  "Ce soin est actuellement indisponible.": {
+    "en": "This product is currently unavailable.",
+    "es": "Este cuidado no está disponible actualmente."
+  },
+  "Shopify a ajusté ou refusé cette quantité selon le stock disponible.": {
+    "en": "Shopify adjusted or declined this quantity based on available stock.",
+    "es": "Shopify ha ajustado o rechazado esta cantidad según el stock disponible."
+  },
+  "Votre panier a expiré. Ajoutez de nouveau vos soins.": {
+    "en": "Your bag has expired. Please add your products again.",
+    "es": "Tu cesta ha caducado. Añade tus cuidados de nuevo."
+  },
+  "Le paiement est indisponible pour le moment.": {
+    "en": "Checkout is unavailable at the moment.",
+    "es": "El pago no está disponible por el momento."
+  },
+  "Connexion à Shopify indisponible. Réessayez dans un instant.": {
+    "en": "Unable to connect to Shopify. Please try again shortly.",
+    "es": "No se puede conectar con Shopify. Vuelve a intentarlo en un momento."
+  },
+  "Réessayer": {
+    "en": "Try again",
+    "es": "Volver a intentar"
+  },
+  "Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.": {
+    "en": "Prices and availability are updated from Shopify. Shipping fees, delivery options and applicable taxes are confirmed at checkout. For a question about your order, contact Cskin through this site.",
+    "es": "Los precios y la disponibilidad se actualizan desde Shopify. Los gastos y las opciones de envío, así como los impuestos aplicables, se confirman al pagar. Si tienes alguna pregunta sobre tu pedido, contacta con Cskin desde este sitio."
+  },
+  "Copiez l’adresse pour écrire depuis votre messagerie.": {
+    "en": "Copy the address to write from your email app.",
+    "es": "Copia la dirección para escribir desde tu correo."
+  },
+  "À propos de Cskin": {
+    "en": "About Cskin",
+    "es": "Sobre Cskin"
+  },
+  "Confidentialité": {
+    "en": "Privacy",
+    "es": "Privacidad"
+  },
+  "Votre confidentialité.": {
+    "en": "Your privacy.",
+    "es": "Tu privacidad."
+  },
+  "Le panier est géré par Shopify. Un identifiant de panier est conservé dans votre navigateur pour retrouver votre sélection. Votre choix de langue est également enregistré localement.": {
+    "en": "Your bag is managed by Shopify. A bag identifier is stored in your browser to restore your selection. Your language preference is also saved locally.",
+    "es": "Shopify gestiona tu cesta. Se guarda un identificador de cesta en tu navegador para recuperar tu selección. Tu preferencia de idioma también se guarda localmente."
+  },
+  "Les informations de commande et de paiement sont recueillies dans le paiement sécurisé Shopify. Cette page ne recueille pas vos coordonnées bancaires.": {
+    "en": "Order and payment information is collected through secure Shopify checkout. This page does not collect your payment card details.",
+    "es": "La información del pedido y del pago se recoge mediante el pago seguro de Shopify. Esta página no recoge los datos de tu tarjeta bancaria."
+  },
+  "La page contact affiche une adresse à copier : aucun message n’est envoyé automatiquement.": {
+    "en": "The contact page shows an address to copy: no message is sent automatically.",
+    "es": "La página de contacto muestra una dirección para copiar: no se envía ningún mensaje automáticamente."
+  },
+  "Ce site sur mesure est connecté à la boutique Shopify de Cskin Aesthetic pour les produits, la disponibilité, le panier et le paiement.": {
+    "en": "This custom website connects to the Cskin Aesthetic Shopify store for products, availability, the bag and checkout.",
+    "es": "Este sitio a medida está conectado a la tienda Shopify de Cskin Aesthetic para los productos, la disponibilidad, la cesta y el pago."
+  },
+  "Les exemples de routine servent à découvrir la gamme. Pour un conseil adapté, échangez avec Céline.": {
+    "en": "The routine examples introduce the range. For tailored advice, speak with Céline.",
+    "es": "Los ejemplos de rutina sirven para descubrir la gama. Para un consejo adaptado, habla con Céline."
+  }
+});

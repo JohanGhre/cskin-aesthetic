@@ -1,4 +1,4 @@
-/* Cskin — démonstration locale. Aucun appel de paiement ni collecte de données. */
+/* Cskin — storefront sur mesure connecté à Shopify. */
 'use strict';
 const products = window.CSKIN_PRODUCTS;
 const editorialPhotos = {
@@ -25,12 +25,16 @@ for (const id of Object.keys(editorialPhotos)) editorialPhotos[id] = catalogPhot
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const main = $('#main');
-const money = n => new Intl.NumberFormat('fr-FR', {style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+const money = (n,currency='EUR') => shopifyEnabled && commerceState.status !== 'ready' ? '—' : new Intl.NumberFormat(window.CSkinI18n?.language || 'fr', {style:'currency',currency,minimumFractionDigits:0,maximumFractionDigits:2}).format(n);
 const esc = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const findProduct = id => products.find(p=>p.id===id);
 const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const shopifyEnabled = Boolean(window.CSKIN_SHOPIFY?.enabled);
+let commerce;
+let commerceState = {status:'loading',busy:false,cart:null,notice:''};
 let cart = [];
-try { const saved = JSON.parse(localStorage.getItem('cskin-demo-cart') || '[]'); if (Array.isArray(saved)) cart = saved.filter(x=>findProduct(x.id)&&Number.isInteger(x.qty)&&x.qty>0).map(x=>({id:x.id,qty:Math.min(20,x.qty)})); } catch {}
+if (shopifyEnabled) products.forEach(p=>{p.available=false;});
+
 let quantity = 1;
 let sortOrder = 'selection';
 let catalogSelectedId = products[0].id;
@@ -209,8 +213,8 @@ function productPage(id) {
     <div class="product-layout">
       <div class="product-detail product-introduction ${p.title.length>45?'is-long-title':''}"><p class="product-kicker">${esc(p.subtitle)}</p><h1 id="product-title">${esc(p.title)}</h1><p class="detail-price price">${money(p.price)} ${p.compare&&p.compare>p.price?`<s>${money(p.compare)}</s>`:''}${volumes[p.id]?`<span class="product-volume"> / ${volumes[p.id]}</span>`:''}</p><p class="summary">${esc(p.summary)}</p><a class="detail-source" href="#/contact">Une question sur ce soin ? Contacter Cskin <span aria-hidden="true">↗︎</span></a></div>
       <div class="product-gallery"><img src="${image}" alt="${esc(p.title)} présenté sur un socle en marbre" width="1024" height="1536" fetchpriority="high" decoding="async"><nav class="product-browse" aria-label="Parcourez la collection"><a href="#/produit/${previous.id}" aria-label="Soin précédent">←</a><span>${String(index+1).padStart(2,'0')} <span aria-hidden="true">/</span> ${String(products.length).padStart(2,'0')}</span><a href="#/produit/${next.id}" aria-label="Soin suivant">→</a></nav></div>
-      <div class="product-detail product-order"><div class="product-purchase"><label class="purchase-label" for="product-quantity">Quantité</label><div class="buy-row"><div class="quantity" aria-label="Quantité"><button data-action="qty-minus" aria-label="Diminuer la quantité">−</button><output id="product-quantity" aria-live="polite">1</output><button data-action="qty-plus" aria-label="Augmenter la quantité">+</button></div><button class="button" data-action="add-product" data-id="${p.id}" ${!p.available?'disabled':''}>${p.available?'Ajouter au panier':'Indisponible'} <span aria-hidden="true">+</span></button></div><div class="product-reassurance"><span>Livraison offerte dès 100 €</span><span>Panier de démonstration</span></div></div>
-        <div class="faq-list"><details><summary>Le geste Cskin</summary><p>${esc(p.usage)}</p></details><details><summary>Les actifs à connaître</summary><p>${p.actives.length?p.actives.map(esc).join(' · '):'Ce coffret réunit plusieurs soins. Contactez Cskin pour une composition détaillée.'}</p></details><details><summary>Livraison et informations</summary><p>Les prix sont présentés à titre indicatif. Cet aperçu ne permet pas encore de commander ni de payer. Pour les disponibilités ou la livraison, contactez Cskin depuis ce site.</p></details></div>
+      <div class="product-detail product-order"><div class="product-purchase"><label class="purchase-label" for="product-quantity">Quantité</label><div class="buy-row"><div class="quantity" aria-label="Quantité"><button data-action="qty-minus" aria-label="Diminuer la quantité">−</button><output id="product-quantity" aria-live="polite">1</output><button data-action="qty-plus" aria-label="Augmenter la quantité">+</button></div><button class="button" data-action="add-product" data-id="${p.id}" ${!p.available?'disabled':''}>${p.available?'Ajouter au panier':'Indisponible'} <span aria-hidden="true">+</span></button></div><div class="product-reassurance"><span>Livraison offerte dès 100 €</span><span>Paiement sécurisé par Shopify</span></div></div>
+        <div class="faq-list"><details><summary>Le geste Cskin</summary><p>${esc(p.usage)}</p></details><details><summary>Les actifs à connaître</summary><p>${p.actives.length?p.actives.map(esc).join(' · '):'Ce coffret réunit plusieurs soins. Contactez Cskin pour une composition détaillée.'}</p></details><details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
       </div>
     </div>
   </section>${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span>↗︎</span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
@@ -221,7 +225,7 @@ function brandPage() {
 }
 
 function contactPage() {
-  return `<section class="contact-page"><div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><span>Contact</span></div><div class="contact-heading"><p class="section-title-small">Restons en contact</p><h1>Parlons de<br><em>votre peau.</em></h1><p class="contact-intro">Une question sur un soin ou sur la marque ? Retrouvez ici l’adresse de contact de Cskin Aesthetic.</p></div><div class="contact-methods"><div class="contact-address"><span>Écrivez à Céline</span><strong>ab.frenchbeauty@gmail.com</strong><button class="campaign-link" data-action="copy-email">Copier l’adresse <span aria-hidden="true">↗</span></button></div><p class="contact-note">Cet aperçu ne recueille aucun message. Copiez l’adresse pour écrire depuis votre messagerie.</p><a class="campaign-link" href="#/soins">Explorer les soins <span aria-hidden="true">↗</span></a></div></section>`;
+  return `<section class="contact-page"><div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><span>Contact</span></div><div class="contact-heading"><p class="section-title-small">Restons en contact</p><h1>Parlons de<br><em>votre peau.</em></h1><p class="contact-intro">Une question sur un soin ou sur la marque ? Retrouvez ici l’adresse de contact de Cskin Aesthetic.</p></div><div class="contact-methods"><div class="contact-address"><span>Écrivez à Céline</span><strong>ab.frenchbeauty@gmail.com</strong><button class="campaign-link" data-action="copy-email">Copier l’adresse <span aria-hidden="true">↗</span></button></div><p class="contact-note">Copiez l’adresse pour écrire depuis votre messagerie.</p><a class="campaign-link" href="#/soins">Explorer les soins <span aria-hidden="true">↗</span></a></div></section>`;
 }
 
 function renderRoute(keepScroll=false) {
@@ -235,7 +239,7 @@ function renderRoute(keepScroll=false) {
   else if(route==='contact') {main.innerHTML=contactPage();document.title='Contact — Cskin';}
   else {main.innerHTML=home();document.title='Cskin — L’expertise du soin';}
   if(!keepScroll)window.scrollTo({top:0,behavior:'instant'});
-  window.CSkinI18n?.apply();window.CSkinSortMenu?.mount();syncMotionButton();setupSelectionRail();setupMotion();
+  window.CSkinI18n?.apply();window.CSkinSortMenu?.mount();syncMotionButton();setupSelectionRail();setupMotion();syncPurchaseControls();
 }
 
 function syncMotionButton(){const b=$('[data-action="motion"]');if(!b)return;b.setAttribute('aria-pressed',String(motionPaused));$('.motion-label',b).textContent=motionPaused?'Reprendre l’animation':'Mettre en pause';$('.motion-icon',b).textContent=motionPaused?'▷':'Ⅱ';if(reducedMotion.matches){b.disabled=true;$('.motion-label',b).textContent='Animations réduites';}}
@@ -268,12 +272,51 @@ function selectRitual(index) {
 }
 
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3200);}
-function saveCart(){try{localStorage.setItem('cskin-demo-cart',JSON.stringify(cart));}catch{}updateCartCount();}
 function updateCartCount(){const count=cart.reduce((sum,x)=>sum+x.qty,0);$$('.cart-count').forEach(e=>e.textContent=count);$('.cart-button').dataset.count=String(count);$('.cart-button').setAttribute('aria-label',`Ouvrir le panier, ${count} article${count>1?'s':''}`);}
-function addToCart(id,qty=1){const p=findProduct(id);if(!p||!p.available)return;const line=cart.find(x=>x.id===id);if(line)line.qty=Math.min(20,line.qty+qty);else cart.push({id,qty:Math.min(20,qty)});saveCart();toast(`${p.title} ajouté au panier`);if($('#cart-dialog').open)renderCart();}
+function commerceMessage(error){return ({unavailable:'Ce soin est actuellement indisponible.',quantity:'Shopify a ajusté ou refusé cette quantité selon le stock disponible.','cart-expired':'Votre panier a expiré. Ajoutez de nouveau vos soins.',checkout:'Le paiement est indisponible pour le moment.'})[error?.code] || 'Connexion à Shopify indisponible. Réessayez dans un instant.';}
+function syncPurchaseControls(){
+  $$('[data-action="add"],[data-action="add-product"],[data-action="add-routine"],[data-action="checkout"]').forEach(button=>{
+    const p=button.dataset.id && findProduct(button.dataset.id);
+    button.disabled=commerceState.status!=='ready'||commerceState.busy||Boolean(p&&!p.available)||(button.dataset.action==='checkout'&&(!cart.length||cart.some(l=>!l.available))); 
+    button.setAttribute('aria-busy',String(commerceState.busy));
+  });
+}
+async function addToCart(id,qty=1){
+  if(!commerce)return false;
+  try{await commerce.addItems([{id,qty}]);toast(commerceState.notice?commerceMessage({code:commerceState.notice}):`${findProduct(id).title} ajouté au panier`);return true;}
+  catch(error){toast(commerceMessage(error));return false;}
+}
+function renderConnectedCart(){
+  const empty=`<div class="empty-state"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2"/></svg><h3>Le début d’un rituel.</h3><p>Votre panier est encore vide. Découvrez le soin qui vous correspond.</p><a class="button" href="#/soins">Explorer les soins <span>↗︎</span></a></div>`;
+  if(commerceState.status!=='ready')return `<div class="empty-state"><p>${commerceState.status==='error'?'Connexion à Shopify indisponible. Réessayez dans un instant.':'Connexion à votre panier…'}</p>${commerceState.status==='error'?'<button class="button" data-action="retry-commerce">Réessayer</button>':''}</div>`;
+  if(!cart.length)return empty;
+  const disabled=commerceState.busy?'disabled':'';
+  return `<p class="cart-disclaimer">${commerceState.busy?'Mise à jour du panier…':'Paiement sécurisé par Shopify'}</p>${commerceState.notice?`<p class="shipping-text" role="status">${commerceMessage({code:commerceState.notice})}</p>`:''}<div class="cart-lines">${cart.map(l=>{
+    const p=findProduct(l.id);return `<article class="cart-line">${p?`<a href="#/produit/${p.id}"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)}"></a>`:''}<div><h3>${p?`<a href="#/produit/${p.id}">${esc(p.title)}</a>`:esc(l.title)}</h3><div class="quantity"><button data-action="cart-minus" data-id="${esc(l.id)}" aria-label="Diminuer la quantité de ${esc(p?.title||l.title)}" ${disabled}>−</button><output aria-label="Quantité">${l.qty}</output><button data-action="cart-plus" data-id="${esc(l.id)}" aria-label="Augmenter la quantité de ${esc(p?.title||l.title)}" ${l.qty>=20?'disabled':disabled}>+</button></div>${!l.available?'<p>Ce soin est actuellement indisponible.</p>':''}<button class="remove-item" data-action="remove" data-id="${esc(l.id)}" ${disabled}>Retirer</button></div><p class="line-price">${money(l.total,l.currency)}</p></article>`;
+  }).join('')}</div><div class="cart-total"><span>Sous-total</span><strong>${money(commerceState.cart.subtotal,commerceState.cart.currency)}</strong></div><button class="button full" data-action="checkout" ${cart.some(l=>!l.available)?'disabled':disabled}>Passer commande <span>↗︎</span></button><div class="cart-actions"><button class="text-link" data-action="close">Continuer la découverte <span>↗︎</span></button><p>Livraison, taxes et réductions confirmées au paiement.</p></div>`;
+}
+async function startCommerce(){
+  if(!commerce){
+    if(!shopifyEnabled||!window.CSkinCommerce){commerceState.status='error';renderCart();syncPurchaseControls();return;}
+    let storage;try{storage=localStorage;}catch{}
+    commerce=window.CSkinCommerce.create(window.CSKIN_SHOPIFY,{storage,language:()=>String(window.CSkinI18n?.language||'fr').toUpperCase()});
+    commerce.subscribe(state=>{
+      commerceState=state;cart=state.cart?.lines||[];
+      if(state.status==='ready')products.forEach(p=>{const remote=state.products[p.id];p.available=Boolean(remote?.available&&remote.currency==='EUR');if(remote&&Number.isFinite(remote.price)){p.price=remote.price;p.compare=remote.compare;}});
+      updateCartCount();if($('#cart-dialog').open)renderCart();syncPurchaseControls();
+    });
+  }
+  try{
+    await commerce.init();
+    const open=$('dialog[open]')?.id,qty=quantity;renderRoute(true);quantity=qty;
+    if($('#product-quantity'))$('#product-quantity').textContent=qty;
+    if(open){if(open==='cart-dialog')renderCart();openDialog('#'+open);}
+  }catch(error){toast(commerceMessage(error));if($('#cart-dialog').open)renderCart();}
+  syncPurchaseControls();
+}
 function openDialog(id){lastFocus=document.activeElement;$$('dialog[open]').forEach(d=>d.close());window.CSkinI18n?.apply();$(id).showModal();if(id==='#menu-dialog')$('.mobile-toggle').setAttribute('aria-expanded','true');}
 function closeDialogs(){let wasOpen=false;$$('dialog[open]').forEach(d=>{d.close();wasOpen=true;});$('.mobile-toggle').setAttribute('aria-expanded','false');if(wasOpen&&lastFocus?.isConnected)lastFocus.focus({preventScroll:true});}
-function renderCart(){const total=cart.reduce((sum,l)=>sum+findProduct(l.id).price*l.qty,0);$('#cart-content').innerHTML=cart.length?`<p class="cart-disclaimer">Panier de démonstration · Aucun paiement réel.</p><p class="shipping-text">${total>=100?'Le seuil de livraison offerte est atteint.':`Encore ${money(100-total)} pour la livraison offerte.`}</p><div class="shipping-progress"><span style="width:${Math.min(100,total)}%"></span></div><div class="cart-lines">${cart.map(l=>{const p=findProduct(l.id);return `<article class="cart-line"><a href="#/produit/${p.id}"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)}"></a><div><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><div class="quantity"><button data-action="cart-minus" data-id="${p.id}" aria-label="Diminuer la quantité de ${esc(p.title)}">−</button><output aria-label="Quantité de ${esc(p.title)}">${l.qty}</output><button data-action="cart-plus" data-id="${p.id}" aria-label="Augmenter la quantité de ${esc(p.title)}" ${l.qty>=20?'disabled':''}>+</button></div><button class="remove-item" data-action="remove" data-id="${p.id}">Retirer</button></div><p class="line-price">${money(l.qty*p.price)}</p></article>`;}).join('')}</div><div class="cart-total"><span>Sous-total</span><strong>${money(total)}</strong></div><button class="button full" data-action="checkout">Voir le récapitulatif <span>↗︎</span></button><div class="cart-actions"><button class="text-link" data-action="close">Continuer la découverte <span>↗︎</span></button><p>La commande et le paiement ne sont pas encore disponibles dans cet aperçu.</p></div>`:`<div class="empty-state"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2"/></svg><h3>Le début d’un rituel.</h3><p>Votre panier est encore vide. Découvrez le soin qui vous correspond.</p><a class="button" href="#/soins">Explorer les soins <span>↗︎</span></a></div>`;updateCartCount();}
+function renderCart(){$('#cart-content').innerHTML=renderConnectedCart();updateCartCount();window.CSkinI18n?.apply();syncPurchaseControls();}
 function search(query=''){const q=normalize(query.trim());const result=products.filter(p=>normalize(`${p.title} ${p.subtitle} ${p.summary} ${p.actives.join(' ')} ${window.CSkinI18n?.translate(`${p.title} ${p.subtitle} ${p.summary} ${p.actives.join(' ')}`)||''}`).includes(q));$('#search-results').innerHTML=result.length?result.slice(0,q?13:5).map(p=>`<a class="search-result" href="#/produit/${p.id}"><img src="${catalogPhotos[p.id]}" alt="" width="65" height="78"><div><h3>${esc(p.title)}</h3><p>${esc(p.subtitle)}</p></div><span>${money(p.price)} ↗︎</span></a>`).join(''):`<p class="notice-empty">Aucun soin trouvé pour « ${esc(query)} ». Essayez un nom de produit ou un actif.</p>`;}
 
 const quizQuestions=[
@@ -287,7 +330,7 @@ function renderQuizResult(){const [goal,skin,length]=quiz.answers;const needsAdv
 
 function info(title,html){$('#info-title').textContent=title;$('#info-content').innerHTML=html;openDialog('#info-dialog');}
 
-document.addEventListener('click',e=>{
+document.addEventListener('click',async e=>{
   if(e.target.closest('.skip-link')){e.preventDefault();main.focus({preventScroll:true});main.scrollIntoView({behavior:'instant'});return;}
   const anchor=e.target.closest('a[href^="#/"]');if(anchor&&anchor.hash===location.hash)closeDialogs();
   const button=e.target.closest('[data-action]');if(!button)return;
@@ -295,15 +338,18 @@ document.addEventListener('click',e=>{
   switch(action){
     case 'menu':openDialog('#menu-dialog');break;
     case 'search':search();openDialog('#search-dialog');$('#search-input').value='';$('#search-input').focus();break;
-    case 'cart':renderCart();openDialog('#cart-dialog');break;
+    case 'cart':renderCart();openDialog('#cart-dialog');if(commerceState.status==='ready')commerce.refresh().catch(error=>toast(commerceMessage(error)));break;
     case 'close':closeDialogs();break;
-    case 'add':addToCart(id);break;
+    case 'add':await addToCart(id);break;
     case 'selection-step':stepSelection(Number(button.dataset.direction));break;
-    case 'add-product':addToCart(id,quantity);renderCart();openDialog('#cart-dialog');break;
+    case 'add-product':if(await addToCart(id,quantity)){renderCart();openDialog('#cart-dialog');}break;
     case 'qty-minus':quantity=Math.max(1,quantity-1);$('#product-quantity').textContent=quantity;break;
     case 'qty-plus':quantity=Math.min(20,quantity+1);$('#product-quantity').textContent=quantity;break;
-    case 'cart-minus':case 'cart-plus':{const line=cart.find(l=>l.id===id);if(!line)break;line.qty+=action==='cart-plus'?1:-1;line.qty=Math.min(20,line.qty);cart=cart.filter(l=>l.qty>0);saveCart();renderCart();restoreCartFocus(action,id);break;}
-    case 'remove':cart=cart.filter(l=>l.id!==id);saveCart();renderCart();restoreCartFocus(action,id);break;
+    case 'cart-minus':case 'cart-plus':case 'remove':{
+      try{await commerce.changeQuantity(id,action==='remove'?'remove':action==='cart-plus'?1:-1);if(commerceState.notice)toast(commerceMessage({code:commerceState.notice}));}catch(error){toast(commerceMessage(error));}
+      renderCart();restoreCartFocus(action,id);break;
+    }
+    case 'retry-commerce':await startCommerce();break;
     case 'filter':location.hash=id==='tous'?'#/soins':`#/soins/${id}`;break;
     case 'catalog-select':selectCatalogProduct(id,{fromIndex:Boolean(button.closest('.catalog-index'))});break;
     case 'catalog-step':stepCatalog(Number(button.dataset.direction));break;
@@ -318,14 +364,17 @@ document.addEventListener('click',e=>{
     case 'quiz':startQuiz();break;
     case 'quiz-answer':quiz.answers[quiz.step]=id;quiz.step++;renderQuiz();$('#quiz-title').focus();break;
     case 'quiz-back':quiz.step=Math.max(0,quiz.step-1);renderQuiz();$('#quiz-title').focus();break;
-    case 'add-routine':quiz.resultIds.forEach(id=>addToCart(id));renderCart();openDialog('#cart-dialog');break;
+    case 'add-routine':try{await commerce.addItems(quiz.resultIds.map(id=>({id,qty:1})));renderCart();openDialog('#cart-dialog');}catch(error){toast(commerceMessage(error));}break;
     case 'top':window.scrollTo({top:0,behavior:reducedMotion.matches?'instant':'smooth'});break;
     case 'motion':motionPaused=!motionPaused;setupMotion();syncMotionButton();break;
     case 'copy-email':if(navigator.clipboard?.writeText)navigator.clipboard.writeText('ab.frenchbeauty@gmail.com').then(()=>toast('Adresse copiée')).catch(()=>toast('Sélectionnez l’adresse affichée pour la copier'));else toast('Sélectionnez l’adresse affichée pour la copier');break;
     case 'faq':info('Le soin, en clair.',faqMarkup());break;
-    case 'privacy':info('Confidentialité de cet aperçu.',`<p>Le panier de démonstration est enregistré dans le stockage local de votre navigateur. Il n’est pas transmis à Cskin et aucune commande ou paiement n’est effectué ici.</p><p>La page contact affiche une adresse à copier : cet aperçu ne recueille ni n’envoie de message.</p>`);break;
-    case 'demo':info('Une nouvelle vision de Cskin.',`<p>Cette version est une proposition de refonte à découvrir en privé. Les produits, images et prix proviennent du site Cskin.</p><p>Le panier fonctionne uniquement dans ce navigateur. Aucun paiement, email ou conseil personnalisé n’est envoyé. Les exemples de routine seront à valider avec la fondatrice.</p><p>La présentation associe Instrument Serif et General Sans, servies localement. Le film de l’accueil a été fourni pour cette démonstration.</p><a class="button" href="#/soins">Explorer les soins <span>↗︎</span></a>`);break;
-    case 'checkout':{const total=cart.reduce((n,l)=>n+findProduct(l.id).price*l.qty,0);info('Votre sélection est prête.',`<p>Vous avez sélectionné ${cart.reduce((n,l)=>n+l.qty,0)} soin(s), pour un sous-total de <strong>${money(total)}</strong>.</p>${cart.map(l=>`<p>${l.qty} × ${esc(findProduct(l.id).title)} — ${money(findProduct(l.id).price*l.qty)}</p>`).join('')}<p>Fin du parcours de démonstration. Aucun paiement ni aucune commande n’a été effectué. Votre sélection reste dans ce navigateur.</p><a class="button" href="#/soins">Continuer à explorer les soins <span>↗︎</span></a>`);break;}
+    case 'privacy':info('Votre confidentialité.',`<p>Le panier est géré par Shopify. Un identifiant de panier est conservé dans votre navigateur pour retrouver votre sélection. Votre choix de langue est également enregistré localement.</p><p>Les informations de commande et de paiement sont recueillies dans le paiement sécurisé Shopify. Cette page ne recueille pas vos coordonnées bancaires.</p><p>La page contact affiche une adresse à copier : aucun message n’est envoyé automatiquement.</p>`);break;
+    case 'demo':info('Cskin Aesthetic.',`<p>Ce site sur mesure est connecté à la boutique Shopify de Cskin Aesthetic pour les produits, la disponibilité, le panier et le paiement.</p><p>Les exemples de routine servent à découvrir la gamme. Pour un conseil adapté, échangez avec Céline.</p><a class="button" href="#/marque">Rencontrer la marque <span>↗︎</span></a>`);break;
+    case 'checkout':{
+      if(!commerce)return;
+      try{const url=await commerce.checkout();location.assign(url);}catch(error){toast(commerceMessage(error));renderCart();}break;
+    }
   }
 });
 $('#search-input').addEventListener('input',e=>search(e.target.value));
@@ -369,4 +418,4 @@ window.addEventListener('hashchange',e=>{
   (keepScroll?$('.filter-tab[aria-pressed="true"]'):main)?.focus({preventScroll:true});
 });
 reducedMotion.addEventListener('change',()=>{motionContext?.revert();const b=$('[data-action="motion"]');if(b)b.disabled=false;syncMotionButton();setupSelectionRail();setupMotion();});
-renderRoute();updateCartCount();
+renderRoute();updateCartCount();startCommerce();

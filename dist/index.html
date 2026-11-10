@@ -19,8 +19,11 @@
   <link rel="stylesheet" href="art-direction.css">
   <link rel="stylesheet" href="home-story.css">
   <link rel="stylesheet" href="typography.css">
+  <link rel="stylesheet" href="languages.css">
   <script src="data/products.js" defer></script>
   <script src="animations.js" defer></script>
+  <script src="data/translations.js" defer></script>
+  <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
   <script src="motion-loader.js" defer></script>
 </head>
@@ -33,11 +36,12 @@
     <nav class="desktop-nav" aria-label="Navigation principale">
       <a href="#/soins">Les soins</a><a href="#/soins/visage">Le visage</a><button data-action="quiz">Votre routine</button><a href="#/marque">Notre histoire</a>
     </nav>
-    <div class="header-actions"><button class="icon-button" data-action="search" aria-label="Rechercher un soin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><button class="icon-button account-button" data-action="quiz" aria-label="Trouver ma routine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.2"/><path d="M5.5 20v-2.2a6.5 6.5 0 0 1 13 0V20"/></svg></button><button class="cart-button" data-action="cart" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2"/></svg><span class="cart-word">Panier</span><span class="cart-count">0</span></button></div>
+    <div class="header-actions"><label class="language-control" data-i18n-ignore><select data-language-select aria-label="Langue / Language / Idioma"><option value="fr" lang="fr">FR</option><option value="en" lang="en">EN</option><option value="es" lang="es">ES</option></select></label><button class="icon-button" data-action="search" aria-label="Rechercher un soin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><button class="icon-button account-button" data-action="quiz" aria-label="Trouver ma routine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.2"/><path d="M5.5 20v-2.2a6.5 6.5 0 0 1 13 0V20"/></svg></button><button class="cart-button" data-action="cart" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2"/></svg><span class="cart-word">Panier</span><span class="cart-count">0</span></button></div>
   </header>
   <main id="main" tabindex="-1"></main>
   <footer class="footer">
     <div class="footer-top"><div><p class="footer-tagline">Votre peau.<br><em>Notre attention.</em></p><button class="text-link light" data-action="quiz">Trouver votre rituel <span>↗︎</span></button></div><div class="footer-links"><div><p>Explorer</p><a href="#/soins">Tous les soins</a><a href="#/soins/visage">Le visage</a><a href="#/soins/corps">Le corps</a><a href="#/soins/coffrets">Les coffrets</a></div><div><p>Cskin Aesthetic</p><a href="#/marque">La fondatrice</a><button data-action="faq">Questions fréquentes</button><a href="#/contact">Contacter Cskin ↗︎</a></div></div></div>
+    <div class="footer-language" data-i18n-ignore><label for="footer-language">FR / EN / ES</label><select id="footer-language" data-language-select aria-label="Langue / Language / Idioma"><option value="fr" lang="fr">Français</option><option value="en" lang="en">English</option><option value="es" lang="es">Español</option></select></div>
     <div class="footer-bottom"><span>© 2026 Cskin Aesthetic</span><button data-action="demo">À propos de cette démonstration</button><button data-action="privacy">Confidentialité de l’aperçu ↗︎</button><button data-action="top">Retour en haut ↑</button></div>
   </footer>
   <dialog id="search-dialog" class="dialog search-dialog" aria-labelledby="search-title"><div class="dialog-head"><h2 id="search-title">Votre prochain soin.</h2><button class="icon-button close-button" data-action="close" aria-label="Fermer la recherche">×</button></div><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="Un soin, un actif, une envie…" aria-label="Rechercher dans les soins" autocomplete="off"></label><p class="search-hint">Essayez « sérum », « hydratation » ou « corps ».</p><div id="search-results" aria-live="polite"></div></dialog>

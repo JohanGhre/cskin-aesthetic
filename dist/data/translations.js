@@ -1545,5 +1545,6 @@ window.CSKIN_TRANSLATIONS = {
   "Format": {"en": "Size", "es": "Formato"},
   "Deux soins de 50 ml.": {"en": "Two 50 ml products.", "es": "Dos cuidados de 50 ml."},
   "Pharmacologie · Physiologie · CIBTAC": {"en": "Pharmacology · Physiology · CIBTAC", "es": "Farmacología · Fisiología · CIBTAC"},
-  "De la pharmacologie au soin quotidien, Céline rapproche la connaissance de la peau des gestes essentiels.": {"en": "From pharmacology to everyday skincare, Céline brings skin knowledge into essential daily rituals.", "es": "De la farmacología al cuidado diario, Céline acerca el conocimiento de la piel a los gestos esenciales."}
+  "De la pharmacologie au soin quotidien, Céline rapproche la connaissance de la peau des gestes essentiels.": {"en": "From pharmacology to everyday skincare, Céline brings skin knowledge into essential daily rituals.", "es": "De la farmacología al cuidado diario, Céline acerca el conocimiento de la piel a los gestos esenciales."},
+  "Mains présentant un flacon AntiAging Plus Day Cskin": {"en":"Hands presenting one Cskin AntiAging Plus Day bottle","es":"Manos presentando un frasco AntiAging Plus Day Cskin"}
 };

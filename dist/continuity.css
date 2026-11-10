@@ -7,7 +7,7 @@
 .campaign-home .campaign-portrait img { mask-image:linear-gradient(to bottom,#000 84%,transparent 100%); }
 .campaign-home .routine-duo--study { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(36px,7vw,110px); padding:90px 0; }
 .routine-duo--study .routine-duo-visual { display:flex; align-items:center; justify-content:center; aspect-ratio:1; overflow:visible; border-radius:0; }
-.routine-duo--study .routine-duo-visual img { width:min(100%,490px); height:auto; border-radius:0; }
+.routine-duo--study .routine-duo-visual img { width:min(100%,490px); height:auto; border-radius:0; mask-image:linear-gradient(to bottom,#000 86%,transparent 100%); }
 .routine-duo--study .routine-duo-copy { max-width:550px; width:100%; }
 .routine-duo--study .routine-duo-kicker { font-size:11px; margin:0 0 10px; }
 .campaign-home .routine-duo--study h2 { font-size:30px; margin:0 0 28px; }
@@ -44,7 +44,7 @@
   .campaign-home .campaign-editorial { gap:0; }
   .campaign-home .campaign-editorial-copy { padding:22px 0 36px; }
   .campaign-home .routine-duo--study { grid-template-columns:minmax(0,1fr); gap:14px; padding:38px 0 58px; }
-  .routine-duo--study .routine-duo-visual { width:min(78%,310px); margin:0 auto; }
+  .routine-duo--study .routine-duo-visual { width:min(100%,360px); margin:20px auto 0; }
   .campaign-home .routine-duo--study h2 { font-size:28px; margin-bottom:24px; }
   .routine-duo-facts>div { grid-template-columns:94px minmax(0,1fr); gap:12px; padding:15px 0; }
   .routine-duo-facts dt { font-size:11px; }

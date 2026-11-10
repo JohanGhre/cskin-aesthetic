@@ -65,7 +65,6 @@ function dayNightStory() {
   const night=findProduct('creme-anti-aging-plus-night');
   const duo=findProduct('duo-pack-anti-aging-day-night');
   return `<section class="routine-duo routine-duo--study" aria-labelledby="duo-title">
-    <a class="routine-duo-visual" href="#/produit/${duo.id}" aria-label="Voir le duo"><img src="assets/campaign/duo-texture-study.png" alt="Étude de texture cosmétique translucide et nacrée" width="1000" height="1000" loading="lazy" decoding="async"></a>
     <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · Day & Night</p><h2 id="duo-title">Jour & nuit.</h2>
       <dl class="routine-duo-facts">
         <div><dt>Le matin</dt><dd><a href="#/produit/${day.id}">AntiAging Plus Day</a><span>Sur peau propre, avant votre protection solaire.</span></dd></div>
@@ -82,6 +81,7 @@ function dayNightStory() {
         <h3>Les précautions du rétinol</h3><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p>
       </div></details>
     </div>
+    <a class="routine-duo-visual" href="#/produit/${duo.id}" aria-label="Voir le duo"><img src="assets/campaign/single-product-hands-cutout.png" alt="Mains présentant un flacon AntiAging Plus Day Cskin" width="1000" height="1000" loading="lazy" decoding="async"></a>
   </section>`;
 }
 

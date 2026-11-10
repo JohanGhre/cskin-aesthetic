@@ -1536,5 +1536,14 @@ window.CSKIN_TRANSLATIONS = {
     "es": "Manos presentando los cuidados AntiAging Plus Day y Night Cskin"
   },
   "Le geste précieux de votre routine.": {"en":"A precious step in your routine.","es":"Un gesto precioso en tu rutina."},
-  "Reprendre la vidéo": {"en":"Play video","es":"Reanudar el vídeo"}
+  "Reprendre la vidéo": {"en":"Play video","es":"Reanudar el vídeo"},
+  "Étude de texture cosmétique translucide et nacrée": {"en": "Translucent and pearlescent cosmetic texture study", "es": "Estudio de textura cosmética translúcida y nacarada"},
+  "Sur peau propre, avant votre protection solaire.": {"en": "On clean skin, before your sunscreen.", "es": "Sobre la piel limpia, antes del protector solar."},
+  "Après le nettoyage, selon la tolérance de votre peau.": {"en": "After cleansing, according to your skin’s tolerance.", "es": "Después de la limpieza, según la tolerancia de tu piel."},
+  "Actifs communs": {"en": "Shared ingredients", "es": "Activos comunes"},
+  "Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis.": {"en": "Matrixyl 3000, liposomal isoflavones, aloe vera and witch hazel.", "es": "Matrixyl 3000, isoflavonas liposomales, aloe vera y hamamelis."},
+  "Format": {"en": "Size", "es": "Formato"},
+  "Deux soins de 50 ml.": {"en": "Two 50 ml products.", "es": "Dos cuidados de 50 ml."},
+  "Pharmacologie · Physiologie · CIBTAC": {"en": "Pharmacology · Physiology · CIBTAC", "es": "Farmacología · Fisiología · CIBTAC"},
+  "De la pharmacologie au soin quotidien, Céline rapproche la connaissance de la peau des gestes essentiels.": {"en": "From pharmacology to everyday skincare, Céline brings skin knowledge into essential daily rituals.", "es": "De la farmacología al cuidado diario, Céline acerca el conocimiento de la piel a los gestos esenciales."}
 };

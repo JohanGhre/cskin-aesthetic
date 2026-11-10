@@ -1,0 +1,60 @@
+/* User's texture-and-facts reference. One continuous paper surface;
+   media supplies colour, spacing supplies section rhythm. */
+.campaign-home { --campaign-paper:var(--site-paper); }
+.campaign-home :is(.campaign-essentials,.campaign-editorial,.campaign-cycle,.campaign-founder,.campaign-faq,.campaign-product-photo) { background:transparent; }
+.campaign-home .campaign-editorial { padding-inline:clamp(22px,5vw,90px); gap:clamp(30px,6vw,90px); }
+.campaign-home .campaign-editorial-copy { padding-inline:0; }
+.campaign-home .campaign-portrait img { mask-image:linear-gradient(to bottom,#000 84%,transparent 100%); }
+.campaign-home .routine-duo--study { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(36px,7vw,110px); padding:90px 0; }
+.routine-duo--study .routine-duo-visual { display:flex; align-items:center; justify-content:center; aspect-ratio:1; overflow:visible; border-radius:0; }
+.routine-duo--study .routine-duo-visual img { width:min(100%,490px); height:auto; border-radius:0; }
+.routine-duo--study .routine-duo-copy { max-width:550px; width:100%; }
+.routine-duo--study .routine-duo-kicker { font-size:11px; margin:0 0 10px; }
+.campaign-home .routine-duo--study h2 { font-size:30px; margin:0 0 28px; }
+.routine-duo-facts { margin:0; }
+.routine-duo-facts>div { display:grid; grid-template-columns:116px minmax(0,1fr); gap:16px; padding:16px 0; border-bottom:1px solid #17191726; }
+.routine-duo-facts>div:first-child { padding-top:0; }
+.routine-duo-facts dt { font:400 12px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.02em; padding-top:2px; }
+.routine-duo-facts dd { font:400 14px/1.6 var(--ui); margin:0; color:var(--text-muted); }
+.routine-duo-facts dd a { display:block; color:var(--text); }
+.routine-duo-facts dd a:hover { text-decoration:underline; text-underline-offset:4px; }
+.routine-duo-facts dd span { display:block; }
+.routine-duo-purchase { display:flex; justify-content:space-between; align-items:center; gap:24px; padding-top:24px; }
+.routine-duo-purchase .routine-duo-amount { font-size:20px; }
+.routine-duo-purchase .campaign-link { font-weight:400; min-height:44px; font-size:14px; }
+.routine-duo--study .routine-duo-details { margin-top:18px; }
+.routine-duo--study .routine-duo-details summary { border:0; padding-top:0; font-size:13px; color:var(--text-muted); }
+/* Personal editorial portrait instead of a coloured half-page panel. */
+.campaign-home .campaign-founder--personal { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1fr); gap:20px clamp(50px,11vw,170px); max-width:1400px; padding:55px clamp(22px,5vw,90px) 85px; margin:auto; align-items:center; }
+.campaign-founder--personal>.campaign-eyebrow { grid-column:1/-1; font-size:11px; margin:0 0 10px; }
+.campaign-founder-portrait { width:100%; max-width:390px; margin:0; }
+.campaign-founder-portrait img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:42% center; }
+.campaign-founder-portrait figcaption { margin-top:14px; font:400 11px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.015em; color:var(--text-muted); }
+.campaign-founder--personal .campaign-founder-copy { padding:0; max-width:540px; }
+.campaign-home .campaign-founder--personal h2 { font:400 clamp(34px,3.5vw,48px)/1.1 var(--ui); letter-spacing:-.025em; margin:0 0 8px; }
+.campaign-founder--personal .campaign-founder-copy>.founder-role { font:400 13px/1.6 var(--ui); margin:0 0 30px; color:var(--text-muted); }
+.campaign-founder--personal blockquote { font:400 clamp(24px,2.3vw,32px)/1.3 var(--ui); letter-spacing:-.02em; margin:0 0 24px; text-wrap:pretty; }
+.campaign-founder--personal .campaign-founder-copy>p:not(.founder-role) { font:400 16px/1.65 var(--ui); letter-spacing:0; max-width:38ch; margin:0 0 22px; }
+.campaign-founder--personal .campaign-link { font-weight:400; }
+@media(max-width:900px) {
+  .routine-duo-facts>div { grid-template-columns:92px minmax(0,1fr); gap:12px; }
+  .campaign-home .campaign-founder--personal { gap:24px 50px; }
+}
+@media(max-width:650px) {
+  .campaign-home .campaign-editorial { gap:0; }
+  .campaign-home .campaign-editorial-copy { padding:22px 0 36px; }
+  .campaign-home .routine-duo--study { grid-template-columns:minmax(0,1fr); gap:14px; padding:38px 0 58px; }
+  .routine-duo--study .routine-duo-visual { width:min(78%,310px); margin:0 auto; }
+  .campaign-home .routine-duo--study h2 { font-size:28px; margin-bottom:24px; }
+  .routine-duo-facts>div { grid-template-columns:94px minmax(0,1fr); gap:12px; padding:15px 0; }
+  .routine-duo-facts dt { font-size:11px; }
+  .routine-duo-facts dd { font-size:14px; }
+  .campaign-home .campaign-founder--personal { grid-template-columns:minmax(0,1fr); gap:24px; padding-top:24px; padding-bottom:46px; }
+  .campaign-founder--personal>.campaign-eyebrow { margin:0; }
+  .campaign-founder-portrait { max-width:300px; }
+  .campaign-founder-portrait img { aspect-ratio:1; }
+  .campaign-home .campaign-founder--personal h2 { font-size:36px; }
+  .campaign-founder--personal .campaign-founder-copy>.founder-role { margin-bottom:22px; }
+  .campaign-founder--personal blockquote { font-size:26px; }
+  .campaign-home .campaign-faq { padding-top:40px; }
+}

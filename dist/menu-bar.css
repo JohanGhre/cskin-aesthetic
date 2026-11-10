@@ -1,0 +1,59 @@
+/* Reference: Ina's light, fine-bordered menu, with a genuinely centered brand. */
+.header,.home-page .header {
+  position:sticky; inset:auto; top:16px; left:auto; transform:none;
+  display:grid; grid-template-columns:minmax(0,1fr) 132px minmax(0,1fr); gap:24px;
+  width:calc(100% - 48px); max-width:none; height:90px; margin:16px auto 0;
+  padding:0 28px; border:1px solid #d6d2c6; border-radius:0;
+  background:var(--site-paper); color:var(--text); box-shadow:none;
+}
+.header .desktop-nav { display:flex; justify-self:start; align-items:center; gap:clamp(18px,2vw,32px); grid-column:1; grid-row:1; }
+.header .desktop-nav a,.header .desktop-nav button { font:400 var(--type-ui)/1.4 var(--ui); color:var(--text); letter-spacing:0; text-transform:none; }
+.header .desktop-nav a:hover,.header .desktop-nav button:hover { color:#80653e; }
+.header .brand { position:static; transform:none; grid-column:2; grid-row:1; justify-self:center; width:118px; }
+.header .brand img { width:118px; height:78px; object-fit:contain; }
+.header .header-actions { display:flex; grid-column:3; grid-row:1; align-items:center; justify-self:end; gap:18px; margin:0; }
+.header .mobile-toggle { display:none; }
+.header .menu-search,.header .menu-contact { display:inline-flex; align-items:center; justify-content:center; min-height:44px; font:400 var(--type-ui)/1.4 var(--ui); color:var(--text); white-space:nowrap; }
+.header .menu-search svg { display:none; }
+.header .cart-button { display:flex; gap:10px; min-height:44px; height:auto; width:auto; min-width:0; padding:0; background:transparent; color:var(--text); border:0; border-radius:0; font:400 var(--type-ui)/1.4 var(--ui); transform:none; }
+.header .cart-button:hover { background:transparent; transform:none; }
+.header .cart-button>svg { display:none; }
+.header .cart-word { display:inline; }
+.header .cart-count,.header .cart-button[data-count="0"] .cart-count { position:static; display:grid; place-items:center; min-width:30px; height:30px; padding:0 5px; border:1px solid #8b887f; border-radius:50%; font:400 var(--type-label)/1 var(--ui); background:transparent; color:var(--text); }
+.header .language-control { position:static; }
+.header .language-control select { width:48px; min-height:44px; padding:0; color:var(--text); font:400 var(--type-label)/1.4 var(--ui); }
+.header .language-control option { background:var(--site-paper); color:var(--text); }
+.header :is(button,a,select):focus-visible { outline:2px solid #80653e; outline-offset:4px; }
+html { scroll-padding-top:124px; }
+@media(max-width:1100px) {
+  .header,.home-page .header { grid-template-columns:1fr 118px 1fr; gap:12px; padding:0 22px; }
+  .header .desktop-nav { gap:18px; }
+  .header .header-actions { gap:12px; }
+  .header .menu-contact { display:none; }
+}
+@media(max-width:1000px) {
+  .header,.home-page .header { width:calc(100% - 24px); height:78px; top:8px; margin:8px auto 0; padding:0 12px; grid-template-columns:1fr 110px 1fr; gap:0; }
+  .header .desktop-nav { display:none; }
+  .header .mobile-toggle { display:inline-flex; grid-column:1; grid-row:1; justify-self:start; color:var(--text); width:44px; height:44px; min-width:44px; }
+  .header .brand,.header .brand img { width:106px; }
+  .header .brand img { height:70px; }
+  .header .header-actions { gap:5px; }
+  .header .menu-search { width:36px; min-width:36px; }
+  .header .menu-search svg { display:block; width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.6; }
+  .header .menu-search>span,.header .cart-word { display:none; }
+  .header .cart-button>svg { display:block; width:20px; height:20px; }
+  .header .cart-button { position:relative; width:36px; min-width:36px; min-height:44px; justify-content:center; }
+  .header .cart-count,.header .cart-button[data-count="0"] .cart-count { position:absolute; top:0; right:-4px; min-width:16px; height:16px; padding:0 3px; font-size:10px; border:0; background:var(--site-paper); }
+  .header .language-control { position:absolute; left:58px; }
+  .header .language-control select { width:42px; font-size:var(--type-label); }
+  html { scroll-padding-top:100px; }
+}
+@media(max-width:370px) {
+  .header,.home-page .header { width:calc(100% - 16px); padding:0 6px; grid-template-columns:1fr 92px 1fr; }
+  .header .brand,.header .brand img { width:92px; }
+  .header .brand img { height:64px; }
+  .header .language-control { left:43px; }
+  .header .language-control select { width:38px; }
+  .header .header-actions { gap:0; }
+  .header .menu-search { width:32px; min-width:32px; }
+}

@@ -1426,5 +1426,9 @@ window.CSKIN_TRANSLATIONS = {
   "au panier": {
     "en": "to bag",
     "es": "a la cesta"
+  },
+  "Rechercher": {
+    "en": "Search",
+    "es": "Buscar"
   }
 };

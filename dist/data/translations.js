@@ -1470,5 +1470,41 @@ window.CSKIN_TRANSLATIONS = {
   "05 / Vos questions": {
     "en": "05 / Your questions",
     "es": "05 / Tus preguntas"
+  },
+  "Deux soins.": {
+    "en": "Two products.",
+    "es": "Dos cuidados."
+  },
+  "Un seul rituel.": {
+    "en": "One ritual.",
+    "es": "Un solo ritual."
+  },
+  "Le bon geste au bon moment, du matin au soir.": {
+    "en": "The right step at the right time, from morning to night.",
+    "es": "El gesto adecuado en el momento adecuado, de la mañana a la noche."
+  },
+  "Day : nourrir et apporter du confort.": {
+    "en": "Day: nourish and bring comfort.",
+    "es": "Day: nutrir y aportar confort."
+  },
+  "Night : un soin au rétinol à introduire progressivement.": {
+    "en": "Night: retinol care to introduce gradually.",
+    "es": "Night: un cuidado con retinol para introducir de forma gradual."
+  },
+  "Les actifs et les conseils d’utilisation": {
+    "en": "Ingredients and how to use",
+    "es": "Activos y consejos de uso"
+  },
+  "Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis : une base commune aux deux formules.": {
+    "en": "Matrixyl 3000, liposomal isoflavones, aloe vera and witch hazel: a shared base for both formulas.",
+    "es": "Matrixyl 3000, isoflavonas liposomales, aloe vera y hamamelis: una base común a ambas fórmulas."
+  },
+  "Pour qui ?": {
+    "en": "Who is it for?",
+    "es": "¿Para quién?"
+  },
+  "Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.": {
+    "en": "For normal to dry skin looking for a structured anti-ageing routine. Choose according to your skin and its tolerance, rather than a specific age.",
+    "es": "Para pieles normales a secas que buscan una rutina antiedad estructurada. La elección depende de tu piel y de su tolerancia, no de una edad concreta."
   }
 };

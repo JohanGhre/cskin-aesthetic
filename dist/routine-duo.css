@@ -1,0 +1,58 @@
+/* A single compact duo presentation; optional reading stays behind one disclosure. */
+.campaign-cycle { padding-inline:clamp(22px,5vw,90px); }
+.routine-duo { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(40px,7vw,110px); align-items:center; max-width:1400px; margin:auto; padding:72px 0; }
+.routine-duo-visual { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:center; background:#f1f2ed; min-height:450px; padding:28px 12px 20px; }
+.routine-duo-visual>a { display:flex; min-width:0; flex-direction:column; align-items:center; gap:6px; }
+.routine-duo-moment { font:400 12px/1.6 var(--mono); letter-spacing:.04em; text-transform:uppercase; text-align:center; padding:0 8px; }
+.routine-duo-visual img { display:block; width:100%; height:350px; object-fit:contain; mix-blend-mode:multiply; }
+.routine-duo-copy { min-width:0; }
+.routine-duo-kicker { font:400 12px/1.6 var(--mono); letter-spacing:.04em; text-transform:uppercase; margin-bottom:18px; }
+.campaign-home .routine-duo h2 { font:400 clamp(34px,3.6vw,48px)/1.12 var(--ui); letter-spacing:-.02em; margin:0 0 16px; }
+.routine-duo-intro { font:400 17px/1.6 var(--ui); color:var(--text-muted); max-width:35ch; margin-bottom:24px; }
+.routine-duo-steps { margin:0 0 26px; display:grid; gap:16px; }
+.routine-duo-steps>div { display:grid; grid-template-columns:82px minmax(0,1fr); gap:16px; }
+.routine-duo-steps dt { font:400 12px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.02em; padding-top:3px; }
+.routine-duo-steps dd { margin:0; font:400 16px/1.55 var(--ui); max-width:34ch; }
+.routine-duo-price { display:flex; align-items:baseline; flex-wrap:wrap; gap:8px 12px; margin-bottom:20px; }
+.routine-duo-price strong { font:400 26px/1.2 var(--ui); letter-spacing:-.02em; }
+.routine-duo-price s { font:400 16px/1.5 var(--ui); color:var(--text-muted); }
+.routine-duo-price>span { display:block; width:100%; font:400 14px/1.5 var(--ui); color:var(--text-muted); }
+.routine-duo-actions { display:flex; align-items:center; flex-wrap:wrap; gap:16px 24px; }
+.routine-duo-actions .button { min-height:48px; min-width:190px; display:inline-flex; align-items:center; justify-content:space-between; gap:24px; padding:12px 20px; border-radius:0; font:400 15px/1.5 var(--ui); }
+.routine-duo-actions>a { display:inline-flex; align-items:center; gap:18px; min-height:44px; font:400 14px/1.5 var(--ui); }
+.routine-duo-details { margin-top:26px; }
+.routine-duo-details summary { display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:48px; cursor:pointer; list-style:none; border-top:1px solid var(--border); padding-top:12px; font:400 14px/1.6 var(--ui); }
+.routine-duo-details summary::-webkit-details-marker { display:none; }
+.routine-duo-details summary>span { font-size:22px; transition:transform .2s; }
+.routine-duo-details[open] summary>span { transform:rotate(45deg); }
+.routine-duo-details>div { padding-top:18px; }
+.routine-duo-details h3 { font:500 16px/1.4 var(--ui); margin:20px 0 8px; letter-spacing:0; }
+.routine-duo-details h3:first-child { margin-top:0; }
+.routine-duo-details p { font:400 15px/1.7 var(--mono); color:var(--text-muted); margin:0 0 12px; }
+@media(max-width:900px) {
+  .routine-duo { gap:36px; }
+  .routine-duo-visual { min-height:400px; padding:24px 6px; }
+  .routine-duo-visual img { height:300px; }
+  .routine-duo-steps>div { grid-template-columns:1fr; gap:4px; }
+}
+@media(max-width:650px) {
+  .routine-duo { grid-template-columns:minmax(0,1fr); padding:48px 0; gap:28px; }
+  .routine-duo-visual { min-height:0; padding:22px 10px 12px; }
+  .routine-duo-visual img { height:255px; }
+  .routine-duo-moment { font-size:12px; }
+  .routine-duo-kicker { font-size:12px; margin-bottom:14px; }
+  .campaign-home .routine-duo h2 { font-size:34px; }
+  .routine-duo-intro { font-size:16px; margin-bottom:20px; }
+  .routine-duo-steps { gap:14px; margin-bottom:24px; }
+  .routine-duo-steps>div { grid-template-columns:76px minmax(0,1fr); gap:12px; }
+  .routine-duo-actions { gap:10px 20px; }
+  .routine-duo-actions .button { min-width:0; flex:1; }
+  .routine-duo-details p { font-size:15px; }
+}
+@media(max-width:360px) {
+  .routine-duo-visual img { height:220px; }
+  .routine-duo-steps>div { grid-template-columns:1fr; gap:4px; }
+  .routine-duo-actions { align-items:stretch; flex-direction:column; }
+}
+@media(prefers-reduced-motion:reduce) { .routine-duo-details summary>span { transition:none; } }
+@media(max-width:650px) { .routine-duo-moment { min-height:38px; display:grid; place-items:center; } }

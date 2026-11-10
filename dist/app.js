@@ -61,22 +61,24 @@ function homeSelection() {
 }
 
 function dayNightStory() {
-  const day = findProduct('creme-anti-aging-plus-day');
-  const night = findProduct('creme-anti-aging-plus-night');
-  const duo = findProduct('duo-pack-anti-aging-day-night');
-  const saving = day.price + night.price - duo.price;
-  return `<section class="section day-night" aria-labelledby="cycle-title" data-period="day">
-    <header class="cycle-heading"><p class="section-title-small">AntiAging Plus · Day & Night</p><h2 id="cycle-title">Deux moments.<br><em>Une même attention.</em></h2><p>Le confort au réveil. Un soin ciblé le soir. Une routine pensée pour accompagner votre peau, jour après jour.</p></header>
-    <div class="cycle-presentation">
-      <div class="cycle-visual" aria-label="Les deux soins de la routine"><a class="cycle-product is-day" href="#/produit/${day.id}" aria-label="Découvrir la crème AntiAging Plus Day"><span class="cycle-product-label">Le jour <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></span><img src="${catalogPhotos[day.id]}" alt="Crème AntiAging Plus Day Cskin sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><a class="cycle-product is-night" href="#/produit/${night.id}" aria-label="Découvrir la crème AntiAging Plus Night"><span class="cycle-product-label">La nuit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.8 8.8 0 0 1 8.5 4 9 9 0 1 0 20 15.5Z"/></svg></span><img src="${catalogPhotos[night.id]}" alt="Crème AntiAging Plus Night Cskin sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a></div>
-      <div class="cycle-explanation"><div class="cycle-switch" role="group" aria-label="Découvrir les deux moments de la routine"><button data-action="cycle-period" data-id="day" aria-pressed="true" aria-controls="cycle-day">Le matin</button><button data-action="cycle-period" data-id="night" aria-pressed="false" aria-controls="cycle-night">Le soir</button></div>
-        <article class="cycle-panel" id="cycle-day"><p class="cycle-eyebrow">01 · Nourrir & accompagner</p><h3>Commencer la journée<br>avec du confort.</h3><p>La crème <strong>AntiAging Plus Day</strong> nourrit les peaux normales à sèches. Sa formule associe notamment Q10, SOD et vitamine E, des actifs antioxydants présentés par la marque.</p><p class="cycle-instruction"><strong>Votre geste du matin</strong> Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p><a class="text-link" href="#/produit/${day.id}">Découvrir le soin de jour <span aria-hidden="true">↗︎</span></a></article>
-        <article class="cycle-panel" id="cycle-night" hidden><p class="cycle-eyebrow">02 · Cibler & compléter</p><h3>Donner sa place<br>au soin du soir.</h3><p>La crème <strong>AntiAging Plus Night</strong> associe rétinol huileux à 0,3 %, peptides et céramides. Un soin ciblé sur l’apparence des rides, le grain de peau et la fermeté.</p><p class="cycle-instruction"><strong>Votre geste du soir</strong> Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p><a class="text-link" href="#/produit/${night.id}">Découvrir le soin de nuit <span aria-hidden="true">↗︎</span></a></article>
-      </div>
+  const day=findProduct('creme-anti-aging-plus-day');
+  const night=findProduct('creme-anti-aging-plus-night');
+  const duo=findProduct('duo-pack-anti-aging-day-night');
+  const saving=day.price+night.price-duo.price;
+  return `<section class="routine-duo" aria-labelledby="duo-title">
+    <div class="routine-duo-visual" aria-label="Les deux soins de la routine">${[[day,'Le matin'],[night,'Le soir']].map(([p,label],i)=>`<a href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}"><span class="routine-duo-moment">0${i+1} / ${label}</span><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a>`).join('')}</div>
+    <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · Day & Night</p><h2 id="duo-title">Deux soins.<br>Un seul rituel.</h2><p class="routine-duo-intro">Le bon geste au bon moment, du matin au soir.</p>
+      <dl class="routine-duo-steps"><div><dt>Le matin</dt><dd>Day : nourrir et apporter du confort.</dd></div><div><dt>Le soir</dt><dd>Night : un soin au rétinol à introduire progressivement.</dd></div></dl>
+      <div class="routine-duo-price"><strong>${money(duo.price)}</strong><s>${money(day.price+night.price)}</s>${saving>0?`<span>${money(saving)} de moins que les deux soins séparés</span>`:''}</div>
+      <div class="routine-duo-actions"><button class="button" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button><a href="#/produit/${duo.id}">Voir le duo <span aria-hidden="true">↗</span></a></div>
+      <details class="routine-duo-details"><summary>Les actifs et les conseils d’utilisation <span aria-hidden="true">+</span></summary><div>
+        <h3>Pourquoi les associer ?</h3><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p><p>Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis : une base commune aux deux formules.</p>
+        <h3>Votre geste du matin</h3><p>Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p>
+        <h3>Votre geste du soir</h3><p>Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p>
+        <h3>Pour qui ?</h3><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.</p>
+        <h3>Les précautions du rétinol</h3><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p>
+      </div></details>
     </div>
-    <div class="cycle-foundation"><div><p class="section-title-small">Pourquoi les associer ?</p><h3>Un fil conducteur<br><em>entre le jour et la nuit.</em></h3><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p></div><dl class="cycle-actives"><div><dt>Matrixyl 3000</dt><dd>Un complexe de peptides présent dans les deux soins, au cœur de leur approche anti-âge.</dd></div><div><dt>Isoflavones liposomales</dt><dd>Également communes aux deux formules, elles complètent leurs actifs spécifiques.</dd></div><div><dt>Aloe vera & hamamélis</dt><dd>Une base végétale partagée pour accompagner le confort de la routine.</dd></div></dl></div>
-    <div class="cycle-fit"><div><p class="section-title-small">Est-ce votre routine ?</p><h3>Quand votre peau appelle<br><em>plus d’attention.</em></h3><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée et retrouvent ces préoccupations :</p><ul><li>Des rides ou ridules plus visibles</li><li>Une sensation de perte de fermeté</li><li>Un teint qui manque d’éclat</li></ul><p class="cycle-fit-note">Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis. <a href="#/contact">Besoin d’un avis ? Parlons-en.</a></p></div><div class="cycle-guidance"><details><summary>Comment installer le rituel ? <span aria-hidden="true">+</span></summary><p>Le matin : nettoyez, appliquez le soin de jour, puis votre protection solaire. Le soir : nettoyez soigneusement et appliquez le soin de nuit à la fréquence indiquée sur sa notice. Une routine régulière se construit progressivement.</p></details><details><summary>Les précautions du rétinol <span aria-hidden="true">+</span></summary><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p></details></div></div>
-    <div class="cycle-offer"><div><p class="section-title-small">Les deux gestes réunis</p><h3>Votre duo Day & Night.</h3><p>Deux soins de 50 ml pour installer votre rituel du matin et du soir.</p></div><div class="cycle-offer-price"><p><strong>${money(duo.price)}</strong><s>${money(day.price+night.price)}</s></p>${saving>0?`<span>${money(saving)} de moins que les deux soins séparés</span>`:''}</div><div class="cycle-offer-actions"><button class="button" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button><a class="text-link" href="#/produit/${duo.id}">Voir le duo <span aria-hidden="true">↗︎</span></a></div></div>
   </section>`;
 }
 
@@ -107,14 +109,6 @@ function stepSelection(direction) {
   rail.scrollTo({left:next.offsetLeft-rail.offsetLeft,behavior:reducedMotion.matches?'instant':'smooth'});
 }
 
-function selectCyclePeriod(period) {
-  if(!['day','night'].includes(period)) return;
-  const section=$('.day-night');
-  section.dataset.period=period;
-  $$('.cycle-panel',section).forEach(panel=>panel.hidden=panel.id!==`cycle-${period}`);
-  $$('[data-action="cycle-period"]',section).forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.id===period)));
-  window.ScrollTrigger?.refresh();
-}
 
 function campaignHero(index=0) {
   const featured=[products[0],products[1],products[2]];
@@ -304,7 +298,6 @@ document.addEventListener('click',e=>{
     case 'add':addToCart(id);break;
     case 'campaign-feature': {const index=Number(id);if(index>=0&&index<3){$('.campaign-hero').outerHTML=campaignHero(index);window.CSkinI18n?.apply();$(`[data-action="campaign-feature"][data-id="${index}"]`)?.focus({preventScroll:true});}break;}
     case 'selection-step':stepSelection(Number(button.dataset.direction));break;
-    case 'cycle-period':selectCyclePeriod(id);break;
     case 'add-product':addToCart(id,quantity);renderCart();openDialog('#cart-dialog');break;
     case 'qty-minus':quantity=Math.max(1,quantity-1);$('#product-quantity').textContent=quantity;break;
     case 'qty-plus':quantity=Math.min(20,quantity+1);$('#product-quantity').textContent=quantity;break;

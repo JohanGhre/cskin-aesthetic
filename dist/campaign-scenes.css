@@ -1,16 +1,30 @@
-/* Art-directed photographs generated with ChatGPT Image, paired with quiet HTML copy.
-   Hero: floating product reference. Duo: minimal A'ADRE product-detail reference. */
-.campaign-hero.campaign-hero--scene { position:relative; display:flex; align-items:center; justify-content:flex-start; height:calc(100svh - 84px); min-height:620px; max-height:900px; padding:0; overflow:hidden; background:#d6d8d9; }
-.campaign-scene { position:absolute; inset:0; display:block; width:100%; height:100%; }
-.campaign-scene>img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
-.campaign-scene-copy { position:relative; z-index:1; width:49%; max-width:700px; padding:48px clamp(30px,5vw,90px); }
-.campaign-scene-kicker { font:400 12px/1.6 var(--mono); letter-spacing:.1em; text-transform:uppercase; margin:0 0 22px; }
-.campaign-home .campaign-scene-copy h1 { font:400 clamp(42px,4.6vw,66px)/1.06 var(--ui); letter-spacing:-.035em; text-transform:none; margin:0 0 24px; }
-.campaign-scene-copy>p:not(.campaign-scene-kicker) { font:400 18px/1.6 var(--ui); max-width:30ch; margin:0 0 30px; color:#333831; }
-.campaign-scene-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px; }
-.campaign-scene-actions .button { display:inline-flex; justify-content:space-between; align-items:center; gap:24px; min-height:48px; padding:12px 20px; border-radius:0; background:#171917; color:#fafaf8; font:400 15px/1.5 var(--ui); white-space:nowrap; }
-.campaign-scene-actions .campaign-link { border-bottom:0; font-size:14px; gap:12px; padding:6px 0; }
-/* A large, coherent still life replaces the two catalogue cutouts. */
+/* Reference: Typology homepage, 10 November 2026. Image-led campaign,
+   restrained uppercase copy and one product link; Cskin's own Higgsfield film. */
+.campaign-hero.campaign-hero--film { position:relative; display:flex; align-items:center; justify-content:flex-start; padding:0; height:calc(100svh - 84px); min-height:600px; max-height:980px; overflow:hidden; background:#cbd0ce; }
+.campaign-film-media,.campaign-film-media picture,.campaign-film-media img,.campaign-film-media video { position:absolute; inset:0; display:block; width:100%; height:100%; }
+.campaign-film-media img,.campaign-film-media video { object-fit:cover; object-position:center; }
+.campaign-film-media video { opacity:0; }
+.campaign-film-media video[data-ready="true"] { opacity:1; }
+.campaign-film-copy { position:relative; z-index:1; padding:30px clamp(28px,3vw,56px); max-width:48%; }
+.campaign-film-kicker { margin:0 0 14px; font:400 11px/1.5 var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+.campaign-home .campaign-film-copy h1 { margin:0 0 14px; font:400 clamp(26px,2.2vw,34px)/1.15 var(--ui); letter-spacing:0; text-transform:uppercase; }
+.campaign-film-copy>p:not(.campaign-film-kicker) { margin:0 0 22px; font:400 16px/1.6 var(--ui); }
+.campaign-film-copy .campaign-link { font:400 14px/1.4 var(--ui); gap:22px; min-height:44px; padding:5px 0; }
+.campaign-film-toggle { position:absolute; z-index:2; right:24px; bottom:24px; display:grid; place-items:center; width:44px; height:44px; border:1px solid #4e565459; border-radius:50%; background:#fafaf82b; color:#171917; }
+.campaign-film-toggle[hidden] { display:none; }
+.campaign-film-toggle svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.5; }
+.campaign-film-toggle .film-play,.campaign-film-toggle[aria-pressed="true"] .film-pause { display:none; }
+.campaign-film-toggle[aria-pressed="true"] .film-play { display:block; }
+@media(max-width:782px) {
+  .campaign-hero.campaign-hero--film { height:calc(100svh - 78px); min-height:620px; max-height:1000px; align-items:flex-start; }
+  .campaign-film-media img,.campaign-film-media video { object-fit:cover; }
+  .campaign-film-copy { padding:36px 24px 0; max-width:100%; }
+  .campaign-film-kicker { font-size:10px; margin-bottom:10px; }
+  .campaign-home .campaign-film-copy h1 { font-size:26px; margin-bottom:10px; }
+  .campaign-film-copy>p:not(.campaign-film-kicker) { font-size:15px; margin-bottom:12px; }
+  .campaign-film-toggle { right:18px; bottom:18px; }
+}
+@media(prefers-reduced-motion:reduce) { .campaign-film-toggle { display:none; } }
 .routine-duo { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(40px,7vw,110px); align-items:center; padding:72px 0; }
 .routine-duo-visual { display:block; aspect-ratio:1; min-height:0; height:auto; padding:0; background:transparent; overflow:hidden; border-radius:6px; }
 .routine-duo-visual img { display:block; width:100%; height:auto; object-fit:contain; mix-blend-mode:normal; border-radius:6px; }
@@ -27,22 +41,6 @@
 .routine-duo-details h3 { font-size:16px; }
 .routine-duo-details p { font-size:14px; }
 .routine-duo-product-links a { text-decoration:underline; text-underline-offset:3px; }
-@media(max-width:1000px) and (min-width:761px) {
-  .campaign-scene-copy { width:52%; padding-inline:30px; }
-  .campaign-home .campaign-scene-copy h1 { font-size:44px; }
-  .campaign-scene-copy>p:not(.campaign-scene-kicker) { font-size:17px; }
-}
-@media(max-width:760px) {
-  .campaign-hero.campaign-hero--scene { align-items:flex-start; min-height:680px; max-height:900px; height:calc(100svh - 78px); }
-  .campaign-scene>img { object-fit:cover; object-position:center; }
-  .campaign-scene-copy { width:100%; max-width:none; padding:26px 22px 0; }
-  .campaign-scene-kicker { font-size:11px; margin-bottom:12px; }
-  .campaign-home .campaign-scene-copy h1 { font-size:clamp(30px,8vw,38px); line-height:1.08; margin-bottom:14px; }
-  .campaign-scene-copy>p:not(.campaign-scene-kicker) { max-width:34ch; font-size:16px; line-height:1.5; margin-bottom:18px; }
-  .campaign-scene-actions { gap:8px 18px; }
-  .campaign-scene-actions .button { padding:10px 14px; gap:18px; min-height:46px; font-size:14px; }
-  .campaign-scene-actions .campaign-link { font-size:13px; gap:8px; }
-}
 @media(max-width:650px) {
   .routine-duo { grid-template-columns:minmax(0,1fr); padding:48px 0; gap:28px; }
   .routine-duo-visual { width:100%; aspect-ratio:1; min-height:0; padding:0; }
@@ -53,13 +51,4 @@
   .routine-duo-intro { font-size:16px; margin:18px 0 22px; }
   .routine-duo-details { margin-top:22px; }
   .routine-duo-actions { display:block; }
-}
-@media(max-width:360px) {
-  .campaign-hero.campaign-hero--scene { min-height:680px; }
-  .campaign-home .campaign-scene-copy h1 { font-size:30px; }
-  .campaign-scene-copy { padding-inline:18px; }
-  .campaign-scene-copy>p:not(.campaign-scene-kicker) { font-size:15px; }
-  .campaign-scene-actions { gap:4px 12px; }
-  .campaign-scene-actions .button { gap:10px; font-size:13px; padding-inline:12px; }
-  .campaign-scene-actions .campaign-link { font-size:12px; }
 }

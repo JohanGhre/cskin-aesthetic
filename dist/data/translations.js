@@ -1534,5 +1534,7 @@ window.CSKIN_TRANSLATIONS = {
   "Composition des soins AntiAging Plus Day et Night Cskin avec une texture de crème": {
     "en": "Composition of Cskin AntiAging Plus Day and Night products with a cream texture",
     "es": "Composición de los cuidados AntiAging Plus Day y Night Cskin con una textura de crema"
-  }
+  },
+  "Le geste précieux de votre routine.": {"en":"A precious step in your routine.","es":"Un gesto precioso en tu rutina."},
+  "Reprendre la vidéo": {"en":"Play video","es":"Reanudar el vídeo"}
 };

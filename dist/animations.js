@@ -17,6 +17,8 @@ window.CSkinMotion = (() => {
     let reduced = motionPreference.matches;
     const saveData = navigator.connection?.saveData === true;
     let visible = false, disposed = false;
+    let userPaused = paused;
+    const toggle = root.querySelector('.campaign-film-toggle');
     const screenPreference = matchMedia('(max-width: 782px)');
     const load = () => {
       const mobile = screenPreference.matches;
@@ -28,7 +30,13 @@ window.CSkinMotion = (() => {
     };
     const update = () => {
       if (disposed) return;
-      const allowed = !reduced && !paused && !saveData;
+      const allowed = !reduced && !userPaused && !saveData;
+      if (toggle) {
+        toggle.hidden = reduced || saveData;
+        toggle.setAttribute('aria-pressed', String(userPaused));
+        const label = userPaused ? 'Reprendre la vidéo' : 'Mettre en pause';
+        toggle.setAttribute('aria-label', window.CSkinI18n?.translate(label) || label);
+      }
       if (allowed && visible && !document.hidden) {
         load();
         video.play().catch(() => {});
@@ -39,6 +47,12 @@ window.CSkinMotion = (() => {
       update();
     }, { threshold: 0.15 });
     video.muted = true;
+    const onPlaying = () => { video.dataset.ready = 'true'; };
+    const onError = () => { video.dataset.ready = 'false'; if (toggle) toggle.hidden = true; };
+    const onToggle = () => { userPaused = !userPaused; update(); };
+    video.addEventListener('playing', onPlaying);
+    video.addEventListener('error', onError);
+    toggle?.addEventListener('click', onToggle);
     // The landing background is critical media; load it immediately unless motion/data preferences prevent it.
     if (video.dataset.priority === 'hero' && !reduced && !paused && !saveData && !document.hidden) load();
     observer.observe(video);
@@ -52,6 +66,9 @@ window.CSkinMotion = (() => {
       document.removeEventListener('visibilitychange', update);
       screenPreference.removeEventListener?.('change', update);
       motionPreference.removeEventListener?.('change', onMotionChange);
+      video.removeEventListener('playing', onPlaying);
+      video.removeEventListener('error', onError);
+      toggle?.removeEventListener('click', onToggle);
       video.pause();
     };
   }

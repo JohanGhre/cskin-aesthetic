@@ -65,7 +65,7 @@ function dayNightStory() {
   const night=findProduct('creme-anti-aging-plus-night');
   const duo=findProduct('duo-pack-anti-aging-day-night');
   return `<section class="routine-duo" aria-labelledby="duo-title">
-    <a class="routine-duo-visual" href="#/produit/${duo.id}" aria-label="Voir le duo"><img src="assets/campaign/day-night-still-life.jpg" alt="Composition des soins AntiAging Plus Day et Night Cskin avec une texture de crème" width="1254" height="1254" loading="lazy" decoding="async"></a>
+    <a class="routine-duo-visual" href="#/produit/${duo.id}" aria-label="Voir le duo"><img src="assets/campaign/day-night-hands.jpg" alt="Mains présentant les soins AntiAging Plus Day et Night Cskin" width="1254" height="1254" loading="lazy" decoding="async"></a>
     <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · 2 × 50 ml</p><div class="routine-duo-title-row"><h2 id="duo-title">Jour & nuit.</h2><span class="routine-duo-amount">${money(duo.price)}</span></div><p class="routine-duo-intro">Deux soins complémentaires pour le matin et le soir.</p>
       <div class="routine-duo-actions"><button class="button" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button></div>
       <details class="routine-duo-details"><summary>Détails du rituel <span aria-hidden="true">+</span></summary><div>

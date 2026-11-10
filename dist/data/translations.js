@@ -1531,9 +1531,9 @@ window.CSKIN_TRANSLATIONS = {
     "en": "Ritual details",
     "es": "Detalles del ritual"
   },
-  "Composition des soins AntiAging Plus Day et Night Cskin avec une texture de crème": {
-    "en": "Composition of Cskin AntiAging Plus Day and Night products with a cream texture",
-    "es": "Composición de los cuidados AntiAging Plus Day y Night Cskin con una textura de crema"
+  "Mains présentant les soins AntiAging Plus Day et Night Cskin": {
+    "en": "Hands presenting Cskin AntiAging Plus Day and Night products",
+    "es": "Manos presentando los cuidados AntiAging Plus Day y Night Cskin"
   },
   "Le geste précieux de votre routine.": {"en":"A precious step in your routine.","es":"Un gesto precioso en tu rutina."},
   "Reprendre la vidéo": {"en":"Play video","es":"Reanudar el vídeo"}

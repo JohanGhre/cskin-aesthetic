@@ -64,15 +64,12 @@ function dayNightStory() {
   const day=findProduct('creme-anti-aging-plus-day');
   const night=findProduct('creme-anti-aging-plus-night');
   const duo=findProduct('duo-pack-anti-aging-day-night');
-  const saving=day.price+night.price-duo.price;
   return `<section class="routine-duo" aria-labelledby="duo-title">
-    <div class="routine-duo-visual" aria-label="Les deux soins de la routine">${[[day,'Le matin'],[night,'Le soir']].map(([p,label],i)=>`<a href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}"><span class="routine-duo-moment">0${i+1} / ${label}</span><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a>`).join('')}</div>
-    <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · Day & Night</p><h2 id="duo-title">Deux soins.<br>Un seul rituel.</h2><p class="routine-duo-intro">Le bon geste au bon moment, du matin au soir.</p>
-      <dl class="routine-duo-steps"><div><dt>Le matin</dt><dd>Day : nourrir et apporter du confort.</dd></div><div><dt>Le soir</dt><dd>Night : un soin au rétinol à introduire progressivement.</dd></div></dl>
-      <div class="routine-duo-price"><strong>${money(duo.price)}</strong><s>${money(day.price+night.price)}</s>${saving>0?`<span>${money(saving)} de moins que les deux soins séparés</span>`:''}</div>
-      <div class="routine-duo-actions"><button class="button" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button><a href="#/produit/${duo.id}">Voir le duo <span aria-hidden="true">↗</span></a></div>
-      <details class="routine-duo-details"><summary>Les actifs et les conseils d’utilisation <span aria-hidden="true">+</span></summary><div>
-        <h3>Pourquoi les associer ?</h3><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p><p>Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis : une base commune aux deux formules.</p>
+    <a class="routine-duo-visual" href="#/produit/${duo.id}" aria-label="Voir le duo"><img src="assets/campaign/day-night-still-life.jpg" alt="Composition des soins AntiAging Plus Day et Night Cskin avec une texture de crème" width="1254" height="1254" loading="lazy" decoding="async"></a>
+    <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · 2 × 50 ml</p><div class="routine-duo-title-row"><h2 id="duo-title">Jour & nuit.</h2><span class="routine-duo-amount">${money(duo.price)}</span></div><p class="routine-duo-intro">Deux soins complémentaires pour le matin et le soir.</p>
+      <div class="routine-duo-actions"><button class="button" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button></div>
+      <details class="routine-duo-details"><summary>Détails du rituel <span aria-hidden="true">+</span></summary><div>
+        <p class="routine-duo-product-links"><a href="#/produit/${day.id}">AntiAging Plus Day</a> · <a href="#/produit/${night.id}">AntiAging Plus Night</a></p><h3>Pourquoi les associer ?</h3><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p><p>Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis : une base commune aux deux formules.</p>
         <h3>Votre geste du matin</h3><p>Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p>
         <h3>Votre geste du soir</h3><p>Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p>
         <h3>Pour qui ?</h3><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.</p>
@@ -110,11 +107,10 @@ function stepSelection(direction) {
 }
 
 
-function campaignHero(index=0) {
-  const featured=[products[0],products[1],products[2]];
-  const p=featured[index];
-  return `<section class="campaign-hero" aria-labelledby="campaign-title"><div class="campaign-image"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)}" width="1024" height="1536" fetchpriority="high" decoding="async"></div><div class="campaign-caption"><h1 id="campaign-title">${esc(p.title)}</h1><p class="campaign-benefit">${esc(p.subtitle)}</p><a class="campaign-link" href="#/produit/${p.id}">Découvrir ce soin <span aria-hidden="true">↗</span></a></div><div class="campaign-switch" role="group" aria-label="Trois soins essentiels">${featured.map((item,i)=>`<button data-action="campaign-feature" data-id="${i}" aria-pressed="${index===i}" aria-label="Découvrir ${esc(item.title)}">0${i+1}</button>`).join('')}</div></section>`;
+function campaignHero() {
+  return `<section class="campaign-hero campaign-hero--scene" aria-labelledby="campaign-title"><picture class="campaign-scene"><source media="(max-width: 760px)" srcset="assets/campaign/hero-floating-mobile.jpg"><img src="assets/campaign/hero-floating-desktop.jpg" alt="Sérum Age Plus Cskin en suspension dans une scène de studio gris clair" width="1672" height="941" fetchpriority="high" decoding="async"></picture><div class="campaign-scene-copy"><p class="campaign-scene-kicker">Cskin Aesthetic</p><h1 id="campaign-title">La science.<br>Le sens du soin.</h1><p>Des soins ciblés, pensés pour votre quotidien.</p><div class="campaign-scene-actions"><a class="button" href="#/soins">Découvrir les soins <span aria-hidden="true">↗</span></a><button class="campaign-link" data-action="quiz">Trouver ma routine <span aria-hidden="true">↗</span></button></div></div></section>`;
 }
+
 function home() {
   const featured=[products[2],products[0],products[1],products[4]];
   return `<div class="campaign-home">${campaignHero()}
@@ -296,7 +292,6 @@ document.addEventListener('click',e=>{
     case 'cart':renderCart();openDialog('#cart-dialog');break;
     case 'close':closeDialogs();break;
     case 'add':addToCart(id);break;
-    case 'campaign-feature': {const index=Number(id);if(index>=0&&index<3){$('.campaign-hero').outerHTML=campaignHero(index);window.CSkinI18n?.apply();$(`[data-action="campaign-feature"][data-id="${index}"]`)?.focus({preventScroll:true});}break;}
     case 'selection-step':stepSelection(Number(button.dataset.direction));break;
     case 'add-product':addToCart(id,quantity);renderCart();openDialog('#cart-dialog');break;
     case 'qty-minus':quantity=Math.max(1,quantity-1);$('#product-quantity').textContent=quantity;break;

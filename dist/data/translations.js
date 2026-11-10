@@ -1506,5 +1506,33 @@ window.CSKIN_TRANSLATIONS = {
   "Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.": {
     "en": "For normal to dry skin looking for a structured anti-ageing routine. Choose according to your skin and its tolerance, rather than a specific age.",
     "es": "Para pieles normales a secas que buscan una rutina antiedad estructurada. La elección depende de tu piel y de su tolerancia, no de una edad concreta."
+  },
+  "La science.": {
+    "en": "Science.",
+    "es": "Ciencia."
+  },
+  "Des soins ciblés, pensés pour votre quotidien.": {
+    "en": "Targeted skincare, made for your everyday.",
+    "es": "Cuidados específicos, pensados para tu día a día."
+  },
+  "Sérum Age Plus Cskin en suspension dans une scène de studio gris clair": {
+    "en": "Cskin Age Plus Serum floating in a pale grey studio scene",
+    "es": "Sérum Age Plus Cskin en suspensión en una escena de estudio gris claro"
+  },
+  "Jour & nuit.": {
+    "en": "Day & night.",
+    "es": "Día y noche."
+  },
+  "Deux soins complémentaires pour le matin et le soir.": {
+    "en": "Two complementary products for morning and evening.",
+    "es": "Dos cuidados complementarios para la mañana y la noche."
+  },
+  "Détails du rituel": {
+    "en": "Ritual details",
+    "es": "Detalles del ritual"
+  },
+  "Composition des soins AntiAging Plus Day et Night Cskin avec une texture de crème": {
+    "en": "Composition of Cskin AntiAging Plus Day and Night products with a cream texture",
+    "es": "Composición de los cuidados AntiAging Plus Day y Night Cskin con una textura de crema"
   }
 };

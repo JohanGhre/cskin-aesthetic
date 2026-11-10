@@ -1,0 +1,65 @@
+/* Art-directed photographs generated with ChatGPT Image, paired with quiet HTML copy.
+   Hero: floating product reference. Duo: minimal A'ADRE product-detail reference. */
+.campaign-hero.campaign-hero--scene { position:relative; display:flex; align-items:center; justify-content:flex-start; height:calc(100svh - 84px); min-height:620px; max-height:900px; padding:0; overflow:hidden; background:#d6d8d9; }
+.campaign-scene { position:absolute; inset:0; display:block; width:100%; height:100%; }
+.campaign-scene>img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+.campaign-scene-copy { position:relative; z-index:1; width:49%; max-width:700px; padding:48px clamp(30px,5vw,90px); }
+.campaign-scene-kicker { font:400 12px/1.6 var(--mono); letter-spacing:.1em; text-transform:uppercase; margin:0 0 22px; }
+.campaign-home .campaign-scene-copy h1 { font:400 clamp(42px,4.6vw,66px)/1.06 var(--ui); letter-spacing:-.035em; text-transform:none; margin:0 0 24px; }
+.campaign-scene-copy>p:not(.campaign-scene-kicker) { font:400 18px/1.6 var(--ui); max-width:30ch; margin:0 0 30px; color:#333831; }
+.campaign-scene-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px; }
+.campaign-scene-actions .button { display:inline-flex; justify-content:space-between; align-items:center; gap:24px; min-height:48px; padding:12px 20px; border-radius:0; background:#171917; color:#fafaf8; font:400 15px/1.5 var(--ui); white-space:nowrap; }
+.campaign-scene-actions .campaign-link { border-bottom:0; font-size:14px; gap:12px; padding:6px 0; }
+/* A large, coherent still life replaces the two catalogue cutouts. */
+.routine-duo { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(40px,7vw,110px); align-items:center; padding:72px 0; }
+.routine-duo-visual { display:block; aspect-ratio:1; min-height:0; height:auto; padding:0; background:transparent; overflow:hidden; border-radius:6px; }
+.routine-duo-visual img { display:block; width:100%; height:auto; object-fit:contain; mix-blend-mode:normal; border-radius:6px; }
+.routine-duo-copy { max-width:470px; }
+.routine-duo-kicker { margin-bottom:14px; font:400 12px/1.6 var(--mono); letter-spacing:.04em; }
+.routine-duo-title-row { display:flex; align-items:baseline; justify-content:space-between; gap:20px; }
+.campaign-home .routine-duo h2 { font:400 clamp(28px,3vw,36px)/1.15 var(--ui); letter-spacing:-.02em; margin:0; }
+.routine-duo-amount { font:400 20px/1.4 var(--ui); white-space:nowrap; }
+.routine-duo-intro { font:400 17px/1.6 var(--ui); max-width:34ch; margin:24px 0; color:var(--text-muted); }
+.routine-duo-actions { display:block; }
+.routine-duo-actions .button { width:100%; min-width:0; min-height:48px; font-size:14px; }
+.routine-duo-details { margin-top:28px; }
+.routine-duo-details summary { font-size:14px; min-height:48px; }
+.routine-duo-details h3 { font-size:16px; }
+.routine-duo-details p { font-size:14px; }
+.routine-duo-product-links a { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:1000px) and (min-width:761px) {
+  .campaign-scene-copy { width:52%; padding-inline:30px; }
+  .campaign-home .campaign-scene-copy h1 { font-size:44px; }
+  .campaign-scene-copy>p:not(.campaign-scene-kicker) { font-size:17px; }
+}
+@media(max-width:760px) {
+  .campaign-hero.campaign-hero--scene { align-items:flex-start; min-height:680px; max-height:900px; height:calc(100svh - 78px); }
+  .campaign-scene>img { object-fit:cover; object-position:center; }
+  .campaign-scene-copy { width:100%; max-width:none; padding:26px 22px 0; }
+  .campaign-scene-kicker { font-size:11px; margin-bottom:12px; }
+  .campaign-home .campaign-scene-copy h1 { font-size:clamp(30px,8vw,38px); line-height:1.08; margin-bottom:14px; }
+  .campaign-scene-copy>p:not(.campaign-scene-kicker) { max-width:34ch; font-size:16px; line-height:1.5; margin-bottom:18px; }
+  .campaign-scene-actions { gap:8px 18px; }
+  .campaign-scene-actions .button { padding:10px 14px; gap:18px; min-height:46px; font-size:14px; }
+  .campaign-scene-actions .campaign-link { font-size:13px; gap:8px; }
+}
+@media(max-width:650px) {
+  .routine-duo { grid-template-columns:minmax(0,1fr); padding:48px 0; gap:28px; }
+  .routine-duo-visual { width:100%; aspect-ratio:1; min-height:0; padding:0; }
+  .routine-duo-visual img { height:auto; width:100%; }
+  .routine-duo-copy { width:100%; max-width:none; }
+  .routine-duo-kicker { font-size:12px; }
+  .campaign-home .routine-duo h2 { font-size:30px; }
+  .routine-duo-intro { font-size:16px; margin:18px 0 22px; }
+  .routine-duo-details { margin-top:22px; }
+  .routine-duo-actions { display:block; }
+}
+@media(max-width:360px) {
+  .campaign-hero.campaign-hero--scene { min-height:680px; }
+  .campaign-home .campaign-scene-copy h1 { font-size:30px; }
+  .campaign-scene-copy { padding-inline:18px; }
+  .campaign-scene-copy>p:not(.campaign-scene-kicker) { font-size:15px; }
+  .campaign-scene-actions { gap:4px 12px; }
+  .campaign-scene-actions .button { gap:10px; font-size:13px; padding-inline:12px; }
+  .campaign-scene-actions .campaign-link { font-size:12px; }
+}

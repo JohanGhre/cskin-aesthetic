@@ -26,7 +26,7 @@ body.home-page { background:#fafaf8; }
 .campaign-manifesto a span { margin-left:18px; }
 .campaign-essentials { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr); gap:clamp(40px,8vw,150px); padding:80px clamp(24px,5vw,90px) 100px; }
 .campaign-section-intro { align-self:start; position:sticky; top:130px; }
-.campaign-section-intro h2 { font-size:clamp(54px,7.5vw,108px); line-height:.98; text-transform:uppercase; overflow-wrap:anywhere; margin:0 0 32px; }
+.campaign-section-intro h2 { font-size:clamp(40px,4.5vw,72px); line-height:1; text-transform:uppercase; overflow-wrap:normal; margin:0 0 32px; }
 .campaign-section-intro>p:not(.campaign-eyebrow) { max-width:31ch; font-size:18px; line-height:1.6; margin-bottom:24px; }
 .campaign-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px 18px; }
 .campaign-product-photo { display:block; position:relative; overflow:hidden; background:#f1f2ed; }

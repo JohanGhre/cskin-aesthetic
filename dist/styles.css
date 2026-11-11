@@ -2189,3 +2189,36 @@ svg {
 
 .ritual { overflow:clip; }
 .ritual-copy { position:relative; }
+
+/* Draw the diagonal arrow without relying on the phone's emoji font. */
+span.ui-arrow {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  width: .75rem;
+  height: .75rem;
+  margin-inline-start: .18em;
+  vertical-align: .02em;
+}
+
+.ui-arrow::before {
+  content: '';
+  position: absolute;
+  width: 125%;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background: currentColor;
+  transform: rotate(-45deg);
+  transform-origin: left center;
+}
+
+.ui-arrow::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 58%;
+  height: 58%;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}

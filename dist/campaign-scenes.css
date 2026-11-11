@@ -15,15 +15,55 @@
 .campaign-film-toggle svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.5; }
 .campaign-film-toggle .film-play,.campaign-film-toggle[aria-pressed="true"] .film-pause { display:none; }
 .campaign-film-toggle[aria-pressed="true"] .film-play { display:block; }
-@media(max-width:782px) {
-  .campaign-hero.campaign-hero--film { height:calc(100svh - 78px); min-height:620px; max-height:1000px; align-items:flex-start; }
-  .campaign-film-media img,.campaign-film-media video { object-fit:cover; }
-  .campaign-film-copy { padding:36px 24px 0; max-width:100%; }
-  .campaign-film-kicker { font-size:10px; margin-bottom:10px; }
-  .campaign-home .campaign-film-copy h1 { font-size:26px; margin-bottom:10px; }
-  .campaign-film-copy>p:not(.campaign-film-kicker) { font-size:15px; margin-bottom:12px; }
-  .campaign-film-toggle { right:18px; bottom:18px; }
+@media (max-width: 782px) {
+  .campaign-hero.campaign-hero--film {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: clamp(230px, 84vw, 410px) auto;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    background: var(--campaign-paper);
+  }
+
+  .campaign-film-media {
+    position: relative;
+    grid-area: 1 / 1;
+    align-self: stretch;
+    overflow: hidden;
+    background: #cbd0ce;
+  }
+
+  .campaign-film-copy {
+    grid-area: 2 / 1;
+    justify-self: stretch;
+    max-width: none;
+    padding: 22px clamp(16px, 5vw, 32px) 24px;
+  }
+
+  .campaign-film-kicker { font-size: 11px; margin-bottom: 8px; }
+  .campaign-home .campaign-film-copy h1 {
+    font-size: clamp(26px, 7vw, 36px);
+    margin-bottom: 8px;
+    text-wrap: balance;
+  }
+  .campaign-film-copy > p:not(.campaign-film-kicker) {
+    font-size: 16px;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  .campaign-film-toggle {
+    position: relative;
+    grid-area: 1 / 1;
+    justify-self: end;
+    align-self: end;
+    inset: auto;
+    margin: 12px;
+    background: #fafaf8d9;
+  }
 }
+
 @media(prefers-reduced-motion:reduce) { .campaign-film-toggle { display:none; } }
 .routine-duo { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(40px,7vw,110px); align-items:center; padding:72px 0; }
 .routine-duo-visual { display:block; aspect-ratio:1; min-height:0; height:auto; padding:0; background:transparent; overflow:hidden; border-radius:6px; }

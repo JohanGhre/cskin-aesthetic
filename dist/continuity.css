@@ -58,3 +58,90 @@
   .campaign-founder--personal blockquote { font-size:26px; }
   .campaign-home .campaign-faq { padding-top:40px; }
 }
+
+@media (max-width: 782px) {
+  .campaign-home { --mobile-gutter: clamp(16px, 5vw, 32px); }
+
+  .campaign-essentials {
+    padding: 32px var(--mobile-gutter) 46px;
+    gap: 20px;
+  }
+
+  .campaign-eyebrow { margin-bottom: 10px; font-size: 12px; }
+  .campaign-section-intro h2 {
+    margin-bottom: 12px;
+    font-size: clamp(28px, 8vw, 46px);
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+
+  .campaign-section-intro > p:not(.campaign-eyebrow),
+  .campaign-editorial-copy > p:not(.campaign-eyebrow),
+  .routine-duo-details p {
+    font: 400 16px/1.55 var(--ui);
+    letter-spacing: 0;
+    margin-bottom: 10px;
+  }
+
+  .campaign-grid { gap: 20px 12px; }
+  .campaign-product { display: flex; flex-direction: column; min-width: 0; }
+  .campaign-product-category {
+    position: static;
+    display: block;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 10px;
+  }
+  .campaign-product-photo img {
+    display: block;
+    width: 100%;
+    height: clamp(130px, 44vw, 250px);
+  }
+  .campaign-product-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 8px;
+  }
+  .campaign-product-info h3 { font-size: clamp(15px, 4vw, 18px); }
+  .campaign-product-info > p { font-size: 13px; margin: 5px 0 6px; }
+  .campaign-product-info > div { margin-top: auto; gap: 0 8px; }
+  .campaign-product-info button { gap: 5px; font-size: 13px; }
+
+  .campaign-home .campaign-editorial {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding-inline: var(--mobile-gutter);
+    gap: 0;
+  }
+  .campaign-portrait { min-height: 0; height: clamp(220px, 68vw, 380px); }
+  .campaign-home .campaign-editorial-copy { padding: 12px 0 28px; }
+  .campaign-editorial-copy h2 {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+
+  .campaign-cycle { padding-inline: var(--mobile-gutter); }
+  .campaign-home .routine-duo--study {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 18px 38px;
+    gap: 8px;
+  }
+  .campaign-home .routine-duo--study h2 { margin-bottom: 16px; }
+  .routine-duo-facts > div {
+    grid-template-columns: minmax(72px, 26%) minmax(0, 1fr);
+    padding-block: 12px;
+  }
+  .routine-duo-facts dd { font-size: 15px; line-height: 1.45; }
+  .routine-duo-purchase { padding-top: 12px; gap: 12px; }
+  .routine-duo--study .routine-duo-details { margin-top: 8px; }
+  .routine-duo--study .routine-duo-visual {
+    width: min(100%, 275px);
+    min-height: 0;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .routine-duo--study .routine-duo-visual img { height: auto; }
+  .campaign-home .campaign-faq { padding-inline: var(--mobile-gutter); }
+}

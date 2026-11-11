@@ -319,3 +319,22 @@
   .contact-page { gap: 40px; padding-block: 36px 72px; }
   .policy-page { padding-block: 36px 72px; }
 }
+
+/* A two-column product edit inspired by the reference, adapted for touch. */
+@media (max-width: 600px) {
+  .campaign-grid {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 16px;
+    overflow: visible;
+    padding: 4px var(--mobile-gutter) 0;
+    scroll-snap-type: none;
+  }
+  .campaign-product-photo img { height: clamp(155px, 49vw, 240px); }
+  .campaign-product-info h3 { font-size: clamp(15px, 4vw, 18px); line-height: 1.35; }
+  .campaign-product-info > p { font-size: 14px; }
+  .campaign-product-info > div { flex-direction: column; align-items: stretch; gap: 12px; }
+  .campaign-product-info > div > span { min-height: 22px; }
+  .campaign-product-info button { width: 100%; justify-content: space-between; padding-inline: 12px; }
+}

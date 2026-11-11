@@ -84,8 +84,8 @@ function dayNightStory() {
         <h3>Pour qui ?</h3><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.</p>
         <h3>Les précautions du rétinol</h3><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p>
       </div></details>
+      <a class="campaign-link routine-duo-link" href="#/produit/${duo.id}">Voir le duo <span class="ui-arrow" aria-hidden="true"></span></a>
     </div>
-    <a class="routine-duo-visual" href="#/produit/${duo.id}" aria-label="Voir le duo"><img src="assets/campaign/single-product-hands-cutout.png" alt="Mains présentant un flacon AntiAging Plus Day Cskin" width="1000" height="1000" loading="lazy" decoding="async"></a>
   </section>`;
 }
 
@@ -121,7 +121,9 @@ function campaignHero() {
   return `<section class="campaign-hero campaign-hero--film" aria-labelledby="campaign-title"><div class="campaign-film-media" aria-hidden="true"><picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-higgsfield-mobile.jpg"><img src="assets/campaign/hero-higgsfield-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture><video id="serum-film" muted loop playsinline preload="none" data-priority="hero" data-desktop-src="assets/campaign/hero-higgsfield-desktop.mp4" data-mobile-src="assets/campaign/hero-higgsfield-mobile.mp4" disablepictureinpicture disableremoteplayback></video></div><div class="campaign-film-copy"><div class="campaign-film-heading"><p class="campaign-film-kicker">Hydratation · Souplesse</p><h1 id="campaign-title">Sérum Age Plus</h1><p>Le geste précieux de votre routine.</p></div><a class="campaign-link" href="#/produit/serum-age-plus-1">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div><button class="campaign-film-toggle" type="button" aria-label="Mettre en pause" aria-pressed="false"><svg class="film-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg><svg class="film-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6Z"/></svg></button></section>`;
 }
 
-const campaignPortrait = 'assets/editorial/cskin-silk-portrait.webp';
+const campaignPortrait = 'assets/editorial/cskin-silk-portrait-cutout.webp';
+
+const comparisonPortrait = 'assets/editorial/cskin-comparison-cutout.webp';
 
 function portraitComparison() {
   return `<section class="campaign-comparison" aria-labelledby="comparison-title">
@@ -131,8 +133,8 @@ function portraitComparison() {
       <p class="comparison-caption">Simulation d’éclairage. Aucun résultat de soin n’est représenté.</p>
     </div>
     <div class="comparison-stage">
-      <img src="${campaignPortrait}" alt="" width="900" height="1207" loading="lazy" decoding="async">
-      <img class="comparison-original" src="${campaignPortrait}" alt="" width="900" height="1207" loading="lazy" decoding="async">
+      <img src="${comparisonPortrait}" alt="" width="900" height="1207" loading="lazy" decoding="async">
+      <img class="comparison-original" src="${comparisonPortrait}" alt="" width="900" height="1207" loading="lazy" decoding="async">
       <span class="comparison-label comparison-label-before" aria-hidden="true">Avant</span>
       <span class="comparison-label comparison-label-after" aria-hidden="true">Après</span>
       <input class="comparison-range" type="range" min="0" max="100" value="50"

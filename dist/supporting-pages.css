@@ -405,7 +405,7 @@
 /* Omni 1.2 editorial hero video presentation */
 .campaign-hero--omni,
 .campaign-hero--omni .campaign-film-media {
-  background: #dfd6c9;
+  background: #d7dbdb;
 }
 .campaign-hero--omni .campaign-film-copy {
   max-width: min(38%, 460px);
@@ -416,7 +416,7 @@
     background: var(--campaign-paper);
   }
   .campaign-hero--omni .campaign-film-media {
-    background: #dfd6c9;
+    background: #d7dbdb;
   }
   .campaign-hero--omni .campaign-film-media video {
     object-position: 55% 50%;

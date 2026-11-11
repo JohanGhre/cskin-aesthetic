@@ -13,7 +13,7 @@
 .campaign-section-intro h2 { font-weight:400; font-size:clamp(40px,4.4vw,66px); letter-spacing:-.02em; }
 .campaign-cycle .cycle-heading h2 { font-weight:400; letter-spacing:-.02em; }
 .campaign-cycle .cycle-panel h3,.campaign-cycle .cycle-foundation h3,.campaign-cycle .cycle-fit h3,.campaign-cycle .cycle-offer h3 { font-weight:400; letter-spacing:-.02em; }
-.campaign-eyebrow,.campaign-product-category,.section-title-small,.product-kicker,
+.campaign-eyebrow,.section-title-small,.product-kicker,
 .campaign-cycle .section-title-small,.cycle-eyebrow,.product-volume,.product-gallery-label { font-family:var(--mono); font-weight:400; letter-spacing:.04em; }
 .campaign-section-intro>p:not(.campaign-eyebrow),.campaign-editorial-copy>p:not(.campaign-eyebrow),
 .campaign-cycle .cycle-panel>p:not(.cycle-eyebrow),.campaign-cycle .cycle-foundation p:last-child,

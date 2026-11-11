@@ -32,7 +32,6 @@ body.home-page { background:#fafaf8; }
 .campaign-product-photo { display:block; position:relative; overflow:hidden; background:#f1f2ed; }
 .campaign-product-photo img { width:100%; height:330px; object-fit:contain; mix-blend-mode:multiply; transition:transform .4s ease; }
 .campaign-product-photo:hover img { transform:scale(1.04); }
-.campaign-product-category { position:absolute; top:14px; right:14px; z-index:1; font-size:10px; text-transform:uppercase; letter-spacing:.1em; }
 .campaign-product-info { padding-top:14px; }
 .campaign-product-info h3 { font-size:19px; line-height:1.35; letter-spacing:-.025em; }
 .campaign-product-info>p { font-size:13px; color:#65685e; margin:7px 0 12px; }
@@ -98,7 +97,6 @@ body.home-page { background:#fafaf8; }
   .campaign-section-intro>p:not(.campaign-eyebrow) { font-size:17px; }
   .campaign-grid { gap:30px 12px; }
   .campaign-product-photo img { height:220px; }
-  .campaign-product-category { top:10px; right:10px; font-size:9px; }
   .campaign-product-info h3 { font-size:17px; }
   .campaign-product-info>p { font-size:12px; line-height:1.5; }
   .campaign-product-info>div { flex-wrap:wrap; gap:2px 12px; font-size:15px; }
@@ -130,9 +128,7 @@ body.home-page { background:#fafaf8; }
 .home-page .footer,.home-page .footer em { font-family:var(--ui); }
 /* Small labels remain readable rather than matching the reference's tiny print. */
 .campaign-eyebrow,.campaign-cycle .section-title-small { font-size:14px; }
-.campaign-product-category { font-size:12px; }
 @media(max-width:600px) {
   .campaign-caption .campaign-eyebrow { font-size:12px; }
-  .campaign-product-category { font-size:11px; }
   .campaign-product-info>p { font-size:14px; }
 }

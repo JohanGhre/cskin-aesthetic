@@ -81,13 +81,6 @@
 
   .campaign-grid { gap: 20px 12px; }
   .campaign-product { display: flex; flex-direction: column; min-width: 0; }
-  .campaign-product-category {
-    position: static;
-    display: block;
-    padding-top: 8px;
-    text-align: center;
-    font-size: 10px;
-  }
   .campaign-product-photo img {
     display: block;
     width: 100%;
@@ -166,11 +159,6 @@
 
   .campaign-product { scroll-snap-align: start; }
   .campaign-home .campaign-product-photo { background: var(--site-paper); }
-  .campaign-product-category {
-    padding: 9px 10px 0;
-    text-align: start;
-    font-size: 11px;
-  }
   .campaign-product-photo img { height: clamp(154px, 51vw, 240px); }
   .campaign-product-info h3 { font-size: 18px; line-height: 1.24; }
   .campaign-product-info > div { border-top: 1px solid var(--border); }

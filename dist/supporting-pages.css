@@ -426,3 +426,878 @@
     padding-inline: 22px;
   }
 }
+
+/* Three-voice editorial typography: Instrument Serif (display & italics), General Sans (reading & UI), IBM Plex Mono (lab precision). */
+:is(.campaign-home, .catalog-showroom, .product-editorial, .brand-page-hero, .brand-story, .brand-commitments, .routine-banner, .contact-page, .related-section, .policy-page, .footer, .dialog) :is(h1, h2, .footer-tagline, blockquote, .story-lead) {
+  font-family: var(--display);
+  font-weight: 400;
+  font-synthesis: none;
+  text-transform: none;
+  letter-spacing: -0.012em;
+}
+:is(.campaign-home, .catalog-showroom, .product-editorial, .brand-page-hero, .brand-story, .brand-commitments, .routine-banner, .contact-page, .related-section, .policy-page, .footer, .dialog) :is(h1, h2, .footer-tagline) em {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: 0;
+}
+
+.campaign-hero--omni .campaign-film-copy { max-width: min(45%, 560px); }
+.campaign-home .campaign-film-copy h1 {
+  font: 400 clamp(38px, 3.8vw, 58px)/1.06 var(--display);
+  letter-spacing: -0.012em;
+  text-transform: none;
+  max-width: none;
+}
+.campaign-section-intro h2 {
+  font: 400 clamp(44px, 4.7vw, 72px)/1.02 var(--display);
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+.campaign-editorial-copy h2,
+.campaign-home .campaign-founder--personal h2,
+.campaign-faq h2 {
+  font: 400 clamp(38px, 3.9vw, 60px)/1.05 var(--display);
+  letter-spacing: -0.012em;
+  text-transform: none;
+}
+.campaign-home .routine-duo h2,
+.campaign-home .routine-duo--study h2 {
+  font: 400 clamp(38px, 3.8vw, 54px)/1.05 var(--display);
+  letter-spacing: -0.012em;
+}
+.campaign-founder--personal blockquote,
+.brand-story-body .story-lead {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.24;
+  letter-spacing: 0;
+}
+
+.catalog-introduction h1,
+.brand-portrait-copy h1,
+.contact-page h1,
+.policy-page h1 {
+  font: 400 clamp(42px, 4.7vw, 68px)/1.04 var(--display);
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+.catalog-introduction h1 em {
+  display: inline-block;
+  font-size: 0.78em;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.product-editorial .product-introduction h1 {
+  font: 400 clamp(38px, 3.8vw, 56px)/1.05 var(--display);
+  letter-spacing: -0.012em;
+  text-transform: none;
+}
+.product-editorial .product-introduction.is-long-title h1 {
+  font: 400 clamp(32px, 3.1vw, 44px)/1.08 var(--display);
+  letter-spacing: -0.01em;
+}
+.related-section .section-head h2,
+.brand-story h2,
+.brand-commitments h2,
+.routine-banner.brand-contact-strip h2 {
+  font: 400 clamp(34px, 3.6vw, 52px)/1.06 var(--display);
+  letter-spacing: -0.012em;
+}
+.contact-form h2 {
+  font: 400 clamp(28px, 2.4vw, 36px)/1.12 var(--display);
+  letter-spacing: -0.01em;
+}
+.footer .footer-tagline,
+.home-page .footer .footer-tagline {
+  font: 400 clamp(44px, 5vw, 74px)/1.02 var(--display);
+  letter-spacing: -0.015em;
+}
+.dialog .dialog-head h2,
+.dialog #quiz-title {
+  font: 400 clamp(32px, 3.4vw, 44px)/1.08 var(--display);
+  letter-spacing: -0.01em;
+}
+
+.campaign-product-info > p,
+.product-card-info .product-type,
+.catalog-feature-meta,
+.selection-controls > span,
+.product-browse > span {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 782px) {
+  .campaign-hero--omni .campaign-film-copy { max-width: none; }
+  .campaign-home .campaign-film-copy h1 {
+    font-size: clamp(31px, 8vw, 46px);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    max-width: none;
+  }
+  .campaign-section-intro h2 { font-size: clamp(38px, 10vw, 54px); line-height: 1.02; }
+  .campaign-editorial-copy h2,
+  .campaign-home .campaign-founder--personal h2,
+  .campaign-faq h2,
+  .campaign-home .routine-duo--study h2 {
+    font-size: clamp(36px, 9.2vw, 48px);
+    line-height: 1.05;
+  }
+  .campaign-founder--personal blockquote { font-size: clamp(26px, 6.6vw, 34px); line-height: 1.25; }
+}
+@media (max-width: 650px) {
+  .catalog-introduction h1,
+  .brand-portrait-copy h1,
+  .contact-page h1,
+  .policy-page h1 {
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.06;
+  }
+  .catalog-introduction h1 em { font-size: 0.72em; margin-top: 8px; }
+  .product-editorial .product-introduction h1 { font-size: clamp(34px, 8.8vw, 44px); line-height: 1.06; }
+  .product-editorial .product-introduction.is-long-title h1 { font-size: clamp(29px, 7.6vw, 38px); line-height: 1.08; }
+  .related-section .section-head h2,
+  .brand-story h2,
+  .brand-commitments h2,
+  .routine-banner.brand-contact-strip h2 {
+    font-size: clamp(32px, 8.4vw, 44px);
+  }
+  .brand-story-body .story-lead { font-size: clamp(25px, 6.4vw, 32px); line-height: 1.28; }
+  .footer .footer-tagline,
+  .home-page .footer .footer-tagline { font-size: clamp(38px, 10vw, 52px); line-height: 1.04; }
+}
+
+/* ============================================================
+   Product Dossier UI Blocks — Spectrometer & Care Passport
+   ============================================================ */
+.product-spectrometer,
+.product-passport,
+.sensory-matrix {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(56px, 6.5vw, 96px) clamp(22px, 5vw, 90px);
+  border-top: 1px solid var(--border);
+  color: var(--text);
+}
+
+.product-spectrometer .product-kicker,
+.product-passport .product-kicker,
+.sensory-matrix .product-kicker,
+.spec-dossier-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+
+.product-spectrometer h2,
+.product-passport h2,
+.sensory-matrix h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: clamp(36px, 3.8vw, 54px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  margin: 0;
+  color: var(--text);
+}
+
+.product-spectrometer h2 em,
+.product-passport h2 em,
+.sensory-matrix h2 em {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.spec-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px 40px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.spec-caption {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--ui);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: clamp(28px, 4.5vw, 68px);
+  align-items: start;
+}
+
+.spec-card {
+  background: rgba(28, 28, 28, 0.028);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 38px);
+}
+
+.spec-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-card h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  text-transform: none;
+  margin: 0;
+  color: var(--text);
+}
+
+.spec-sub {
+  margin: 8px 0 0;
+  font-family: var(--ui);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.spec-bars {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.spec-bar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 8px;
+  font-family: var(--ui);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.spec-bar-pct {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+:is(.spec-card, .sensory-richness) .bar-track {
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(28, 28, 28, 0.09);
+  overflow: hidden;
+}
+
+:is(.spec-card, .sensory-richness) .bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--text);
+  transform-origin: left center;
+}
+
+.spec-order {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.spec-order span {
+  font-family: var(--ui);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.spec-order strong {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.spec-accordion {
+  border-top: 1px solid var(--border);
+}
+
+.cskin-disclosure {
+  border-bottom: 1px solid var(--border);
+}
+
+.cskin-disclosure > summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 16px 0;
+  cursor: pointer;
+  font-family: var(--ui);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.cskin-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.cskin-disclosure > summary:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.cskin-disclosure .plus-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-muted);
+}
+
+.cskin-disclosure[open] .plus-icon {
+  transform: rotate(45deg);
+  color: var(--text);
+}
+
+.cskin-disclosure::details-content {
+  interpolate-size: allow-keywords;
+  overflow: clip;
+  contain: layout;
+}
+
+.cskin-disclosure:not([open])::details-content {
+  block-size: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cskin-disclosure .plus-icon {
+    transition: transform 0.25s var(--ease, cubic-bezier(0.22, 1, 0.36, 1)), color 0.2s;
+  }
+  .cskin-disclosure::details-content {
+    transition: block-size, content-visibility, display;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-behavior: allow-discrete;
+  }
+}
+
+.cskin-disclosure .disclosure-body p {
+  margin: 0;
+  padding: 0 0 20px;
+  font-family: var(--ui);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 54ch;
+}
+
+.spec-synergy {
+  margin-top: 24px;
+  padding: 20px 22px;
+  background: rgba(28, 28, 28, 0.032);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.spec-synergy p {
+  margin: 0;
+  font-family: var(--ui);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.spec-synergy p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.spec-synergy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Care Passport & Cadence Section */
+.passport-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.passport-note {
+  margin: 18px 0 0;
+  max-width: 44ch;
+  font-family: var(--ui);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.passport-cadence {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.passport-cadence-btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--site-paper);
+  color: var(--text);
+  font-family: var(--ui);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.passport-cadence-btn:hover {
+  border-color: var(--text);
+}
+
+.passport-cadence-btn[aria-pressed="true"] {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--site-paper);
+}
+
+.passport-cadence-btn:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.passport-metrics {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.94fr) minmax(0, 0.88fr);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--site-paper);
+}
+
+.passport-metric {
+  padding: clamp(22px, 2.5vw, 30px) clamp(18px, 2vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.passport-metric + .passport-metric {
+  border-left: 1px solid var(--border);
+}
+
+.passport-metric-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.passport-metric-value {
+  font-family: var(--ui);
+  font-weight: 500;
+  font-size: clamp(20px, 1.9vw, 27px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.passport-unit {
+  font-size: 0.56em;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.passport-metric-sub {
+  font-family: var(--ui);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .spec-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .spec-grid,
+  .passport-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .product-spectrometer,
+  .product-passport,
+  .sensory-matrix {
+    padding: 46px var(--gutter);
+  }
+  .product-spectrometer h2,
+  .product-passport h2,
+  .sensory-matrix h2 {
+    font-size: clamp(32px, 8.4vw, 44px);
+  }
+}
+
+@media (max-width: 620px) {
+  .spec-card {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+  .passport-metrics {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+  }
+  .passport-metric + .passport-metric {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .passport-metric {
+    padding: 18px 20px;
+  }
+}
+
+/* ============================================================
+   Catalog Sensory Comparison Matrix (BLOC 03)
+   ============================================================ */
+.sensory-matrix .spec-caption {
+  max-width: 42ch;
+}
+
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: min(500px, 80vh);
+  container-type: inline-size;
+}
+
+@media (max-width: 720px) {
+  .sensory-matrix .table-wrapper {
+    max-block-size: none;
+    overflow: visible;
+  }
+}
+
+.table-wrapper:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.sensory-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  --label-2: "Actif majeur";
+  --label-3: "Richesse galénique";
+  --label-4: "Fini sur la peau";
+  --label-5: "Moment";
+  --label-6: "Tarif";
+}
+
+:lang(en) .sensory-table {
+  --label-2: "Key active";
+  --label-3: "Galenic richness";
+  --label-4: "Skin finish";
+  --label-5: "Routine step";
+  --label-6: "Price";
+}
+
+:lang(es) .sensory-table {
+  --label-2: "Activo principal";
+  --label-3: "Riqueza galénica";
+  --label-4: "Acabado cutáneo";
+  --label-5: "Momento";
+  --label-6: "Precio";
+}
+
+.sensory-table thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--site-paper);
+}
+
+.sensory-table thead th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.sensory-table thead th:first-child {
+  padding-inline-start: 0;
+}
+
+.sensory-table thead th.sensory-price-col {
+  text-align: right;
+  padding-inline-end: 0;
+}
+
+.sensory-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+  background: var(--site-paper);
+  font-family: var(--display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  padding: 20px 18px 20px 0;
+  border-bottom: 1px solid rgba(28, 28, 28, 0.09);
+  white-space: nowrap;
+}
+
+.sensory-product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sensory-product-link .ui-arrow {
+  opacity: 0.55;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.sensory-product-link:hover,
+.sensory-product-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.sensory-product-link:hover .ui-arrow,
+.sensory-product-link:focus-visible .ui-arrow {
+  opacity: 1;
+}
+
+.sensory-table tbody td {
+  padding: 20px 16px;
+  border-bottom: 1px solid rgba(28, 28, 28, 0.09);
+  vertical-align: middle;
+  font-family: var(--ui);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--site-paper);
+}
+
+.sensory-table tbody tr:hover th,
+.sensory-table tbody tr:hover td {
+  background: #f5f4f0;
+}
+
+.sensory-table tbody td.sensory-active-cell,
+.sensory-table tbody td.sensory-moment-cell {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.sensory-richness {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 152px;
+}
+
+.sensory-richness .bar-track {
+  width: 82px;
+  flex-shrink: 0;
+}
+
+.sensory-richness-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.sensory-finish-cell {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.sensory-price-cell {
+  text-align: right;
+  padding-inline-end: 0;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@container (width < 680px) {
+  .sensory-table,
+  .sensory-table thead,
+  .sensory-table tbody,
+  .sensory-table tr,
+  .sensory-table th,
+  .sensory-table td {
+    display: block;
+  }
+
+  .sensory-table thead {
+    display: none;
+  }
+
+  .sensory-table tbody tr {
+    margin-block-end: 14px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--site-paper);
+    overflow: hidden;
+  }
+
+  .sensory-table tbody th,
+  .sensory-table tbody tr:hover th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: #f3f2ee;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 22px;
+    white-space: normal;
+  }
+
+  .sensory-table tbody td,
+  .sensory-table tbody tr:hover td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 15px;
+    text-align: right;
+    white-space: normal;
+    background: var(--site-paper);
+  }
+
+  .sensory-table tbody td.sensory-active-cell,
+  .sensory-table tbody td.sensory-moment-cell {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  .sensory-table tbody td.sensory-finish-cell {
+    font-size: 13px;
+  }
+
+  .sensory-table tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  .sensory-table tbody td::before {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .sensory-table tbody td:nth-child(2)::before { content: var(--label-2); }
+  .sensory-table tbody td:nth-child(3)::before { content: var(--label-3); }
+  .sensory-table tbody td:nth-child(4)::before { content: var(--label-4); }
+  .sensory-table tbody td:nth-child(5)::before { content: var(--label-5); }
+  .sensory-table tbody td:nth-child(6)::before { content: var(--label-6); }
+
+  .sensory-richness {
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  .sensory-richness .bar-track {
+    width: 68px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .passport-cadence-btn,
+  .sensory-product-link .ui-arrow {
+    transition: none;
+  }
+}

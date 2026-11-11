@@ -2,7 +2,7 @@
 @font-face { font-family:'IBM Plex Mono'; src:url('assets/fonts/ibm-plex-mono-400.ttf') format('truetype'); font-style:normal; font-weight:400; font-display:swap; }
 :root {
   --ui:'General Sans','Helvetica Neue',Arial,sans-serif;
-  --body:var(--ui); --display:var(--ui);
+  --body:var(--ui); --display:'Instrument Serif',Georgia,serif;
   --mono:'IBM Plex Mono',Menlo,monospace;
 }
 .campaign-home h1,.campaign-home h2,.campaign-home h3,

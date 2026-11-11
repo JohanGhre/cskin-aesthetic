@@ -127,7 +127,7 @@ function campaignHero() {
     </div>
     <div class="campaign-film-copy"><div class="campaign-film-heading">
       <p class="campaign-film-kicker">Cskin Aesthetic</p>
-      <h1 id="campaign-title">Comprendre sa peau.<br> Mieux choisir ses soins.</h1>
+      <h1 id="campaign-title">Comprendre sa peau.<br> <em>Mieux choisir ses soins.</em></h1>
       <p>Des formules ciblées et des gestes simples pour composer votre routine.</p>
     </div><a class="campaign-link" href="#/soins">Découvrir les soins <span class="ui-arrow" aria-hidden="true"></span></a></div>
   </section>`;
@@ -139,10 +139,10 @@ function home() {
   const featured=[products[2],products[0],products[1],products[4]];
   return `<div class="campaign-home">${campaignHero()}
     <section class="campaign-essentials" aria-labelledby="essentials-title"><div class="campaign-section-intro"><p class="campaign-eyebrow">01 / La sélection Cskin</p><h2 id="essentials-title">Les essentiels.</h2><p>Nettoyer, cibler, accompagner. Trois gestes pour composer votre rituel.</p><a class="campaign-link" href="#/soins">Tous les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="campaign-grid">${featured.map(p=>`<article class="campaign-product"><a class="campaign-product-photo" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><div class="campaign-product-info"><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.subtitle)}</p><div><span>${money(p.price)}</span><button data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div></section>
-    <section class="campaign-editorial"><div class="campaign-portrait"><img src="${campaignPortrait}" alt="Modèle tenant la Crème Silk Effect Cskin Aesthetic" width="900" height="1207" loading="lazy" decoding="async"></div><div class="campaign-editorial-copy"><p class="campaign-eyebrow">02 / La philosophie</p><h2>Des actifs identifiés.<br> Des gestes expliqués.</h2><p>Au cœur de Cskin, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><button class="campaign-link" data-action="quiz">Trouver ma routine <span class="ui-arrow" aria-hidden="true"></span></button></div></section>
+    <section class="campaign-editorial"><div class="campaign-portrait"><img src="${campaignPortrait}" alt="Modèle tenant la Crème Silk Effect Cskin Aesthetic" width="900" height="1207" loading="lazy" decoding="async"></div><div class="campaign-editorial-copy"><p class="campaign-eyebrow">02 / La philosophie</p><h2>Des actifs identifiés.<br> <em>Des gestes expliqués.</em></h2><p>Au cœur de Cskin, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><button class="campaign-link" data-action="quiz">Trouver ma routine <span class="ui-arrow" aria-hidden="true"></span></button></div></section>
     <div class="campaign-cycle">${dayNightStory()}</div>
     <section class="campaign-founder campaign-founder--personal" aria-labelledby="founder-title"><p class="campaign-eyebrow">04 / La fondatrice</p><figure class="campaign-founder-portrait"><img src="assets/editorial/celine-founder-cutout.png" alt="Céline AB., fondatrice de Cskin Aesthetic" width="900" height="900" loading="lazy" decoding="async"><figcaption>Pharmacologie · Physiologie · CIBTAC</figcaption></figure><div class="campaign-founder-copy"><h2 id="founder-title">Céline AB.</h2><p class="founder-role">Fondatrice de Cskin Aesthetic</p><blockquote>« Tout a commencé par une fascination pour la science du vivant. »</blockquote><p>De la pharmacologie au soin quotidien, Céline rapproche la connaissance de la peau des gestes essentiels.</p><a class="campaign-link" href="#/marque">Notre histoire <span class="ui-arrow" aria-hidden="true"></span></a></div></section>
-    <section class="campaign-faq"><div><p class="campaign-eyebrow">05 / Vos questions</p><h2>Le soin,<br>en clair.</h2></div>${faqMarkup()}</section>
+    <section class="campaign-faq"><div><p class="campaign-eyebrow">05 / Vos questions</p><h2>Le soin,<br><em>en clair.</em></h2></div>${faqMarkup()}</section>
   </div>`;
 }
 
@@ -188,6 +188,48 @@ function catalog(category='tous') {
     <div class="catalog-toolbar"><div class="filter-tabs" role="group" aria-label="Catégories de soins">${[['tous','Tout explorer'],['visage','Visage'],['corps','Corps'],['coffrets','Coffrets']].map(([id,label])=>`<button class="filter-tab" data-action="filter" data-id="${id}" aria-pressed="${id===category}">${label}</button>`).join('')}</div><div class="catalog-tools"><span aria-live="polite">${catalogItems.length} ${catalogItems.length===1?'soin':'soins'}</span><div class="catalog-sort"><span>Trier par</span><select id="sort-products" aria-label="Trier les soins"><option value="selection">Notre sélection</option><option value="price-up">Prix croissant</option><option value="price-down">Prix décroissant</option><option value="name">Nom du soin</option></select></div></div></div>
     <div class="concern-toolbar" role="group" aria-label="Filtrer par besoin"><span class="concern-label">Par besoin</span><div class="concern-tabs">${[['tous','Tous les besoins'],['fermete','Anti-âge & Fermeté'],['hydratation','Hydratation & Confort'],['eclat','Éclat & Grain de peau'],['nettoyage','Nettoyage & Pureté']].map(([id,label])=>`<button class="concern-tab" data-action="concern" data-id="${id}" aria-pressed="${id===activeConcern}">${label}</button>`).join('')}</div></div>
     <div class="catalog-shop-grid product-grid">${catalogItems.map(p=>card(p)).join('')}</div>
+  </section>${(category==='tous'||category==='visage')&&activeConcern!=='nettoyage'?sensoryMatrix():''}`;
+}
+
+function sensoryMatrix() {
+  const rows = [
+    { id: 'creme-silk-effect', active: 'DMAE 5\u00A0% · Vit. C 0,6\u00A0%', w: 60, richness: 'Soyeuse', finish: 'Tenseur immédiat · Velouté', moment: 'Matin & Soir' },
+    { id: 'creme-anti-aging-plus-day', active: 'Rétinol 0,30\u00A0% · Matrixyl 3\u00A0%', w: 85, richness: 'Riche', finish: 'Enveloppant · Peaux sèches', moment: 'Matin (+ SPF)' },
+    { id: 'creme-anti-aging-plus-night', active: 'Rétinol 0,30\u00A0% · Céramides 5\u00A0%', w: 75, richness: 'Dense', finish: 'Régénérant · Non sensible', moment: 'Soir (Progressif)' },
+    { id: 'creme-facial-acide-glycolique', active: 'Acide Glycolique 8\u00A0% · Aloe 15\u00A0%', w: 45, richness: 'Légère', finish: 'Lissant · Grain affiné', moment: 'Soir / Alternance' },
+  ];
+  return `<section class="sensory-matrix" id="matrice-sensorielle" aria-labelledby="sensory-title">
+    <div class="spec-head">
+      <div><p class="product-kicker">Aide au choix · Sans promesse artificielle</p><h2 id="sensory-title">Matrice sensorielle : <em>richesse &amp; fini cutané.</em></h2></div>
+      <p class="spec-caption">Comparer d’un coup d’œil la galénique, l’actif phare et le fini des quatre crèmes visage Cskin avant de choisir.</p>
+    </div>
+    <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="sensory-title">
+      <table class="sensory-table">
+        <caption class="sr-only">Comparatif sensoriel des quatre crèmes visage Cskin Aesthetic</caption>
+        <thead>
+          <tr>
+            <th scope="col">Soin visage</th>
+            <th scope="col">Actif majeur</th>
+            <th scope="col">Richesse galénique</th>
+            <th scope="col">Fini sur la peau</th>
+            <th scope="col">Moment</th>
+            <th scope="col" class="sensory-price-col">Tarif</th>
+          </tr>
+        </thead>
+        <tbody>${rows.map(row => {
+          const p = findProduct(row.id);
+          if (!p) return '';
+          return `<tr>
+            <th scope="row"><a class="sensory-product-link" href="#/produit/${p.id}">${esc(p.title)} <span class="ui-arrow" aria-hidden="true"></span></a></th>
+            <td class="sensory-active-cell">${esc(row.active)}</td>
+            <td><div class="sensory-richness"><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="inline-size:${row.w}%"></div></div><span class="sensory-richness-label">${esc(row.richness)}</span></div></td>
+            <td class="sensory-finish-cell">${esc(row.finish)}</td>
+            <td class="sensory-moment-cell">${esc(row.moment)}</td>
+            <td class="sensory-price-cell">${money(p.price)}</td>
+          </tr>`;
+        }).join('')}</tbody>
+      </table>
+    </div>
   </section>`;
 }
 
@@ -245,6 +287,46 @@ function productPage(id) {
     'duo-pack-anti-aging-day-night':'Coffret 2 soins (2 × 50 ml) · Réunit la Crème Anti Aging Plus Day et la Crème Anti Aging Plus Night pour une synergie jour et nuit. Économie immédiate de 25 €.',
     'duo-pack-remodelant-et-raffermissant':'Coffret 2 soins corps (2 × 200 ml) · Réunit la Crème Anti Cellulite et la Crème Corps Raffermissante pour lisser et tonifier la silhouette. Économie immédiate de 9 €.'
   };
+  const dossier=window.CSKIN_PRODUCT_DOSSIERS?.[p.id];
+  const spectrometerSection=dossier?`<section class="product-spectrometer" aria-labelledby="spectrometer-title">
+    <div class="spec-head">
+      <div><p class="product-kicker">Formule · Transparence</p><h2 id="spectrometer-title">Spectromètre <em>d’actifs.</em></h2></div>
+      <p class="spec-caption">Les actifs clés et leur concentration expliqués sans détour.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-card-meta"><span>${esc(dossier.code)}</span><span>${esc(dossier.format)}</span></div>
+        <h3>${esc(p.title)}</h3>
+        <p class="spec-sub">${esc(dossier.sub)}</p>
+        <div class="spec-bars">${dossier.bars.map(b=>`<div class="spec-bar-row"><div class="spec-bar-head"><span>${esc(b.label)}</span><span class="spec-bar-pct">${esc(b.pct)}</span></div><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="inline-size:${Number(b.w)}%"></div></div></div>`).join('')}</div>
+        <div class="spec-order"><span>Ordre d’application</span><strong>${esc(dossier.order)}</strong></div>
+      </div>
+      <div class="spec-dossier">
+        <p class="product-kicker spec-dossier-label">Dossier moléculaire</p>
+        <div class="spec-accordion">${dossier.details.map((item,i)=>`<details class="cskin-disclosure" name="cskin-actives"${i===0?' open':''}><summary><span>${esc(item.title)}</span><span class="plus-icon" aria-hidden="true">+</span></summary><div class="disclosure-body"><p>${esc(item.body)}</p></div></details>`).join('')}</div>
+        ${dossier.synergy?`<div class="spec-synergy"><p><strong>${esc(dossier.synergy.lead)}</strong> ${esc(dossier.synergy.body)}</p>${dossier.synergy.linkId?`<a class="spec-synergy-link" href="#/produit/${esc(dossier.synergy.linkId)}">${esc(dossier.synergy.linkLabel)} <span class="ui-arrow" aria-hidden="true"></span></a>`:''}</div>`:''}
+      </div>
+    </div>
+  </section>
+  <section class="product-passport" aria-labelledby="passport-title" data-base-days="${dossier.passport.baseDays}">
+    <div class="passport-grid">
+      <div class="passport-copy">
+        <p class="product-kicker">Contenant · Cadence</p>
+        <h2 id="passport-title">Passeport du soin <em>&amp; durée estimée.</em></h2>
+        <p class="passport-note">${esc(dossier.passport.note)}</p>
+        <div class="passport-cadence" role="group" aria-label="Fréquence d’application">
+          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="1" aria-pressed="true">1 fois / jour</button>
+          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="2" aria-pressed="false">2 fois / jour</button>
+          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="0.5" aria-pressed="false">1 jour sur 2</button>
+        </div>
+      </div>
+      <div class="passport-metrics">
+        <div class="passport-metric"><span class="passport-metric-label">Contenance</span><strong class="passport-metric-value">${esc(dossier.passport.volume)}</strong><span class="passport-metric-sub">${esc(dossier.passport.pack)}</span></div>
+        <div class="passport-metric"><span class="passport-metric-label">Durée estimée</span><strong class="passport-metric-value"><span id="passport-days">~${dossier.passport.baseDays}</span> <span class="passport-unit">jours</span></strong><span class="passport-metric-sub" id="passport-cadence-sub">Usage quotidien</span></div>
+        <div class="passport-metric"><span class="passport-metric-label">Coût / geste</span><strong class="passport-metric-value">${money(p.price/dossier.passport.baseDays)}</strong><span class="passport-metric-sub">par application</span></div>
+      </div>
+    </div>
+  </section>`:'';
   return `<section class="product-page product-editorial" aria-labelledby="product-title">
     <div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><a href="#/soins">Les soins</a><span aria-hidden="true">/</span><span>${esc(p.title)}</span></div>
     <div class="product-layout">
@@ -254,7 +336,7 @@ function productPage(id) {
         <div class="faq-list"><details><summary>Le geste Cskin</summary><p>${esc(p.usage)}</p></details><details><summary>Les actifs à connaître</summary><p>${p.actives.length?p.actives.map(esc).join(' · '):'Ce coffret réunit plusieurs soins. Contactez Cskin pour une composition détaillée.'}</p></details>${formulations[p.id]?`<details><summary>Formulation & Présentation</summary><p>${esc(formulations[p.id])}</p></details>`:''}<details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
       </div>
     </div>
-  </section>${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
+  </section>${spectrometerSection}${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
 }
 
 function brandPage() {
@@ -430,6 +512,18 @@ document.addEventListener('click',async e=>{
       break;
     }
     case 'ritual':selectRitual(Number(id));break;
+    case 'passport-cadence':{
+      const passport=button.closest('.product-passport');
+      const freq=Number(button.dataset.freq);
+      const baseDays=Number(passport?.dataset.baseDays);
+      if(!passport||!Number.isFinite(freq)||!Number.isFinite(baseDays)||freq<=0)break;
+      $$('[data-action="passport-cadence"]',passport).forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+      const daysEl=$('#passport-days',passport);
+      const subEl=$('#passport-cadence-sub',passport);
+      if(daysEl)daysEl.textContent=`~${Math.round(baseDays/freq)}`;
+      if(subEl)subEl.textContent=freq===2?'Matin & soir':freq===0.5?'Initiation progressive':'Usage quotidien';
+      break;
+    }
     case 'quiz':startQuiz();break;
     case 'quiz-answer':quiz.answers[quiz.step]=id;quiz.step++;renderQuiz();$('#quiz-title').focus();break;
     case 'quiz-back':quiz.step=Math.max(0,quiz.step-1);renderQuiz();$('#quiz-title').focus();break;
@@ -505,5 +599,14 @@ window.addEventListener('hashchange',e=>{
   renderRoute(keepScroll);
   (keepScroll?$('.filter-tab[aria-pressed="true"]'):main)?.focus({preventScroll:true});
 });
+if(typeof HTMLDetailsElement!=='undefined'&&!Object.hasOwn(HTMLDetailsElement.prototype,'name')){
+  document.addEventListener('toggle',e=>{
+    const d=e.target;
+    if(!(d instanceof HTMLDetailsElement)||!d.open||!d.hasAttribute('name'))return;
+    for(const other of document.querySelectorAll(`details[name="${CSS.escape(d.getAttribute('name'))}"]`)){
+      if(other!==d)other.open=false;
+    }
+  },{capture:true});
+}
 reducedMotion.addEventListener('change',()=>{motionContext?.revert();const b=$('[data-action="motion"]');if(b)b.disabled=false;syncMotionButton();setupSelectionRail();setupMotion();});
 renderRoute();updateCartCount();startCommerce();

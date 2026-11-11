@@ -121,13 +121,13 @@ function stepSelection(direction) {
 
 function campaignHero() {
   return `<section class="campaign-hero campaign-hero--film campaign-hero--studio" aria-labelledby="campaign-title">
-    <div class="campaign-film-media campaign-studio-stage" aria-hidden="true">
-      <div class="hero-studio-backdrop"></div>
-      <div class="hero-studio-floor"></div>
-      <div class="hero-serum-float">
-        <img class="hero-serum-bottle" src="assets/campaign/hero-serum-cutout.png" alt="" width="382" height="767" fetchpriority="high" decoding="sync">
-        <div class="hero-serum-shadow"></div>
-      </div>
+    <div class="campaign-film-media" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 782px)" srcset="assets/campaign/hero-floating-mobile.webp" type="image/webp">
+        <source media="(max-width: 782px)" srcset="assets/campaign/hero-floating-mobile.jpg">
+        <source srcset="assets/campaign/hero-floating-desktop.webp" type="image/webp">
+        <img class="hero-studio-photo" src="assets/campaign/hero-floating-desktop.jpg" alt="" width="1672" height="941" fetchpriority="high" decoding="sync">
+      </picture>
     </div>
     <div class="campaign-film-copy"><div class="campaign-film-heading">
       <p class="campaign-film-kicker">Cskin Aesthetic</p>

@@ -1697,5 +1697,221 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
   "Conditions d’utilisation": {
     "en": "Terms of service",
     "es": "Términos del servicio"
+  },
+  "Par besoin": {
+    "en": "By concern",
+    "es": "Por necesidad"
+  },
+  "Tous les besoins": {
+    "en": "All concerns",
+    "es": "Todas las necesidades"
+  },
+  "Anti-âge & Fermeté": {
+    "en": "Anti-ageing & Firmness",
+    "es": "Antiedad y Firmeza"
+  },
+  "Hydratation & Confort": {
+    "en": "Hydration & Comfort",
+    "es": "Hidratación y Confort"
+  },
+  "Éclat & Grain de peau": {
+    "en": "Radiance & Texture",
+    "es": "Luminosidad y Textura"
+  },
+  "Nettoyage & Pureté": {
+    "en": "Cleansing & Purity",
+    "es": "Limpieza y Pureza"
+  },
+  "Fabriqué en Espagne": {
+    "en": "Made in Spain",
+    "es": "Fabricado en España"
+  },
+  "Formulation & Présentation": {
+    "en": "Formulation & Presentation",
+    "es": "Formulación y Presentación"
+  },
+  "Charte qualité": {
+    "en": "Quality charter",
+    "es": "Carta de calidad"
+  },
+  "Nos engagements de formulation.": {
+    "en": "Our formulation commitments.",
+    "es": "Nuestros compromisos de formulación."
+  },
+  "01 · Fabriqué en Espagne": {
+    "en": "01 · Made in Spain",
+    "es": "01 · Fabricado en España"
+  },
+  "Nos soins sont formulés et fabriqués en Espagne au sein d’un laboratoire spécialisé, dans le respect des exigences européennes.": {
+    "en": "Our skincare is formulated and manufactured in Spain in a specialised laboratory, in compliance with European standards.",
+    "es": "Nuestros cuidados se formulan y fabrican en España en un laboratorio especializado, cumpliendo las exigencias europeas."
+  },
+  "02 · Dosages transparents": {
+    "en": "02 · Transparent concentrations",
+    "es": "02 · Concentraciones transparentes"
+  },
+  "Collagène 6 %, DMAE 5 %, Acide glycolique 8 %, Rétinol huileux 0,30 %, Matrixyl 3000 3 % : chaque actif phare est clairement identifié.": {
+    "en": "Collagen 6%, DMAE 5%, Glycolic Acid 8%, Oil-based Retinol 0.30%, Matrixyl 3000 3%: every key active is clearly disclosed.",
+    "es": "Colágeno 6 %, DMAE 5 %, Ácido glicólico 8 %, Retinol oleoso 0,30 %, Matrixyl 3000 3 %: cada activo clave está claramente identificado."
+  },
+  "03 · Protection Airless": {
+    "en": "03 · Airless Protection",
+    "es": "03 · Protección Airless"
+  },
+  "Les flacons airless et compte-gouttes protègent les formules de l’oxydation et préservent la stabilité des vitamines et peptides.": {
+    "en": "Airless pumps and dropper bottles protect formulas from oxidation and preserve the stability of vitamins and peptides.",
+    "es": "Los envases airless y cuentagotas protegen las fórmulas de la oxidación y preservan la estabilidad de vitaminas y péptidos."
+  },
+  "04 · Conseil sur mesure": {
+    "en": "04 · Tailored guidance",
+    "es": "04 · Asesoramiento a medida"
+  },
+  "Parce que chaque peau évolue, Céline vous accompagne personnellement dans le choix et le rythme d’introduction de vos soins.": {
+    "en": "Because every skin evolves, Céline personally guides you in choosing and introducing your skincare routine.",
+    "es": "Porque cada piel evoluciona, Céline te acompaña personalmente en la elección y el ritmo de introducción de tus cuidados."
+  },
+  "Formulaire de conseil": {
+    "en": "Consultation form",
+    "es": "Formulario de consulta"
+  },
+  "Envoyer un message direct": {
+    "en": "Send a direct message",
+    "es": "Enviar un mensaje directo"
+  },
+  "Votre nom": {
+    "en": "Your name",
+    "es": "Tu nombre"
+  },
+  "Votre prénom et nom": {
+    "en": "Your first and last name",
+    "es": "Tu nombre y apellidos"
+  },
+  "Votre e-mail": {
+    "en": "Your email",
+    "es": "Tu correo electrónico"
+  },
+  "Votre besoin": {
+    "en": "Your inquiry",
+    "es": "Tu consulta"
+  },
+  "Conseil routine & diagnostic peau": {
+    "en": "Routine advice & skin consultation",
+    "es": "Consejo de rutina y diagnóstico de piel"
+  },
+  "Question sur un soin ou un actif": {
+    "en": "Question about a product or ingredient",
+    "es": "Pregunta sobre un cuidado o activo"
+  },
+  "Suivi de commande": {
+    "en": "Order tracking",
+    "es": "Seguimiento de pedido"
+  },
+  "Autre demande": {
+    "en": "Other inquiry",
+    "es": "Otra consulta"
+  },
+  "Votre message": {
+    "en": "Your message",
+    "es": "Tu mensaje"
+  },
+  "Décrivez votre type de peau, vos habitudes ou votre question…": {
+    "en": "Describe your skin type, your current routine or your question…",
+    "es": "Describe tu tipo de piel, tus hábitos o tu pregunta…"
+  },
+  "Envoyer mon message": {
+    "en": "Send my message",
+    "es": "Enviar mi mensaje"
+  },
+  "Recevoir mon protocole personnalisé par e-mail": {
+    "en": "Receive my personalised protocol by email",
+    "es": "Recibir mi protocolo personalizado por correo"
+  },
+  "Recevoir ma routine": {
+    "en": "Receive my routine",
+    "es": "Recibir mi rutina"
+  },
+  "Dernière mise à jour : juin 2026": {
+    "en": "Last updated: June 2026",
+    "es": "Última actualización: junio de 2026"
+  },
+  "Transporteur": {
+    "en": "Carrier",
+    "es": "Transportista"
+  },
+  "Délais de livraison estimés": {
+    "en": "Estimated delivery times",
+    "es": "Plazos de entrega estimados"
+  },
+  "Frais de livraison": {
+    "en": "Shipping costs",
+    "es": "Gastos de envío"
+  },
+  "Zones de livraison": {
+    "en": "Delivery zones",
+    "es": "Zonas de entrega"
+  },
+  "Colis endommagé ou perdu": {
+    "en": "Damaged or lost parcel",
+    "es": "Paquete dañado o perdido"
+  },
+  "Droit de rétractation": {
+    "en": "Right of withdrawal",
+    "es": "Derecho de desistimiento"
+  },
+  "État des produits retournés": {
+    "en": "Condition of returned products",
+    "es": "Estado de los productos devueltos"
+  },
+  "Adresse de retour": {
+    "en": "Return address",
+    "es": "Dirección de devolución"
+  },
+  "Frais de retour": {
+    "en": "Return shipping costs",
+    "es": "Gastos de devolución"
+  },
+  "Remboursement": {
+    "en": "Refund",
+    "es": "Reembolso"
+  },
+  "Éditeur du site": {
+    "en": "Website publisher",
+    "es": "Editor del sitio web"
+  },
+  "Propriété intellectuelle": {
+    "en": "Intellectual property",
+    "es": "Propiedad intelectual"
+  },
+  "Responsabilité": {
+    "en": "Liability",
+    "es": "Responsabilidad"
+  },
+  "Loi applicable": {
+    "en": "Governing law",
+    "es": "Ley aplicable"
+  },
+  "Nom commercial": {
+    "en": "Trade name",
+    "es": "Nombre comercial"
+  },
+  "Téléphone": {
+    "en": "Phone",
+    "es": "Teléfono"
+  },
+  "Adresse e-mail": {
+    "en": "Email address",
+    "es": "Correo electrónico"
+  },
+  "Adresse physique": {
+    "en": "Physical address",
+    "es": "Dirección física"
+  },
+  "Numéro de TVA": {
+    "en": "VAT number",
+    "es": "Número de IVA"
+  },
+  "Numéro d’entreprise": {
+    "en": "Company registration",
+    "es": "Número de empresa"
   }
 });

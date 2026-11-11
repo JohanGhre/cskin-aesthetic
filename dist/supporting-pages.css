@@ -83,6 +83,32 @@
 .product-savings { display:inline-block; margin-left:8px; padding:2px 8px; background:#171917; color:#fafaf8; font:400 12px/1.5 var(--mono); vertical-align:middle; }
 .product-badge { background:#171917; color:#fafaf8; font:400 11px/1.4 var(--mono); padding:5px 10px; letter-spacing:.02em; }
 .routine-result-item img, .search-result img { display:block; flex-shrink:0; object-fit:contain; }
+.concern-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:10px 14px; margin:-12px 0 32px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+.concern-label { font:400 11px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.04em; color:var(--text-muted); }
+.concern-tabs { display:flex; flex-wrap:wrap; gap:8px; }
+.concern-tab { font:400 13px/1.4 var(--ui); padding:6px 12px; border:1px solid var(--border); background:transparent; color:var(--text-muted); cursor:pointer; transition:all .2s; }
+.concern-tab:hover,.concern-tab[aria-pressed="true"] { border-color:#171917; background:#171917; color:#fafaf8; }
+.payment-badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.payment-badges span { font:400 11px/1.4 var(--mono); padding:4px 8px; border:1px solid var(--border); color:var(--text-muted); background:#fafaf8; }
+.brand-commitments { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.2fr); gap:clamp(40px,8vw,120px); max-width:1400px; margin:0 auto; padding:20px clamp(22px,5vw,90px) 70px; border-top:1px solid var(--border); }
+.brand-commitments h2 { font:400 var(--page-section)/1.18 var(--ui); letter-spacing:-.025em; max-width:16ch; margin-top:20px; }
+.brand-commitments-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 32px; }
+.brand-commitments-grid h3 { font:500 16px/1.4 var(--ui); margin:0 0 8px; }
+.brand-commitments-grid p { font:400 15px/1.65 var(--ui); color:var(--text-muted); margin:0; }
+.contact-direct-block { margin-top:32px; padding-top:24px; border-top:1px solid var(--border); }
+.contact-form { display:grid; gap:16px; padding:28px; border:1px solid var(--border); background:#fff; }
+.contact-form h2 { font:400 24px/1.25 var(--ui); margin:0 0 6px; }
+.contact-form label { display:grid; gap:6px; font:400 13px/1.4 var(--ui); }
+.contact-form :is(input,select,textarea) { width:100%; padding:11px 12px; border:1px solid var(--border); background:#fafaf8; font:400 14px/1.5 var(--ui); color:var(--text); border-radius:0; }
+.quiz-email-capture { margin-top:24px; padding-top:20px; border-top:1px solid var(--border); display:grid; gap:10px; }
+.quiz-email-capture label { font:400 13px/1.4 var(--ui); color:var(--text-muted); }
+.quiz-email-row { display:flex; flex-wrap:wrap; gap:10px; }
+.quiz-email-row input { flex:1 1 200px; min-height:44px; padding:10px 12px; border:1px solid var(--border); background:#fff; font:400 14px/1.4 var(--ui); }
+@media(max-width:650px) {
+  .brand-commitments { grid-template-columns:minmax(0,1fr); padding:32px 22px; gap:24px; }
+  .brand-commitments-grid { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .contact-form { padding:20px; }
+}
 .contact-note { font:400 14px/1.7 var(--ui); letter-spacing:0; margin:24px 0; max-width:45ch; }
 .contact-page .campaign-link,.brand-page-hero .campaign-link { font:400 14px/1.5 var(--ui); }
 .dialog .button,.dialog .quantity,.dialog .quiz-option { border-radius:8px; }

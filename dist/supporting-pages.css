@@ -225,3 +225,44 @@
   .campaign-founder--personal .campaign-founder-portrait img { aspect-ratio: auto; }
   .campaign-product-info > div { align-items: center; }
 }
+
+/* Shared responsive rhythm: preserve breathing room while keeping controls usable. */
+:is(.campaign-home, .catalog-showroom, .product-editorial, .brand-page-hero, .brand-story, .contact-page, .policy-page) :is(h1, h2, h3) {
+  text-wrap: balance;
+  letter-spacing: max(-.04em, -.025em);
+}
+:is(.campaign-home, .catalog-showroom, .product-editorial, .brand-page-hero, .brand-story, .contact-page, .policy-page) :is(p, li, dd) {
+  text-wrap: pretty;
+}
+.catalog-introduction-portrait img { display:block; width:100%; height:100%; }
+.catalog-shop-grid .product-card, .related-section .product-card { min-width:0; }
+.catalog-shop-grid .product-card-info, .related-section .product-card-info { min-width:0; }
+:is(.campaign-product-info, .product-card-info) h3 { overflow-wrap:anywhere; }
+@media (max-width: 650px) {
+  .catalog-showroom, .product-editorial, .brand-page-hero, .contact-page {
+    padding-inline: clamp(18px, 5vw, 26px);
+  }
+  .catalog-introduction.has-portrait { column-gap:16px; row-gap:12px; }
+  .catalog-introduction-portrait { height:clamp(190px, 57vw, 250px); }
+  .catalog-introduction-copy > p:last-child { margin-top:12px; max-width:38ch; }
+  .catalog-showroom .catalog-toolbar { margin-top:30px; gap:18px; }
+  .catalog-showroom .filter-tabs {
+    justify-content:flex-start;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:thin;
+  }
+  .catalog-showroom .filter-tab { flex:0 0 auto; min-height:44px; padding-inline:10px; }
+  .catalog-shop-grid.product-grid, .related-section .product-grid { gap:32px 16px; }
+  .product-editorial .product-layout { row-gap:28px; }
+  .product-editorial .product-introduction h1 { line-height:1.12; }
+  .product-editorial .buy-row { gap:12px; }
+  .product-editorial .quantity button { min-width:40px; min-height:44px; }
+  .policy-document { line-height:1.7; }
+}
+@media (max-width: 370px) {
+  .catalog-introduction h1 { font-size:clamp(25px, 8vw, 30px); }
+  .catalog-introduction h1 em { font-size:18px; }
+  .catalog-shop-grid .product-card-info h3, .related-section .product-card-info h3 { font-size:15px; }
+  .campaign-product-info button, .product-card-info button { gap:8px; padding-inline:10px; }
+}

@@ -118,38 +118,16 @@ function stepSelection(direction) {
 
 
 function campaignHero() {
-  return `<section class="campaign-hero campaign-hero--film" aria-labelledby="campaign-title"><div class="campaign-film-media" aria-hidden="true"><picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-higgsfield-mobile.jpg"><img src="assets/campaign/hero-higgsfield-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture><video id="serum-film" muted loop playsinline preload="none" data-priority="hero" data-desktop-src="assets/campaign/hero-higgsfield-desktop.mp4" data-mobile-src="assets/campaign/hero-higgsfield-mobile.mp4" disablepictureinpicture disableremoteplayback></video></div><div class="campaign-film-copy"><div class="campaign-film-heading"><p class="campaign-film-kicker">Hydratation · Souplesse</p><h1 id="campaign-title">Sérum Age Plus</h1><p>Le geste précieux de votre routine.</p></div><a class="campaign-link" href="#/produit/serum-age-plus-1">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div><button class="campaign-film-toggle" type="button" aria-label="Mettre en pause" aria-pressed="false"><svg class="film-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg><svg class="film-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6Z"/></svg></button></section>`;
+  return `<section class="campaign-hero campaign-hero--film" aria-labelledby="campaign-title"><div class="campaign-film-media" aria-hidden="true"><picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-higgsfield-mobile.jpg"><img src="assets/campaign/hero-higgsfield-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture><video id="serum-film" muted playsinline preload="none" data-priority="hero" data-preview-seconds="4.5" data-desktop-src="assets/campaign/hero-higgsfield-desktop.mp4" data-mobile-src="assets/campaign/hero-higgsfield-mobile.mp4" disablepictureinpicture disableremoteplayback></video></div><div class="campaign-film-copy"><div class="campaign-film-heading"><p class="campaign-film-kicker">Hydratation · Souplesse</p><h1 id="campaign-title">Sérum Age Plus</h1><p>Le geste précieux de votre routine.</p></div><a class="campaign-link" href="#/produit/serum-age-plus-1">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div></section>`;
 }
 
 const campaignPortrait = 'assets/editorial/cskin-silk-portrait-cutout.webp';
-
-const comparisonPortrait = 'assets/editorial/cskin-comparison-cutout.webp';
-
-function portraitComparison() {
-  return `<section class="campaign-comparison" aria-labelledby="comparison-title">
-    <div class="campaign-comparison-copy">
-      <h2 id="comparison-title">La peau, en lumière.</h2>
-      <p id="comparison-help">Faites glisser le curseur pour comparer deux éclairages du même portrait.</p>
-      <p class="comparison-caption">Simulation d’éclairage. Aucun résultat de soin n’est représenté.</p>
-    </div>
-    <div class="comparison-stage">
-      <img src="${comparisonPortrait}" alt="" width="900" height="1207" loading="lazy" decoding="async">
-      <img class="comparison-original" src="${comparisonPortrait}" alt="" width="900" height="1207" loading="lazy" decoding="async">
-      <span class="comparison-label comparison-label-before" aria-hidden="true">Avant</span>
-      <span class="comparison-label comparison-label-after" aria-hidden="true">Après</span>
-      <input class="comparison-range" type="range" min="0" max="100" value="50"
-        aria-label="Comparer les deux éclairages" aria-describedby="comparison-help">
-      <span class="comparison-divider" aria-hidden="true"><span>‹ ›</span></span>
-    </div>
-  </section>`;
-}
 
 function home() {
   const featured=[products[2],products[0],products[1],products[4]];
   return `<div class="campaign-home">${campaignHero()}
     <section class="campaign-essentials" aria-labelledby="essentials-title"><div class="campaign-section-intro"><p class="campaign-eyebrow">01 / La sélection Cskin</p><h2 id="essentials-title">Les essentiels.</h2><p>Nettoyer, cibler, accompagner. Trois gestes pour composer votre rituel.</p><a class="campaign-link" href="#/soins">Tous les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="campaign-grid">${featured.map(p=>`<article class="campaign-product"><a class="campaign-product-photo" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}"><span class="campaign-product-category">${esc(p.type)}</span><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><div class="campaign-product-info"><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.subtitle)}</p><div><span>${money(p.price)}</span><button data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div></section>
     <section class="campaign-editorial"><div class="campaign-portrait"><img src="${campaignPortrait}" alt="Modèle tenant la Crème Silk Effect Cskin Aesthetic" width="900" height="1207" loading="lazy" decoding="async"></div><div class="campaign-editorial-copy"><p class="campaign-eyebrow">02 / La philosophie</p><h2>Des actifs identifiés.<br> Des gestes expliqués.</h2><p>Au cœur de Cskin, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><button class="campaign-link" data-action="quiz">Trouver ma routine <span class="ui-arrow" aria-hidden="true"></span></button></div></section>
-    ${portraitComparison()}
     <div class="campaign-cycle">${dayNightStory()}</div>
     <section class="campaign-founder campaign-founder--personal" aria-labelledby="founder-title"><p class="campaign-eyebrow">04 / La fondatrice</p><figure class="campaign-founder-portrait"><img src="assets/editorial/celine-founder.webp" alt="Céline, fondatrice de Cskin Aesthetic, dans son espace de soin" width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Pharmacologie · Physiologie · CIBTAC</figcaption></figure><div class="campaign-founder-copy"><h2 id="founder-title">Céline AB.</h2><p class="founder-role">Fondatrice de Cskin Aesthetic</p><blockquote>« Tout a commencé par une fascination pour la science du vivant. »</blockquote><p>De la pharmacologie au soin quotidien, Céline rapproche la connaissance de la peau des gestes essentiels.</p><a class="campaign-link" href="#/marque">Notre histoire <span class="ui-arrow" aria-hidden="true"></span></a></div></section>
     <section class="campaign-faq"><div><p class="campaign-eyebrow">05 / Vos questions</p><h2>Le soin,<br>en clair.</h2></div>${faqMarkup()}</section>
@@ -401,11 +379,6 @@ document.addEventListener('click',async e=>{
     }
   }
 });
-main.addEventListener('input', event => {
-  if (!event.target.matches('.comparison-range')) return;
-  event.target.closest('.comparison-stage').style.setProperty('--split', `${event.target.value}%`);
-});
-
 $('#search-input').addEventListener('input',e=>search(e.target.value));
 document.addEventListener('change',e=>{if(e.target.id==='sort-products'){sortOrder=e.target.value;renderRoute(true);($('.catalog-sort-trigger')||$('#sort-products')).focus({preventScroll:true});}});
 document.addEventListener('keydown',e=>{

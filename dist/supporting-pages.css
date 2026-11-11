@@ -368,3 +368,36 @@
   .campaign-product-info > div > span { min-height: 22px; }
   .campaign-product-info button { width: 100%; justify-content: space-between; padding-inline: 12px; }
 }
+
+/* Rounded controls: softer, more feminine button language across the storefront. */
+:is(main, .dialog) :is(.button, .campaign-link, .text-link, .catalog-add, .campaign-product-info button, .product-card-info button) { border-radius: 999px; padding-inline: 22px; }
+:is(main, .dialog) .quiz-option { border-radius: 16px; }
+.quick-add, .icon-button, .product-browse a { border-radius: 999px; }
+.product-editorial .quantity, .cart-line .quantity, .dialog .quantity { border-radius: 999px; overflow: hidden; }
+.catalog-showroom .filter-tab, .concern-tab, .catalog-sort-trigger { border-radius: 999px; }
+.product-badge, .product-savings, .payment-badges span { border-radius: 999px; }
+.contact-form { border-radius: 20px; }
+.contact-form :is(input, select) , .quiz-email-row input { border-radius: 999px; padding-inline: 16px; }
+.contact-form textarea { border-radius: 16px; }
+
+/* Founder portrait: background removed, never cropped, edges melt into the paper background. */
+.campaign-founder--personal .campaign-founder-portrait img,
+.campaign-founder-portrait img,
+.brand-founder-photo {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+  border-radius: 0;
+  background: transparent;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%), linear-gradient(to left, transparent 0, #000 6%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%), linear-gradient(to left, transparent 0, #000 6%);
+  mask-composite: intersect;
+}
+.brand-founder-photo { max-width: 460px; margin-inline: auto; }
+@media (max-width: 782px) {
+  .campaign-founder--personal .campaign-founder-portrait img,
+  .campaign-founder-portrait img,
+  .brand-founder-photo { aspect-ratio: 1 / 1; width: 100%; max-width: 420px; margin: 0 auto; }
+}

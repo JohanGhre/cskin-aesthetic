@@ -195,7 +195,12 @@ window.CSKIN_PRODUCTS = [
     "summary": "Les soins Cskin réunis dans un coffret pour composer votre rituel.",
     "category": "coffrets",
     "type": "Coffret",
-    "actives": [],
+    "actives": [
+      "Acide glycolique 8 %",
+      "Aloe vera 15 %",
+      "Avoine 2 %",
+      "Huile de rose musquée 2 %"
+    ],
     "usage": "Consultez les instructions de chaque soin du coffret.",
     "price": 75.0,
     "compare": 87.0,
@@ -212,7 +217,12 @@ window.CSKIN_PRODUCTS = [
     "summary": "Les soins Cskin réunis dans un coffret pour composer votre rituel.",
     "category": "coffrets",
     "type": "Coffret",
-    "actives": [],
+    "actives": [
+      "Collagène 6 %",
+      "Rétinol huileux 0,30 %",
+      "Matrixyl 3000",
+      "Acide hyaluronique 0,6 %"
+    ],
     "usage": "Consultez les instructions de chaque soin du coffret.",
     "price": 190.0,
     "compare": 213.0,
@@ -229,7 +239,12 @@ window.CSKIN_PRODUCTS = [
     "summary": "Les soins Cskin réunis dans un coffret pour composer votre rituel.",
     "category": "coffrets",
     "type": "Coffret",
-    "actives": [],
+    "actives": [
+      "Rétinol huileux 0,30 %",
+      "Matrixyl 3000",
+      "Coenzyme Q10",
+      "Céramides"
+    ],
     "usage": "Consultez les instructions de chaque soin du coffret.",
     "price": 119.0,
     "compare": 144.0,
@@ -246,7 +261,12 @@ window.CSKIN_PRODUCTS = [
     "summary": "Les soins Cskin réunis dans un coffret pour composer votre rituel.",
     "category": "coffrets",
     "type": "Coffret",
-    "actives": [],
+    "actives": [
+      "Caféine 1,5 %",
+      "L-carnitine 0,5 %",
+      "Collagène 0,5 %",
+      "Élastine 3 %"
+    ],
     "usage": "Consultez les instructions de chaque soin du coffret.",
     "price": 75.0,
     "compare": 84.0,

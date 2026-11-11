@@ -79,6 +79,10 @@
 .contact-address { display:flex; align-items:flex-start; flex-direction:column; gap:18px; border:0; padding:0; }
 .contact-address>span { font:400 11px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.03em; }
 .contact-address strong { font:400 clamp(18px,2vw,26px)/1.5 var(--ui); overflow-wrap:anywhere; }
+.contact-actions-row { display:flex; flex-wrap:wrap; gap:10px; width:100%; }
+.product-savings { display:inline-block; margin-left:8px; padding:2px 8px; background:#171917; color:#fafaf8; font:400 12px/1.5 var(--mono); vertical-align:middle; }
+.product-badge { background:#171917; color:#fafaf8; font:400 11px/1.4 var(--mono); padding:5px 10px; letter-spacing:.02em; }
+.routine-result-item img, .search-result img { display:block; flex-shrink:0; object-fit:contain; }
 .contact-note { font:400 14px/1.7 var(--ui); letter-spacing:0; margin:24px 0; max-width:45ch; }
 .contact-page .campaign-link,.brand-page-hero .campaign-link { font:400 14px/1.5 var(--ui); }
 .dialog .button,.dialog .quantity,.dialog .quiz-option { border-radius:8px; }

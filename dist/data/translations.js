@@ -1641,5 +1641,61 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
   "Comprendre sa peau.": {"en":"Understand your skin.","es":"Comprender tu piel."},
   "Mieux choisir ses soins.": {"en":"Choose your skincare with care.","es":"Elegir mejor tus cuidados."},
   "Des formules ciblées et des gestes simples pour composer votre routine.": {"en":"Targeted formulas and simple steps for your skincare routine.","es":"Fórmulas específicas y gestos sencillos para crear tu rutina."},
-  "Une femme applique délicatement un soin sur sa joue": {"en":"A woman gently applies skincare to her cheek","es":"Una mujer aplica suavemente un tratamiento en su mejilla"}
+  "Une femme applique délicatement un soin sur sa joue": {"en":"A woman gently applies skincare to her cheek","es":"Una mujer aplica suavemente un tratamiento en su mejilla"},
+  "Pour une peau réactive ou un besoin encore incertain, un échange direct avec Céline est le meilleur point de départ.": {
+    "en": "For reactive skin or needs you are unsure about, speaking directly with Céline is the best starting point.",
+    "es": "Para una piel reactiva o una necesidad aún incierta, hablar directamente con Céline es el mejor punto de partida."
+  },
+  "Protocole élaboré selon l’approche dermo-cosmétique de Céline AB., fondatrice de Cskin Aesthetic.": {
+    "en": "Protocol designed according to the dermocosmetic approach of Céline AB., founder of Cskin Aesthetic.",
+    "es": "Protocolo elaborado según el enfoque dermocosmético de Céline AB., fundadora de Cskin Aesthetic."
+  },
+  "Ajouter cette routine au panier": {
+    "en": "Add this routine to bag",
+    "es": "Añadir esta rutina a la cesta"
+  },
+  "Une question sur un soin, votre routine ou votre commande ? Échangez directement avec Céline et l’équipe Cskin Aesthetic.": {
+    "en": "Questions about a product, your routine or your order? Speak directly with Céline and the Cskin Aesthetic team.",
+    "es": "¿Una pregunta sobre un cuidado, tu rutina o tu pedido? Habla directamente con Céline y el equipo de Cskin Aesthetic."
+  },
+  "Conseil & service client": {
+    "en": "Skincare advice & customer care",
+    "es": "Asesoramiento y atención al cliente"
+  },
+  "Écrire un e-mail": {
+    "en": "Send an email",
+    "es": "Escribir un correo"
+  },
+  "Espace Cskin Aesthetic · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Espagne.": {
+    "en": "Cskin Aesthetic Space · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Spain.",
+    "es": "Espacio Cskin Aesthetic · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), España."
+  },
+  "3 soins": {
+    "en": "3 products",
+    "es": "3 cuidados"
+  },
+  "Politique de confidentialité": {
+    "en": "Privacy policy",
+    "es": "Política de privacidad"
+  },
+  "Politique d’expédition": {
+    "en": "Shipping policy",
+    "es": "Política de envío"
+  },
+  "Politique de remboursement": {
+    "en": "Refund policy",
+    "es": "Política de reembolso"
+  },
+  "Mentions légales": {
+    "en": "Legal notice",
+    "es": "Aviso legal"
+  },
+  "Coordonnées": {
+    "en": "Contact information",
+    "es": "Datos de contacto"
+  },
+  "Conditions d’utilisation": {
+    "en": "Terms of service",
+    "es": "Términos del servicio"
+  }
 });

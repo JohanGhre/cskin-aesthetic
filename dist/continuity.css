@@ -145,3 +145,72 @@
   .routine-duo--study .routine-duo-visual img { height: auto; }
   .campaign-home .campaign-faq { padding-inline: var(--mobile-gutter); }
 }
+
+/* Phone composition: a product rail between the film and the editorial story. */
+@media (max-width: 600px) {
+  .campaign-essentials {
+    padding: 36px 0 48px;
+    gap: 12px;
+  }
+
+  .campaign-section-intro { padding-inline: var(--mobile-gutter); }
+  .campaign-home :is(.campaign-section-intro, .campaign-editorial-copy, .campaign-founder, .campaign-faq) .campaign-eyebrow {
+    display: none;
+  }
+  .campaign-section-intro h2 {
+    font-size: clamp(30px, 9vw, 47px);
+    text-transform: none;
+  }
+
+  .campaign-grid {
+    grid-auto-flow: column;
+    grid-auto-columns: min(67vw, 310px);
+    grid-template-columns: none;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 4px var(--mobile-gutter) 10px;
+    scroll-padding-inline: var(--mobile-gutter);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .campaign-product { scroll-snap-align: start; }
+  .campaign-home .campaign-product-photo { background: var(--site-paper); }
+  .campaign-product-category {
+    padding: 9px 10px 0;
+    text-align: start;
+    font-size: 11px;
+  }
+  .campaign-product-photo img { height: clamp(154px, 51vw, 240px); }
+  .campaign-product-info h3 { font-size: 18px; line-height: 1.24; }
+  .campaign-product-info > div { border-top: 1px solid var(--border); }
+  .campaign-product-info button { padding-inline: 4px; }
+
+  .campaign-home .campaign-editorial { padding-top: 10px; }
+  .campaign-portrait { height: clamp(250px, 79vw, 395px); }
+  .campaign-home .campaign-editorial-copy { padding-block: 16px 35px; }
+  .campaign-editorial-copy h2 { font-size: clamp(31px, 8.5vw, 43px); }
+  .campaign-editorial-copy h2 br { display: none; }
+
+  .campaign-home .routine-duo--study {
+    border-top: 1px solid var(--border);
+    padding-block: 27px 36px;
+  }
+  .campaign-home .routine-duo--study h2 { font-size: clamp(34px, 9vw, 46px); }
+  .routine-duo--study .routine-duo-visual { width: min(90%, 300px); }
+  .routine-duo-purchase .campaign-link {
+    padding: 0 14px;
+    background: var(--campaign-ink);
+    color: var(--campaign-paper);
+  }
+
+  .campaign-home .campaign-founder--personal {
+    padding: 28px var(--mobile-gutter) 44px;
+    gap: 18px;
+  }
+  .campaign-founder-portrait { max-width: none; }
+  .campaign-founder-portrait img { aspect-ratio: 5 / 4; border-radius: 12px; }
+  .campaign-founder-portrait figcaption { margin-top: 8px; }
+  .campaign-home .campaign-faq { gap: 8px; padding-block: 24px 42px; }
+}

@@ -8,7 +8,7 @@
 .campaign-film-copy { position:relative; z-index:1; padding:30px clamp(28px,3vw,56px); max-width:48%; }
 .campaign-film-kicker { margin:0 0 14px; font:400 11px/1.5 var(--mono); letter-spacing:.08em; text-transform:uppercase; }
 .campaign-home .campaign-film-copy h1 { margin:0 0 14px; font:400 clamp(26px,2.2vw,34px)/1.15 var(--ui); letter-spacing:0; text-transform:uppercase; }
-.campaign-film-copy>p:not(.campaign-film-kicker) { margin:0 0 22px; font:400 16px/1.6 var(--ui); }
+.campaign-film-heading>p:not(.campaign-film-kicker) { margin:0 0 22px; font:400 16px/1.6 var(--ui); }
 .campaign-film-copy .campaign-link { font:400 14px/1.4 var(--ui); gap:22px; min-height:44px; padding:5px 0; }
 .campaign-film-toggle { position:absolute; z-index:2; right:24px; bottom:24px; display:grid; place-items:center; width:44px; height:44px; border:1px solid #4e565459; border-radius:50%; background:#fafaf82b; color:#171917; }
 .campaign-film-toggle[hidden] { display:none; }
@@ -17,50 +17,68 @@
 .campaign-film-toggle[aria-pressed="true"] .film-play { display:block; }
 @media (max-width: 782px) {
   .campaign-hero.campaign-hero--film {
+    --hero-gutter: clamp(18px, 5vw, 34px);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: clamp(230px, 84vw, 410px) auto;
+    grid-template-rows: auto clamp(226px, 89vw, 440px) auto;
     height: auto;
     min-height: 0;
     max-height: none;
     background: var(--campaign-paper);
   }
 
+  .campaign-film-copy { display: contents; }
+
+  .campaign-film-heading {
+    grid-area: 1 / 1;
+    justify-self: stretch;
+    padding: 23px var(--hero-gutter) 18px;
+  }
+
+  .campaign-film-kicker { font-size: 11px; margin-bottom: 8px; }
+  .campaign-home .campaign-film-copy h1 {
+    font-size: clamp(30px, 8.5vw, 54px);
+    line-height: 1.03;
+    letter-spacing: -.03em;
+    margin-bottom: 8px;
+  }
+  .campaign-film-heading > p:not(.campaign-film-kicker) {
+    font-size: 15px;
+    line-height: 1.45;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
   .campaign-film-media {
     position: relative;
-    grid-area: 1 / 1;
+    grid-area: 2 / 1;
     align-self: stretch;
     overflow: hidden;
     background: #cbd0ce;
   }
 
-  .campaign-film-copy {
-    grid-area: 2 / 1;
+  .campaign-film-copy .campaign-link {
+    grid-area: 3 / 1;
     justify-self: stretch;
-    max-width: none;
-    padding: 22px clamp(16px, 5vw, 32px) 24px;
+    justify-content: space-between;
+    min-height: 52px;
+    padding: 10px var(--hero-gutter);
+    border: 0;
+    background: var(--campaign-ink);
+    color: var(--campaign-paper);
+    font-weight: 500;
   }
 
-  .campaign-film-kicker { font-size: 11px; margin-bottom: 8px; }
-  .campaign-home .campaign-film-copy h1 {
-    font-size: clamp(26px, 7vw, 36px);
-    margin-bottom: 8px;
-    text-wrap: balance;
-  }
-  .campaign-film-copy > p:not(.campaign-film-kicker) {
-    font-size: 16px;
-    line-height: 1.45;
-    margin-bottom: 10px;
-  }
+  .campaign-film-copy .campaign-link:focus-visible { outline-offset: -4px; }
 
   .campaign-film-toggle {
     position: relative;
-    grid-area: 1 / 1;
+    grid-area: 2 / 1;
     justify-self: end;
     align-self: end;
     inset: auto;
-    margin: 12px;
-    background: #fafaf8d9;
+    margin: 12px var(--hero-gutter);
+    background: var(--campaign-paper);
   }
 }
 

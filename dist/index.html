@@ -46,6 +46,7 @@
   <script src="data/products.js" defer></script>
   <script src="animations.js" defer></script>
   <script src="data/translations.js" defer></script>
+  <script src="data/policies.js" defer></script>
   <script src="i18n.js" defer></script>
   <script src="language-menu.js" defer></script>
   <script src="sort-menu.js" defer></script>
@@ -67,7 +68,7 @@
   <footer class="footer">
     <div class="footer-top"><div><p class="footer-tagline">Votre peau.<br><em>Notre attention.</em></p><button class="text-link light" data-action="quiz">Trouver votre rituel <span class="ui-arrow" aria-hidden="true"></span></button></div><div class="footer-links"><div><p>Explorer</p><a href="#/soins">Tous les soins</a><a href="#/soins/visage">Le visage</a><a href="#/soins/corps">Le corps</a><a href="#/soins/coffrets">Les coffrets</a></div><div><p>Cskin Aesthetic</p><a href="#/marque">La fondatrice</a><button data-action="faq">Questions fréquentes</button><a href="#/contact">Contacter Cskin <span class="ui-arrow" aria-hidden="true"></span></a></div></div></div>
     <div class="footer-language" data-i18n-ignore><label for="footer-language">FR / EN / ES</label><select id="footer-language" data-language-select aria-label="Langue / Language / Idioma"><option value="fr" lang="fr">Français</option><option value="en" lang="en">English</option><option value="es" lang="es">Español</option></select></div>
-    <div class="footer-bottom"><span>© 2026 Cskin Aesthetic</span><button data-action="demo">À propos de Cskin</button><button data-action="privacy">Confidentialité <span class="ui-arrow" aria-hidden="true"></span></button><button data-action="top">Retour en haut ↑</button></div>
+    <div class="footer-bottom"><span>© 2026 Cskin Aesthetic</span><button data-action="demo">À propos de Cskin</button><a href="#/politiques">Politiques et confidentialité <span class="ui-arrow" aria-hidden="true"></span></a><button data-action="top">Retour en haut ↑</button></div>
   </footer>
   <dialog id="search-dialog" class="dialog search-dialog" aria-labelledby="search-title"><div class="dialog-head"><h2 id="search-title">Votre prochain soin.</h2><button class="icon-button close-button" data-action="close" aria-label="Fermer la recherche">×</button></div><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="Un soin, un actif, une envie…" aria-label="Rechercher dans les soins" autocomplete="off"></label><p class="search-hint">Essayez « sérum », « hydratation » ou « corps ».</p><div id="search-results" aria-live="polite"></div></dialog>
   <dialog id="cart-dialog" class="dialog drawer" aria-labelledby="cart-title"><div class="dialog-head"><h2 id="cart-title">Votre panier<span class="cart-count">0</span></h2><button class="icon-button close-button" data-action="close" aria-label="Fermer le panier">×</button></div><div id="cart-content"></div></dialog>

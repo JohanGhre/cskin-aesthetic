@@ -230,15 +230,41 @@ function contactPage() {
   return `<section class="contact-page"><div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><span>Contact</span></div><div class="contact-heading"><p class="section-title-small">Restons en contact</p><h1>Parlons de<br><em>votre peau.</em></h1><p class="contact-intro">Une question sur un soin ou sur la marque ? Retrouvez ici l’adresse de contact de Cskin Aesthetic.</p></div><div class="contact-methods"><div class="contact-address"><span>Écrivez à Céline</span><strong>ab.frenchbeauty@gmail.com</strong><button class="campaign-link" data-action="copy-email">Copier l’adresse <span class="ui-arrow" aria-hidden="true"></span></button></div><p class="contact-note">Copiez l’adresse pour écrire depuis votre messagerie.</p><a class="campaign-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div></section>`;
 }
 
+function policiesPage(id) {
+  const policies = window.CSkinPolicies;
+  const current = policies.find(policy => policy.id === id);
+  const links = policies.map(policy =>
+    `<li><a href="#/politiques/${policy.id}" ${policy === current ? 'aria-current="page"' : ''}>${policy.title}</a></li>`
+  ).join('');
+  const documents = current
+    ? `<article class="policy-document" lang="fr" data-i18n-ignore>${current.html}</article>`
+    : policies.map(policy => `<article class="policy-document policy-document-overview" lang="fr" data-i18n-ignore>
+        <h2>${policy.title}</h2>
+        ${policy.html.replaceAll('<h2>', '<h3>').replaceAll('</h2>', '</h3>')}
+      </article>`).join('');
+
+  return `<section class="policy-page">
+    <nav class="breadcrumb" aria-label="Fil d’Ariane">
+      <a href="#/">Accueil</a><span aria-hidden="true">/</span>
+      ${current ? '<a href="#/politiques">Politiques et confidentialité</a>' : '<span>Politiques et confidentialité</span>'}
+    </nav>
+    <h1>${current?.title || 'Politiques et confidentialité'}</h1>
+    ${current ? documents : ''}
+    <nav aria-label="Politiques et confidentialité"><ul class="policy-links">${links}</ul></nav>
+    ${current ? '' : documents}
+  </section>`;
+}
+
 function renderRoute(keepScroll=false) {
   motionContext?.revert();
   closeDialogs();
   const [,route,id]=location.hash.replace(/^#/,'').split('/');
-  document.body.classList.toggle('home-page', !['soins','produit','marque','contact'].includes(route));
+  document.body.classList.toggle('home-page', !['soins','produit','marque','contact','politiques'].includes(route));
   if(route==='soins') { main.innerHTML=catalog(id); $('#sort-products').value=sortOrder; document.title='Les soins — Cskin'; }
   else if(route==='produit') { main.innerHTML=productPage(id); document.title=`${findProduct(id)?.title||'Les soins'} — Cskin`; }
   else if(route==='marque') {main.innerHTML=brandPage();document.title='L’esprit Cskin — La fondatrice';}
   else if(route==='contact') {main.innerHTML=contactPage();document.title='Contact — Cskin';}
+  else if(route==='politiques') {main.innerHTML=policiesPage(id);document.title=`${main.querySelector('h1').textContent} — Cskin`;}
   else {main.innerHTML=home();document.title='Cskin — L’expertise du soin';}
   if(!keepScroll)window.scrollTo({top:0,behavior:'instant'});
   window.CSkinI18n?.apply();window.CSkinSortMenu?.mount();syncMotionButton();setupSelectionRail();setupMotion();syncPurchaseControls();
@@ -371,7 +397,6 @@ document.addEventListener('click',async e=>{
     case 'motion':motionPaused=!motionPaused;setupMotion();syncMotionButton();break;
     case 'copy-email':if(navigator.clipboard?.writeText)navigator.clipboard.writeText('ab.frenchbeauty@gmail.com').then(()=>toast('Adresse copiée')).catch(()=>toast('Sélectionnez l’adresse affichée pour la copier'));else toast('Sélectionnez l’adresse affichée pour la copier');break;
     case 'faq':info('Le soin, en clair.',faqMarkup());break;
-    case 'privacy':info('Votre confidentialité.',`<p>Le panier est géré par Shopify. Un identifiant de panier est conservé dans votre navigateur pour retrouver votre sélection. Votre choix de langue est également enregistré localement.</p><p>Les informations de commande et de paiement sont recueillies dans le paiement sécurisé Shopify. Cette page ne recueille pas vos coordonnées bancaires.</p><p>La page contact affiche une adresse à copier : aucun message n’est envoyé automatiquement.</p>`);break;
     case 'demo':info('Cskin Aesthetic.',`<p>Ce site sur mesure est connecté à la boutique Shopify de Cskin Aesthetic pour les produits, la disponibilité, le panier et le paiement.</p><p>Les exemples de routine servent à découvrir la gamme. Pour un conseil adapté, échangez avec Céline.</p><a class="button" href="#/marque">Rencontrer la marque <span class="ui-arrow" aria-hidden="true"></span></a>`);break;
     case 'checkout':{
       if(!commerce)return;

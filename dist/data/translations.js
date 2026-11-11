@@ -1636,5 +1636,6 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
   "Les exemples de routine servent à découvrir la gamme. Pour un conseil adapté, échangez avec Céline.": {
     "en": "The routine examples introduce the range. For tailored advice, speak with Céline.",
     "es": "Los ejemplos de rutina sirven para descubrir la gama. Para un consejo adaptado, habla con Céline."
-  }
+  },
+  "Politiques et confidentialité": {"en":"Policies and privacy","es":"Políticas y privacidad"}
 });

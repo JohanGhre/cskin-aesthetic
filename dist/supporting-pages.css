@@ -140,3 +140,38 @@
   .catalog-showroom .filter-tab { font-size:12px; padding-inline:6px; }
   .catalog-shop-grid .product-image { height:180px; }
 }
+
+.policy-page {
+  width: min(100%, 780px);
+  margin-inline: auto;
+  padding: clamp(24px, 5vw, 60px) clamp(18px, 5vw, 48px) clamp(56px, 9vw, 110px);
+  overflow-wrap: anywhere;
+}
+
+.policy-page h1 {
+  font: 400 clamp(32px, 6vw, 60px)/1.08 var(--ui);
+  margin-block: 24px 30px;
+  text-wrap: balance;
+}
+
+.policy-document { font: 400 16px/1.65 var(--ui); }
+.policy-document h2 { font: 500 clamp(20px, 3vw, 25px)/1.25 var(--ui); margin-block: 30px 10px; }
+.policy-document-overview { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); }
+.policy-document-overview > h2 { font-size: clamp(24px, 4vw, 34px); margin-block: 0 16px; }
+.policy-document h3 { font: 500 20px/1.25 var(--ui); margin-block: 24px 8px; }
+.policy-document :is(p, ul, address, dl) { margin-block: 0 14px; }
+.policy-document ul { padding-inline-start: 1.3em; list-style: disc; }
+.policy-document li + li { margin-top: 6px; }
+.policy-document dt { font-weight: 600; }
+.policy-document dd { margin: 0 0 12px; }
+.policy-document a { text-decoration: underline; text-underline-offset: .18em; }
+.policy-document + nav { margin-top: 40px; }
+.policy-links { padding: 0; list-style: none; }
+.policy-links a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.policy-links a[aria-current="page"] { font-weight: 600; }

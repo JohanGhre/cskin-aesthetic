@@ -205,3 +205,126 @@ window.CSkinPolicies = [
 <p>Nous contacter Vous pouvez nous joindre par e-mail, par téléphone ou via les coordonnées de notre page Contact.</p>
   ` },
 ];
+
+(() => {
+  const i18nPolicies = {
+    confidentialite: {
+      en: `<p><em>Last updated: November 10, 2026</em></p>
+<p>CSKIN AESTHETIC operates this online store and website to provide you with a tailored skincare shopping experience. Our catalogue, shopping bag and checkout are powered by Shopify.</p>
+<h2>Personal Information Collected</h2>
+<ul>
+<li><strong>Contact details</strong>: name, billing address, shipping address, phone number and email address.</li>
+<li><strong>Order &amp; transaction details</strong>: products selected, orders placed, returns and payment confirmations processed securely via Shopify.</li>
+<li><strong>Customer care communications</strong>: messages sent to our team for skincare consultations or order support.</li>
+<li><strong>Technical &amp; browsing data</strong>: device, browser and network data required for storefront security and cart persistence.</li>
+</ul>
+<h2>How We Use Your Information</h2>
+<ul>
+<li><strong>Order fulfilment &amp; service</strong>: processing payments, preparing and shipping orders via Correos, and managing returns.</li>
+<li><strong>Customer support &amp; skincare advice</strong>: answering your inquiries and providing personalised routine recommendations.</li>
+<li><strong>Security &amp; fraud prevention</strong>: protecting transactions and complying with applicable European and Spanish legal obligations.</li>
+</ul>
+<h2>Data Sharing &amp; Shopify</h2>
+<p>Order and checkout data are processed through <a href="https://www.shopify.com/legal/privacy/app-users">Shopify</a> and our shipping partner (Correos) strictly to fulfil your orders and secure payments. You may exercise your GDPR rights (access, rectification, erasure, portability or objection) at any time by writing to <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>`,
+      es: `<p><em>Última actualización: 10 de noviembre de 2026</em></p>
+<p>CSKIN AESTHETIC gestiona esta tienda online y este sitio web para ofrecerte una experiencia de compra dermocosmética personalizada. Nuestro catálogo, cesta y proceso de pago funcionan con tecnología de Shopify.</p>
+<h2>Datos personales recopilados</h2>
+<ul>
+<li><strong>Datos de contacto</strong>: nombre, dirección de facturación, dirección de entrega, teléfono y correo electrónico.</li>
+<li><strong>Datos de pedidos y transacciones</strong>: productos seleccionados, pedidos realizados, devoluciones y confirmaciones de pago procesadas de forma segura a través de Shopify.</li>
+<li><strong>Comunicaciones con atención al cliente</strong>: consultas enviadas a nuestro equipo sobre rutinas de cuidado o seguimiento de pedidos.</li>
+<li><strong>Datos técnicos de navegación</strong>: información del dispositivo y del navegador necesaria para el funcionamiento seguro de la tienda y la conservación de la cesta.</li>
+</ul>
+<h2>Finalidad del tratamiento</h2>
+<ul>
+<li><strong>Gestión de pedidos</strong>: procesar pagos, preparar y enviar tus productos mediante Correos, y gestionar devoluciones.</li>
+<li><strong>Asesoramiento y atención al cliente</strong>: responder a tus consultas y ofrecer recomendaciones dermocosméticas adaptadas.</li>
+<li><strong>Seguridad y cumplimiento legal</strong>: garantizar pagos seguros y cumplir con la normativa española y europea vigente.</li>
+</ul>
+<h2>Shopify y tus derechos RGPD</h2>
+<p>Los datos de pedido y pago son tratados a través de <a href="https://www.shopify.com/legal/privacy/app-users">Shopify</a> y nuestro transportista (Correos) exclusivamente para gestionar tu compra. Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad u oposición escribiendo a <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>`
+    },
+    expedition: {
+      en: `<p><em>Last updated: June 2026</em></p>
+<h2>Carrier</h2><p>All orders are shipped via <strong>Correos</strong>, the official Spanish postal service.</p>
+<h2>Estimated Delivery Times</h2><ul><li><strong>Spain</strong>: 3 to 5 business days</li><li><strong>France</strong>: 5 to 8 business days</li><li><strong>Rest of Europe</strong>: 7 to 10 business days</li></ul>
+<p>Delivery times are indicative and begin upon dispatch confirmation of your order.</p>
+<h2>Shipping Costs</h2><p>Shipping is complimentary on orders from €100. For orders below this threshold, shipping rates are calculated automatically and displayed clearly at checkout before payment.</p>
+<h2>Order Tracking</h2><p>A tracking number is sent to you by email as soon as your parcel is dispatched. You can track your delivery directly on the <a href="https://www.correos.es/">Correos website</a>.</p>
+<h2>Delivery Zones</h2><p>Available destinations are shown at checkout. If your country does not appear during checkout, please contact us at <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
+<h2>Damaged or Lost Parcel</h2><p>If a parcel arrives visibly damaged, please refuse delivery or report it immediately to the carrier and contact us within 48 hours with supporting photos. In the event of a lost parcel, we will open an investigation with Correos.</p>`,
+      es: `<p><em>Última actualización: junio de 2026</em></p>
+<h2>Transportista</h2><p>Todos nuestros pedidos se envían a través de <strong>Correos</strong>, el servicio postal oficial de España.</p>
+<h2>Plazos de entrega estimados</h2><ul><li><strong>España</strong>: de 3 a 5 días laborables</li><li><strong>Francia</strong>: de 5 a 8 días laborables</li><li><strong>Resto de Europa</strong>: de 7 a 10 días laborables</li></ul>
+<p>Estos plazos son orientativos y comienzan a contar desde la confirmación de envío de tu pedido.</p>
+<h2>Gastos de envío</h2><p>El envío es gratuito a partir de 100 € de compra. Los gastos de envío se calculan automáticamente y se muestran con claridad antes de confirmar el pago.</p>
+<h2>Seguimiento del pedido</h2><p>Recibirás un número de seguimiento por correo electrónico en cuanto se envíe tu paquete. Puedes seguir tu entrega directamente en la <a href="https://www.correos.es/">web de Correos</a>.</p>
+<h2>Zonas de entrega</h2><p>Los destinos disponibles son los propuestos en el momento del pago. Si tu país no aparece durante el proceso de compra, escríbenos a <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
+<h2>Paquete dañado o perdido</h2><p>En caso de recibir un paquete dañado, recházalo o indícalo inmediatamente al transportista y contáctanos en un plazo de 48 horas adjuntando fotografías. En caso de extravío, abriremos una reclamación ante Correos.</p>`
+    },
+    remboursement: {
+      en: `<p><em>Last updated: June 2026</em></p>
+<h2>Right of Withdrawal</h2><p>You have <strong>14 calendar days from the receipt of your order</strong> to exercise your statutory right of withdrawal without giving any reason.</p>
+<p>To exercise this right, email us at <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a> before the 14-day period expires with your order number. You then have <strong>14 calendar days</strong> to send the products back.</p>
+<h2>Condition of Returned Products</h2><p>For hygiene and safety reasons, skincare products must be returned in their original condition and packaging. In accordance with Article 108.2 of the Spanish <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555#a108">Real Decreto Legislativo 1/2007</a>, you may be held liable for any diminished value resulting from handling beyond what is necessary to inspect the product.</p>
+<h2>Return Address</h2><p>After notifying us of your withdrawal, please send the products to:</p><address>CSKINAESTHETIC<br>c/o Correos – Oficina Elviria<br>Pueblito Platero Apartamentos, Local 13<br>29604 Marbella (Málaga), Spain</address><p>Please include your order number inside the parcel.</p>
+<h2>Return Shipping Costs</h2><p>Direct return shipping costs are borne by the customer, unless the product arrived defective, damaged or different from your order.</p>
+<h2>Refund Processing</h2><p>We will refund all payments received, including standard initial delivery costs, within <strong>14 calendar days</strong> from the date we are informed of your withdrawal (subject to receipt of the returned items or proof of dispatch), using the original payment method.</p>
+<h2>Defective, Damaged or Incorrect Item</h2><p>If you receive a defective, damaged or incorrect item, please contact us promptly at <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a> with your order number and photos so we can arrange a replacement or full refund.</p>`,
+      es: `<p><em>Última actualización: junio de 2026</em></p>
+<h2>Derecho de desistimiento</h2><p>Dispones de <strong>14 días naturales desde la recepción de tu pedido</strong> para ejercer tu derecho de desistimiento sin necesidad de justificar tu decisión.</p>
+<p>Para ejercer este derecho, envíanos un correo electrónico a <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a> antes de que venza el plazo indicando tu número de pedido. Tras informarnos, dispones de <strong>14 días naturales</strong> para devolver los productos.</p>
+<h2>Estado de los productos devueltos</h2><p>Si manipulas un producto más allá de lo necesario para comprobar su naturaleza y características, podrás ser responsable de la disminución de su valor conforme al artículo 108.2 del <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555#a108">Real Decreto Legislativo 1/2007</a>.</p>
+<h2>Dirección de devolución</h2><p>Una vez comunicada tu decisión de desistimiento, envía los productos a la siguiente dirección:</p><address>CSKINAESTHETIC<br>c/o Correos – Oficina Elviria<br>Pueblito Platero Apartamentos, Local 13<br>29604 Marbella (Málaga), España</address><p>Por favor, incluye tu número de pedido para facilitar la identificación del paquete.</p>
+<h2>Gastos de devolución</h2><p>Los costes directos de devolución corren a tu cargo, salvo que el producto sea defectuoso o no se corresponda con tu pedido.</p>
+<h2>Reembolso</h2><p>Reembolsaremos los pagos recibidos, incluidos los gastos de entrega estándar iniciales, en un plazo máximo de <strong>14 días naturales</strong> desde que nos informes de tu decisión (pudiendo retener el reembolso hasta recibir los bienes o una prueba de su devolución), utilizando el mismo medio de pago empleado en la compra.</p>
+<h2>Producto defectuoso, dañado o error en el pedido</h2><p>Si recibes un producto defectuoso, dañado o distinto al solicitado, escríbenos lo antes posible a <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a> indicando tu número de pedido y adjuntando fotografías.</p>`
+    },
+    "mentions-legales": {
+      en: `<p><em>Last updated: June 2026</em></p>
+<h2>Website Publisher</h2><p>The website <a href="https://www.cskinaesthetic.com/">www.cskinaesthetic.com</a> is published by:</p>
+<ul><li><strong>Trade name</strong>: CSkinaesthetic (trademark registered with the OEPM)</li><li><strong>Legal status</strong>: Autónomo (self-employed professional in Spain)</li><li><strong>NIE</strong>: Y3853316W</li><li><strong>EU VAT number</strong>: ESY3853316W</li><li><strong>Registered address</strong>: Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Spain</li><li><strong>Email</strong>: <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a></li></ul>
+<h2>Hosting &amp; E-Commerce</h2><p>The product catalogue, shopping bag and secure checkout are powered by <a href="https://www.shopify.com/">Shopify</a>.</p>
+<h2>Intellectual Property</h2><p>All content on this website (texts, photographs, product visuals, logos, videos and layout) is the exclusive property of CSkinaesthetic or its partners and is protected by Spanish and European intellectual property laws. Any reproduction without prior written consent is strictly prohibited.</p>
+<h2>Liability &amp; Governing Law</h2><p>To the fullest extent permitted by law, CSkinaesthetic shall not be liable for indirect damages arising from the use or temporary unavailability of this website. This website is governed by Spanish law, without prejudice to mandatory consumer protection provisions applicable in your country of residence.</p>`,
+      es: `<p><em>Última actualización: junio de 2026</em></p>
+<h2>Editor del sitio web</h2><p>El sitio web <a href="https://www.cskinaesthetic.com/">www.cskinaesthetic.com</a> está editado por:</p>
+<ul><li><strong>Denominación comercial</strong>: CSkinaesthetic (marca registrada en la OEPM)</li><li><strong>Estatuto jurídico</strong>: Autónomo</li><li><strong>NIE</strong>: Y3853316W</li><li><strong>Número de IVA intracomunitario</strong>: ESY3853316W</li><li><strong>Dirección</strong>: Avenida Casarabonela, 16 — 29604 Marbella (Málaga), España</li><li><strong>Correo electrónico</strong>: <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a></li></ul>
+<h2>Alojamiento y comercio electrónico</h2><p>El catálogo, la cesta y el pago seguro están gestionados mediante <a href="https://www.shopify.com/">Shopify</a>.</p>
+<h2>Propiedad intelectual</h2><p>Todos los contenidos presentes en este sitio (textos, imágenes, logotipos, fotografías, vídeos y diseño gráfico) son propiedad exclusiva de CSkinaesthetic o de sus colaboradores y están protegidos por la legislación española y europea sobre propiedad intelectual. Queda prohibida su reproducción sin autorización previa por escrito.</p>
+<h2>Responsabilidad y ley aplicable</h2><p>Dentro de los límites permitidos por la ley, CSkinaesthetic no será responsable de los daños derivados del uso de este sitio o de su indisponibilidad temporal. El presente sitio se rige por la legislación española, sin perjuicio de las normas imperativas de protección al consumidor.</p>`
+    },
+    coordonnees: {
+      en: `<dl><dt>Trade name</dt><dd>CSKIN AESTHETIC</dd><dt>Phone / WhatsApp</dt><dd><a href="tel:+34644183388">+34 644 18 33 88</a></dd><dt>Email address</dt><dd><a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a></dd><dt>Physical address</dt><dd>Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Spain</dd><dt>EU VAT number</dt><dd>ESY3853316W</dd><dt>Company registration</dt><dd>CSKINAESTHETIC</dd></dl>`,
+      es: `<dl><dt>Nombre comercial</dt><dd>CSKIN AESTHETIC</dd><dt>Teléfono / WhatsApp</dt><dd><a href="tel:+34644183388">+34 644 18 33 88</a></dd><dt>Correo electrónico</dt><dd><a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a></dd><dt>Dirección física</dt><dd>Avenida Casarabonela, 16 — 29604 Marbella (Málaga), España</dd><dt>Número de IVA</dt><dd>ESY3853316W</dd><dt>Número de empresa</dt><dd>CSKINAESTHETIC</dd></dl>`
+    },
+    conditions: {
+      en: `<h2>Overview &amp; Scope</h2>
+<p>Welcome to CSKIN AESTHETIC. These Terms of Service govern your access to and purchases from our online store (<a href="https://www.cskinaesthetic.com/">www.cskinaesthetic.com</a>), operated by CSkinaesthetic and powered by Shopify for cart and checkout processing.</p>
+<h2>Products, Pricing &amp; Orders</h2>
+<p>We strive to present every skincare formulation, concentration and usage instruction as accurately as possible. Prices are displayed in Euros (€). Applicable shipping fees and taxes are confirmed prior to payment on our secure Shopify checkout (<code>checkout.cskinaesthetic.com</code>). All orders are intended for personal use and are subject to availability and payment confirmation.</p>
+<h2>Shipping, Returns &amp; Consumer Rights</h2>
+<p>Deliveries and returns are governed by our <a href="#/politiques/expedition">Shipping Policy</a> and our <a href="#/politiques/remboursement">Refund Policy</a> (14-day statutory right of withdrawal). Nothing in these Terms affects your mandatory statutory rights under Spanish and European consumer law.</p>
+<h2>Intellectual Property &amp; Acceptable Use</h2>
+<p>All brand assets, texts, photographs and videos on this site are protected by copyright and trademark law and may not be reproduced or scraped without written permission.</p>
+<h2>Customer Care &amp; Contact Details</h2>
+<p>CSkinaesthetic · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Spain<br>Email: <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a> · Phone / WhatsApp: <a href="tel:+34644183388">+34 644 18 33 88</a><br>NIE: Y3853316W · EU VAT: ESY3853316W<br>Customer Care Hours: Monday to Friday, 8:00 AM to 6:00 PM (CET/CEST). We reply within 48 business hours.</p>`,
+      es: `<h2>Resumen y ámbito de aplicación</h2>
+<p>Bienvenido/a a CSKIN AESTHETIC. Las presentes Condiciones de uso regulan el acceso y las compras realizadas en nuestra tienda online (<a href="https://www.cskinaesthetic.com/">www.cskinaesthetic.com</a>), explotada por CSkinaesthetic y conectada a Shopify para la gestión de la cesta y el pago seguro.</p>
+<h2>Productos, precios y pedidos</h2>
+<p>Presentamos cada fórmula dermocosmética, sus activos y sus consejos de aplicación con el máximo rigor. Los precios se indican en euros (€). Los gastos de envío e impuestos aplicables se confirman antes del pago en nuestra pasarela segura de Shopify (<code>checkout.cskinaesthetic.com</code>). Las compras están destinadas a un uso personal y sujetas a disponibilidad.</p>
+<h2>Envíos, devoluciones y garantías legales</h2>
+<p>Las entregas y devoluciones se rigen por nuestra <a href="#/politiques/expedition">Política de envío</a> y nuestra <a href="#/politiques/remboursement">Política de reembolso</a> (derecho legal de desistimiento de 14 días naturales). Estas condiciones respetan íntegramente tus derechos legales como consumidor conforme a la normativa española y europea.</p>
+<h2>Propiedad intelectual y uso permitido</h2>
+<p>Todos los textos, fotografías, vídeos, marcas y diseños de este sitio están protegidos por derechos de propiedad intelectual y no pueden reproducirse ni extraerse sin autorización escrita.</p>
+<h2>Datos de contacto y atención al cliente</h2>
+<p>CSkinaesthetic · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), España<br>Correo: <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a> · Teléfono / WhatsApp: <a href="tel:+34644183388">+34 644 18 33 88</a><br>NIE: Y3853316W · IVA intracomunitario: ESY3853316W<br>Horario de atención al cliente: de lunes a viernes, de 8:00 a 18:00 (hora de España, CET/CEST). Respondemos en un plazo máximo de 48 horas laborables.</p>`
+    }
+  };
+  for (const policy of window.CSkinPolicies) {
+    if (i18nPolicies[policy.id]) {
+      policy.html_en = i18nPolicies[policy.id].en;
+      policy.html_es = i18nPolicies[policy.id].es;
+    }
+  }
+})();

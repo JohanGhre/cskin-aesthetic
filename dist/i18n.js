@@ -76,6 +76,7 @@ window.CSkinI18n = (() => {
     language=next;
     try{localStorage.setItem('cskin-language',next);}catch{}
     const url=new URL(location.href);url.searchParams.set('lang',next);history.replaceState(null,'',url);
+    window.onCSkinLanguageChange?.(next);
     localize();
     window.ScrollTrigger?.refresh();
   }

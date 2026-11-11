@@ -267,15 +267,17 @@ function contactPage() {
 
 function policiesPage(id) {
   const policies = window.CSkinPolicies;
+  const lang = window.CSkinI18n?.language || 'fr';
+  const body = policy => (lang !== 'fr' && policy[`html_${lang}`]) ? policy[`html_${lang}`] : policy.html;
   const current = policies.find(policy => policy.id === id);
   const links = policies.map(policy =>
     `<li><a href="#/politiques/${policy.id}" ${policy === current ? 'aria-current="page"' : ''}>${policy.title}</a></li>`
   ).join('');
   const documents = current
-    ? `<article class="policy-document">${current.html}</article>`
+    ? `<article class="policy-document" data-i18n-ignore>${body(current)}</article>`
     : policies.map(policy => `<article class="policy-document policy-document-overview">
         <h2>${policy.title}</h2>
-        ${policy.html.replaceAll('<h2>', '<h3>').replaceAll('</h2>', '</h3>')}
+        <div data-i18n-ignore>${body(policy).replaceAll('<h2>', '<h3>').replaceAll('</h2>', '</h3>')}</div>
       </article>`).join('');
 
   return `<section class="policy-page">
@@ -289,6 +291,9 @@ function policiesPage(id) {
     ${current ? '' : documents}
   </section>`;
 }
+window.onCSkinLanguageChange = () => {
+  if (location.hash.startsWith('#/politiques')) renderRoute(true);
+};
 
 function renderRoute(keepScroll=false) {
   motionContext?.revert();

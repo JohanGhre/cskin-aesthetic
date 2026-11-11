@@ -401,3 +401,106 @@
   .campaign-founder-portrait img,
   .brand-founder-photo { aspect-ratio: 1 / 1; width: 100%; max-width: 420px; margin: 0 auto; }
 }
+
+/* High-definition 60fps levitating serum studio hero stage */
+.campaign-hero--studio {
+  background: #cbcfce;
+}
+.campaign-studio-stage {
+  background: linear-gradient(112deg, #cbcfce 0%, #cdd1d0 46%, #d5d9d8 74%, #c8cccb 100%);
+  overflow: hidden;
+}
+.hero-studio-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 46% 64% at 74% 46%, rgba(255, 255, 255, 0.56) 0%, rgba(240, 242, 243, 0.24) 48%, rgba(203, 207, 206, 0) 76%),
+    radial-gradient(ellipse 55% 40% at 22% 48%, rgba(255, 255, 255, 0.14) 0%, transparent 72%);
+  pointer-events: none;
+}
+.hero-studio-floor {
+  position: absolute;
+  left: 44%;
+  right: 0;
+  top: 59%;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse 85% 95% at 55% 18%, rgba(244, 246, 247, 0.92) 0%, rgba(226, 230, 232, 0.72) 55%, rgba(212, 216, 218, 0.25) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(223, 227, 229, 0.45) 40%, rgba(210, 214, 216, 0.85) 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 84%, transparent 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.38);
+  pointer-events: none;
+}
+.hero-serum-float {
+  position: absolute;
+  right: clamp(7%, 11.5vw, 17%);
+  top: 50%;
+  height: clamp(320px, 58vh, 520px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-54%);
+  z-index: 2;
+  pointer-events: none;
+}
+.campaign-film-media .hero-serum-bottle {
+  position: relative;
+  inset: auto;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 34px rgba(23, 25, 23, 0.08));
+  animation: heroSerumFloat 6.2s ease-in-out infinite;
+  will-change: transform;
+}
+.hero-serum-shadow {
+  position: absolute;
+  left: 46%;
+  bottom: -48px;
+  width: 78%;
+  height: 26px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(23, 25, 23, 0.2) 0%, rgba(23, 25, 23, 0.08) 46%, rgba(23, 25, 23, 0) 76%);
+  filter: blur(5px);
+  animation: heroShadowBreathe 6.2s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+@keyframes heroSerumFloat {
+  0%, 100% { transform: translate3d(0, -9px, 0) rotate(-0.8deg); }
+  50% { transform: translate3d(0, 9px, 0) rotate(0.8deg); }
+}
+@keyframes heroShadowBreathe {
+  0%, 100% { transform: translateX(-50%) scale(1.06); opacity: 0.62; }
+  50% { transform: translateX(-50%) scale(0.88); opacity: 1; }
+}
+@media (max-width: 782px) {
+  .hero-studio-floor {
+    left: 0;
+    right: 0;
+    top: 63%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+  .hero-serum-float {
+    right: auto;
+    left: 50%;
+    top: 47%;
+    height: 72%;
+    transform: translate(-50%, -52%);
+  }
+  .hero-serum-shadow {
+    left: 46%;
+    bottom: -24px;
+    width: 82%;
+    height: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .campaign-film-media .hero-serum-bottle,
+  .hero-serum-shadow {
+    animation: none;
+  }
+}

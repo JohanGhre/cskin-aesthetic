@@ -1636,5 +1636,29 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
   "Les exemples de routine servent à découvrir la gamme. Pour un conseil adapté, échangez avec Céline.": {
     "en": "The routine examples introduce the range. For tailored advice, speak with Céline.",
     "es": "Los ejemplos de rutina sirven para descubrir la gama. Para un consejo adaptado, habla con Céline."
+  },
+  "La peau, en lumière.": {
+    "en": "Skin in a different light.",
+    "es": "La piel, bajo otra luz."
+  },
+  "Faites glisser le curseur pour comparer deux éclairages du même portrait.": {
+    "en": "Drag the slider to compare two lighting treatments of the same portrait.",
+    "es": "Desliza el control para comparar dos iluminaciones del mismo retrato."
+  },
+  "Simulation d’éclairage. Aucun résultat de soin n’est représenté.": {
+    "en": "Lighting simulation. No skincare results are shown.",
+    "es": "Simulación de iluminación. No se muestran resultados del tratamiento."
+  },
+  "Comparer les deux éclairages": {
+    "en": "Compare the two lighting treatments",
+    "es": "Comparar las dos iluminaciones"
+  },
+  "Avant": {
+    "en": "Before",
+    "es": "Antes"
+  },
+  "Après": {
+    "en": "After",
+    "es": "Después"
   }
 });

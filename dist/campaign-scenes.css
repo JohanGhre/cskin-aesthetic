@@ -95,3 +95,87 @@
   .routine-duo-details { margin-top:22px; }
   .routine-duo-actions { display:block; }
 }
+
+/* Local brand-first hero concept. */
+.campaign-home .campaign-hero--brand {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+  min-height: min(650px, 75svh);
+  height: calc(100svh - 84px);
+  max-height: 850px;
+  padding: 0;
+  background: var(--campaign-paper);
+}
+
+.campaign-brand-copy {
+  align-self: center;
+  padding: clamp(30px, 5vw, 80px);
+}
+
+.campaign-home .campaign-brand-copy h1 {
+  max-width: 16ch;
+  margin: 0 0 22px;
+  font: 400 clamp(36px, 3.8vw, 62px)/1.12 var(--ui);
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.campaign-brand-copy > p {
+  max-width: 35ch;
+  margin-bottom: 24px;
+  font: 400 17px/1.55 var(--ui);
+}
+
+.campaign-brand-copy .campaign-link { gap: 24px; }
+
+.campaign-brand-media { min-width: 0; overflow: hidden; }
+
+.campaign-brand-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+@media (max-width: 782px) {
+  .campaign-home .campaign-hero--brand {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+
+  .campaign-brand-media { order: 0; aspect-ratio: 4 / 3; }
+  .campaign-brand-copy {
+    order: 1;
+    align-self: stretch;
+    padding: 25px clamp(18px, 5vw, 32px) 30px;
+  }
+  .campaign-home .campaign-brand-copy h1 {
+    max-width: none;
+    font-size: clamp(30px, 7.6vw, 42px);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .campaign-brand-copy > p { font-size: 16px; margin-bottom: 12px; }
+}
+
+/* Brand message over the product film, for local review. */
+.campaign-home .campaign-film-copy h1 {
+  font-size: clamp(32px, 3.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  text-transform: none;
+  max-width: 18ch;
+}
+.campaign-film-heading > p:not(.campaign-film-kicker) { max-width: 34ch; }
+@media (max-width: 782px) {
+  .campaign-home .campaign-film-copy h1 {
+    max-width: none;
+    font-size: clamp(29px, 7.5vw, 40px);
+    line-height: 1.1;
+  }
+}

@@ -175,3 +175,53 @@
   border-bottom: 1px solid var(--border);
 }
 .policy-links a[aria-current="page"] { font-weight: 600; }
+
+/* Unified action and typography treatment across the storefront. */
+.campaign-founder--personal .campaign-founder-portrait img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+:is(.campaign-home, .catalog-showroom, .product-editorial, .brand-page-hero, .brand-story, .contact-page, .related-section, .routine-banner, .dialog) :is(p, li, dd) {
+  font-family: var(--ui);
+  letter-spacing: normal;
+}
+
+:is(.campaign-home, .catalog-showroom, .product-editorial, .brand-page-hero, .brand-story, .contact-page, .related-section, .dialog) :is(.campaign-eyebrow, .campaign-film-kicker, .routine-duo-kicker, .section-title-small, .product-kicker, .product-volume, .product-gallery-label, dt) {
+  font-family: var(--mono);
+}
+
+:is(main, .dialog) :is(.button, .campaign-link, .text-link, .catalog-add, .campaign-product-info button, .product-card-info button, .quiz-option) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #171917;
+  border-radius: 0;
+  background: #171917;
+  color: #fafaf8;
+  font-family: var(--ui);
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+:is(main, .dialog) :is(.button, .campaign-link, .text-link, .catalog-add, .campaign-product-info button, .product-card-info button, .quiz-option):hover {
+  background: #353735;
+  color: #fff;
+}
+:is(main, .dialog) :is(.button, .campaign-link, .text-link, .catalog-add, .campaign-product-info button, .product-card-info button, .quiz-option):disabled {
+  opacity: .55;
+}
+:is(main, .dialog) :is(.button, .campaign-link, .text-link, .catalog-add, .campaign-product-info button, .product-card-info button, .quiz-option):focus-visible {
+  outline: 2px solid #9d7138;
+  outline-offset: 3px;
+}
+@media (max-width: 782px) {
+  .campaign-film-copy .campaign-link { padding-inline: var(--hero-gutter); }
+  .campaign-founder--personal .campaign-founder-portrait img { aspect-ratio: auto; }
+  .campaign-product-info > div { align-items: center; }
+}

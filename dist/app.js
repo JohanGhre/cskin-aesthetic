@@ -118,7 +118,17 @@ function stepSelection(direction) {
 
 
 function campaignHero() {
-  return `<section class="campaign-hero campaign-hero--film" aria-labelledby="campaign-title"><div class="campaign-film-media" aria-hidden="true"><picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-higgsfield-mobile.jpg"><img src="assets/campaign/hero-higgsfield-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture><video id="serum-film" muted playsinline preload="none" data-priority="hero" data-preview-seconds="4.5" data-desktop-src="assets/campaign/hero-higgsfield-desktop.mp4" data-mobile-src="assets/campaign/hero-higgsfield-mobile.mp4" disablepictureinpicture disableremoteplayback></video></div><div class="campaign-film-copy"><div class="campaign-film-heading"><p class="campaign-film-kicker">Hydratation · Souplesse</p><h1 id="campaign-title">Sérum Age Plus</h1><p>Le geste précieux de votre routine.</p></div><a class="campaign-link" href="#/produit/serum-age-plus-1">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div></section>`;
+  return `<section class="campaign-hero campaign-hero--film" aria-labelledby="campaign-title">
+    <div class="campaign-film-media" aria-hidden="true">
+      <picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-higgsfield-mobile.jpg"><img src="assets/campaign/hero-higgsfield-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture>
+      <video id="serum-film" muted playsinline preload="none" data-priority="hero" data-preview-seconds="4.5" data-desktop-src="assets/campaign/hero-higgsfield-desktop-local.mp4" data-mobile-src="assets/campaign/hero-higgsfield-mobile-local.mp4" disablepictureinpicture disableremoteplayback></video>
+    </div>
+    <div class="campaign-film-copy"><div class="campaign-film-heading">
+      <p class="campaign-film-kicker">Cskin Aesthetic</p>
+      <h1 id="campaign-title">Comprendre sa peau.<br> Mieux choisir ses soins.</h1>
+      <p>Des formules ciblées et des gestes simples pour composer votre routine.</p>
+    </div><a class="campaign-link" href="#/soins">Découvrir les soins <span class="ui-arrow" aria-hidden="true"></span></a></div>
+  </section>`;
 }
 
 const campaignPortrait = 'assets/editorial/cskin-silk-portrait-cutout.webp';

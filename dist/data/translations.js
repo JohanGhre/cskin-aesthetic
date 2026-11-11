@@ -1637,5 +1637,9 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
     "en": "The routine examples introduce the range. For tailored advice, speak with Céline.",
     "es": "Los ejemplos de rutina sirven para descubrir la gama. Para un consejo adaptado, habla con Céline."
   },
-  "Politiques et confidentialité": {"en":"Policies and privacy","es":"Políticas y privacidad"}
+  "Politiques et confidentialité": {"en":"Policies and privacy","es":"Políticas y privacidad"},
+  "Comprendre sa peau.": {"en":"Understand your skin.","es":"Comprender tu piel."},
+  "Mieux choisir ses soins.": {"en":"Choose your skincare with care.","es":"Elegir mejor tus cuidados."},
+  "Des formules ciblées et des gestes simples pour composer votre routine.": {"en":"Targeted formulas and simple steps for your skincare routine.","es":"Fórmulas específicas y gestos sencillos para crear tu rutina."},
+  "Une femme applique délicatement un soin sur sa joue": {"en":"A woman gently applies skincare to her cheek","es":"Una mujer aplica suavemente un tratamiento en su mejilla"}
 });

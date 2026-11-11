@@ -401,29 +401,3 @@
   .campaign-founder-portrait img,
   .brand-founder-photo { aspect-ratio: 1 / 1; width: 100%; max-width: 420px; margin: 0 auto; }
 }
-
-/* High-definition seamless studio cyclorama photography */
-.campaign-hero--studio,
-.campaign-hero--studio .campaign-film-media {
-  background: #d7d8dd;
-}
-.campaign-hero--studio .hero-studio-photo {
-  object-fit: cover;
-  object-position: 62% 52%;
-}
-@media (max-width: 782px) {
-  .campaign-hero--studio {
-    grid-template-rows: auto clamp(300px, 98vw, 460px) auto;
-    background: var(--campaign-paper);
-  }
-  .campaign-hero--studio .campaign-film-media {
-    background: #d7d7db;
-  }
-  .campaign-hero--studio .hero-studio-photo {
-    object-position: 50% 86%;
-  }
-  .campaign-hero--studio .campaign-film-copy .campaign-link {
-    margin: 14px var(--hero-gutter) 4px;
-    padding-inline: 22px;
-  }
-}

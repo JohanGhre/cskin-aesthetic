@@ -401,3 +401,28 @@
   .campaign-founder-portrait img,
   .brand-founder-photo { aspect-ratio: 1 / 1; width: 100%; max-width: 420px; margin: 0 auto; }
 }
+
+/* Omni 1.2 editorial hero video presentation */
+.campaign-hero--omni,
+.campaign-hero--omni .campaign-film-media {
+  background: #dfd6c9;
+}
+.campaign-hero--omni .campaign-film-copy {
+  max-width: min(38%, 460px);
+}
+@media (max-width: 782px) {
+  .campaign-hero--omni {
+    grid-template-rows: auto clamp(280px, 94vw, 440px) auto;
+    background: var(--campaign-paper);
+  }
+  .campaign-hero--omni .campaign-film-media {
+    background: #dfd6c9;
+  }
+  .campaign-hero--omni .campaign-film-media video {
+    object-position: 55% 50%;
+  }
+  .campaign-hero--omni .campaign-film-copy .campaign-link {
+    margin: 14px var(--hero-gutter) 4px;
+    padding-inline: 22px;
+  }
+}

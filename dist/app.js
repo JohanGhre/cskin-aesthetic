@@ -120,10 +120,10 @@ function stepSelection(direction) {
 
 
 function campaignHero() {
-  return `<section class="campaign-hero campaign-hero--film" aria-labelledby="campaign-title">
+  return `<section class="campaign-hero campaign-hero--film campaign-hero--omni" aria-labelledby="campaign-title">
     <div class="campaign-film-media" aria-hidden="true">
-      <picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-higgsfield-mobile.jpg"><img src="assets/campaign/hero-higgsfield-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture>
-      <video id="serum-film" muted playsinline preload="none" data-priority="hero" data-preview-seconds="4.5" data-desktop-src="assets/campaign/hero-higgsfield-desktop-local.mp4" data-mobile-src="assets/campaign/hero-higgsfield-mobile-local.mp4" disablepictureinpicture disableremoteplayback></video>
+      <picture><source media="(max-width: 782px)" srcset="assets/campaign/hero-omni-mobile.jpg"><img src="assets/campaign/hero-omni-desktop.jpg" alt="" width="1920" height="1080" fetchpriority="high"></picture>
+      <video id="serum-film" muted playsinline loop preload="none" data-priority="hero" data-desktop-src="assets/campaign/hero-omni-desktop.mp4" data-mobile-src="assets/campaign/hero-omni-mobile.mp4" disablepictureinpicture disableremoteplayback></video>
     </div>
     <div class="campaign-film-copy"><div class="campaign-film-heading">
       <p class="campaign-film-kicker">Cskin Aesthetic</p>

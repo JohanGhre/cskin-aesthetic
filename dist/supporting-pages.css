@@ -1367,3 +1367,25 @@ body, button, input, select, textarea { font-family:var(--ui); }
   .passport-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .passport-metric + .passport-metric { border-left:1px solid var(--border); border-top:0; }
 }
+
+/* Discovery first: one clear entry point, with the existing campaign imagery. */
+.hero-discovery { display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+.hero-discovery > p { margin:0; max-width:35ch; font:400 14px/1.5 var(--ui); color:inherit; }
+.campaign-home .sensory-matrix { margin-block:clamp(16px,3vw,40px); }
+.quiz-dialog { max-height:min(90dvh, 900px); overflow-y:auto; }
+.quiz-dialog .quiz-description { font-size:16px; line-height:1.6; }
+.routine-result-item--lead { margin-top:24px; }
+.quiz-result-overline { margin:0 0 6px; font-size:12px; text-transform:uppercase; letter-spacing:.05em; }
+.quiz-pack { margin-top:28px; padding:22px; background:#f0f0ed; border-radius:12px; }
+.quiz-pack h3 { margin:0 0 10px; font-size:21px; }
+.quiz-pack p:not(.quiz-result-overline) { font-size:15px; line-height:1.55; margin:0 0 14px; }
+.quiz-pack a { display:inline-flex; gap:12px; align-items:center; min-height:44px; text-decoration:underline; text-underline-offset:4px; }
+@media (max-width:782px) {
+  .hero-discovery { display:contents; }
+  .hero-discovery > p { padding:0 var(--hero-gutter, 24px) 18px; font-size:14px; }
+  .quiz-dialog { width:calc(100% - 24px); max-height:calc(100dvh - 24px); padding:48px 24px 28px; }
+  .quiz-dialog h2 { font-size:clamp(29px,8vw,36px); line-height:1.12; }
+  .quiz-options { margin-top:24px; }
+  .quiz-option { min-height:52px; }
+  .quiz-result-actions { align-items:stretch; flex-direction:column; }
+}

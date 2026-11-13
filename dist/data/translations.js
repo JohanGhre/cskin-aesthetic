@@ -2217,3 +2217,58 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
   "Lissant · Grain affiné": { "en": "Smoothing · Refined texture", "es": "Alisador · Textura afinada" },
   "Soir / Alternance": { "en": "Evening / Alternate", "es": "Noche / Alterno" }
 });
+
+Object.assign(window.CSKIN_TRANSLATIONS, {
+  "Trouver mon soin": {
+    "en": "Find my skincare",
+    "es": "Encontrar mi cuidado"
+  },
+  "Trois questions pour découvrir les soins qui vous correspondent.": {
+    "en": "Three questions to discover skincare for you.",
+    "es": "Tres preguntas para descubrir los cuidados adecuados para ti."
+  },
+  "Aide au choix": {
+    "en": "Find your fit",
+    "es": "Encuentra tu cuidado"
+  },
+  "Comparez les textures.": {
+    "en": "Compare textures.",
+    "es": "Compara las texturas."
+  },
+  "Trouvez la vôtre.": {
+    "en": "Find yours.",
+    "es": "Encuentra la tuya."
+  },
+  "Quatre crèmes, quatre textures : découvrez celle qui convient à votre rituel.": {
+    "en": "Four creams, four textures: discover the one for your ritual.",
+    "es": "Cuatro cremas, cuatro texturas: descubre la adecuada para tu ritual."
+  },
+  "Une sélection pour vous.": {
+    "en": "A selection for you.",
+    "es": "Una selección para ti."
+  },
+  "À partir de vos réponses, voici une piste pour composer votre rituel. Consultez les conseils et précautions de chaque soin.": {
+    "en": "Based on your answers, here is a starting point for your routine. Check each product’s directions and precautions.",
+    "es": "Según tus respuestas, esta es una propuesta para tu ritual. Consulta las indicaciones y precauciones de cada producto."
+  },
+  "À découvrir en premier": {
+    "en": "Discover first",
+    "es": "Descubre primero"
+  },
+  "Envie d’un rituel complet ?": {
+    "en": "Looking for a complete ritual?",
+    "es": "¿Quieres un ritual completo?"
+  },
+  "Le duo jour & nuit": {
+    "en": "The day & night duo",
+    "es": "El dúo día y noche"
+  },
+  "Deux soins complémentaires à découvrir ensemble. Le soin de nuit contient du rétinol : consultez ses précautions avant utilisation.": {
+    "en": "Two complementary products to explore together. The night product contains retinol: check its precautions before use.",
+    "es": "Dos cuidados complementarios para descubrir juntos. El cuidado de noche contiene retinol: consulta sus precauciones antes de usarlo."
+  },
+  "Ajouter cette sélection au panier": {
+    "en": "Add this selection to bag",
+    "es": "Añadir esta selección a la cesta"
+  }
+});

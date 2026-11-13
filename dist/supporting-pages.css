@@ -109,6 +109,35 @@
   .brand-commitments-grid { grid-template-columns:minmax(0,1fr); gap:20px; }
   .contact-form { padding:20px; }
 }
+
+/* Interactive day/night ritual: concise steps with optional detail. */
+.routine-guide-switch { display:flex; gap:8px; padding:4px; background:#efefec; border-radius:999px; width:max-content; max-width:100%; }
+.routine-guide-switch button { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px; padding:10px 20px; border:0; border-radius:999px; color:var(--text); background:transparent; font:500 15px/1.3 var(--ui); cursor:pointer; }
+.routine-guide-switch button[aria-pressed="true"] { background:#171917; color:#fff; }
+.routine-guide-switch button span { font-size:20px; line-height:1; }
+.routine-guide-panel { padding:26px 0 22px; min-width:0; }
+.routine-guide-panel[hidden] { display:none; }
+.routine-guide-product { display:inline-flex; gap:20px; align-items:center; color:var(--text); font:600 17px/1.4 var(--ui); text-decoration:none; }
+.routine-guide-product:hover { text-decoration:underline; text-underline-offset:4px; }
+.routine-guide-panel h3 { margin:20px 0 8px; font:500 19px/1.3 var(--display); }
+.routine-guide-panel p { max-width:48ch; margin:0; font:400 16px/1.65 var(--ui); color:var(--text-muted); }
+.routine-guide-warning { display:inline-flex; align-items:center; gap:10px; padding:12px 0; min-height:44px; border:0; background:transparent; color:var(--text); font:500 14px/1.4 var(--ui); text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.routine-guide-questions { margin-top:30px; }
+.routine-guide-questions details { border-bottom:1px solid var(--border); }
+.routine-guide-questions summary { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:58px; padding:14px 0; list-style:none; font:500 16px/1.4 var(--ui); cursor:pointer; }
+.routine-guide-questions summary::-webkit-details-marker { display:none; }
+.routine-guide-questions summary span { font-size:20px; font-weight:400; }
+.routine-guide-questions details[open] summary span { transform:rotate(45deg); }
+.routine-guide-questions details > div { padding:0 0 20px; }
+.routine-guide-questions details p { margin:0 0 12px; font:400 15px/1.65 var(--ui); color:var(--text-muted); }
+.routine-guide :focus-visible,.routine-guide-questions :focus-visible { outline:2px solid #9d7138; outline-offset:3px; }
+@media (max-width:650px) {
+  .routine-guide-switch { width:100%; }
+  .routine-guide-switch button { flex:1; }
+  .routine-guide-panel { padding-block:24px 18px; }
+  .routine-guide-panel p { font-size:16px; }
+  .routine-guide-questions { margin-top:24px; }
+}
 .contact-note { font:400 14px/1.7 var(--ui); letter-spacing:0; margin:24px 0; max-width:45ch; }
 .contact-page .campaign-link,.brand-page-hero .campaign-link { font:400 14px/1.5 var(--ui); }
 .dialog .button,.dialog .quantity,.dialog .quiz-option { border-radius:8px; }

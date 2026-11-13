@@ -73,20 +73,20 @@ function dayNightStory() {
   return `<section class="routine-duo routine-duo--study" aria-labelledby="duo-title">
     <a class="routine-duo-image" href="#/produit/${duo.id}" aria-label="Découvrir le duo AntiAging Plus Day & Night"><img src="${catalogPhotos[duo.id]}" alt="Duo AntiAging Plus Day et Night" width="1024" height="1536" loading="lazy" decoding="async"></a>
     <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · Day & Night</p><h2 id="duo-title">Jour & nuit.</h2>
-      <dl class="routine-duo-facts">
-        <div><dt>Le matin</dt><dd><a href="#/produit/${day.id}">AntiAging Plus Day</a><span>Sur peau propre, avant votre protection solaire.</span></dd></div>
-        <div><dt>Le soir</dt><dd><a href="#/produit/${night.id}">AntiAging Plus Night</a><span>Après le nettoyage, selon la tolérance de votre peau.</span></dd></div>
-        <div><dt>Actifs communs</dt><dd>Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis.</dd></div>
-        <div><dt>Format</dt><dd>Deux soins de 50 ml.</dd></div>
-      </dl>
+      <div class="routine-guide" aria-label="AntiAging Plus · Day & Night">
+        <div class="routine-guide-switch" role="group" aria-label="AntiAging Plus · Day & Night">
+          <button type="button" data-action="duo-time" data-id="day" aria-pressed="true"><span aria-hidden="true">☼</span> Le matin</button>
+          <button type="button" data-action="duo-time" data-id="night" aria-pressed="false"><span aria-hidden="true">☾</span> Le soir</button>
+        </div>
+        <div class="routine-guide-panel" data-duo-panel="day"><a class="routine-guide-product" href="#/produit/${day.id}">AntiAging Plus Day <span class="ui-arrow" aria-hidden="true"></span></a><h3>Votre geste du matin</h3><p>Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p></div>
+        <div class="routine-guide-panel" data-duo-panel="night" hidden><a class="routine-guide-product" href="#/produit/${night.id}">AntiAging Plus Night <span class="ui-arrow" aria-hidden="true"></span></a><h3>Votre geste du soir</h3><p>Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p><button type="button" class="routine-guide-warning" data-action="duo-precaution">Les précautions du rétinol <span aria-hidden="true">↓</span></button></div>
+      </div>
       <div class="routine-duo-purchase"><span class="routine-duo-amount">${money(duo.price)}</span><button class="campaign-link" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button></div>
-      <details class="routine-duo-details"><summary>Détails du rituel <span aria-hidden="true">+</span></summary><div>
-        <p class="routine-duo-product-links"><a href="#/produit/${day.id}">AntiAging Plus Day</a> · <a href="#/produit/${night.id}">AntiAging Plus Night</a></p><h3>Pourquoi les associer ?</h3><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p><p>Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis : une base commune aux deux formules.</p>
-        <h3>Votre geste du matin</h3><p>Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p>
-        <h3>Votre geste du soir</h3><p>Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p>
-        <h3>Pour qui ?</h3><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.</p>
-        <h3>Les précautions du rétinol</h3><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p>
-      </div></details>
+      <div class="routine-guide-questions">
+        <details><summary>Pourquoi les associer ? <span aria-hidden="true">+</span></summary><div><p>Deux formules complémentaires, des actifs communs et des gestes réguliers : c’est la cohérence de la routine qui donne du sens à chaque application.</p><p>Matrixyl 3000, isoflavones liposomales, aloe vera et hamamélis : une base commune aux deux formules.</p></div></details>
+        <details><summary>Pour qui ? <span aria-hidden="true">+</span></summary><div><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.</p></div></details>
+        <details id="duo-retinol"><summary>Les précautions du rétinol <span aria-hidden="true">+</span></summary><div><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p></div></details>
+      </div>
       <a class="campaign-link routine-duo-link" href="#/produit/${duo.id}">Voir le duo <span class="ui-arrow" aria-hidden="true"></span></a>
     </div>
   </section>`;
@@ -492,6 +492,8 @@ document.addEventListener('click',async e=>{
     case 'close':closeDialogs();break;
     case 'add':await addToCart(id);break;
     case 'selection-step':stepSelection(Number(button.dataset.direction));break;
+    case 'duo-time':{const guide=button.closest('.routine-guide');$$('[data-action="duo-time"]',guide).forEach(item=>item.setAttribute('aria-pressed',String(item===button)));$$('[data-duo-panel]',guide).forEach(panel=>panel.hidden=panel.dataset.duoPanel!==id);break;}
+    case 'duo-precaution':{const detail=$('#duo-retinol');if(detail){detail.open=true;detail.querySelector('summary')?.focus();}break;}
     case 'add-product':if(await addToCart(id,quantity)){renderCart();openDialog('#cart-dialog');}break;
     case 'qty-minus':quantity=Math.max(1,quantity-1);$('#product-quantity').textContent=quantity;break;
     case 'qty-plus':quantity=Math.min(20,quantity+1);$('#product-quantity').textContent=quantity;break;

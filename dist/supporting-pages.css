@@ -1301,3 +1301,40 @@
     transition: none;
   }
 }
+/* Cskin typography: display, reading text and concise technical labels. */
+@font-face { font-family:'Cskin Instrument Sans'; src:url('assets/fonts/instrument-sans.ttf') format('truetype'); font-weight:400 700; font-display:swap; }
+@font-face { font-family:'Cskin DM Sans'; src:url('assets/fonts/dm-sans.ttf') format('truetype'); font-weight:400 700; font-display:swap; }
+:root { --ui:'Cskin DM Sans',Arial,sans-serif; --body:var(--ui); --display:'Cskin Instrument Sans',Arial,sans-serif; }
+body, button, input, select, textarea { font-family:var(--ui); }
+:is(main, .dialog, .footer) :is(h1,h2,h3,h4,h1 em,h2 em,h3 em) { font-family:var(--display) !important; font-style:normal; }
+:is(main, .dialog, .footer) :is(p,li,dd) { font-family:var(--ui); }
+:is(main, .dialog, .footer) :is(.campaign-eyebrow,.campaign-film-kicker,.routine-duo-kicker,.section-title-small,.product-kicker,.product-volume,.product-gallery-label,.passport-metric-label,dt) { font-family:var(--mono); }
+:is(main, .dialog, .footer) :is(p,li,dd):not(.campaign-eyebrow):not(.campaign-film-kicker):not(.routine-duo-kicker):not(.section-title-small):not(.product-kicker):not(.product-volume):not(.product-gallery-label) { font-family:var(--ui) !important; }
+
+/* A clearer, product-led day-and-night story. */
+.campaign-home .routine-duo--study { max-width:none; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(36px,7vw,112px); padding-block:clamp(64px,8vw,112px); }
+.routine-duo-image { display:block; width:100%; min-width:0; }
+.routine-duo-image img { display:block; width:100%; height:clamp(340px,43vw,560px); object-fit:contain; }
+.routine-duo--study .routine-duo-copy { max-width:540px; }
+.campaign-home .routine-duo--study h2 { font-size:clamp(38px,4.3vw,64px); line-height:1.08; margin-block:12px 32px; }
+.routine-duo-facts > div { padding-block:18px; }
+.routine-duo-facts dd a { font-weight:600; margin-bottom:5px; }
+.routine-duo-facts dd { font-size:16px; line-height:1.55; }
+.routine-duo-purchase { margin-top:10px; }
+.routine-duo-purchase .campaign-link { min-width:185px; }
+.routine-duo--study .routine-duo-details { margin-top:24px; }
+.routine-duo-link { margin-top:12px; }
+.passport-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+
+/* Blend the portrait gently into the surrounding page. */
+.catalog-introduction-portrait { -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%); mask-image:linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%); }
+@media (max-width:650px) {
+  .campaign-home .routine-duo--study { grid-template-columns:minmax(0,1fr); gap:24px; padding-block:52px 64px; }
+  .routine-duo-image img { height:clamp(260px,80vw,390px); }
+  .campaign-home .routine-duo--study h2 { font-size:clamp(38px,10vw,48px); margin-block:10px 26px; }
+  .routine-duo-facts > div { grid-template-columns:minmax(78px,27%) minmax(0,1fr); gap:14px; padding-block:17px; }
+  .routine-duo-facts dd { font-size:15px; }
+  .routine-duo-purchase .campaign-link { min-width:0; }
+  .passport-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .passport-metric + .passport-metric { border-left:1px solid var(--border); border-top:0; }
+}

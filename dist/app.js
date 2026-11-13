@@ -71,6 +71,7 @@ function dayNightStory() {
   const night=findProduct('creme-anti-aging-plus-night');
   const duo=findProduct('duo-pack-anti-aging-day-night');
   return `<section class="routine-duo routine-duo--study" aria-labelledby="duo-title">
+    <a class="routine-duo-image" href="#/produit/${duo.id}" aria-label="Découvrir le duo AntiAging Plus Day & Night"><img src="${catalogPhotos[duo.id]}" alt="Duo AntiAging Plus Day et Night" width="1024" height="1536" loading="lazy" decoding="async"></a>
     <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · Day & Night</p><h2 id="duo-title">Jour & nuit.</h2>
       <dl class="routine-duo-facts">
         <div><dt>Le matin</dt><dd><a href="#/produit/${day.id}">AntiAging Plus Day</a><span>Sur peau propre, avant votre protection solaire.</span></dd></div>
@@ -323,7 +324,6 @@ function productPage(id) {
       <div class="passport-metrics">
         <div class="passport-metric"><span class="passport-metric-label">Contenance</span><strong class="passport-metric-value">${esc(dossier.passport.volume)}</strong><span class="passport-metric-sub">${esc(dossier.passport.pack)}</span></div>
         <div class="passport-metric"><span class="passport-metric-label">Durée estimée</span><strong class="passport-metric-value"><span id="passport-days">~${dossier.passport.baseDays}</span> <span class="passport-unit">jours</span></strong><span class="passport-metric-sub" id="passport-cadence-sub">Usage quotidien</span></div>
-        <div class="passport-metric"><span class="passport-metric-label">Coût / geste</span><strong class="passport-metric-value">${money(p.price/dossier.passport.baseDays)}</strong><span class="passport-metric-sub">par application</span></div>
       </div>
     </div>
   </section>`:'';

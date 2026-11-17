@@ -79,11 +79,11 @@ window.CSkinPolicies = [
   { id: "expedition", title: "Politique d’expédition", html: `
 <p><em>Dernière mise à jour : juin 2026</em></p>
 <h2>Transporteur</h2><p>Toutes nos commandes sont expédiées via <strong>Correos</strong>, le service postal espagnol.</p>
-<h2>Délais de livraison estimés</h2><ul><li><strong>Espagne</strong> : 3 à 5 jours ouvrés</li><li><strong>France</strong> : 5 à 8 jours ouvrés</li><li><strong>Reste de l’Europe</strong> : 7 à 10 jours ouvrés</li></ul>
+<h2>Délais de livraison estimés</h2><ul><li><strong>Espagne</strong> : 3 à 5 jours ouvrés</li></ul>
 <p>Ces délais sont indicatifs et peuvent varier selon la période et la destination. Ils débutent à compter de la confirmation d’expédition de votre commande.</p>
-<h2>Frais de livraison</h2><p>Les frais de livraison sont calculés automatiquement et affichés clairement avant la validation de votre commande.</p>
+<h2>Frais de livraison</h2><p>La livraison en Espagne est offerte à partir de 100 €. Les frais de livraison sont calculés automatiquement et affichés clairement avant la validation de votre commande.</p>
 <h2>Suivi de commande</h2><p>Un numéro de suivi vous est communiqué par e-mail dès l’expédition de votre colis. Vous pouvez suivre votre livraison directement sur le <a href="https://www.correos.es/">site de Correos</a>.</p>
-<h2>Zones de livraison</h2><p>Les destinations disponibles sont celles proposées au moment du paiement. Les délais ci-dessus s’appliquent lorsque la destination est disponible. Si votre pays n’apparaît pas lors du paiement, contactez-nous à <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
+<h2>Zones de livraison</h2><p>La boutique livre actuellement en Espagne. Les destinations disponibles sont celles proposées au moment du paiement. Si votre pays n’apparaît pas lors du paiement, contactez-nous à <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
 <h2>Colis endommagé ou perdu</h2><p>En cas de colis endommagé à la livraison, refusez-le ou signalez-le immédiatement au transporteur et contactez-nous sous 48 h avec photos à l’appui. En cas de colis perdu, nous ouvrirons une enquête auprès de Correos.</p>
   ` },
   { id: "remboursement", title: "Politique de remboursement", html: `
@@ -247,19 +247,19 @@ window.CSkinPolicies = [
     expedition: {
       en: `<p><em>Last updated: June 2026</em></p>
 <h2>Carrier</h2><p>All orders are shipped via <strong>Correos</strong>, the official Spanish postal service.</p>
-<h2>Estimated Delivery Times</h2><ul><li><strong>Spain</strong>: 3 to 5 business days</li><li><strong>France</strong>: 5 to 8 business days</li><li><strong>Rest of Europe</strong>: 7 to 10 business days</li></ul>
+<h2>Estimated Delivery Times</h2><ul><li><strong>Spain</strong>: 3 to 5 business days</li></ul>
 <p>Delivery times are indicative and begin upon dispatch confirmation of your order.</p>
-<h2>Shipping Costs</h2><p>Shipping is complimentary on orders from €100. For orders below this threshold, shipping rates are calculated automatically and displayed clearly at checkout before payment.</p>
+<h2>Shipping Costs</h2><p>Shipping in Spain is complimentary on orders of €100 or more. For orders below this threshold, shipping rates are calculated automatically and displayed clearly at checkout before payment.</p>
 <h2>Order Tracking</h2><p>A tracking number is sent to you by email as soon as your parcel is dispatched. You can track your delivery directly on the <a href="https://www.correos.es/">Correos website</a>.</p>
-<h2>Delivery Zones</h2><p>Available destinations are shown at checkout. If your country does not appear during checkout, please contact us at <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
+<h2>Delivery Zones</h2><p>We currently ship to Spain. Available destinations are shown at checkout. If your country does not appear during checkout, please contact us at <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
 <h2>Damaged or Lost Parcel</h2><p>If a parcel arrives visibly damaged, please refuse delivery or report it immediately to the carrier and contact us within 48 hours with supporting photos. In the event of a lost parcel, we will open an investigation with Correos.</p>`,
       es: `<p><em>Última actualización: junio de 2026</em></p>
 <h2>Transportista</h2><p>Todos nuestros pedidos se envían a través de <strong>Correos</strong>, el servicio postal oficial de España.</p>
-<h2>Plazos de entrega estimados</h2><ul><li><strong>España</strong>: de 3 a 5 días laborables</li><li><strong>Francia</strong>: de 5 a 8 días laborables</li><li><strong>Resto de Europa</strong>: de 7 a 10 días laborables</li></ul>
+<h2>Plazos de entrega estimados</h2><ul><li><strong>España</strong>: de 3 a 5 días laborables</li></ul>
 <p>Estos plazos son orientativos y comienzan a contar desde la confirmación de envío de tu pedido.</p>
-<h2>Gastos de envío</h2><p>El envío es gratuito a partir de 100 € de compra. Los gastos de envío se calculan automáticamente y se muestran con claridad antes de confirmar el pago.</p>
+<h2>Gastos de envío</h2><p>El envío en España es gratuito a partir de 100 € de compra. Los gastos de envío se calculan automáticamente y se muestran con claridad antes de confirmar el pago.</p>
 <h2>Seguimiento del pedido</h2><p>Recibirás un número de seguimiento por correo electrónico en cuanto se envíe tu paquete. Puedes seguir tu entrega directamente en la <a href="https://www.correos.es/">web de Correos</a>.</p>
-<h2>Zonas de entrega</h2><p>Los destinos disponibles son los propuestos en el momento del pago. Si tu país no aparece durante el proceso de compra, escríbenos a <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
+<h2>Zonas de entrega</h2><p>Actualmente enviamos a España. Los destinos disponibles son los propuestos en el momento del pago. Si tu país no aparece durante el proceso de compra, escríbenos a <a href="mailto:ab.frenchbeauty@gmail.com">ab.frenchbeauty@gmail.com</a>.</p>
 <h2>Paquete dañado o perdido</h2><p>En caso de recibir un paquete dañado, recházalo o indícalo inmediatamente al transportista y contáctanos en un plazo de 48 horas adjuntando fotografías. En caso de extravío, abriremos una reclamación ante Correos.</p>`
     },
     remboursement: {

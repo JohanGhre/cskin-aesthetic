@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.cskinaesthetic.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.cskinaesthetic.com/?lang=en</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.cskinaesthetic.com/?lang=es</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <url><loc>https://www.cskinaesthetic.com/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/serum-age-plus-1/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/creme-silk-effect/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/lait-nettoyant-hydratant/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/mousse-nettoyante-a-lacide-glycolique/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/creme-anti-aging-plus-day/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/creme-anti-aging-plus-night/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/creme-facial-acide-glycolique/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/creme-raffermissante-pour-le-corps/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/creme-anti-cellulite/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/pack-peaux-sensibles-mixtes-a-grasses-nettoyant-creme-acide-glycolique/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/trio-pack-anti-aging-serum-creme-jour-creme-nuit/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/duo-pack-anti-aging-day-night/</loc></url>
+  <url><loc>https://www.cskinaesthetic.com/produit/duo-pack-remodelant-et-raffermissant/</loc></url>
 </urlset>

@@ -52,7 +52,7 @@ let quiz = {step:0,answers:[]};
 
 function card(p, badge = '') {
   const autoBadge = badge || (p.compare && p.compare > p.price ? `−${money(p.compare - p.price)}` : '');
-  return `<article class="product-card"><div class="product-image"><a href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}" data-cursor="VIEW"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a>${autoBadge?`<span class="product-badge">${esc(autoBadge)}</span>`:''}<button class="quick-add" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>+</button></div><div class="product-card-info"><p class="product-type">${esc(p.subtitle)}</p><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><p class="price">${money(p.price)}${p.compare&&p.compare>p.price?`<s>${money(p.compare)}</s>`:''}</p></div></article>`;
+  return `<article class="product-card"><div class="product-image"><a href="/produit/${p.id}/" aria-label="Découvrir ${esc(p.title)}" data-cursor="VIEW"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a>${autoBadge?`<span class="product-badge">${esc(autoBadge)}</span>`:''}<button class="quick-add" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>+</button></div><div class="product-card-info"><p class="product-type">${esc(p.subtitle)}</p><h3><a href="/produit/${p.id}/">${esc(p.title)}</a></h3><p class="price">${money(p.price)}${p.compare&&p.compare>p.price?`<s>${money(p.compare)}</s>`:''}</p></div></article>`;
 }
 
 const faqMarkup = () => `<div class="faq-list"><details><summary>Comment choisir mon premier soin ?</summary><p>Commencez par votre besoin principal et le nombre de gestes que vous souhaitez adopter. Notre découverte de routine présente des exemples ; Céline pourra ensuite vous orienter vers un choix adapté. <button class="text-link" data-action="quiz">Explorer une routine <span class="ui-arrow" aria-hidden="true"></span></button></p></details><details><summary>Dans quel ordre utiliser mes soins ?</summary><p>Le rituel présenté ici suit trois étapes : nettoyer, appliquer le sérum, puis la crème. Consultez les instructions propres à chaque produit pour sa fréquence d’utilisation et ses précautions.</p></details><details><summary>Où sont fabriqués les soins Cskin ?</summary><p>Selon la présentation de la marque, les formulations Cskin sont fabriquées en Espagne.</p></details><details><summary>Comment fonctionne la livraison ?</summary><p>La livraison est offerte en Espagne à partir de 100 €. Pour les destinations et délais, écrivez-nous depuis la <a class="text-link" href="#/contact">page contact <span class="ui-arrow" aria-hidden="true"></span></a>.</p></details></div>`;
@@ -61,7 +61,7 @@ function homeSelection() {
   const essentials = [products[2], products[0], products[1]];
   return `<section class="section selection" aria-labelledby="selection-title">
     <div class="selection-heading"><p>La sélection <span class="brand-word">Cskin</span></p><h2 id="selection-title">Le soin juste. <em>Pour vous.</em></h2><p class="selection-intro">Nettoyer, cibler, accompagner. Trois essentiels à découvrir.</p></div>
-    <div class="selection-products" id="selection-rail" role="group" aria-label="Trois soins essentiels" tabindex="0">${essentials.map((p,i)=>`<article class="gallery-product"><a class="product-stage" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}" data-cursor="VIEW"><img src="${editorialPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1086" height="1448" loading="lazy" decoding="async"></a><div class="gallery-description"><p class="product-type"><span class="essential-number">0${i+1}</span>${esc(p.subtitle)}</p><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><div class="gallery-purchase"><span>${money(p.price)}</span><button class="text-link" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier">Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div>
+    <div class="selection-products" id="selection-rail" role="group" aria-label="Trois soins essentiels" tabindex="0">${essentials.map((p,i)=>`<article class="gallery-product"><a class="product-stage" href="/produit/${p.id}/" aria-label="Découvrir ${esc(p.title)}" data-cursor="VIEW"><img src="${editorialPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1086" height="1448" loading="lazy" decoding="async"></a><div class="gallery-description"><p class="product-type"><span class="essential-number">0${i+1}</span>${esc(p.subtitle)}</p><h3><a href="/produit/${p.id}/">${esc(p.title)}</a></h3><div class="gallery-purchase"><span>${money(p.price)}</span><button class="text-link" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier">Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div>
     <div class="selection-bottom"><a class="text-link selection-all" href="#/soins">Tous les soins <span class="ui-arrow" aria-hidden="true"></span></a><div class="selection-controls"><span id="selection-position" aria-live="polite">01 / 03</span><button class="icon-button" data-action="selection-step" data-direction="-1" aria-label="Essentiel précédent" aria-controls="selection-rail" disabled>←</button><button class="icon-button" data-action="selection-step" data-direction="1" aria-label="Essentiel suivant" aria-controls="selection-rail">→</button></div></div>
   </section>`;
 }
@@ -71,15 +71,15 @@ function dayNightStory() {
   const night=findProduct('creme-anti-aging-plus-night');
   const duo=findProduct('duo-pack-anti-aging-day-night');
   return `<section class="routine-duo routine-duo--study" aria-labelledby="duo-title">
-    <a class="routine-duo-image" href="#/produit/${duo.id}" aria-label="Découvrir le duo AntiAging Plus Day & Night"><img src="${catalogPhotos[duo.id]}" alt="Duo AntiAging Plus Day et Night" width="1024" height="1536" loading="lazy" decoding="async"></a>
+    <a class="routine-duo-image" href="/produit/${duo.id}/" aria-label="Découvrir le duo AntiAging Plus Day & Night"><img src="${catalogPhotos[duo.id]}" alt="Duo AntiAging Plus Day et Night" width="1024" height="1536" loading="lazy" decoding="async"></a>
     <div class="routine-duo-copy"><p class="routine-duo-kicker">AntiAging Plus · Day & Night</p><h2 id="duo-title">Jour & nuit.</h2>
       <div class="routine-guide" aria-label="AntiAging Plus · Day & Night">
         <div class="routine-guide-switch" role="group" aria-label="AntiAging Plus · Day & Night">
           <button type="button" data-action="duo-time" data-id="day" aria-pressed="true"><span aria-hidden="true">☼</span> Le matin</button>
           <button type="button" data-action="duo-time" data-id="night" aria-pressed="false"><span aria-hidden="true">☾</span> Le soir</button>
         </div>
-        <div class="routine-guide-panel" data-duo-panel="day"><a class="routine-guide-product" href="#/produit/${day.id}">AntiAging Plus Day <span class="ui-arrow" aria-hidden="true"></span></a><h3>Votre geste du matin</h3><p>Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p></div>
-        <div class="routine-guide-panel" data-duo-panel="night" hidden><a class="routine-guide-product" href="#/produit/${night.id}">AntiAging Plus Night <span class="ui-arrow" aria-hidden="true"></span></a><h3>Votre geste du soir</h3><p>Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p><button type="button" class="routine-guide-warning" data-action="duo-precaution">Les précautions du rétinol <span aria-hidden="true">↓</span></button></div>
+        <div class="routine-guide-panel" data-duo-panel="day"><a class="routine-guide-product" href="/produit/${day.id}/">AntiAging Plus Day <span class="ui-arrow" aria-hidden="true"></span></a><h3>Votre geste du matin</h3><p>Sur visage et cou propres, appliquez selon les instructions du soin, en évitant le contour des yeux. Complétez avec une protection solaire à large spectre SPF 30 minimum.</p></div>
+        <div class="routine-guide-panel" data-duo-panel="night" hidden><a class="routine-guide-product" href="/produit/${night.id}/">AntiAging Plus Night <span class="ui-arrow" aria-hidden="true"></span></a><h3>Votre geste du soir</h3><p>Après le nettoyage, appliquez sur le visage propre. Introduisez ce soin au rétinol progressivement, selon sa notice et la tolérance de votre peau.</p><button type="button" class="routine-guide-warning" data-action="duo-precaution">Les précautions du rétinol <span aria-hidden="true">↓</span></button></div>
       </div>
       <div class="routine-duo-purchase"><span class="routine-duo-amount">${money(duo.price)}</span><button class="campaign-link" data-action="add" data-id="${duo.id}" ${!duo.available?'disabled':''}>${duo.available?'Ajouter le duo':'Indisponible'} <span aria-hidden="true">+</span></button></div>
       <div class="routine-guide-questions">
@@ -87,7 +87,7 @@ function dayNightStory() {
         <details><summary>Pour qui ? <span aria-hidden="true">+</span></summary><div><p>Pour les peaux normales à sèches qui souhaitent une routine anti-âge structurée. Le choix dépend de votre peau et de sa tolérance, pas d’un âge précis.</p></div></details>
         <details id="duo-retinol"><summary>Les précautions du rétinol <span aria-hidden="true">+</span></summary><div><p>La crème Night ne convient pas aux peaux les plus sensibles. Introduisez les soins au rétinol progressivement, protégez votre peau du soleil et évitez leur utilisation pendant la grossesse. En cas de peau réactive ou d’irritation, demandez conseil avant de poursuivre.</p></div></details>
       </div>
-      <a class="campaign-link routine-duo-link" href="#/produit/${duo.id}">Voir le duo <span class="ui-arrow" aria-hidden="true"></span></a>
+      <a class="campaign-link routine-duo-link" href="/produit/${duo.id}/">Voir le duo <span class="ui-arrow" aria-hidden="true"></span></a>
     </div>
   </section>`;
 }
@@ -139,7 +139,7 @@ const campaignPortrait = 'assets/editorial/cskin-silk-portrait-cutout.webp';
 function home() {
   const featured=[products[2],products[0],products[1],products[4]];
   return `<div class="campaign-home">${campaignHero()}
-    <section class="campaign-essentials" aria-labelledby="essentials-title"><div class="campaign-section-intro"><p class="campaign-eyebrow">01 / La sélection Cskin</p><h2 id="essentials-title">Les essentiels.</h2><p>Nettoyer, cibler, accompagner. Trois gestes pour composer votre rituel.</p><a class="campaign-link" href="#/soins">Tous les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="campaign-grid">${featured.map(p=>`<article class="campaign-product"><a class="campaign-product-photo" href="#/produit/${p.id}" aria-label="Découvrir ${esc(p.title)}"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><div class="campaign-product-info"><h3><a href="#/produit/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.subtitle)}</p><div><span>${money(p.price)}</span><button data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div></section>
+    <section class="campaign-essentials" aria-labelledby="essentials-title"><div class="campaign-section-intro"><p class="campaign-eyebrow">01 / La sélection Cskin</p><h2 id="essentials-title">Les essentiels.</h2><p>Nettoyer, cibler, accompagner. Trois gestes pour composer votre rituel.</p><a class="campaign-link" href="#/soins">Tous les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="campaign-grid">${featured.map(p=>`<article class="campaign-product"><a class="campaign-product-photo" href="/produit/${p.id}/" aria-label="Découvrir ${esc(p.title)}"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)} sur un socle en marbre" width="1024" height="1536" loading="lazy" decoding="async"></a><div class="campaign-product-info"><h3><a href="/produit/${p.id}/">${esc(p.title)}</a></h3><p>${esc(p.subtitle)}</p><div><span>${money(p.price)}</span><button data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>Ajouter <span aria-hidden="true">+</span></button></div></div></article>`).join('')}</div></section>
     ${sensoryMatrix()}
     <section class="campaign-editorial"><div class="campaign-portrait"><img src="${campaignPortrait}" alt="Modèle tenant la Crème Silk Effect Cskin Aesthetic" width="900" height="1207" loading="lazy" decoding="async"></div><div class="campaign-editorial-copy"><p class="campaign-eyebrow">02 / La philosophie</p><h2>Des actifs identifiés.<br> <em>Des gestes expliqués.</em></h2><p>Au cœur de Cskin, une conviction : un soin commence par la compréhension de la peau. Des actifs identifiés, des formules expliquées et des gestes accompagnés.</p><button class="campaign-link" data-action="quiz">Trouver ma routine <span class="ui-arrow" aria-hidden="true"></span></button></div></section>
     <div class="campaign-cycle">${dayNightStory()}</div>
@@ -155,12 +155,12 @@ function catalogScene(items, index) {
   const neighbor = (p, position) => items.length > 1
     ? `<button class="catalog-neighbor is-${position}" data-action="catalog-select" data-id="${p.id}" aria-label="Voir ${esc(p.title)}"><img src="${catalogPhotos[p.id]}" alt="" width="1086" height="1448" decoding="async"></button>`
     : '';
-  return `${items.length>2?neighbor(previous,'previous'):''}<a class="catalog-current" href="#/produit/${current.id}" aria-label="Découvrir ${esc(current.title)}" data-cursor="VIEW"><img src="${catalogPhotos[current.id]}" alt="${esc(current.title)} sur un socle en marbre" width="1024" height="1536" decoding="async"></a>${neighbor(next,'next')}`;
+  return `${items.length>2?neighbor(previous,'previous'):''}<a class="catalog-current" href="/produit/${current.id}/" aria-label="Découvrir ${esc(current.title)}" data-cursor="VIEW"><img src="${catalogPhotos[current.id]}" alt="${esc(current.title)} sur un socle en marbre" width="1024" height="1536" decoding="async"></a>${neighbor(next,'next')}`;
 }
 
 function catalogDetails(items, index) {
   const p = items[index];
-  return `<div class="catalog-feature-meta"><span>${String(index+1).padStart(2,'0')} / ${String(items.length).padStart(2,'0')}</span><span>${esc(p.subtitle)}</span></div><div class="catalog-feature-title"><h2><a href="#/produit/${p.id}">${esc(p.title)}</a></h2><p>${esc(p.summary)}</p></div><div class="catalog-feature-purchase"><p class="price">${money(p.price)}${p.compare&&p.compare>p.price?` <s>${money(p.compare)}</s>`:''}</p><button class="catalog-add" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>${p.available?'Ajouter au panier':'Indisponible'} <span aria-hidden="true">+</span></button></div>`;
+  return `<div class="catalog-feature-meta"><span>${String(index+1).padStart(2,'0')} / ${String(items.length).padStart(2,'0')}</span><span>${esc(p.subtitle)}</span></div><div class="catalog-feature-title"><h2><a href="/produit/${p.id}/">${esc(p.title)}</a></h2><p>${esc(p.summary)}</p></div><div class="catalog-feature-purchase"><p class="price">${money(p.price)}${p.compare&&p.compare>p.price?` <s>${money(p.compare)}</s>`:''}</p><button class="catalog-add" data-action="add" data-id="${p.id}" aria-label="Ajouter ${esc(p.title)} au panier" ${!p.available?'disabled':''}>${p.available?'Ajouter au panier':'Indisponible'} <span aria-hidden="true">+</span></button></div>`;
 }
 
 function catalog(category='tous') {
@@ -222,7 +222,7 @@ function sensoryMatrix() {
           const p = findProduct(row.id);
           if (!p) return '';
           return `<tr>
-            <th scope="row"><a class="sensory-product-link" href="#/produit/${p.id}">${esc(p.title)} <span class="ui-arrow" aria-hidden="true"></span></a></th>
+            <th scope="row"><a class="sensory-product-link" href="/produit/${p.id}/">${esc(p.title)} <span class="ui-arrow" aria-hidden="true"></span></a></th>
             <td class="sensory-active-cell">${esc(row.active)}</td>
             <td><div class="sensory-richness"><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="inline-size:${row.w}%"></div></div><span class="sensory-richness-label">${esc(row.richness)}</span></div></td>
             <td class="sensory-finish-cell">${esc(row.finish)}</td>
@@ -306,7 +306,7 @@ function productPage(id) {
       <div class="spec-dossier">
         <p class="product-kicker spec-dossier-label">Dossier moléculaire</p>
         <div class="spec-accordion">${dossier.details.map((item,i)=>`<details class="cskin-disclosure" name="cskin-actives"${i===0?' open':''}><summary><span>${esc(item.title)}</span><span class="plus-icon" aria-hidden="true">+</span></summary><div class="disclosure-body"><p>${esc(item.body)}</p></div></details>`).join('')}</div>
-        ${dossier.synergy?`<div class="spec-synergy"><p><strong>${esc(dossier.synergy.lead)}</strong> ${esc(dossier.synergy.body)}</p>${dossier.synergy.linkId?`<a class="spec-synergy-link" href="#/produit/${esc(dossier.synergy.linkId)}">${esc(dossier.synergy.linkLabel)} <span class="ui-arrow" aria-hidden="true"></span></a>`:''}</div>`:''}
+        ${dossier.synergy?`<div class="spec-synergy"><p><strong>${esc(dossier.synergy.lead)}</strong> ${esc(dossier.synergy.body)}</p>${dossier.synergy.linkId?`<a class="spec-synergy-link" href="/produit/${esc(dossier.synergy.linkId)}/">${esc(dossier.synergy.linkLabel)} <span class="ui-arrow" aria-hidden="true"></span></a>`:''}</div>`:''}
       </div>
     </div>
   </section>
@@ -332,7 +332,7 @@ function productPage(id) {
     <div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><a href="#/soins">Les soins</a><span aria-hidden="true">/</span><span>${esc(p.title)}</span></div>
     <div class="product-layout">
       <div class="product-detail product-introduction ${p.title.length>45?'is-long-title':''}"><p class="product-kicker">${esc(p.subtitle)}</p><h1 id="product-title">${esc(p.title)}</h1><p class="detail-price price">${money(p.price)} ${p.compare&&p.compare>p.price?`<s>${money(p.compare)}</s> <span class="product-savings">−${money(p.compare-p.price)}</span>`:''}${volumes[p.id]?`<span class="product-volume"> / ${volumes[p.id]}</span>`:''}</p><a class="detail-source" href="#/contact">Une question sur ce soin ? Contacter Cskin <span class="ui-arrow" aria-hidden="true"></span></a></div>
-      <div class="product-gallery"><img src="${image}" alt="${esc(p.title)} présenté sur un socle en marbre" width="1024" height="1536" fetchpriority="high" decoding="async"><nav class="product-browse" aria-label="Parcourez la collection"><a href="#/produit/${previous.id}" aria-label="Soin précédent">←</a><span>${String(index+1).padStart(2,'0')} <span aria-hidden="true">/</span> ${String(products.length).padStart(2,'0')}</span><a href="#/produit/${next.id}" aria-label="Soin suivant">→</a></nav></div>
+      <div class="product-gallery"><img src="${image}" alt="${esc(p.title)} présenté sur un socle en marbre" width="1024" height="1536" fetchpriority="high" decoding="async"><nav class="product-browse" aria-label="Parcourez la collection"><a href="/produit/${previous.id}/" aria-label="Soin précédent">←</a><span>${String(index+1).padStart(2,'0')} <span aria-hidden="true">/</span> ${String(products.length).padStart(2,'0')}</span><a href="/produit/${next.id}/" aria-label="Soin suivant">→</a></nav></div>
       <div class="product-detail product-order"><div class="product-purchase"><label class="purchase-label" for="product-quantity">Quantité</label><div class="buy-row"><div class="quantity" aria-label="Quantité"><button data-action="qty-minus" aria-label="Diminuer la quantité">−</button><output id="product-quantity" aria-live="polite">1</output><button data-action="qty-plus" aria-label="Augmenter la quantité">+</button></div><button class="button" data-action="add-product" data-id="${p.id}" ${!p.available?'disabled':''}>${p.available?'Ajouter au panier':'Indisponible'} <span aria-hidden="true">+</span></button></div><p class="product-availability" data-product-availability="${p.id}" role="status">Vérification de disponibilité…</p><div class="product-reassurance"><span>Livraison offerte en Espagne dès 100 €</span><span>Paiement sécurisé par Shopify</span></div><div class="payment-badges" aria-label="Garanties et moyens de paiement"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Fabriqué en Espagne</span></div></div>
         <div class="faq-list"><details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
       </div>
@@ -374,15 +374,20 @@ function policiesPage(id) {
     ${current ? '' : documents}
   </section>`;
 }
+function currentRoute() {
+  const hashRoute = location.hash.startsWith('#/') ? location.hash.slice(1) : '';
+  return (hashRoute || location.pathname).split('/');
+}
+
 window.onCSkinLanguageChange = () => {
   if (location.hash.startsWith('#/politiques')) renderRoute(true);
-  if (location.hash.startsWith('#/produit/')) startCommerce();
+  if (currentRoute()[1] === 'produit') startCommerce();
 };
 
 function renderRoute(keepScroll=false) {
   motionContext?.revert();
   closeDialogs();
-  const [,route,id]=location.hash.replace(/^#/,'').split('/');
+  const [,route,id]=currentRoute();
   document.body.classList.toggle('home-page', !['soins','produit','marque','contact','politiques'].includes(route));
   if(route==='soins') { main.innerHTML=catalog(id); $('#sort-products').value=sortOrder; document.title='Les soins — Cskin'; }
   else if(route==='produit') { main.innerHTML=productPage(id); document.title=`${findProduct(id)?.title||'Les soins'} — Cskin`; }
@@ -452,7 +457,7 @@ function renderConnectedCart(){
   if(!cart.length)return empty;
   const disabled=commerceState.busy?'disabled':'';
   return `<p class="cart-disclaimer">${commerceState.busy?'Mise à jour du panier…':'Paiement sécurisé par Shopify'}</p>${commerceState.notice?`<p class="shipping-text" role="status">${commerceMessage({code:commerceState.notice})}</p>`:''}<div class="cart-lines">${cart.map(l=>{
-    const p=findProduct(l.id);return `<article class="cart-line">${p?`<a href="#/produit/${p.id}"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)}"></a>`:''}<div><h3>${p?`<a href="#/produit/${p.id}">${esc(p.title)}</a>`:esc(l.title)}</h3><div class="quantity"><button data-action="cart-minus" data-id="${esc(l.id)}" aria-label="Diminuer la quantité de ${esc(p?.title||l.title)}" ${disabled}>−</button><output aria-label="Quantité">${l.qty}</output><button data-action="cart-plus" data-id="${esc(l.id)}" aria-label="Augmenter la quantité de ${esc(p?.title||l.title)}" ${l.qty>=20?'disabled':disabled}>+</button></div>${!l.available?'<p>Ce soin est actuellement indisponible.</p>':''}<button class="remove-item" data-action="remove" data-id="${esc(l.id)}" ${disabled}>Retirer</button></div><p class="line-price">${money(l.total,l.currency)}</p></article>`;
+    const p=findProduct(l.id);return `<article class="cart-line">${p?`<a href="/produit/${p.id}/"><img src="${catalogPhotos[p.id]}" alt="${esc(p.title)}"></a>`:''}<div><h3>${p?`<a href="/produit/${p.id}/">${esc(p.title)}</a>`:esc(l.title)}</h3><div class="quantity"><button data-action="cart-minus" data-id="${esc(l.id)}" aria-label="Diminuer la quantité de ${esc(p?.title||l.title)}" ${disabled}>−</button><output aria-label="Quantité">${l.qty}</output><button data-action="cart-plus" data-id="${esc(l.id)}" aria-label="Augmenter la quantité de ${esc(p?.title||l.title)}" ${l.qty>=20?'disabled':disabled}>+</button></div>${!l.available?'<p>Ce soin est actuellement indisponible.</p>':''}<button class="remove-item" data-action="remove" data-id="${esc(l.id)}" ${disabled}>Retirer</button></div><p class="line-price">${money(l.total,l.currency)}</p></article>`;
   }).join('')}</div><div class="cart-total"><span>Sous-total</span><strong>${money(commerceState.cart.subtotal,commerceState.cart.currency)}</strong></div><button class="button full" data-action="checkout" ${cart.some(l=>!l.available)?'disabled':disabled}>Passer commande <span class="ui-arrow" aria-hidden="true"></span></button><div class="cart-actions"><button class="text-link" data-action="close">Continuer la découverte <span class="ui-arrow" aria-hidden="true"></span></button><p>Livraison, taxes et réductions confirmées au paiement.</p></div>`;
 }
 async function startCommerce(){
@@ -477,7 +482,7 @@ async function startCommerce(){
 function openDialog(id){lastFocus=document.activeElement;$$('dialog[open]').forEach(d=>d.close());window.CSkinI18n?.apply();$(id).showModal();if(id==='#menu-dialog')$('.mobile-toggle').setAttribute('aria-expanded','true');}
 function closeDialogs(){let wasOpen=false;$$('dialog[open]').forEach(d=>{d.close();wasOpen=true;});$('.mobile-toggle').setAttribute('aria-expanded','false');if(wasOpen&&lastFocus?.isConnected)lastFocus.focus({preventScroll:true});}
 function renderCart(){$('#cart-content').innerHTML=renderConnectedCart();updateCartCount();window.CSkinI18n?.apply();syncPurchaseControls();}
-function search(query=''){const q=normalize(query.trim());const result=products.filter(p=>normalize(`${p.title} ${p.subtitle} ${p.summary} ${p.actives.join(' ')} ${window.CSkinI18n?.translate(`${p.title} ${p.subtitle} ${p.summary} ${p.actives.join(' ')}`)||''}`).includes(q));$('#search-results').innerHTML=result.length?result.slice(0,q?13:5).map(p=>`<a class="search-result" href="#/produit/${p.id}"><img src="${catalogPhotos[p.id]}" alt="" width="65" height="78"><div><h3>${esc(p.title)}</h3><p>${esc(p.subtitle)}</p></div><span>${money(p.price)} <span class="ui-arrow" aria-hidden="true"></span></span></a>`).join(''):`<p class="notice-empty">Aucun soin trouvé pour « ${esc(query)} ». Essayez un nom de produit ou un actif.</p>`;}
+function search(query=''){const q=normalize(query.trim());const result=products.filter(p=>normalize(`${p.title} ${p.subtitle} ${p.summary} ${p.actives.join(' ')} ${window.CSkinI18n?.translate(`${p.title} ${p.subtitle} ${p.summary} ${p.actives.join(' ')}`)||''}`).includes(q));$('#search-results').innerHTML=result.length?result.slice(0,q?13:5).map(p=>`<a class="search-result" href="/produit/${p.id}/"><img src="${catalogPhotos[p.id]}" alt="" width="65" height="78"><div><h3>${esc(p.title)}</h3><p>${esc(p.subtitle)}</p></div><span>${money(p.price)} <span class="ui-arrow" aria-hidden="true"></span></span></a>`).join(''):`<p class="notice-empty">Aucun soin trouvé pour « ${esc(query)} ». Essayez un nom de produit ou un actif.</p>`;}
 
 const quizQuestions=[
   {title:'Qu’aimeriez-vous privilégier ?',description:'Partons de votre envie du moment.',options:[['confort','Le confort et l’hydratation'],['fermete','La souplesse et la fermeté'],['eclat','L’éclat et le grain de peau'],['decouverte','Découvrir, tout simplement']]},
@@ -494,8 +499,8 @@ function renderQuizResult(){
   const ids=needsAdvice?[]:[primary,...essentials.filter(id=>id!==primary)].slice(0,length==='simple'?2:3);
   const pack=!needsAdvice && goal==='fermete' && ['seche','normale'].includes(skin) ? findProduct('duo-pack-anti-aging-day-night') : null;
   quiz.resultIds=ids;
-  const item=(p,lead=false)=>`<div class="routine-result-item${lead?' routine-result-item--lead':''}"><img src="${catalogPhotos[p.id]}" alt="" width="70" height="90"><div>${lead?'<p class="quiz-result-overline">À découvrir en premier</p>':''}<h3>${esc(p.title)}</h3><p>${esc(p.subtitle)} · ${money(p.price)}</p><a href="#/produit/${p.id}">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div></div>`;
-  $('#quiz-content').innerHTML=`<p class="quiz-label">Votre découverte Cskin</p><h2 id="quiz-title" tabindex="-1">${needsAdvice?'Commençons par un échange.':'Une sélection pour vous.'}</h2><p class="quiz-description">${needsAdvice?'Pour une peau réactive ou un besoin encore incertain, un échange direct avec Céline est le meilleur point de départ.':'À partir de vos réponses, voici une piste pour composer votre rituel. Consultez les conseils et précautions de chaque soin.'}</p>${ids.map((id,i)=>item(findProduct(id),i===0)).join('')}${pack?`<div class="quiz-pack"><p class="quiz-result-overline">Envie d’un rituel complet ?</p><h3>Le duo jour &amp; nuit</h3><p>Deux soins complémentaires à découvrir ensemble. Le soin de nuit contient du rétinol : consultez ses précautions avant utilisation.</p><a href="#/produit/${pack.id}">Découvrir le duo <span class="ui-arrow" aria-hidden="true"></span></a></div>`:''}<div class="quiz-result-actions">${ids.length?'<button class="button" data-action="add-routine">Ajouter cette sélection au panier <span class="ui-arrow" aria-hidden="true"></span></button>':'<a class="button" href="#/contact">Échanger avec Cskin <span class="ui-arrow" aria-hidden="true"></span></a>'}<button class="text-link" data-action="quiz">Recommencer <span class="ui-arrow" aria-hidden="true"></span></button></div>`;
+  const item=(p,lead=false)=>`<div class="routine-result-item${lead?' routine-result-item--lead':''}"><img src="${catalogPhotos[p.id]}" alt="" width="70" height="90"><div>${lead?'<p class="quiz-result-overline">À découvrir en premier</p>':''}<h3>${esc(p.title)}</h3><p>${esc(p.subtitle)} · ${money(p.price)}</p><a href="/produit/${p.id}/">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div></div>`;
+  $('#quiz-content').innerHTML=`<p class="quiz-label">Votre découverte Cskin</p><h2 id="quiz-title" tabindex="-1">${needsAdvice?'Commençons par un échange.':'Une sélection pour vous.'}</h2><p class="quiz-description">${needsAdvice?'Pour une peau réactive ou un besoin encore incertain, un échange direct avec Céline est le meilleur point de départ.':'À partir de vos réponses, voici une piste pour composer votre rituel. Consultez les conseils et précautions de chaque soin.'}</p>${ids.map((id,i)=>item(findProduct(id),i===0)).join('')}${pack?`<div class="quiz-pack"><p class="quiz-result-overline">Envie d’un rituel complet ?</p><h3>Le duo jour &amp; nuit</h3><p>Deux soins complémentaires à découvrir ensemble. Le soin de nuit contient du rétinol : consultez ses précautions avant utilisation.</p><a href="/produit/${pack.id}/">Découvrir le duo <span class="ui-arrow" aria-hidden="true"></span></a></div>`:''}<div class="quiz-result-actions">${ids.length?'<button class="button" data-action="add-routine">Ajouter cette sélection au panier <span class="ui-arrow" aria-hidden="true"></span></button>':'<a class="button" href="#/contact">Échanger avec Cskin <span class="ui-arrow" aria-hidden="true"></span></a>'}<button class="text-link" data-action="quiz">Recommencer <span class="ui-arrow" aria-hidden="true"></span></button></div>`;
   window.CSkinI18n?.apply();syncPurchaseControls();
 }
 
@@ -618,6 +623,13 @@ $$('dialog').forEach(dialog=>{
   dialog.addEventListener('close',()=>{$('.mobile-toggle').setAttribute('aria-expanded','false');});
 });
 window.addEventListener('hashchange',e=>{
+  if (location.hash.startsWith('#/produit/')) {
+    const id = location.hash.slice('#/produit/'.length).replace(/\/$/, '');
+    if (findProduct(id)) {
+      location.replace('/produit/' + id + '/' + location.search);
+      return;
+    }
+  }
   const keepScroll=new URL(e.oldURL).hash.startsWith('#/soins')&&location.hash.startsWith('#/soins');
   renderRoute(keepScroll);
   (keepScroll?$('.filter-tab[aria-pressed="true"]'):main)?.focus({preventScroll:true});

@@ -60,18 +60,19 @@
   <link rel="stylesheet" href="campaign-scenes.css">
   <link rel="stylesheet" href="continuity.css">
   <link rel="stylesheet" href="language-menu.css">
-  <link rel="stylesheet" href="supporting-pages.css?v=20261117-commerce2">
+  <link rel="stylesheet" href="supporting-pages.css?v=analytics">
   <script src="data/products.js?v=20261117-commerce2" defer></script>
   <script src="data/product-dossiers.js?v=20261117-commerce2" defer></script>
   <script src="animations.js" defer></script>
-  <script src="data/translations.js?v=20261117-commerce2" defer></script>
+  <script src="data/translations.js?v=analytics" defer></script>
   <script src="data/policies.js?v=shipping-es" defer></script>
   <script src="i18n.js" defer></script>
   <script src="language-menu.js" defer></script>
   <script src="sort-menu.js" defer></script>
   <script src="shopify-config.js" defer></script>
-  <script src="commerce.js?v=20261117" defer></script>
-  <script src="app.js?v=seo-product-routes" defer></script>
+  <script src="commerce.js?v=analytics" defer></script>
+  <script src="analytics.js?v=1" defer></script>
+  <script src="app.js?v=seo-analytics" defer></script>
   <script src="motion-loader.js" defer></script>
 <style>
   .brand-intro { position:fixed; inset:0; z-index:1000; display:grid; place-items:center; background:#f8f8f6; pointer-events:none; animation:brand-intro-exit .6s ease both 1.65s; }
@@ -113,13 +114,18 @@
   <footer class="footer">
     <div class="footer-top"><div><p class="footer-tagline">Votre peau.<br><em>Notre attention.</em></p><button class="text-link light" data-action="quiz">Trouver votre rituel <span class="ui-arrow" aria-hidden="true"></span></button></div><div class="footer-links"><div><p>Explorer</p><a href="#/soins">Tous les soins</a><a href="#/soins/visage">Le visage</a><a href="#/soins/corps">Le corps</a><a href="#/soins/coffrets">Les coffrets</a></div><div><p>Cskin Aesthetic</p><a href="#/marque">La fondatrice</a><button data-action="faq">Questions fréquentes</button><a href="#/contact">Contacter Cskin <span class="ui-arrow" aria-hidden="true"></span></a></div></div></div>
     <div class="footer-language" data-i18n-ignore><label for="footer-language">FR / EN / ES</label><select id="footer-language" data-language-select aria-label="Langue / Language / Idioma"><option value="fr" lang="fr">Français</option><option value="en" lang="en">English</option><option value="es" lang="es">Español</option></select></div>
-    <div class="footer-bottom"><span>© 2026 Cskin Aesthetic</span><button data-action="demo">À propos de Cskin</button><a href="#/politiques">Politiques et confidentialité <span class="ui-arrow" aria-hidden="true"></span></a><button data-action="top">Retour en haut ↑</button></div>
+    <div class="footer-bottom"><span>© 2026 Cskin Aesthetic</span><button data-action="demo">À propos de Cskin</button><a href="#/politiques">Politiques et confidentialité <span class="ui-arrow" aria-hidden="true"></span></a><button id="analytics-settings" type="button" hidden>Préférences de mesure d’audience</button><button data-action="top">Retour en haut ↑</button></div>
   </footer>
   <dialog id="search-dialog" class="dialog search-dialog" aria-labelledby="search-title"><div class="dialog-head"><h2 id="search-title">Votre prochain soin.</h2><button class="icon-button close-button" data-action="close" aria-label="Fermer la recherche">×</button></div><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="Un soin, un actif, une envie…" aria-label="Rechercher dans les soins" autocomplete="off"></label><p class="search-hint">Essayez « sérum », « hydratation » ou « corps ».</p><div id="search-results" aria-live="polite"></div></dialog>
   <dialog id="cart-dialog" class="dialog drawer" aria-labelledby="cart-title"><div class="dialog-head"><h2 id="cart-title">Votre panier<span class="cart-count">0</span></h2><button class="icon-button close-button" data-action="close" aria-label="Fermer le panier">×</button></div><div id="cart-content"></div></dialog>
   <dialog id="quiz-dialog" class="dialog quiz-dialog" aria-labelledby="quiz-title"><button class="icon-button close-button quiz-close" data-action="close" aria-label="Fermer le questionnaire">×</button><div id="quiz-content"></div></dialog>
   <dialog id="info-dialog" class="dialog info-dialog" aria-labelledby="info-title"><div class="dialog-head"><h2 id="info-title"></h2><button class="icon-button close-button" data-action="close" aria-label="Fermer">×</button></div><div id="info-content"></div></dialog>
   <dialog id="menu-dialog" class="dialog drawer mobile-menu" aria-label="Menu principal"><div class="dialog-head"><img src="assets/logo-light.svg" alt="Cskin" width="88" height="88"><button class="icon-button close-button" data-action="close" aria-label="Fermer le menu">×</button></div><nav><a href="#/soins">Les soins <span class="ui-arrow" aria-hidden="true"></span></a><a href="#/soins/visage">Le visage <span class="ui-arrow" aria-hidden="true"></span></a><a href="#/soins/corps">Le corps <span class="ui-arrow" aria-hidden="true"></span></a><button data-action="quiz">Votre routine <span class="ui-arrow" aria-hidden="true"></span></button><a href="#/marque">L’esprit Cskin <span class="ui-arrow" aria-hidden="true"></span></a><a href="#/contact">Contact <span class="ui-arrow" aria-hidden="true"></span></a></nav><p>L’expertise du soin,<br>au plus près de votre peau.</p></dialog>
+  <section id="analytics-preferences" class="analytics-preferences" aria-labelledby="analytics-title" hidden>
+    <h2 id="analytics-title">Mesure d’audience</h2>
+    <p>Avec votre accord, Google Analytics nous aide à comprendre l’utilisation du site et du panier.</p>
+    <div><button type="button" data-analytics-choice="reject">Refuser</button><button type="button" data-analytics-choice="accept">Accepter</button></div>
+  </section>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <div class="editorial-cursor" aria-hidden="true"><span></span></div>
 </body>

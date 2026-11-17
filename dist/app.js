@@ -448,7 +448,7 @@ function syncPurchaseControls(){
 }
 async function addToCart(id,qty=1){
   if(!commerce)return false;
-  try{await commerce.addItems([{id,qty}]);toast(commerceState.notice?commerceMessage({code:commerceState.notice}):`${findProduct(id).title} ajouté au panier`);return true;}
+  try{const added=await commerce.addItems([{id,qty}]);window.CSkinAnalytics?.added(added || []);toast(commerceState.notice?commerceMessage({code:commerceState.notice}):`${findProduct(id).title} ajouté au panier`);return true;}
   catch(error){toast(commerceMessage(error));return false;}
 }
 function renderConnectedCart(){
@@ -524,7 +524,7 @@ document.addEventListener('click',async e=>{
     case 'qty-minus':quantity=Math.max(1,quantity-1);$('#product-quantity').textContent=quantity;break;
     case 'qty-plus':quantity=Math.min(20,quantity+1);$('#product-quantity').textContent=quantity;break;
     case 'cart-minus':case 'cart-plus':case 'remove':{
-      try{await commerce.changeQuantity(id,action==='remove'?'remove':action==='cart-plus'?1:-1);if(commerceState.notice)toast(commerceMessage({code:commerceState.notice}));}catch(error){toast(commerceMessage(error));}
+      try{const added=await commerce.changeQuantity(id,action==='remove'?'remove':action==='cart-plus'?1:-1);window.CSkinAnalytics?.added(added);if(commerceState.notice)toast(commerceMessage({code:commerceState.notice}));}catch(error){toast(commerceMessage(error));}
       renderCart();restoreCartFocus(action,id);break;
     }
     case 'retry-commerce':await startCommerce();break;
@@ -555,7 +555,7 @@ document.addEventListener('click',async e=>{
     case 'quiz':startQuiz();break;
     case 'quiz-answer':quiz.answers[quiz.step]=id;quiz.step++;renderQuiz();$('#quiz-title').focus();break;
     case 'quiz-back':quiz.step=Math.max(0,quiz.step-1);renderQuiz();$('#quiz-title').focus();break;
-    case 'add-routine':try{await commerce.addItems(quiz.resultIds.map(id=>({id,qty:1})));renderCart();openDialog('#cart-dialog');}catch(error){toast(commerceMessage(error));}break;
+    case 'add-routine':try{const added=await commerce.addItems(quiz.resultIds.map(id=>({id,qty:1})));window.CSkinAnalytics?.added(added || []);renderCart();openDialog('#cart-dialog');}catch(error){toast(commerceMessage(error));}break;
     case 'top':window.scrollTo({top:0,behavior:reducedMotion.matches?'instant':'smooth'});break;
     case 'motion':motionPaused=!motionPaused;setupMotion();syncMotionButton();break;
     case 'copy-email':if(navigator.clipboard?.writeText)navigator.clipboard.writeText('ab.frenchbeauty@gmail.com').then(()=>toast('Adresse copiée')).catch(()=>toast('Sélectionnez l’adresse affichée pour la copier'));else toast('Sélectionnez l’adresse affichée pour la copier');break;
@@ -563,7 +563,7 @@ document.addEventListener('click',async e=>{
     case 'demo':info('Cskin Aesthetic.',`<p>Ce site sur mesure est connecté à la boutique Shopify de Cskin Aesthetic pour les produits, la disponibilité, le panier et le paiement.</p><p>Les exemples de routine servent à découvrir la gamme. Pour un conseil adapté, échangez avec Céline.</p><a class="button" href="#/marque">Rencontrer la marque <span class="ui-arrow" aria-hidden="true"></span></a>`);break;
     case 'checkout':{
       if(!commerce)return;
-      try{const url=await commerce.checkout();location.assign(url);}catch(error){toast(commerceMessage(error));renderCart();}break;
+      try{const url=await commerce.checkout();window.CSkinAnalytics?.checkout(cart);location.assign(url);}catch(error){toast(commerceMessage(error));renderCart();}break;
     }
   }
 });

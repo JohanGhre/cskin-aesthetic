@@ -1,4 +1,9 @@
 window.CSKIN_TRANSLATIONS = {
+  "Mesure d’audience": { "en": "Audience measurement", "es": "Medición de audiencia" },
+  "Préférences de mesure d’audience": { "en": "Analytics preferences", "es": "Preferencias de medición de audiencia" },
+  "Avec votre accord, Google Analytics nous aide à comprendre l’utilisation du site et du panier.": { "en": "With your consent, Google Analytics helps us understand how visitors use the site and cart.", "es": "Con tu consentimiento, Google Analytics nos ayuda a entender cómo se utilizan el sitio y el carrito." },
+  "Accepter": { "en": "Accept", "es": "Aceptar" },
+  "Refuser": { "en": "Decline", "es": "Rechazar" },
   "−20 % avec le code CSKIN20 · une fois par client": { "en": "20% off with code CSKIN20 · once per customer", "es": "−20 % con el código CSKIN20 · una vez por cliente" },
   "Appliquez le matin sur le visage et le cou propres, puis complétez avec une protection solaire.": { "en": "Apply in the morning to clean face and neck, then follow with sunscreen.", "es": "Aplicar por la mañana sobre el rostro y el cuello limpios y completar con protección solar." },
   "Isoflavones liposomales 5 %": { "en": "Liposomal isoflavones 5%", "es": "Isoflavonas liposomales 5 %" },

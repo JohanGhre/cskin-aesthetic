@@ -128,6 +128,7 @@
           requireReady();
           const combined = new Map();
           for (const {id, qty} of items) { validQuantity(qty); combined.set(id, (combined.get(id) || 0) + qty); }
+          const previous = new Map((state.cart?.lines || []).map(line => [line.id, line.qty]));
           const lines = [...combined].map(([id, qty]) => {
             const product = state.products[id];
             if (!product?.available || !product.variantId) throw new CommerceError('unavailable');
@@ -141,6 +142,10 @@
           } else {
             await mutate('cartLinesAdd', '$cartId:ID!,$lines:[CartLineInput!]!', 'cartId:$cartId,lines:$lines', {cartId:state.cart.id,lines});
           }
+          return (state.cart?.lines || []).filter(line => combined.has(line.id)).flatMap(line => {
+            const qty = line.qty - (previous.get(line.id) || 0);
+            return qty > 0 ? [{ ...line, qty }] : [];
+          });
         });
       },
       changeQuantity(id, change) {
@@ -152,6 +157,8 @@
           validQuantity(qty,true);
           if (!qty) await mutate('cartLinesRemove','$cartId:ID!,$lineIds:[ID!]!','cartId:$cartId,lineIds:$lineIds',{cartId:state.cart.id,lineIds:[line.lineId]});
           else await mutate('cartLinesUpdate','$cartId:ID!,$lines:[CartLineUpdateInput!]!','cartId:$cartId,lines:$lines',{cartId:state.cart.id,lines:[{id:line.lineId,quantity:qty}]});
+          const updated = state.cart?.lines.find(item => item.id === id);
+          return updated && updated.qty > line.qty ? [{ ...updated, qty: updated.qty - line.qty }] : [];
         });
       },
       checkout() {

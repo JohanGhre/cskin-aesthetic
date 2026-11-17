@@ -1443,3 +1443,10 @@ body .announcement { flex-wrap:wrap; column-gap:26px; row-gap:3px; }
 body .announcement > span { display:block; }
 body .announcement > span + span { animation:shipping-entrance .65s .12s ease both; }
 @media (prefers-reduced-motion:reduce) { body .announcement > span + span { animation:none; } }
+
+.analytics-preferences { position:fixed; z-index:80; inset:auto 16px 16px auto; width:min(380px, calc(100% - 32px)); padding:20px; color:var(--ink); background:var(--page); border:1px solid currentColor; }
+.analytics-preferences h2 { font-size:18px; margin:0 0 8px; }
+.analytics-preferences p { margin:0 0 12px; }
+.analytics-preferences div { display:flex; gap:10px; }
+.analytics-preferences button { flex:1; min-height:44px; padding:8px; border:1px solid currentColor; }
+.analytics-preferences[hidden], #analytics-settings[hidden] { display:none; }

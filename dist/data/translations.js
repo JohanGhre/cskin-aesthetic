@@ -1,4 +1,5 @@
 window.CSKIN_TRANSLATIONS = {
+  "−20 % avec le code CSKIN20 · une fois par client": { "en": "20% off with code CSKIN20 · once per customer", "es": "−20 % con el código CSKIN20 · una vez por cliente" },
   "Appliquez le matin sur le visage et le cou propres, puis complétez avec une protection solaire.": { "en": "Apply in the morning to clean face and neck, then follow with sunscreen.", "es": "Aplicar por la mañana sobre el rostro y el cuello limpios y completar con protección solar." },
   "Isoflavones liposomales 5 %": { "en": "Liposomal isoflavones 5%", "es": "Isoflavonas liposomales 5 %" },
   "Contribuent à repulper et redensifier la peau.": { "en": "Help plump and replenish the skin.", "es": "Ayudan a rellenar y redensificar la piel." },

@@ -1438,3 +1438,8 @@ body .announcement > span:first-child { display:block; animation:shipping-entran
 .product-availability::before { content:""; width:7px; height:7px; border-radius:50%; background:#aaa; flex:none; }
 .product-availability[data-status="available"]::before { background:#5f8064; }
 @media (prefers-reduced-motion:reduce) { body .announcement > span:first-child { animation:none; } }
+
+body .announcement { flex-wrap:wrap; column-gap:26px; row-gap:3px; }
+body .announcement > span { display:block; }
+body .announcement > span + span { animation:shipping-entrance .65s .12s ease both; }
+@media (prefers-reduced-motion:reduce) { body .announcement > span + span { animation:none; } }

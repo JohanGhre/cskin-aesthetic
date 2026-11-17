@@ -289,6 +289,45 @@ function productPage(id) {
   const previous=products[(index-1+products.length)%products.length];
   const next=products[(index+1)%products.length];
   const volumes={'serum-age-plus-1':'30 ml','creme-silk-effect':'50 ml','lait-nettoyant-hydratant':'200 ml','mousse-nettoyante-a-lacide-glycolique':'150 ml','creme-anti-aging-plus-day':'50 ml','creme-anti-aging-plus-night':'50 ml','creme-facial-acide-glycolique':'50 ml','creme-raffermissante-pour-le-corps':'200 ml','creme-anti-cellulite':'200 ml','duo-pack-anti-aging-day-night':'2 × 50 ml','duo-pack-remodelant-et-raffermissant':'2 × 200 ml','pack-peaux-sensibles-mixtes-a-grasses-nettoyant-creme-acide-glycolique':'150 ml + 50 ml','trio-pack-anti-aging-serum-creme-jour-creme-nuit':'3 soins'};
+  const dossier=window.CSKIN_PRODUCT_DOSSIERS?.[p.id];
+  const spectrometerSection=dossier?`<section class="product-spectrometer" aria-labelledby="spectrometer-title">
+    <div class="spec-head">
+      <div><p class="product-kicker">Formule · Transparence</p><h2 id="spectrometer-title">Spectromètre <em>d’actifs.</em></h2></div>
+      <p class="spec-caption">Les actifs clés et leur concentration expliqués sans détour.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-card-meta"><span>${esc(dossier.code)}</span><span>${esc(dossier.format)}</span></div>
+        <h3>${esc(p.title)}</h3>
+        <p class="spec-sub">${esc(dossier.sub)}</p>
+        <div class="spec-bars">${dossier.bars.map(b=>`<div class="spec-bar-row"><div class="spec-bar-head"><span>${esc(b.label)}</span><span class="spec-bar-pct">${esc(b.pct)}</span></div><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="inline-size:${Number(b.w)}%"></div></div></div>`).join('')}</div>
+        <div class="spec-order"><span>Ordre d’application</span><strong>${esc(dossier.order)}</strong></div>
+      </div>
+      <div class="spec-dossier">
+        <p class="product-kicker spec-dossier-label">Dossier moléculaire</p>
+        <div class="spec-accordion">${dossier.details.map((item,i)=>`<details class="cskin-disclosure" name="cskin-actives"${i===0?' open':''}><summary><span>${esc(item.title)}</span><span class="plus-icon" aria-hidden="true">+</span></summary><div class="disclosure-body"><p>${esc(item.body)}</p></div></details>`).join('')}</div>
+        ${dossier.synergy?`<div class="spec-synergy"><p><strong>${esc(dossier.synergy.lead)}</strong> ${esc(dossier.synergy.body)}</p>${dossier.synergy.linkId?`<a class="spec-synergy-link" href="#/produit/${esc(dossier.synergy.linkId)}">${esc(dossier.synergy.linkLabel)} <span class="ui-arrow" aria-hidden="true"></span></a>`:''}</div>`:''}
+      </div>
+    </div>
+  </section>
+  <section class="product-passport" aria-labelledby="passport-title" data-base-days="${dossier.passport.baseDays}">
+    <div class="passport-grid">
+      <div class="passport-copy">
+        <p class="product-kicker">Contenant · Cadence</p>
+        <h2 id="passport-title">Passeport du soin <em>&amp; durée estimée.</em></h2>
+        <p class="passport-note">${esc(dossier.passport.note)}</p>
+        <div class="passport-cadence" role="group" aria-label="Fréquence d’application">
+          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="1" aria-pressed="true">1 fois / jour</button>
+          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="2" aria-pressed="false">2 fois / jour</button>
+          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="0.5" aria-pressed="false">1 jour sur 2</button>
+        </div>
+      </div>
+      <div class="passport-metrics">
+        <div class="passport-metric"><span class="passport-metric-label">Contenance</span><strong class="passport-metric-value">${esc(dossier.passport.volume)}</strong><span class="passport-metric-sub">${esc(dossier.passport.pack)}</span></div>
+        <div class="passport-metric"><span class="passport-metric-label">Durée estimée</span><strong class="passport-metric-value"><span id="passport-days">~${dossier.passport.baseDays}</span> <span class="passport-unit">jours</span></strong><span class="passport-metric-sub" id="passport-cadence-sub">Usage quotidien</span></div>
+      </div>
+    </div>
+  </section>`:'';
   return `<section class="product-page product-editorial" aria-labelledby="product-title">
     <div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><a href="#/soins">Les soins</a><span aria-hidden="true">/</span><span>${esc(p.title)}</span></div>
     <div class="product-layout">
@@ -298,7 +337,7 @@ function productPage(id) {
         <div class="faq-list"><details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
       </div>
     </div>
-  </section><section class="product-source section" aria-labelledby="source-description-title"><div class="product-source-heading"><p class="product-kicker">Votre soin en détail</p><h2 id="source-description-title">Description du soin.</h2></div><div class="product-source-content" data-i18n-ignore>${safeProductDescription(p.shopifyDescriptionHtml,p.sourceDescription)}</div></section>${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
+  </section><section class="product-source section" aria-labelledby="source-description-title"><div class="product-source-heading"><p class="product-kicker">Votre soin en détail</p><h2 id="source-description-title">Description du soin.</h2></div><div class="product-source-content" data-i18n-ignore>${safeProductDescription(p.shopifyDescriptionHtml,p.sourceDescription)}</div></section>${spectrometerSection}${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
 }
 
 function brandPage() {

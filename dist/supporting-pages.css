@@ -1399,3 +1399,33 @@ body, button, input, select, textarea { font-family:var(--ui); }
 .product-source-content :is(h2,h3,h4) { margin:1.4em 0 .5em; font-size:1.1em; }
 .product-source-fallback { white-space:pre-line; }
 @media (max-width:700px) { .product-source { grid-template-columns:1fr; gap:24px; padding-block:52px 64px; } .product-source-content { font-size:16px; line-height:1.65; } }
+
+/* A quieter, more legible welcome over the moving product image. */
+@media (min-width:783px) {
+  .campaign-home .campaign-hero--omni .campaign-film-media::after {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(90deg,rgba(246,247,245,.93) 0%,rgba(246,247,245,.78) 24%,rgba(246,247,245,.16) 45%,transparent 59%);
+  }
+  .campaign-home .campaign-hero--omni .campaign-film-copy {
+    width:43%; max-width:570px; padding:clamp(40px,5vw,88px); padding-right:16px;
+  }
+  .campaign-home .campaign-film-copy h1 {
+    font-size:clamp(43px,4.15vw,66px); line-height:1.04; letter-spacing:-.025em; margin:0 0 24px; text-wrap:balance;
+  }
+  .campaign-home .campaign-film-heading>p:not(.campaign-film-kicker) { max-width:30ch; margin-bottom:30px; font-size:17px; line-height:1.55; }
+  .campaign-home .campaign-film-kicker { margin-bottom:24px; font-size:11px; letter-spacing:.13em; }
+  .campaign-home .hero-discovery { gap:14px; }
+  .campaign-home .hero-discovery > p { max-width:30ch; font-size:13px; line-height:1.5; }
+  .campaign-home .hero-discovery .campaign-link { min-height:52px; padding:14px 24px; }
+}
+@media (max-width:782px) {
+  .campaign-home .campaign-hero--omni .campaign-film-heading { padding:32px var(--hero-gutter) 25px; }
+  .campaign-home .campaign-film-kicker { margin-bottom:14px; letter-spacing:.1em; }
+  .campaign-home .campaign-film-copy h1 { font-size:clamp(36px,9vw,48px); line-height:1.05; margin-bottom:15px; text-wrap:balance; }
+  .campaign-home .campaign-film-heading > p:not(.campaign-film-kicker) { max-width:33ch; font-size:16px; line-height:1.55; }
+  .campaign-home .hero-discovery > p { padding:4px var(--hero-gutter) 26px; font-size:14px; line-height:1.5; }
+}
+@media (min-width:783px) {
+  .campaign-home .campaign-hero--omni .campaign-film-copy { width:48%; max-width:640px; padding-left:clamp(36px,5vw,88px); padding-right:20px; }
+  .campaign-home .campaign-film-copy h1 { font-size:clamp(36px,3.3vw,54px); }
+}

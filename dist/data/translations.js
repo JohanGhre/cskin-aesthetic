@@ -1,4 +1,11 @@
 window.CSKIN_TRANSLATIONS = {
+  "Appliquez le matin sur le visage et le cou propres, puis complétez avec une protection solaire.": { "en": "Apply in the morning to clean face and neck, then follow with sunscreen.", "es": "Aplicar por la mañana sobre el rostro y el cuello limpios y completar con protección solar." },
+  "Isoflavones liposomales 5 %": { "en": "Liposomal isoflavones 5%", "es": "Isoflavonas liposomales 5 %" },
+  "Contribuent à repulper et redensifier la peau.": { "en": "Help plump and replenish the skin.", "es": "Ayudan a rellenar y redensificar la piel." },
+  "Ce soin de jour s’applique le matin sur visage et cou avant une protection SPF 30 minimum.": { "en": "Apply this day cream in the morning to face and neck, followed by sunscreen SPF 30 or higher.", "es": "Aplicar este cuidado de día por la mañana sobre rostro y cuello y completar con protección solar SPF 30 como mínimo." },
+  "Rétinol huileux (Nuit)": { "en": "Oil-based retinol (Night)", "es": "Retinol oleoso (Noche)" },
+  "Matrixyl 3000 3 % et Coenzyme Q-10 le matin, à compléter avec un écran SPF 30.": { "en": "Matrixyl 3000 3% and Coenzyme Q-10 in the morning, followed by SPF 30.", "es": "Matrixyl 3000 3 % y Coenzima Q-10 por la mañana, completando con SPF 30." },
+  "Livraison offerte en Espagne dès 100 €": { "en": "Free shipping in Spain on orders over €100", "es": "Envío gratis en España a partir de 100 €" },
   "La science": {
     "en": "Science",
     "es": "La ciencia"

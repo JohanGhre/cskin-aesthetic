@@ -92,17 +92,17 @@ window.CSKIN_PRODUCTS = [
     "category": "visage",
     "type": "Crème de jour",
     "actives": [
-      "Rétinol huileux 0,30 %",
+      "Isoflavones liposomales 5 %",
       "Coenzyme Q10",
       "Matrixyl 3000"
     ],
-    "usage": "Ce soin contient du rétinol. Consultez les instructions et précautions complètes de la fiche officielle avant utilisation.",
+    "usage": "Appliquez le matin sur le visage et le cou propres, puis complétez avec une protection solaire.",
     "price": 69.0,
     "compare": null,
     "available": true,
     "image": "assets/products/creme-anti-aging-plus-day.jpg",
     "url": "https://cskinaesthetic.com/products/creme-anti-aging-plus-day",
-    "sourceDescription": " La crème Anti Aging Plus Day est une crème spécifique qui fonctionne avec la crème Anti Aging Plus Night. Nourrissante et intensive, son Retinol huileux a 0.30% contribue à atténuer la profondeur des rides et des ridules. Formulée à base de coenzyme Q10, de Matrixyl 3000 qui soutient l'architecture du derme, de la  superoxyde dismutase (SOD) issue du Melon et d'isoflavones liposomales. Elle repulpe instantanément la peau. Effet maximal au bout de 6 mois de traitement. \n  Convient aux peaux normales, sèches et très sèches.  \n \n Soin anti-rides intensif : atténue les rides, ridules d'expression et petits signes de vieillissement \n Prévient et neutralise les effets des radicaux libres (stress oxydatif) \n Hydratation et fermeté globale de la peau \n Redonne une sensation de confort durable \n \n  Ingrédients actifs :  \n \n \n Hamamélis 10%  — astringent naturel, resserre les pores \n \n Matrixyl 3000® 3%  — stimule la production de collagène \n \n Isoflavones liposomales 5%  — repulpe et redensifie la peau \n \n Superoxyde dismutase SOD 0,25%  — puissant antioxydant enzymatique \n \n Coenzyme Q-10 0,1%  — énergisant cellulaire anti-âge \n \n Bisabolol 1%  — apaisant et anti-inflammatoire \n \n Aloe vera  — hydratation et apaisement \n \n Vitamine E  — antioxydant protecteur \n \n  G lycyrrhizate   d'ammonium 1%  — anti-inflammatoire naturel \n \n  Conseils d'utilisation :  Crème de jour, à associer parfaitement à la Crème de Nuit Choc au Rétinol et ou à la Crème à l'acide glycolique le soir. \n  Présentation :  50 ml "
+    "sourceDescription": " La crème Anti Aging Plus Day est une crème spécifique qui fonctionne avec la crème Anti Aging Plus Night. Nourrissante et intensive, elle contribue à atténuer la profondeur des rides et des ridules. Formulée à base de coenzyme Q10, de Matrixyl 3000 qui soutient l'architecture du derme, de la  superoxyde dismutase (SOD) issue du Melon et d'isoflavones liposomales. Elle repulpe instantanément la peau. Effet maximal au bout de 6 mois de traitement. \n  Convient aux peaux normales, sèches et très sèches.  \n \n Soin anti-rides intensif : atténue les rides, ridules d'expression et petits signes de vieillissement \n Prévient et neutralise les effets des radicaux libres (stress oxydatif) \n Hydratation et fermeté globale de la peau \n Redonne une sensation de confort durable \n \n  Ingrédients actifs :  \n \n \n Hamamélis 10%  — astringent naturel, resserre les pores \n \n Matrixyl 3000® 3%  — stimule la production de collagène \n \n Isoflavones liposomales 5%  — repulpe et redensifie la peau \n \n Superoxyde dismutase SOD 0,25%  — puissant antioxydant enzymatique \n \n Coenzyme Q-10 0,1%  — énergisant cellulaire anti-âge \n \n Bisabolol 1%  — apaisant et anti-inflammatoire \n \n Aloe vera  — hydratation et apaisement \n \n Vitamine E  — antioxydant protecteur \n \n  G lycyrrhizate   d'ammonium 1%  — anti-inflammatoire naturel \n \n  Conseils d'utilisation :  Crème de jour, à associer parfaitement à la Crème de Nuit Choc au Rétinol et ou à la Crème à l'acide glycolique le soir. \n  Présentation :  50 ml "
   },
   {
     "id": "creme-anti-aging-plus-night",

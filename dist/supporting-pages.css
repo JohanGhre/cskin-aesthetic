@@ -1429,3 +1429,12 @@ body, button, input, select, textarea { font-family:var(--ui); }
   .campaign-home .campaign-hero--omni .campaign-film-copy { width:48%; max-width:640px; padding-left:clamp(36px,5vw,88px); padding-right:20px; }
   .campaign-home .campaign-film-copy h1 { font-size:clamp(36px,3.3vw,54px); }
 }
+
+/* Message de livraison et disponibilité synchronisée avec Shopify. */
+body .announcement, body.home-page .announcement { display:flex; justify-content:center; align-items:center; min-height:34px; padding:8px 20px; background:#171a19; color:#fff; text-align:center; font-size:11px; letter-spacing:.025em; }
+body .announcement > span:first-child { display:block; animation:shipping-entrance .65s ease both; }
+@keyframes shipping-entrance { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+.product-availability { display:flex; align-items:center; gap:8px; margin:16px 0 0; font-size:13px; color:#626963; }
+.product-availability::before { content:""; width:7px; height:7px; border-radius:50%; background:#aaa; flex:none; }
+.product-availability[data-status="available"]::before { background:#5f8064; }
+@media (prefers-reduced-motion:reduce) { body .announcement > span:first-child { animation:none; } }

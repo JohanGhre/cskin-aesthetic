@@ -163,13 +163,12 @@ window.CSKIN_PRODUCT_DOSSIERS = {
       { label: 'Isoflavones liposomales', pct: '5,0 %', w: 68 },
       { label: 'Matrixyl 3000® (Peptides)', pct: '3,0 %', w: 54 },
       { label: 'Bisabolol & Glycyrrhizate', pct: '1,0 %', w: 36 },
-      { label: 'Rétinol huileux', pct: '0,30 %', w: 28 },
       { label: 'SOD & Coenzyme Q-10', pct: '0,25 % / 0,10 %', w: 22 }
     ],
     details: [
       {
-        title: 'Rétinol huileux 0,30 % & Isoflavones liposomales 5 %',
-        body: 'Contribuent à atténuer la profondeur des rides tout en repulpant et redensifiant la peau.'
+        title: 'Isoflavones liposomales 5 %',
+        body: 'Contribuent à repulper et redensifier la peau.'
       },
       {
         title: 'Matrixyl 3000® 3 % & Hamamélis 10 %',
@@ -189,7 +188,7 @@ window.CSKIN_PRODUCT_DOSSIERS = {
     passport: {
       volume: '50 ml',
       pack: 'Flacon 50 ml · Jour',
-      note: 'Ce soin de jour au rétinol huileux 0,30 % s’applique le matin sur visage et cou avant une protection SPF 30 minimum.',
+      note: 'Ce soin de jour s’applique le matin sur visage et cou avant une protection SPF 30 minimum.',
       baseDays: 80
     }
   },
@@ -403,7 +402,7 @@ window.CSKIN_PRODUCT_DOSSIERS = {
       { label: 'Gatuline® Expression', pct: '4,0 %', w: 58 },
       { label: 'Matrixyl 3000®', pct: '3,0 %', w: 50 },
       { label: 'Acide hyaluronique & Ectoin®', pct: '0,6 % / 0,5 %', w: 32 },
-      { label: 'Rétinol huileux (Jour & Nuit)', pct: '0,30 %', w: 28 }
+      { label: 'Rétinol huileux (Nuit)', pct: '0,30 %', w: 28 }
     ],
     details: [
       {
@@ -412,7 +411,7 @@ window.CSKIN_PRODUCT_DOSSIERS = {
       },
       {
         title: 'Protéger · Crème Anti Aging Day (50 ml)',
-        body: 'Matrixyl 3000 3 %, Coenzyme Q-10 et rétinol 0,30 % le matin, à compléter avec un écran SPF 30.'
+        body: 'Matrixyl 3000 3 % et Coenzyme Q-10 le matin, à compléter avec un écran SPF 30.'
       },
       {
         title: 'Régénérer · Crème Anti Aging Night (50 ml)',
@@ -443,7 +442,7 @@ window.CSKIN_PRODUCT_DOSSIERS = {
       { label: 'Céramides actifs (Nuit)', pct: '5,0 %', w: 68 },
       { label: 'Matrixyl 3000® (Peptides)', pct: '3,0 %', w: 52 },
       { label: 'Bisabolol apaisant', pct: '1,0 %', w: 36 },
-      { label: 'Rétinol huileux', pct: '0,30 %', w: 28 },
+      { label: 'Rétinol huileux (Nuit)', pct: '0,30 %', w: 28 },
       { label: 'Coenzyme Q-10 (Jour)', pct: '0,10 %', w: 20 }
     ],
     details: [

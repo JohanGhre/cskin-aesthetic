@@ -2272,3 +2272,7 @@ Object.assign(window.CSKIN_TRANSLATIONS, {
     "es": "Añadir esta selección a la cesta"
   }
 });
+Object.assign(window.CSKIN_TRANSLATIONS, {
+  "Votre soin en détail": {"en":"Your skincare in detail","es":"Tu cuidado en detalle"},
+  "Description du soin.": {"en":"Product description.","es":"Descripción del cuidado."}
+});

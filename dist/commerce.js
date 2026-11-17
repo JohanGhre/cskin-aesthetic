@@ -70,7 +70,7 @@
     }
     async function catalog() {
       const data = await request(`query Catalog($language:LanguageCode!) @inContext(language:$language) {
-        products(first:100) { pageInfo { hasNextPage } nodes { id handle availableForSale
+        products(first:100) { pageInfo { hasNextPage } nodes { id handle availableForSale descriptionHtml
           variants(first:2) { nodes { id availableForSale price { amount currencyCode } compareAtPrice { amount currencyCode } } }
         } }
       }`);
@@ -82,7 +82,7 @@
           available: Boolean(supported && product.availableForSale && variant.availableForSale),
           price: variant ? Number(variant.price.amount) : null,
           compare: variant?.compareAtPrice ? Number(variant.compareAtPrice.amount) : null,
-          currency: variant?.price.currencyCode }];
+          currency: variant?.price.currencyCode, descriptionHtml: product.descriptionHtml || "" }];
       }));
     }
     function enqueue(operation) {

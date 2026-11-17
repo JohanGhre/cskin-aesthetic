@@ -264,6 +264,21 @@ function stepCatalog(direction) {
   selectCatalogProduct(catalogItems[(index+direction+catalogItems.length)%catalogItems.length].id);
 }
 
+function safeProductDescription(html, fallback) {
+  if (!html || typeof DOMParser === 'undefined') return `<p class="product-source-fallback" data-i18n-ignore>${esc(fallback || '')}</p>`;
+  const documentFragment = new DOMParser().parseFromString(html, 'text/html');
+  const allowed = new Set(['P','BR','UL','OL','LI','STRONG','B','EM','I','H2','H3','H4']);
+  function clean(node) {
+    if (node.nodeType === 3) return esc(node.nodeValue || '');
+    if (node.nodeType !== 1 || ['SCRIPT','STYLE','IFRAME','OBJECT','SVG'].includes(node.tagName)) return '';
+    const children = [...node.childNodes].map(clean).join('');
+    if (!allowed.has(node.tagName)) return children;
+    const tag = node.tagName.toLowerCase();
+    return tag === 'br' ? '<br>' : `<${tag}>${children}</${tag}>`;
+  }
+  return [...documentFragment.body.childNodes].map(clean).join('');
+}
+
 function productPage(id) {
   const p=findProduct(id);
   if(!p)return `<section class="section"><h1>Ce soin est introuvable.</h1><p>Retrouvez toute la collection Cskin.</p><a class="button" href="#/soins">Découvrir les soins <span class="ui-arrow" aria-hidden="true"></span></a></section>`;
@@ -274,70 +289,16 @@ function productPage(id) {
   const previous=products[(index-1+products.length)%products.length];
   const next=products[(index+1)%products.length];
   const volumes={'serum-age-plus-1':'30 ml','creme-silk-effect':'50 ml','lait-nettoyant-hydratant':'200 ml','mousse-nettoyante-a-lacide-glycolique':'150 ml','creme-anti-aging-plus-day':'50 ml','creme-anti-aging-plus-night':'50 ml','creme-facial-acide-glycolique':'50 ml','creme-raffermissante-pour-le-corps':'200 ml','creme-anti-cellulite':'200 ml','duo-pack-anti-aging-day-night':'2 × 50 ml','duo-pack-remodelant-et-raffermissant':'2 × 200 ml','pack-peaux-sensibles-mixtes-a-grasses-nettoyant-creme-acide-glycolique':'150 ml + 50 ml','trio-pack-anti-aging-serum-creme-jour-creme-nuit':'3 soins'};
-  const formulations={
-    'serum-age-plus-1':'Flacon compte-gouttes 30 ml · Collagène 6 %, Gatuline® Expression (Acmella Oleracea) 4 %, Ectoin® 0,5 %, Acide hyaluronique 0,6 %, Vitamine E 0,1 %. Fabriqué en Espagne.',
-    'creme-silk-effect':'Flacon Airless 50 ml · DMAE 5 %, Glycérol 5 %, Acide thioctique 0,7 %, Vitamine C stable 0,6 %, Vitamine E. Appliquer matin et/ou soir sur visage, cou et décolleté.',
-    'lait-nettoyant-hydratant':'Flacon 200 ml · Huile d’amande douce 10 %, Émollients 6 %, Glycérine 5 %, Extraits d’avoine 3 %, Camomille 3 %. Préserve le film hydrolipidique.',
-    'mousse-nettoyante-a-lacide-glycolique':'Flacon 150 ml · Acide glycolique 2 %, Avoine 2 %, Extrait de camomille 2 %. Nettoyage quotidien ou pose de 2 minutes en exfoliation douce.',
-    'creme-anti-aging-plus-day':'Flacon 50 ml · Hamamélis 10 %, Isoflavones liposomales 5 %, Matrixyl 3000® 3 %, Bisabolol 1 %, SOD 0,25 %, Coenzyme Q-10 0,1 %, Rétinol huileux 0,30 %, Aloe vera, Vitamine E.',
-    'creme-anti-aging-plus-night':'Flacon Airless 50 ml · Tenseur végétal 10 %, Hamamélis 7 %, Phytoprotéoglycanes 5 %, Céramides actifs 5 %, Isoflavones liposomées 5 %, Matrixyl 3000 3 %, Rétinol huileux 0,30 %.',
-    'creme-facial-acide-glycolique':'Flacon Airless 50 ml · Aloe vera 15 %, Acide glycolique 8 %, Facteur d’hydratation naturelle 5 %, Mimosa 5 %, Huile de rose musquée 2 %, Alpha-bisabolol 0,5 %.',
-    'creme-raffermissante-pour-le-corps':'Flacon 200 ml · Huile d’amande 10 %, Huile de germe de blé 5 %, Avoine 5 %, Élastine 3 %, Urée 3 %, Centella Asiatica 2 %, Ginseng 2 %, Collagène 0,5 %, DMAE 0,5 %.',
-    'creme-anti-cellulite':'Flacon 200 ml · Ruscus 2 %, Fucus 2 %, Lierre 2 %, Marron d’Inde 2 %, Caféine 1,5 %, L-Carnitine 0,5 %. Appliquer en massage circulaire matin ou soir.',
-    'pack-peaux-sensibles-mixtes-a-grasses-nettoyant-creme-acide-glycolique':'Coffret 2 soins (150 ml + 50 ml) · Réunit la Mousse Nettoyante à l’Acide Glycolique 2 % et la Crème Faciale Acide Glycolique 8 %. Économie immédiate de 12 €.',
-    'trio-pack-anti-aging-serum-creme-jour-creme-nuit':'Coffret 3 soins (30 ml + 50 ml + 50 ml) · Réunit le Sérum Age Plus, la Crème Anti Aging Plus Day et la Crème Anti Aging Plus Night. Économie immédiate de 23 €.',
-    'duo-pack-anti-aging-day-night':'Coffret 2 soins (2 × 50 ml) · Réunit la Crème Anti Aging Plus Day et la Crème Anti Aging Plus Night pour une synergie jour et nuit. Économie immédiate de 25 €.',
-    'duo-pack-remodelant-et-raffermissant':'Coffret 2 soins corps (2 × 200 ml) · Réunit la Crème Anti Cellulite et la Crème Corps Raffermissante pour lisser et tonifier la silhouette. Économie immédiate de 9 €.'
-  };
-  const dossier=window.CSKIN_PRODUCT_DOSSIERS?.[p.id];
-  const spectrometerSection=dossier?`<section class="product-spectrometer" aria-labelledby="spectrometer-title">
-    <div class="spec-head">
-      <div><p class="product-kicker">Formule · Transparence</p><h2 id="spectrometer-title">Spectromètre <em>d’actifs.</em></h2></div>
-      <p class="spec-caption">Les actifs clés et leur concentration expliqués sans détour.</p>
-    </div>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <div class="spec-card-meta"><span>${esc(dossier.code)}</span><span>${esc(dossier.format)}</span></div>
-        <h3>${esc(p.title)}</h3>
-        <p class="spec-sub">${esc(dossier.sub)}</p>
-        <div class="spec-bars">${dossier.bars.map(b=>`<div class="spec-bar-row"><div class="spec-bar-head"><span>${esc(b.label)}</span><span class="spec-bar-pct">${esc(b.pct)}</span></div><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="inline-size:${Number(b.w)}%"></div></div></div>`).join('')}</div>
-        <div class="spec-order"><span>Ordre d’application</span><strong>${esc(dossier.order)}</strong></div>
-      </div>
-      <div class="spec-dossier">
-        <p class="product-kicker spec-dossier-label">Dossier moléculaire</p>
-        <div class="spec-accordion">${dossier.details.map((item,i)=>`<details class="cskin-disclosure" name="cskin-actives"${i===0?' open':''}><summary><span>${esc(item.title)}</span><span class="plus-icon" aria-hidden="true">+</span></summary><div class="disclosure-body"><p>${esc(item.body)}</p></div></details>`).join('')}</div>
-        ${dossier.synergy?`<div class="spec-synergy"><p><strong>${esc(dossier.synergy.lead)}</strong> ${esc(dossier.synergy.body)}</p>${dossier.synergy.linkId?`<a class="spec-synergy-link" href="#/produit/${esc(dossier.synergy.linkId)}">${esc(dossier.synergy.linkLabel)} <span class="ui-arrow" aria-hidden="true"></span></a>`:''}</div>`:''}
-      </div>
-    </div>
-  </section>
-  <section class="product-passport" aria-labelledby="passport-title" data-base-days="${dossier.passport.baseDays}">
-    <div class="passport-grid">
-      <div class="passport-copy">
-        <p class="product-kicker">Contenant · Cadence</p>
-        <h2 id="passport-title">Passeport du soin <em>&amp; durée estimée.</em></h2>
-        <p class="passport-note">${esc(dossier.passport.note)}</p>
-        <div class="passport-cadence" role="group" aria-label="Fréquence d’application">
-          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="1" aria-pressed="true">1 fois / jour</button>
-          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="2" aria-pressed="false">2 fois / jour</button>
-          <button type="button" class="passport-cadence-btn" data-action="passport-cadence" data-freq="0.5" aria-pressed="false">1 jour sur 2</button>
-        </div>
-      </div>
-      <div class="passport-metrics">
-        <div class="passport-metric"><span class="passport-metric-label">Contenance</span><strong class="passport-metric-value">${esc(dossier.passport.volume)}</strong><span class="passport-metric-sub">${esc(dossier.passport.pack)}</span></div>
-        <div class="passport-metric"><span class="passport-metric-label">Durée estimée</span><strong class="passport-metric-value"><span id="passport-days">~${dossier.passport.baseDays}</span> <span class="passport-unit">jours</span></strong><span class="passport-metric-sub" id="passport-cadence-sub">Usage quotidien</span></div>
-      </div>
-    </div>
-  </section>`:'';
   return `<section class="product-page product-editorial" aria-labelledby="product-title">
     <div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><a href="#/soins">Les soins</a><span aria-hidden="true">/</span><span>${esc(p.title)}</span></div>
     <div class="product-layout">
-      <div class="product-detail product-introduction ${p.title.length>45?'is-long-title':''}"><p class="product-kicker">${esc(p.subtitle)}</p><h1 id="product-title">${esc(p.title)}</h1><p class="detail-price price">${money(p.price)} ${p.compare&&p.compare>p.price?`<s>${money(p.compare)}</s> <span class="product-savings">−${money(p.compare-p.price)}</span>`:''}${volumes[p.id]?`<span class="product-volume"> / ${volumes[p.id]}</span>`:''}</p><p class="summary">${esc(p.summary)}</p><a class="detail-source" href="#/contact">Une question sur ce soin ? Contacter Cskin <span class="ui-arrow" aria-hidden="true"></span></a></div>
+      <div class="product-detail product-introduction ${p.title.length>45?'is-long-title':''}"><p class="product-kicker">${esc(p.subtitle)}</p><h1 id="product-title">${esc(p.title)}</h1><p class="detail-price price">${money(p.price)} ${p.compare&&p.compare>p.price?`<s>${money(p.compare)}</s> <span class="product-savings">−${money(p.compare-p.price)}</span>`:''}${volumes[p.id]?`<span class="product-volume"> / ${volumes[p.id]}</span>`:''}</p><a class="detail-source" href="#/contact">Une question sur ce soin ? Contacter Cskin <span class="ui-arrow" aria-hidden="true"></span></a></div>
       <div class="product-gallery"><img src="${image}" alt="${esc(p.title)} présenté sur un socle en marbre" width="1024" height="1536" fetchpriority="high" decoding="async"><nav class="product-browse" aria-label="Parcourez la collection"><a href="#/produit/${previous.id}" aria-label="Soin précédent">←</a><span>${String(index+1).padStart(2,'0')} <span aria-hidden="true">/</span> ${String(products.length).padStart(2,'0')}</span><a href="#/produit/${next.id}" aria-label="Soin suivant">→</a></nav></div>
       <div class="product-detail product-order"><div class="product-purchase"><label class="purchase-label" for="product-quantity">Quantité</label><div class="buy-row"><div class="quantity" aria-label="Quantité"><button data-action="qty-minus" aria-label="Diminuer la quantité">−</button><output id="product-quantity" aria-live="polite">1</output><button data-action="qty-plus" aria-label="Augmenter la quantité">+</button></div><button class="button" data-action="add-product" data-id="${p.id}" ${!p.available?'disabled':''}>${p.available?'Ajouter au panier':'Indisponible'} <span aria-hidden="true">+</span></button></div><div class="product-reassurance"><span>Livraison offerte dès 100 €</span><span>Paiement sécurisé par Shopify</span></div><div class="payment-badges" aria-label="Garanties et moyens de paiement"><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>PayPal</span><span>Fabriqué en Espagne</span></div></div>
-        <div class="faq-list"><details><summary>Le geste Cskin</summary><p>${esc(p.usage)}</p></details><details><summary>Les actifs à connaître</summary><p>${p.actives.length?p.actives.map(esc).join(' · '):'Ce coffret réunit plusieurs soins. Contactez Cskin pour une composition détaillée.'}</p></details>${formulations[p.id]?`<details><summary>Formulation & Présentation</summary><p>${esc(formulations[p.id])}</p></details>`:''}<details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
+        <div class="faq-list"><details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
       </div>
     </div>
-  </section>${spectrometerSection}${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
+  </section><section class="product-source section" aria-labelledby="source-description-title"><div class="product-source-heading"><p class="product-kicker">Votre soin en détail</p><h2 id="source-description-title">Description du soin.</h2></div><div class="product-source-content" data-i18n-ignore>${safeProductDescription(p.shopifyDescriptionHtml,p.sourceDescription)}</div></section>${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
 }
 
 function brandPage() {
@@ -376,6 +337,7 @@ function policiesPage(id) {
 }
 window.onCSkinLanguageChange = () => {
   if (location.hash.startsWith('#/politiques')) renderRoute(true);
+  if (location.hash.startsWith('#/produit/')) startCommerce();
 };
 
 function renderRoute(keepScroll=false) {
@@ -453,7 +415,7 @@ async function startCommerce(){
     commerce=window.CSkinCommerce.create(window.CSKIN_SHOPIFY,{storage,language:()=>String(window.CSkinI18n?.language||'fr').toUpperCase()});
     commerce.subscribe(state=>{
       commerceState=state;cart=state.cart?.lines||[];
-      if(state.status==='ready')products.forEach(p=>{const remote=state.products[p.id];p.available=Boolean(remote?.available&&remote.currency==='EUR');if(remote&&Number.isFinite(remote.price)){p.price=remote.price;p.compare=remote.compare;}});
+      if(state.status==='ready')products.forEach(p=>{const remote=state.products[p.id];p.available=Boolean(remote?.available&&remote.currency==='EUR');if(remote){p.shopifyDescriptionHtml=remote.descriptionHtml||'';if(Number.isFinite(remote.price)){p.price=remote.price;p.compare=remote.compare;}}});
       updateCartCount();if($('#cart-dialog').open)renderCart();syncPurchaseControls();
     });
   }

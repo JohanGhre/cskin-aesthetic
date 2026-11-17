@@ -1389,3 +1389,13 @@ body, button, input, select, textarea { font-family:var(--ui); }
   .quiz-option { min-height:52px; }
   .quiz-result-actions { align-items:stretch; flex-direction:column; }
 }
+
+.product-source { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(32px,7vw,100px); align-items:start; padding-block:clamp(56px,7vw,100px); border-top:1px solid var(--border); }
+.product-source-heading h2 { margin:0; font:400 clamp(32px,3.3vw,50px)/1.12 var(--display); letter-spacing:-.025em; }
+.product-source-content { max-width:65ch; font:400 16px/1.7 var(--ui); color:var(--text); overflow-wrap:anywhere; }
+.product-source-content p { margin:0 0 1.2em; }
+.product-source-content :is(ul,ol) { padding-inline-start:1.3em; margin:0 0 1.4em; }
+.product-source-content li { padding-block:.15em; }
+.product-source-content :is(h2,h3,h4) { margin:1.4em 0 .5em; font-size:1.1em; }
+.product-source-fallback { white-space:pre-line; }
+@media (max-width:700px) { .product-source { grid-template-columns:1fr; gap:24px; padding-block:52px 64px; } .product-source-content { font-size:16px; line-height:1.65; } }

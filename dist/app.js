@@ -337,7 +337,7 @@ function productPage(id) {
         <div class="faq-list"><details><summary>Livraison et informations</summary><p>Les prix et la disponibilité sont actualisés depuis Shopify. Les frais et options de livraison ainsi que les taxes applicables sont confirmés au paiement. Pour une question sur votre commande, contactez Cskin depuis ce site.</p></details></div>
       </div>
     </div>
-  </section><section class="product-source section" aria-labelledby="source-description-title"><div class="product-source-heading"><p class="product-kicker">Votre soin en détail</p><h2 id="source-description-title">Description du soin.</h2></div><div class="product-source-content" data-i18n-ignore>${safeProductDescription(p.shopifyDescriptionHtml,p.sourceDescription)}</div></section>${spectrometerSection}${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
+  </section><section class="product-source section" aria-labelledby="source-description-title"><div class="product-source-heading"><p class="product-kicker">Votre soin en détail</p><h2 id="source-description-title">Description du soin.</h2></div><div class="product-source-content" data-i18n-ignore>${safeProductDescription(p.shopifyDescriptionHtml,p.sourceDescription)}</div></section>${spectrometerSection}<section class="section product-reviews" data-product-reviews="${esc(p.id)}" aria-labelledby="product-reviews-title" data-i18n-ignore hidden></section>${related.length?`<section class="section related-section"><div class="section-head"><h2>Les gestes<br><em>se complètent.</em></h2><a class="text-link" href="#/soins">Explorer les soins <span class="ui-arrow" aria-hidden="true"></span></a></div><div class="product-grid">${related.map(x=>card(x)).join('')}</div></section>`:''}`;
 }
 
 function brandPage() {
@@ -345,7 +345,7 @@ function brandPage() {
 }
 
 function contactPage() {
-  return `<section class="contact-page"><div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><span>Contact</span></div><div class="contact-heading"><p class="section-title-small">Restons en contact</p><h1>Parlons de<br><em>votre peau.</em></h1><p class="contact-intro">Une question sur un soin, votre routine ou votre commande ? Échangez directement avec Céline et l’équipe Cskin Aesthetic.</p><div class="contact-direct-block"><div class="contact-address"><span>Conseil & service client</span><strong>ab.frenchbeauty@gmail.com</strong><div class="contact-actions-row"><a class="campaign-link" href="mailto:ab.frenchbeauty@gmail.com?subject=Conseil%20soin%20Cskin%20Aesthetic">Écrire un e-mail <span class="ui-arrow" aria-hidden="true"></span></a><a class="campaign-link" href="https://wa.me/34644183388" target="_blank" rel="noopener noreferrer">WhatsApp · +34 644 18 33 88 <span class="ui-arrow" aria-hidden="true"></span></a><button class="campaign-link" data-action="copy-email">Copier l’adresse <span class="ui-arrow" aria-hidden="true"></span></button></div></div><p class="contact-note">Espace Cskin Aesthetic · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Espagne.</p></div></div><div class="contact-methods"><form class="contact-form" id="contact-form"><p class="section-title-small">Formulaire de conseil</p><h2>Envoyer un message direct</h2><label><span>Votre nom</span><input type="text" name="name" required placeholder="Votre prénom et nom"></label><label><span>Votre e-mail</span><input type="email" name="email" required placeholder="votre@email.com"></label><label><span>Votre besoin</span><select name="topic"><option value="Conseil routine & diagnostic peau">Conseil routine & diagnostic peau</option><option value="Question sur un soin ou un actif">Question sur un soin ou un actif</option><option value="Suivi de commande">Suivi de commande</option><option value="Autre demande">Autre demande</option></select></label><label><span>Votre message</span><textarea name="message" rows="4" required placeholder="Décrivez votre type de peau, vos habitudes ou votre question…"></textarea></label><button type="submit" class="button">Envoyer mon message <span class="ui-arrow" aria-hidden="true"></span></button></form></div></section>`;
+  return `<section class="contact-page"><div class="breadcrumb"><a href="#/">Accueil</a><span aria-hidden="true">/</span><span>Contact</span></div><div class="contact-heading"><p class="section-title-small">Restons en contact</p><h1>Parlons de<br><em>votre peau.</em></h1><p class="contact-intro">Une question sur un soin, votre routine ou votre commande ? Échangez directement avec Céline et l’équipe Cskin Aesthetic.</p><div class="contact-direct-block"><div class="contact-address"><span>Conseil & service client</span><strong>ab.frenchbeauty@gmail.com</strong><div class="contact-actions-row"><a class="campaign-link" href="mailto:ab.frenchbeauty@gmail.com?subject=Conseil%20soin%20Cskin%20Aesthetic">Écrire un e-mail <span class="ui-arrow" aria-hidden="true"></span></a><a class="campaign-link" href="https://wa.me/34644183388" target="_blank" rel="noopener noreferrer">WhatsApp · +34 644 18 33 88 <span class="ui-arrow" aria-hidden="true"></span></a><button class="campaign-link" data-action="copy-email">Copier l’adresse <span class="ui-arrow" aria-hidden="true"></span></button></div></div><div class="contact-order"><h2>Suivre ma commande</h2><p>Utilisez l’e-mail de votre commande pour retrouver son statut et son lien de suivi. Vous pouvez aussi ouvrir le lien dans votre e-mail de confirmation.</p><a class="campaign-link" href="https://shopify.com/101781537115/account">Voir mes commandes <span class="ui-arrow" aria-hidden="true"></span></a></div><p class="contact-note">Espace Cskin Aesthetic · Avenida Casarabonela, 16 — 29604 Marbella (Málaga), Espagne.</p></div></div><div class="contact-methods"><div class="contact-form"><h2>Envoyer un message</h2><p>Remplissez le formulaire Cskin pour nous écrire et recevoir une confirmation à l’écran.</p><a class="button" href="https://checkout.cskinaesthetic.com/pages/contact#ContactForm-name">Ouvrir le formulaire de contact <span class="ui-arrow" aria-hidden="true"></span></a></div></div></section>`;
 }
 
 function policiesPage(id) {
@@ -396,7 +396,7 @@ function renderRoute(keepScroll=false) {
   else if(route==='politiques') {main.innerHTML=policiesPage(id);document.title=`${main.querySelector('h1').textContent} — Cskin`;}
   else {main.innerHTML=home();document.title='Cskin — L’expertise du soin';}
   if(!keepScroll)window.scrollTo({top:0,behavior:'instant'});
-  window.CSkinI18n?.apply();window.CSkinSortMenu?.mount();syncMotionButton();setupSelectionRail();setupMotion();syncPurchaseControls();
+  window.CSkinI18n?.apply();window.CSkinReviews?.mount(main);window.CSkinSortMenu?.mount();syncMotionButton();setupSelectionRail();setupMotion();syncPurchaseControls();
 }
 
 function syncMotionButton(){const b=$('[data-action="motion"]');if(!b)return;b.setAttribute('aria-pressed',String(motionPaused));$('.motion-label',b).textContent=motionPaused?'Reprendre l’animation':'Mettre en pause';$('.motion-icon',b).textContent=motionPaused?'▷':'Ⅱ';if(reducedMotion.matches){b.disabled=true;$('.motion-label',b).textContent='Animations réduites';}}
@@ -442,7 +442,10 @@ function syncPurchaseControls(){
   });
   $$('[data-action="add"],[data-action="add-product"],[data-action="add-routine"],[data-action="checkout"]').forEach(button=>{
     const p=button.dataset.id && findProduct(button.dataset.id);
-    button.disabled=commerceState.status!=='ready'||commerceState.busy||Boolean(p&&!p.available)||(button.dataset.action==='checkout'&&(!cart.length||cart.some(l=>!l.available))); 
+    const missingRoutineItems = button.dataset.action === 'add-routine' && quiz?.resultIds?.some(id => !findProduct(id)?.available);
+    const stockNote = button.dataset.action === 'add-routine' ? $('[data-quiz-stock]') : null;
+    if (stockNote) stockNote.hidden = commerceState.status !== 'ready' || !missingRoutineItems;
+    button.disabled=Boolean(missingRoutineItems)||commerceState.status!=='ready'||commerceState.busy||Boolean(p&&!p.available)||(button.dataset.action==='checkout'&&(!cart.length||cart.some(l=>!l.available)));
     button.setAttribute('aria-busy',String(commerceState.busy));
   });
 }
@@ -491,17 +494,55 @@ const quizQuestions=[
 ];
 function startQuiz(){quiz={step:0,answers:[]};renderQuiz();openDialog('#quiz-dialog');}
 function renderQuiz(){const q=quizQuestions[quiz.step];if(!q)return renderQuizResult();$('#quiz-content').innerHTML=`<p class="quiz-label">Votre rituel Cskin · ${quiz.step+1} / 3</p><div class="quiz-progress" aria-hidden="true">${quizQuestions.map((_,i)=>`<span class="${i<=quiz.step?'active':''}"></span>`).join('')}</div><h2 id="quiz-title" tabindex="-1">${q.title}</h2><p class="quiz-description">${q.description}</p><div class="quiz-options">${q.options.map(([id,label])=>`<button class="quiz-option" data-action="quiz-answer" data-id="${id}"><span>${label}</span><span class="ui-arrow" aria-hidden="true"></span></button>`).join('')}</div>${quiz.step?'<button class="quiz-back" data-action="quiz-back">← Question précédente</button>':'<p class="quiz-description">Une découverte de la gamme. Sans inscription.</p>'}`;}
-function renderQuizResult(){
-  const [goal,skin,length]=quiz.answers;
-  const needsAdvice=['sensible','inconnue'].includes(skin);
-  const primary={confort:'serum-age-plus-1',fermete:'serum-age-plus-1',eclat:'creme-silk-effect',decouverte:'lait-nettoyant-hydratant'}[goal] || 'lait-nettoyant-hydratant';
-  const essentials=['lait-nettoyant-hydratant','serum-age-plus-1','creme-silk-effect'];
-  const ids=needsAdvice?[]:[primary,...essentials.filter(id=>id!==primary)].slice(0,length==='simple'?2:3);
-  const pack=!needsAdvice && goal==='fermete' && ['seche','normale'].includes(skin) ? findProduct('duo-pack-anti-aging-day-night') : null;
-  quiz.resultIds=ids;
-  const item=(p,lead=false)=>`<div class="routine-result-item${lead?' routine-result-item--lead':''}"><img src="${catalogPhotos[p.id]}" alt="" width="70" height="90"><div>${lead?'<p class="quiz-result-overline">À découvrir en premier</p>':''}<h3>${esc(p.title)}</h3><p>${esc(p.subtitle)} · ${money(p.price)}</p><a href="/produit/${p.id}/">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div></div>`;
-  $('#quiz-content').innerHTML=`<p class="quiz-label">Votre découverte Cskin</p><h2 id="quiz-title" tabindex="-1">${needsAdvice?'Commençons par un échange.':'Une sélection pour vous.'}</h2><p class="quiz-description">${needsAdvice?'Pour une peau réactive ou un besoin encore incertain, un échange direct avec Céline est le meilleur point de départ.':'À partir de vos réponses, voici une piste pour composer votre rituel. Consultez les conseils et précautions de chaque soin.'}</p>${ids.map((id,i)=>item(findProduct(id),i===0)).join('')}${pack?`<div class="quiz-pack"><p class="quiz-result-overline">Envie d’un rituel complet ?</p><h3>Le duo jour &amp; nuit</h3><p>Deux soins complémentaires à découvrir ensemble. Le soin de nuit contient du rétinol : consultez ses précautions avant utilisation.</p><a href="/produit/${pack.id}/">Découvrir le duo <span class="ui-arrow" aria-hidden="true"></span></a></div>`:''}<div class="quiz-result-actions">${ids.length?'<button class="button" data-action="add-routine">Ajouter cette sélection au panier <span class="ui-arrow" aria-hidden="true"></span></button>':'<a class="button" href="#/contact">Échanger avec Cskin <span class="ui-arrow" aria-hidden="true"></span></a>'}<button class="text-link" data-action="quiz">Recommencer <span class="ui-arrow" aria-hidden="true"></span></button></div>`;
-  window.CSkinI18n?.apply();syncPurchaseControls();
+function renderQuizResult() {
+  const [goal, skin, length] = quiz.answers;
+  const needsAdvice = ['sensible', 'inconnue'].includes(skin);
+  const cleanser = skin === 'mixte' ? 'mousse-nettoyante-a-lacide-glycolique' : 'lait-nettoyant-hydratant';
+  const serum = 'serum-age-plus-1';
+  const cream = 'creme-silk-effect';
+  const selected = goal === 'eclat' ? cream : goal === 'decouverte' ? cleanser : serum;
+  const ids = needsAdvice ? [] : (length === 'complet'
+    ? [cleanser, serum, cream] : [cleanser, selected === cleanser ? cream : selected]);
+  const pack = goal === 'fermete' && ['seche', 'normale'].includes(skin)
+    ? findProduct('duo-pack-anti-aging-day-night') : null;
+  const goalText = {
+    confort: 'Vous cherchez avant tout de l’hydratation et du confort.',
+    fermete: 'Vous souhaitez privilégier la souplesse et la fermeté.',
+    eclat: 'Vous souhaitez travailler l’éclat et l’aspect du grain de peau.',
+    decouverte: 'Vous souhaitez découvrir la gamme avec des gestes simples.',
+  }[goal] || '';
+  const benefits = {
+    'lait-nettoyant-hydratant': 'Un lait onctueux pour nettoyer tout en privilégiant le confort.',
+    'mousse-nettoyante-a-lacide-glycolique': 'Une mousse à rincer adaptée aux peaux mixtes qui cherchent à éliminer l’excès de sébum.',
+    'serum-age-plus-1': 'Le sérum est axé sur l’hydratation et la souplesse.',
+    'creme-silk-effect': goal === 'eclat' ? 'La formule associe vitamine C et DMAE pour un soin orienté éclat et fermeté.' : 'Une crème qui complète la routine avec un soin de confort et de fermeté.',
+  };
+  quiz.resultIds = ids;
+  const item = id => {
+    const p = findProduct(id);
+    return `<div class="routine-result-item${id === selected ? ' routine-result-item--lead' : ''}">
+      <img src="${catalogPhotos[id]}" alt="" width="70" height="90">
+      <div>${id === selected ? '<p class="quiz-result-overline">Le soin à privilégier</p>' : ''}
+      <h3>${esc(p.title)}</h3><p>${benefits[id]}</p><p>${money(p.price)}</p>
+      <a href="/produit/${id}/">Découvrir ce soin <span class="ui-arrow" aria-hidden="true"></span></a></div>
+    </div>`;
+  };
+  const packMarkup = pack ? `<aside class="quiz-pack"><h3>Une option pour le matin et le soir</h3>
+    <p>Le duo associe une crème de jour et une crème de nuit. Le soin de nuit contient du rétinol : consultez ses précautions avant utilisation.</p>
+    <a href="/produit/${pack.id}/">Découvrir le duo <span class="ui-arrow" aria-hidden="true"></span></a>
+  </aside>` : '';
+  $('#quiz-content').innerHTML = `<p class="quiz-label">Votre découverte Cskin</p>
+    <h2 id="quiz-title" tabindex="-1">${needsAdvice ? 'Commençons par un échange.' : 'Une sélection pour vous.'}</h2>
+    <p class="quiz-description">${needsAdvice ? 'Si votre peau réagit facilement ou si son type est incertain, échangez avec Céline avant de choisir un soin.' : goalText}</p>
+    ${ids.map(item).join('')}${packMarkup}
+    <div class="quiz-result-actions">${ids.length
+      ? '<button class="button" data-action="add-routine">Ajouter cette sélection au panier <span class="ui-arrow" aria-hidden="true"></span></button>'
+      : '<a class="button" href="#/contact">Échanger avec Cskin <span class="ui-arrow" aria-hidden="true"></span></a>'}
+      <button class="text-link" data-action="quiz">Recommencer <span class="ui-arrow" aria-hidden="true"></span></button>
+    </div>
+    ${ids.length ? '<p class="quiz-stock-note" data-quiz-stock hidden>Un soin de la sélection est indisponible. Vous pouvez consulter les autres soins séparément.</p>' : ''}`;
+  window.CSkinI18n?.apply();
+  syncPurchaseControls();
 }
 
 function info(title,html){$('#info-title').textContent=title;$('#info-content').innerHTML=html;openDialog('#info-dialog');}
@@ -568,15 +609,7 @@ document.addEventListener('click',async e=>{
   }
 });
 document.addEventListener('submit',e=>{
-  if(e.target.id==='contact-form'){
-    e.preventDefault();
-    const d=new FormData(e.target);
-    const subject=encodeURIComponent(`[Cskin Aesthetic] ${d.get('topic')||'Conseil'}`);
-    const body=encodeURIComponent(`Nom : ${d.get('name')}\nE-mail : ${d.get('email')}\nBesoin : ${d.get('topic')}\n\nMessage :\n${d.get('message')}`);
-    toast('Ouverture de votre messagerie pour envoyer votre demande à Cskin');
-    location.href=`mailto:ab.frenchbeauty@gmail.com?subject=${subject}&body=${body}`;
-    e.target.reset();
-  } else if(e.target.id==='quiz-email-form'){
+  if(e.target.id==='quiz-email-form'){
     e.preventDefault();
     const email=new FormData(e.target).get('email');
     const items=(quiz.resultIds||[]).map((id,i)=>`${i+1}. ${findProduct(id)?.title||id}`).join('\n');

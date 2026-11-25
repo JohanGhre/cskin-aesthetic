@@ -7,12 +7,18 @@
   const panel = document.querySelector('#analytics-preferences');
   const settings = document.querySelector('#analytics-settings');
   let preference;
-  try { preference = localStorage.getItem(preferenceKey); } catch {}
+  try {
+    const saved = JSON.parse(localStorage.getItem(preferenceKey) || 'null');
+    if (saved && Date.now() - saved.time < 180 * 86400000) preference = saved.value;
+  } catch {}
   let initialized = false;
 
   function initialize() {
     window['ga-disable-' + id] = false;
-    if (initialized) return;
+    if (initialized) {
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
+      return;
+    }
     initialized = true;
     const tag = document.createElement('script');
     tag.async = true;
@@ -30,13 +36,24 @@
       page_referrer: '',
     });
     document.head.append(tag);
+    pageView();
   }
 
   function choose(value) {
     preference = value;
-    try { localStorage.setItem(preferenceKey, value); } catch {}
+    try { localStorage.setItem(preferenceKey, JSON.stringify({ value, time: Date.now() })); } catch {}
     if (value === 'accept') initialize();
-    else window['ga-disable-' + id] = true;
+    else {
+      window['ga-disable-' + id] = true;
+      if (initialized) window.gtag('consent', 'update', { analytics_storage: 'denied' });
+      for (const cookie of document.cookie.split(';')) {
+        const name = cookie.trim().split('=')[0];
+        if (!/^_ga(?:_|$)/.test(name)) continue;
+        for (const domain of ['', '; Domain=www.cskinaesthetic.com', '; Domain=.cskinaesthetic.com']) {
+          document.cookie = name + '=; Max-Age=0; Path=/' + domain + '; SameSite=Lax; Secure';
+        }
+      }
+    }
     panel.hidden = true;
     settings.focus();
   }
@@ -50,6 +67,15 @@
   panel.querySelector('[data-analytics-choice="accept"]').addEventListener('click', () => choose('accept'));
   if (preference === 'accept') initialize();
   else if (preference !== 'reject') panel.hidden = false;
+
+  function pageView() {
+    if (preference !== 'accept' || !initialized) return;
+    const route = location.hash.startsWith('#/') ? location.hash.slice(1) : location.pathname;
+    window.gtag('event', 'page_view', {
+      send_to: id, page_location: location.origin + route, page_title: document.title,
+    });
+  }
+  window.addEventListener('hashchange', pageView);
 
   function record(event, lines) {
     if (preference !== 'accept' || !lines.length) return;

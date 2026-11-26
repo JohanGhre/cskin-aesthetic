@@ -996,7 +996,7 @@ svg {
   font-size:12px;
 }
 
-.filter-tab[aria-pressed=true] {
+.filter-tab:is([aria-pressed=true],[aria-current=page]) {
   background:var(--ink);
   border-color:var(--ink);
   color:white;

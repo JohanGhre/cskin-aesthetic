@@ -11,7 +11,7 @@ window.CSkinI18n = (() => {
   const sources = new WeakMap();
   const attributes = new WeakMap();
   let language = 'fr';
-  try { language = new URL(location.href).searchParams.get('lang') || localStorage.getItem('cskin-language') || 'fr'; } catch {}
+  try { language = window.CSkinRoutes?.currentLanguage() || new URL(location.href).searchParams.get('lang') || localStorage.getItem('cskin-language') || 'fr'; } catch {}
   if(!supported.includes(language)) language='fr';
   function translate(input,lang=language) {
     if(lang==='fr') return String(input);
@@ -60,6 +60,15 @@ window.CSkinI18n = (() => {
       }
       attributes.set(element,state);
     }
+    if (window.CSkinRoutes) {
+      for (const link of root.querySelectorAll('a[href^="/"]')) {
+        const url = new URL(link.href);
+        const path = window.CSkinRoutes.split(url.pathname).route;
+        if (url.origin !== location.origin || !/^\/(?:$|soins(?:\/|$)|produit\/|marque$|contact$|livraison$|guides\/|politiques$)/.test(path)) continue;
+        const target = window.CSkinRoutes.href(path, language) + url.search + url.hash;
+        if (link.getAttribute('href') !== target) link.setAttribute('href', target);
+      }
+    }
     document.documentElement.lang=language;
     for(const select of document.querySelectorAll('[data-language-select]'))select.value=language;
     window.CSkinLanguageMenu?.sync(language);
@@ -73,6 +82,13 @@ window.CSkinI18n = (() => {
   const observer=new MutationObserver(()=>localize());
   function setLanguage(next) {
     if(!supported.includes(next))return;
+    if (window.CSkinRoutes && next !== language) {
+      const url = new URL(location.href);
+      url.pathname = window.CSkinRoutes.href(url.pathname, next);
+      url.searchParams.delete('lang');
+      location.assign(url.href);
+      return;
+    }
     language=next;
     try{localStorage.setItem('cskin-language',next);}catch{}
     const url=new URL(location.href);url.searchParams.set('lang',next);history.replaceState(null,'',url);

@@ -19,7 +19,7 @@ window.CSKIN_PRODUCTS = [
     "available": true,
     "image": "assets/products/serum-age-plus-1.jpg",
     "url": "https://cskinaesthetic.com/products/serum-age-plus-1",
-    "sourceDescription": "  Sérum anti-âge  contenant 6 % de collagène et 4 % d'Acmella Oleracea. \n \n \n Relaxant musculaire  — effet Botox naturel pour lisser les rides d'expression \n \n Ectoin®  — retient de grandes quantités d'eau pour maintenir une hydratation optimale \n \n  Mode d'emploi :  Appliquez d'abord votre sérum, puis votre crème habituelle. \n  Ingrédients actifs :  \n \n Collagène 6% \n Gatuline® Expression (Acmella Oleracea) 4% \n Ectoin® 0,5% \n Acide hyaluronique 0,6% \n Vitamine E 0,1% \n "
+    "sourceDescription": "  Sérum anti-âge  contenant 6 % de collagène et 4 % d'Acmella Oleracea. \n \n \n Relaxant musculaire  — pour lisser les rides d'expression \n \n Ectoin®  — retient de grandes quantités d'eau pour maintenir une hydratation optimale \n \n  Mode d'emploi :  Appliquez d'abord votre sérum, puis votre crème habituelle. \n  Ingrédients actifs :  \n \n Collagène 6% \n Gatuline® Expression (Acmella Oleracea) 4% \n Ectoin® 0,5% \n Acide hyaluronique 0,6% \n Vitamine E 0,1% \n "
   },
   {
     "id": "creme-silk-effect",

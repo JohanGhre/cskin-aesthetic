@@ -88,11 +88,11 @@
 .catalog-showroom .filter-tab:hover {
   background:var(--surface-hover)
 }
-.catalog-showroom .filter-tab[aria-pressed=true] {
+.catalog-showroom .filter-tab:is([aria-pressed=true],[aria-current=page]) {
   background:var(--surface);
   color:var(--text-inverse)
 }
-.catalog-showroom .filter-tab[aria-pressed=true]:hover {
+.catalog-showroom .filter-tab:is([aria-pressed=true],[aria-current=page]):hover {
   background:#343434
 }
 .catalog-showroom .catalog-tools {
